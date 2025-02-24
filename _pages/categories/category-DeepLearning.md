@@ -5,5 +5,5 @@ permalink: /categories/DeepLearning/ # url
 author_profile: true
 taxonomy: DeepLearning
 sidebar:
-nav: "categories"
+  nav: "categories"
 ---
