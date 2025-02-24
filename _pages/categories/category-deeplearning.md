@@ -1,7 +1,7 @@
 ---
-title: "DeepLearning" # 카테고리 이름
+title: "DeepLearning"
 layout: category
-permalink: /categories/deeplearning/ # url
+permalink: /categories/deeplearning/
 author_profile: true
 taxonomy: DeepLearning
 sidebar:
