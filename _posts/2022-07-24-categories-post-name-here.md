@@ -4,8 +4,7 @@ excerpt: "본문의 주요 내용을 여기에 입력하세요"
 
 categories:
   - DeepLearning
-tags:
-  - [AI, Data_Analysis, DL, ML]
+tags: [AI, Data_Analysis, DL, ML]
 
 permalink: /DeepLearning/DACON_URL/
 
