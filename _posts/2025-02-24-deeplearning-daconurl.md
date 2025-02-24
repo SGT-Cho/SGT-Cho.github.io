@@ -6,7 +6,7 @@ categories:
   - DeepLearning
 tags: [AI, Data_Analysis, DL, ML]
 
-permalink: /deeplearning/daconurl/
+permalink: /deeplearning/deeplearning-daconurl/
 
 toc: true
 toc_sticky: true
