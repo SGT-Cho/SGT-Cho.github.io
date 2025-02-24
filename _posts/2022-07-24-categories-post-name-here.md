@@ -3,17 +3,17 @@ title: "[포스팅 예시] 이곳에 제목을 입력하세요"
 excerpt: "본문의 주요 내용을 여기에 입력하세요"
 
 categories:
-  - Categories1
+  - DeepLearning
 tags:
-  - [tag1, tag2]
+  - [AI, Data_Analysis, DL, ML]
 
-permalink: /categories1/post-name-here/
+permalink: /DeepLearning/DACON_URL/
 
 toc: true
 toc_sticky: true
 
-date: 2020-05-21
-last_modified_at: 2021-10-09
+date: 2025-02-25
+last_modified_at: 2025-02-25
 ---
 
 ## 🦥 본문
