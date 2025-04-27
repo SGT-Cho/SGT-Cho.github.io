@@ -28,7 +28,7 @@
 <main>
   <section class="intro">
     <h1>📂 Project Showcase</h1>
-    <p class="tagline">실전에 적용하며 다듬어 온 5개의 대표 프로젝트를 정리했습니다.</p>
+    <p class="tagline">실전에 적용하며 다듬어 온 대표 프로젝트들을 정리했습니다.</p>
   </section>
 
   <!-- Card Grid -->
@@ -36,9 +36,9 @@
     <!-- Local LLM -->
     <div class="project-card" data-modal="modal-llm">
       <img src="/assets/images/portfolio/llm.jpg" alt="Local LLM screenshot">
-      <h3>Local LLM (LLaMA 3.1 8B + RAG)</h3>
+      <h3>Local LLM (LLaMA 3.1 8B + RAG)</h3>
       <p class="project-tags"><span>#LLM</span> <span>#RAG</span> <span>#LoRA</span></p>
-      <p>로컬·프라이빗 환경에서 동작하는 생성형 AI 파이프라인</p>
+      <p>로컬·프라이빗 환경에서 동작하는 생성형 AI 파이프라인</p>
     </div>
 
     <!-- Crack Detection -->
@@ -52,7 +52,7 @@
     <!-- Speech Recognition -->
     <div class="project-card" data-modal="modal-speech">
       <img src="/assets/images/portfolio/speech.jpg" alt="Speech Recognition screenshot">
-      <h3>Speech Recognition (Google Cloud STT)</h3>
+      <h3>Speech Recognition (Google Cloud STT)</h3>
       <p class="project-tags"><span>#GCP</span> <span>#Streaming</span></p>
       <p>멀티채널·실시간 한국어 음성 인식 시스템</p>
     </div>
@@ -60,9 +60,9 @@
     <!-- Damage Segmentation -->
     <div class="project-card" data-modal="modal-damage">
       <img src="/assets/images/portfolio/damage.jpg" alt="Car Damage Segmentation screenshot">
-      <h3>Car Damage Segmentation (U‑Net v)</h3>
+      <h3>Car Damage Segmentation (U‑Net Variant)</h3>
       <p class="project-tags"><span>#CV</span> <span>#SemanticSeg</span></p>
-      <p>차량 손상 부위 정밀 분할 AI (AIFFELTHON)</p>
+      <p>차량 손상 부위 정밀 분할 AI (AIFFELTHON)</p>
     </div>
 
     <!-- Real-Time Tracking -->
@@ -78,16 +78,16 @@
   <div class="project-modal" id="modal-llm">
     <div class="project-modal-content">
       <button class="project-modal-close" aria-label="닫기">&times;</button>
-      <h2>Local LLM (LLaMA 3.1 8B + RAG)</h2>
+      <h2>Local LLM (LLaMA 3.1 8B + RAG)</h2>
       <img src="/assets/images/portfolio/llm.png" alt="Local LLM">
       <h4>🍀 핵심 성과</h4>
       <ul>
-        <li>LoRA 기반 미세조정으로 VRAM 16 GB에서 추론 가능하도록 최적화</li>
+        <li>LoRA 기반 미세조정으로 VRAM 16 GB에서 추론 가능하도록 최적화</li>
         <li>Retrieval‑Augmented Generation을 통해 사내 문서 95 % ↑ 정확도로 질의응답</li>
-        <li>Kubernetes + Helm 차트로 GPU 서버 자동 확장 & 무중단 배포</li>
+        <li>Kubernetes + Helm 차트로 GPU 서버 자동 확장 & 무중단 배포</li>
       </ul>
       <h4>🛠 기술 스택</h4>
-      <p>Python · PyTorch · HuggingFace Transformers · FAISS · Docker · Kubernetes · nginx</p>
+      <p>Python · PyTorch · HuggingFace Transformers · FAISS · Docker · Kubernetes · nginx</p>
       <h4>🔗 관련 링크</h4>
       <p><a href="https://github.com/SGT-Cho/LLM" target="_blank">GitHub Repo</a></p>
     </div>
@@ -100,12 +100,12 @@
       <img src="/assets/images/portfolio/crack.png" alt="Crack Detection">
       <h4>🍀 핵심 성과</h4>
       <ul>
-        <li>자체 촬영 + 공개 데이터 5 k 장 라벨링 → mIoU 0.87 달성</li>
-        <li>TFLite 변환 & 딥스트림 파이프라인으로 Edge GPU(NVIDIA Jetson) 실시간 추론</li>
-        <li>프로젝트 결과를 2024 INU 캡스톤 Design 전시, 49 팀 중 4위</li>
+        <li>자체 촬영 + 공개 데이터 5 k 장 라벨링 → mIoU 0.87 달성</li>
+        <li>TFLite 변환 & 딥스트림 파이프라인으로 Edge GPU(NVIDIA Jetson) 실시간 추론</li>
+        <li>프로젝트 결과를 2024 INU 캡스톤 Design 전시, 49 팀 중 4위</li>
       </ul>
       <h4>🛠 기술 스택</h4>
-      <p>Python · PyTorch · SegFormer · Albumentations · NVIDIA TensorRT</p>
+      <p>Python · PyTorch · SegFormer · Albumentations · NVIDIA TensorRT</p>
       <h4>🔗 관련 링크</h4>
       <p><a href="https://github.com/SGT-Cho/BldgCrackDetection" target="_blank">GitHub Repo</a></p>
     </div>
@@ -118,17 +118,17 @@
       <img src="/assets/images/portfolio/speech_mfcc.png" alt="Speech Recognition MFCC">
       <h4>🍀 핵심 성과</h4>
       <ul>
-        <li>Google Speech Commands v0.02 기준 Top‑1 정확도 63.5 %</li>
-        <li>모델 사이즈 848 KB (5‑state, 2‑mixture GMM‑HMM)로 Edge CPU 구동</li>
-        <li>실시간 스트리밍 WebSocket 파이프라인에서 200 ms 이내 응답 지연 유지</li>
+        <li>Google Speech Commands v0.02 기준 Top‑1 정확도 63.5 %</li>
+        <li>모델 사이즈 848 KB (5‑state, 2‑mixture GMM‑HMM)로 Edge CPU 구동</li>
+        <li>실시간 스트리밍 WebSocket 파이프라인에서 200 ms 이내 응답 지연 유지</li>
       </ul>
       <h4>⚡ 세부 내용</h4>
       <ul>
-        <li><strong>데이터셋</strong>: 74 k train / 21 k val / 10 k test, 비율 0.7 : 0.2 : 0.1</li>
+        <li><strong>데이터셋</strong>: 74 k train / 21 k val / 10 k test, 비율 0.7 : 0.2 : 0.1</li>
         <li><strong>특징 추출</strong>: 13‑dim MFCC + Δ + ΔΔ, 글로벌 CMVN 적용</li>
-        <li><strong>모델링</strong>: SC ASR 패키지 + Numpy 로 순수 CPU 학습 (Python 3.7)</li>
-        <li><strong>훈련</strong>: Early‑stop 5 iter, Validation loss 기반</li>
-        <li><strong>환경</strong>: Windows 11 · Ryzen 5800H · 32 GB RAM</li>
+        <li><strong>모델링</strong>: SC ASR 패키지 + Numpy 로 순수 CPU 학습 (Python 3.7)</li>
+        <li><strong>훈련</strong>: Early‑stop 5 iter, Validation loss 기반</li>
+        <li><strong>환경</strong>: Windows 11 · Ryzen 5800H · 32 GB RAM</li>
       </ul>
       <h4>🛠 기술 스택</h4>
       <p>Python · Numpy · SC‑ASR · MFCC · GMM‑HMM · Flask‑SocketIO</p>
@@ -141,13 +141,13 @@
   <div class="project-modal" id="modal-damage">
     <div class="project-modal-content">
       <button class="project-modal-close" aria-label="닫기">&times;</button>
-      <h2>Car Damage Segmentation (U‑Net Variant)</h2>
+      <h2>Car Damage Segmentation (U‑Net Variant)</h2>
       <img src="/assets/images/portfolio/cardamage.png" alt="Car Damage Segmentation">
       <h4>🍀 핵심 성과</h4>
       <ul>
-        <li>AIFFELTHON 대회 Top 7 % (F1 0.92) 기록</li>
-        <li>Self‑Attention Gate 추가로 U‑Net 기본 대비 F1 3 %↑</li>
-        <li>클라우드 플레어 워커스 + CF R2로 웹 데모 배포</li>
+        <li>AIFFELTHON 대회 Top 7 % (F1 0.92) 기록</li>
+        <li>Self‑Attention Gate 추가로 U‑Net 기본 대비 F1 3 %↑</li>
+        <li>클라우드 플레어 워커스 + CF R2로 웹 데모 배포</li>
       </ul>
       <h4>🛠 기술 스택</h4>
       <p>TensorFlow · Keras · cv2 · Streamlit</p>
@@ -163,9 +163,9 @@
       <img src="/assets/images/portfolio/cartracking.png" alt="Real‑Time Car Tracking">
       <h4>🍀 핵심 성과</h4>
       <ul>
-        <li>YOLOv8 + DeepSORT 파이프라인: 30 FPS 실시간 처리(1080p)</li>
+        <li>YOLOv8 + DeepSORT 파이프라인: 30 FPS 실시간 처리(1080p)</li>
         <li>Haversine 기반 거리 계산 → 속도 ±2 km/h 정확도</li>
-        <li>FastAPI 백엔드 + Flutter 앱으로 알림 & 대시보드 제공</li>
+        <li>FastAPI 백엔드 + Flutter 앱으로 알림 & 대시보드 제공</li>
       </ul>
       <h4>🛠 기술 스택</h4>
       <p>Python · OpenCV · YOLOv8 · DeepSORT · FastAPI · Flutter</p>
