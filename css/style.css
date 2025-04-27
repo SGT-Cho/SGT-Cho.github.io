@@ -67,7 +67,7 @@ a:hover {
 
 /* Containers */
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
   width: 100%;
@@ -383,8 +383,8 @@ header {
 
 .project-card img {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  height: 200px; /* 고정된 높이로 설정 */
+  object-fit: cover; /* 이미지 비율 유지하면서 박스 채우기 */
   transition: transform 0.3s ease;
 }
 
@@ -417,6 +417,133 @@ header {
   padding: 0.25rem 0.5rem;
   border-radius: 1rem;
   font-size: 0.75rem;
+}
+
+/* Project Modal Styles */
+.project-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.project-modal-content {
+  background: var(--bg-secondary);
+  max-width: 800px;
+  width: 100%;
+  border-radius: 8px;
+  padding: 30px;
+  position: relative;
+  margin: 40px auto;
+  box-shadow: var(--shadow-lg);
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.project-modal h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.project-modal img {
+  width: 100%;
+  height: auto;
+  max-height: 400px; /* 최대 높이 설정 */
+  object-fit: contain; /* 이미지 비율 유지하면서 컨테이너에 맞춤 */
+  border-radius: 6px;
+  margin-bottom: 25px;
+}
+
+/* 카테고리 카드 스타일 */
+.category-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.category-card {
+  background-color: var(--bg-secondary);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.category-card h2 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.category-card h2 svg {
+  margin-left: 0.5rem;
+}
+
+.category-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.category-card li {
+  margin-bottom: 0.5rem;
+}
+
+.category-card a {
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.category-card a:hover {
+  color: var(--accent);
+}
+
+/* 텍스트 중앙 정렬 */
+.text-center {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* Latest Posts 섹션 */
+.latest-posts {
+  padding: 3rem 0;
+}
+
+.latest-posts h2 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.latest-posts h2 svg {
+  margin-right: 0.75rem;
+  color: var(--accent);
 }
 
 /* Post content */
@@ -996,6 +1123,10 @@ footer {
   
   .post-content {
     font-size: 1rem;
+  }
+
+  .category-cards {
+    grid-template-columns: 1fr;
   }
 }
 

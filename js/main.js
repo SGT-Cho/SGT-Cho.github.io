@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Setup search functionality
   setupSearch();
   
+  // Setup project modal functionality
+  setupProjectModals();
+  
   // Setup code highlighting
   setupCodeHighlighting();
   
@@ -71,6 +74,59 @@ function setupMobileNav() {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
         document.body.classList.remove('menu-open');
+      }
+    });
+  }
+}
+
+// Setup project modals for portfolio page
+function setupProjectModals() {
+  const projectCards = document.querySelectorAll('.project-card');
+  const projectModals = document.querySelectorAll('.project-modal');
+  const closeButtons = document.querySelectorAll('.project-modal-close');
+  
+  if (projectCards.length > 0) {
+    // Open modal when clicking on a project card
+    projectCards.forEach(card => {
+      card.addEventListener('click', function() {
+        const modalId = this.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        
+        if (modal) {
+          modal.style.display = 'flex';
+          document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+      });
+    });
+    
+    // Close modal when clicking on close button
+    closeButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const modal = this.closest('.project-modal');
+        modal.style.display = 'none';
+        document.body.style.overflow = ''; // Re-enable scrolling
+      });
+    });
+    
+    // Close modal when clicking outside content
+    projectModals.forEach(modal => {
+      modal.addEventListener('click', function(event) {
+        if (event.target === this) {
+          this.style.display = 'none';
+          document.body.style.overflow = ''; // Re-enable scrolling
+        }
+      });
+    });
+    
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        projectModals.forEach(modal => {
+          if (modal.style.display === 'flex') {
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; // Re-enable scrolling
+          }
+        });
       }
     });
   }
