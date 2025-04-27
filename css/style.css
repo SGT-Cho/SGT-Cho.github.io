@@ -87,11 +87,13 @@ header {
   z-index: 100;
 }
 
-.header-content {
+header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 1rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .nav-logo {
@@ -99,6 +101,13 @@ header {
   align-items: center;
   font-size: 1.2rem;
   font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav-logo:hover {
+  opacity: 0.9;
 }
 
 .nav-logo img {
@@ -111,19 +120,33 @@ header {
 
 .nav-links {
   display: flex;
-  list-style: none;
-}
-
-.nav-links li {
-  margin-left: 1.5rem;
+  align-items: center;
+  gap: 2rem;
 }
 
 .nav-links a {
   color: var(--text-secondary);
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
 }
 
 .nav-links a:hover {
   color: var(--accent);
+}
+
+.nav-links a.active {
+  color: var(--accent);
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--accent);
 }
 
 .header-actions {
@@ -383,7 +406,7 @@ header {
 
 .project-card img {
   width: 100%;
-  height: 200px; /* 고정된 높이로 설정 */
+  height: 160px; /* 더 작은 높이로 조정 */
   object-fit: cover; /* 이미지 비율 유지하면서 박스 채우기 */
   transition: transform 0.3s ease;
 }
@@ -437,10 +460,10 @@ header {
 
 .project-modal-content {
   background: var(--bg-secondary);
-  max-width: 800px;
+  max-width: 700px;
   width: 100%;
   border-radius: 8px;
-  padding: 30px;
+  padding: 25px;
   position: relative;
   margin: 40px auto;
   box-shadow: var(--shadow-lg);
@@ -465,10 +488,10 @@ header {
 .project-modal img {
   width: 100%;
   height: auto;
-  max-height: 400px; /* 최대 높이 설정 */
+  max-height: 300px; /* 최대 높이 축소 */
   object-fit: contain; /* 이미지 비율 유지하면서 컨테이너에 맞춤 */
   border-radius: 6px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 /* 카테고리 카드 스타일 */
@@ -485,11 +508,15 @@ header {
   padding: 1.5rem;
   box-shadow: var(--shadow);
   transition: var(--transition);
+  display: block; /* 링크로 동작하도록 블록 설정 */
+  text-decoration: none; /* 밑줄 제거 */
+  color: inherit; /* 상속된 색상 사용 */
 }
 
 .category-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
+  background-color: var(--card-hover);
 }
 
 .category-card h2 {
@@ -512,15 +539,7 @@ header {
 
 .category-card li {
   margin-bottom: 0.5rem;
-}
-
-.category-card a {
   color: var(--text-secondary);
-  transition: var(--transition);
-}
-
-.category-card a:hover {
-  color: var(--accent);
 }
 
 /* 텍스트 중앙 정렬 */
