@@ -1,0 +1,11 @@
+main:
+  - title: "Life"
+    url: /categories/#life
+  - title: "Review"
+    url: /categories/#review
+  - title: "Portfolio"
+    url: /portfolio/
+  - title: "Posts by Year"
+    url: /year-archive/
+  - title: "About"
+    url: /about/
