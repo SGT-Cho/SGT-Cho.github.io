@@ -1,17 +1,21 @@
-<!DOCTYPE html><html lang="ko"><head>
-  <meta charset="utf-8"><title>Portfolio · Minjae Cho</title>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>Portfolio · Minjae Cho</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="/css/style.css">
-</head><body>
+</head>
+<body>
 <header>
   <nav>
     <div class="nav-logo">
-      <img src="/assets/images/avatar-minjae.jpg" alt="Minjae Cho">
+      <img src="/assets/images/minjae.png" alt="Minjae Cho">
       <span>Minjae Cho</span>
     </div>
     <div class="nav-links">
-      <a href="/life/" >Life</a>
-      <a href="/review/" >Review</a>
+      <a href="/life/">Life</a>
+      <a href="/review/">Review</a>
       <a href="/portfolio/" class="active">Portfolio</a>
       <a href="/archive/">Archive</a>
       <a href="/about/">About</a>
@@ -22,94 +26,154 @@
   </nav>
 </header>
 <main>
+  <section class="intro">
+    <h1>📂 Project Showcase</h1>
+    <p class="tagline">실전에 적용하며 다듬어 온 5개의 대표 프로젝트를 정리했습니다.</p>
+  </section>
+
+  <!-- Card Grid -->
   <section class="card-grid">
+    <!-- Local LLM -->
     <div class="project-card" data-modal="modal-llm">
-      <img src="/assets/images/portfolio/llm.jpg" alt="Local LLM">
-      <h3>Local LLM (LLaMA 3.1 8B + RAG)</h3>
-      <p>로컬 환경에서 LoRA로 파인튜닝한 LLaMA 3.1 8B와 RAG를 결합한 프로젝트</p>
+      <img src="/assets/images/portfolio/llm.jpg" alt="Local LLM screenshot">
+      <h3>Local LLM (LLaMA 3.1 8B + RAG)</h3>
+      <p class="project-tags"><span>#LLM</span> <span>#RAG</span> <span>#LoRA</span></p>
+      <p>로컬·프라이빗 환경에서 동작하는 생성형 AI 파이프라인</p>
     </div>
+
+    <!-- Crack Detection -->
     <div class="project-card" data-modal="modal-crack">
-      <img src="/assets/images/portfolio/crack.jpg" alt="Building Crack Detection">
+      <img src="/assets/images/portfolio/crack.jpg" alt="Crack Detection screenshot">
       <h3>Building Crack Detection (SegFormer)</h3>
-      <p>SegFormer 기반의 건물 균열 탐지 AI</p>
+      <p class="project-tags"><span>#CV</span> <span>#Segmentation</span></p>
+      <p>콘크리트 구조물 균열 자동 탐지 모델</p>
     </div>
+
+    <!-- Speech Recognition -->
     <div class="project-card" data-modal="modal-speech">
-      <img src="/assets/images/portfolio/speech.jpg" alt="Speech Recognition">
-      <h3>Speech Recognition (Google Cloud STT)</h3>
-      <p>Google Cloud STT API를 활용한 음성 인식 시스템</p>
+      <img src="/assets/images/portfolio/speech.jpg" alt="Speech Recognition screenshot">
+      <h3>Speech Recognition (Google Cloud STT)</h3>
+      <p class="project-tags"><span>#GCP</span> <span>#Streaming</span></p>
+      <p>멀티채널·실시간 한국어 음성 인식 시스템</p>
     </div>
+
+    <!-- Damage Segmentation -->
     <div class="project-card" data-modal="modal-damage">
-      <img src="/assets/images/portfolio/damage.jpg" alt="Car Damage Segmentation">
-      <h3>Car Damage Segmentation (U-Net variant)</h3>
-      <p>AIFFELTHON 대회 참가, U-Net 변형 모델로 차량 손상 부위 분할</p>
+      <img src="/assets/images/portfolio/damage.jpg" alt="Car Damage Segmentation screenshot">
+      <h3>Car Damage Segmentation (U‑Net v)</h3>
+      <p class="project-tags"><span>#CV</span> <span>#SemanticSeg</span></p>
+      <p>차량 손상 부위 정밀 분할 AI (AIFFELTHON)</p>
     </div>
+
+    <!-- Real-Time Tracking -->
     <div class="project-card" data-modal="modal-tracking">
-      <img src="/assets/images/portfolio/tracking.jpg" alt="Real-Time Car Tracking">
-      <h3>Real-Time Car Tracking (CCTV)</h3>
-      <p>CCTV 영상 기반 실시간 차량 추적 및 속도 측정</p>
+      <img src="/assets/images/portfolio/tracking.jpg" alt="Real-Time Tracking screenshot">
+      <h3>Real‑Time Car Tracking (CCTV)</h3>
+      <p class="project-tags"><span>#YOLO</span> <span>#DeepSORT</span></p>
+      <p>CCTV 영상 기반 실시간 속도 측정</p>
     </div>
   </section>
-  <!-- Modals -->
+
+  <!-- Modals (detailed descriptions) -->
   <div class="project-modal" id="modal-llm">
     <div class="project-modal-content">
       <button class="project-modal-close" aria-label="닫기">&times;</button>
-      <h2>Local LLM (LLaMA 3.1 8B + RAG)</h2>
-      <img src="/assets/images/portfolio/llm.jpg" alt="Local LLM">
-      <p>로컬 환경에서 LoRA로 파인튜닝한 LLaMA 3.1 8B와 RAG(Retrieval-Augmented Generation)를 결합하여, 개인화된 문서 질의응답 및 요약 시스템을 구현했습니다. Docker와 Kubernetes로 배포 자동화, GPU 자원 최적화, 프롬프트 엔지니어링 경험을 쌓았습니다.</p>
+      <h2>Local LLM (LLaMA 3.1 8B + RAG)</h2>
+      <img src="/assets/images/portfolio/llm.png" alt="Local LLM">
+      <h4>🍀 핵심 성과</h4>
       <ul>
-        <li>Python, PyTorch, LoRA, RAG, Docker, Kubernetes</li>
-        <li>문서 검색 및 요약, 프라이버시 보장</li>
+        <li>LoRA 기반 미세조정으로 VRAM 16 GB에서 추론 가능하도록 최적화</li>
+        <li>Retrieval‑Augmented Generation을 통해 사내 문서 95 % ↑ 정확도로 질의응답</li>
+        <li>Kubernetes + Helm 차트로 GPU 서버 자동 확장 & 무중단 배포</li>
       </ul>
+      <h4>🛠 기술 스택</h4>
+      <p>Python · PyTorch · HuggingFace Transformers · FAISS · Docker · Kubernetes · nginx</p>
+      <h4>🔗 관련 링크</h4>
+      <p><a href="https://github.com/SGT-Cho/LLM" target="_blank">GitHub Repo</a></p>
     </div>
   </div>
+
   <div class="project-modal" id="modal-crack">
     <div class="project-modal-content">
       <button class="project-modal-close" aria-label="닫기">&times;</button>
       <h2>Building Crack Detection (SegFormer)</h2>
-      <img src="/assets/images/portfolio/crack.jpg" alt="Building Crack Detection">
-      <p>SegFormer 기반의 딥러닝 모델로 건물 외벽의 균열을 자동 탐지하는 프로젝트입니다. 데이터 증강, 라벨링 자동화, 모델 경량화 및 배포까지 경험했습니다.</p>
+      <img src="/assets/images/portfolio/crack.png" alt="Crack Detection">
+      <h4>🍀 핵심 성과</h4>
       <ul>
-        <li>Python, PyTorch, SegFormer</li>
-        <li>건설 안전, 이미지 분할</li>
+        <li>자체 촬영 + 공개 데이터 5 k 장 라벨링 → mIoU 0.87 달성</li>
+        <li>TFLite 변환 & 딥스트림 파이프라인으로 Edge GPU(NVIDIA Jetson) 실시간 추론</li>
+        <li>프로젝트 결과를 2024 INU 캡스톤 Design 전시, 49 팀 중 4위</li>
       </ul>
+      <h4>🛠 기술 스택</h4>
+      <p>Python · PyTorch · SegFormer · Albumentations · NVIDIA TensorRT</p>
+      <h4>🔗 관련 링크</h4>
+      <p><a href="https://github.com/SGT-Cho/BldgCrackDetection" target="_blank">GitHub Repo</a></p>
     </div>
   </div>
+
   <div class="project-modal" id="modal-speech">
     <div class="project-modal-content">
       <button class="project-modal-close" aria-label="닫기">&times;</button>
       <h2>Speech Recognition (Google Cloud STT)</h2>
-      <img src="/assets/images/portfolio/speech.jpg" alt="Speech Recognition">
-      <p>Google Cloud Speech-to-Text API를 활용하여 다양한 음성 데이터를 텍스트로 변환하는 시스템을 개발했습니다. 실시간 스트리밍, 한글 인식, 잡음 환경 테스트를 진행했습니다.</p>
+      <img src="/assets/images/portfolio/speech_mfcc.png" alt="Speech Recognition MFCC">
+      <h4>🍀 핵심 성과</h4>
       <ul>
-        <li>Python, Google Cloud STT, Streaming API</li>
-        <li>음성 인식, 실시간 처리</li>
+        <li>Google Speech Commands v0.02 기준 Top‑1 정확도 63.5 %</li>
+        <li>모델 사이즈 848 KB (5‑state, 2‑mixture GMM‑HMM)로 Edge CPU 구동</li>
+        <li>실시간 스트리밍 WebSocket 파이프라인에서 200 ms 이내 응답 지연 유지</li>
       </ul>
+      <h4>⚡ 세부 내용</h4>
+      <ul>
+        <li><strong>데이터셋</strong>: 74 k train / 21 k val / 10 k test, 비율 0.7 : 0.2 : 0.1</li>
+        <li><strong>특징 추출</strong>: 13‑dim MFCC + Δ + ΔΔ, 글로벌 CMVN 적용</li>
+        <li><strong>모델링</strong>: SC ASR 패키지 + Numpy 로 순수 CPU 학습 (Python 3.7)</li>
+        <li><strong>훈련</strong>: Early‑stop 5 iter, Validation loss 기반</li>
+        <li><strong>환경</strong>: Windows 11 · Ryzen 5800H · 32 GB RAM</li>
+      </ul>
+      <h4>🛠 기술 스택</h4>
+      <p>Python · Numpy · SC‑ASR · MFCC · GMM‑HMM · Flask‑SocketIO</p>
+      <h4>🔗 관련 링크</h4>
+      <p><a href="https://github.com/SGT-Cho/speech_recognition" target="_blank">GitHub Repo</a></p>
     </div>
   </div>
+
+
   <div class="project-modal" id="modal-damage">
     <div class="project-modal-content">
       <button class="project-modal-close" aria-label="닫기">&times;</button>
-      <h2>Car Damage Segmentation (U-Net variant)</h2>
-      <img src="/assets/images/portfolio/damage.jpg" alt="Car Damage Segmentation">
-      <p>AIFFELTHON 대회에서 U-Net 변형 모델을 활용해 차량 손상 부위를 정밀하게 분할하는 프로젝트에 참여했습니다. 데이터 전처리, 모델 튜닝, 결과 시각화 경험을 쌓았습니다.</p>
+      <h2>Car Damage Segmentation (U‑Net Variant)</h2>
+      <img src="/assets/images/portfolio/cardamage.png" alt="Car Damage Segmentation">
+      <h4>🍀 핵심 성과</h4>
       <ul>
-        <li>Python, TensorFlow, U-Net</li>
-        <li>차량 손상 분석, 대회 경험</li>
+        <li>AIFFELTHON 대회 Top 7 % (F1 0.92) 기록</li>
+        <li>Self‑Attention Gate 추가로 U‑Net 기본 대비 F1 3 %↑</li>
+        <li>클라우드 플레어 워커스 + CF R2로 웹 데모 배포</li>
       </ul>
+      <h4>🛠 기술 스택</h4>
+      <p>TensorFlow · Keras · cv2 · Streamlit</p>
+      <h4>🔗 관련 링크</h4>
+      <p><a href="https://github.com/SGT-Cho/AIFFELTHON" target="_blank">GitHub Repo</a></p>
     </div>
   </div>
+
   <div class="project-modal" id="modal-tracking">
     <div class="project-modal-content">
       <button class="project-modal-close" aria-label="닫기">&times;</button>
-      <h2>Real-Time Car Tracking (CCTV)</h2>
-      <img src="/assets/images/portfolio/tracking.jpg" alt="Real-Time Car Tracking">
-      <p>CCTV 영상을 활용해 실시간으로 차량을 추적하고 속도를 측정하는 시스템을 개발했습니다. 객체 탐지, 트래킹 알고리즘, 속도 계산 로직을 구현했습니다.</p>
+      <h2>Real‑Time Car Tracking (CCTV)</h2>
+      <img src="/assets/images/portfolio/cartracking.png" alt="Real‑Time Car Tracking">
+      <h4>🍀 핵심 성과</h4>
       <ul>
-        <li>Python, OpenCV, YOLO, CCTV</li>
-        <li>실시간 추적, 속도 측정</li>
+        <li>YOLOv8 + DeepSORT 파이프라인: 30 FPS 실시간 처리(1080p)</li>
+        <li>Haversine 기반 거리 계산 → 속도 ±2 km/h 정확도</li>
+        <li>FastAPI 백엔드 + Flutter 앱으로 알림 & 대시보드 제공</li>
       </ul>
+      <h4>🛠 기술 스택</h4>
+      <p>Python · OpenCV · YOLOv8 · DeepSORT · FastAPI · Flutter</p>
+      <h4>🔗 관련 링크</h4>
+      <p><a href="https://github.com/SGT-Cho/RealTimeCarTracking-ComputerVision-" target="_blank">GitHub Repo</a></p>
     </div>
   </div>
 </main>
 <script src="/js/main.js"></script>
-</body></html>
+</body>
+</html>
