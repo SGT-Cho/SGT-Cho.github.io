@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="ko"><head>
+  <meta charset="utf-8"><title>Portfolio · Minjae Cho</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/css/style.css">
+</head><body>
+<header>
+  <nav>
+    <div class="nav-logo">
+      <img src="/assets/images/avatar-minjae.jpg" alt="Minjae Cho">
+      <span>Minjae Cho</span>
+    </div>
+    <div class="nav-links">
+      <a href="/life/" >Life</a>
+      <a href="/review/" >Review</a>
+      <a href="/portfolio/" class="active">Portfolio</a>
+      <a href="/archive/">Archive</a>
+      <a href="/about/">About</a>
+    </div>
+    <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="card-grid">
+    <div class="project-card" data-modal="modal-llm">
+      <img src="/assets/images/portfolio/llm.jpg" alt="Local LLM">
+      <h3>Local LLM (LLaMA 3.1 8B + RAG)</h3>
+      <p>로컬 환경에서 LoRA로 파인튜닝한 LLaMA 3.1 8B와 RAG를 결합한 프로젝트</p>
+    </div>
+    <div class="project-card" data-modal="modal-crack">
+      <img src="/assets/images/portfolio/crack.jpg" alt="Building Crack Detection">
+      <h3>Building Crack Detection (SegFormer)</h3>
+      <p>SegFormer 기반의 건물 균열 탐지 AI</p>
+    </div>
+    <div class="project-card" data-modal="modal-speech">
+      <img src="/assets/images/portfolio/speech.jpg" alt="Speech Recognition">
+      <h3>Speech Recognition (Google Cloud STT)</h3>
+      <p>Google Cloud STT API를 활용한 음성 인식 시스템</p>
+    </div>
+    <div class="project-card" data-modal="modal-damage">
+      <img src="/assets/images/portfolio/damage.jpg" alt="Car Damage Segmentation">
+      <h3>Car Damage Segmentation (U-Net variant)</h3>
+      <p>AIFFELTHON 대회 참가, U-Net 변형 모델로 차량 손상 부위 분할</p>
+    </div>
+    <div class="project-card" data-modal="modal-tracking">
+      <img src="/assets/images/portfolio/tracking.jpg" alt="Real-Time Car Tracking">
+      <h3>Real-Time Car Tracking (CCTV)</h3>
+      <p>CCTV 영상 기반 실시간 차량 추적 및 속도 측정</p>
+    </div>
+  </section>
+  <!-- Modals -->
+  <div class="project-modal" id="modal-llm">
+    <div class="project-modal-content">
+      <button class="project-modal-close" aria-label="닫기">&times;</button>
+      <h2>Local LLM (LLaMA 3.1 8B + RAG)</h2>
+      <img src="/assets/images/portfolio/llm.jpg" alt="Local LLM">
+      <p>로컬 환경에서 LoRA로 파인튜닝한 LLaMA 3.1 8B와 RAG(Retrieval-Augmented Generation)를 결합하여, 개인화된 문서 질의응답 및 요약 시스템을 구현했습니다. Docker와 Kubernetes로 배포 자동화, GPU 자원 최적화, 프롬프트 엔지니어링 경험을 쌓았습니다.</p>
+      <ul>
+        <li>Python, PyTorch, LoRA, RAG, Docker, Kubernetes</li>
+        <li>문서 검색 및 요약, 프라이버시 보장</li>
+      </ul>
+    </div>
+  </div>
+  <div class="project-modal" id="modal-crack">
+    <div class="project-modal-content">
+      <button class="project-modal-close" aria-label="닫기">&times;</button>
+      <h2>Building Crack Detection (SegFormer)</h2>
+      <img src="/assets/images/portfolio/crack.jpg" alt="Building Crack Detection">
+      <p>SegFormer 기반의 딥러닝 모델로 건물 외벽의 균열을 자동 탐지하는 프로젝트입니다. 데이터 증강, 라벨링 자동화, 모델 경량화 및 배포까지 경험했습니다.</p>
+      <ul>
+        <li>Python, PyTorch, SegFormer</li>
+        <li>건설 안전, 이미지 분할</li>
+      </ul>
+    </div>
+  </div>
+  <div class="project-modal" id="modal-speech">
+    <div class="project-modal-content">
+      <button class="project-modal-close" aria-label="닫기">&times;</button>
+      <h2>Speech Recognition (Google Cloud STT)</h2>
+      <img src="/assets/images/portfolio/speech.jpg" alt="Speech Recognition">
+      <p>Google Cloud Speech-to-Text API를 활용하여 다양한 음성 데이터를 텍스트로 변환하는 시스템을 개발했습니다. 실시간 스트리밍, 한글 인식, 잡음 환경 테스트를 진행했습니다.</p>
+      <ul>
+        <li>Python, Google Cloud STT, Streaming API</li>
+        <li>음성 인식, 실시간 처리</li>
+      </ul>
+    </div>
+  </div>
+  <div class="project-modal" id="modal-damage">
+    <div class="project-modal-content">
+      <button class="project-modal-close" aria-label="닫기">&times;</button>
+      <h2>Car Damage Segmentation (U-Net variant)</h2>
+      <img src="/assets/images/portfolio/damage.jpg" alt="Car Damage Segmentation">
+      <p>AIFFELTHON 대회에서 U-Net 변형 모델을 활용해 차량 손상 부위를 정밀하게 분할하는 프로젝트에 참여했습니다. 데이터 전처리, 모델 튜닝, 결과 시각화 경험을 쌓았습니다.</p>
+      <ul>
+        <li>Python, TensorFlow, U-Net</li>
+        <li>차량 손상 분석, 대회 경험</li>
+      </ul>
+    </div>
+  </div>
+  <div class="project-modal" id="modal-tracking">
+    <div class="project-modal-content">
+      <button class="project-modal-close" aria-label="닫기">&times;</button>
+      <h2>Real-Time Car Tracking (CCTV)</h2>
+      <img src="/assets/images/portfolio/tracking.jpg" alt="Real-Time Car Tracking">
+      <p>CCTV 영상을 활용해 실시간으로 차량을 추적하고 속도를 측정하는 시스템을 개발했습니다. 객체 탐지, 트래킹 알고리즘, 속도 계산 로직을 구현했습니다.</p>
+      <ul>
+        <li>Python, OpenCV, YOLO, CCTV</li>
+        <li>실시간 추적, 속도 측정</li>
+      </ul>
+    </div>
+  </div>
+</main>
+<script src="/js/main.js"></script>
+</body></html>
