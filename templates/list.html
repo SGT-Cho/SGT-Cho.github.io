@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{title}} | Minjae's Life & Review Blog</title>
+  <title>{{pageTitle}} | Minjae's Life & Review Blog</title>
   
   <!-- Meta tags for SEO and social sharing -->
-  <meta name="description" content="{{teaser}}">
-  <meta name="keywords" content="{{tags}}, blog, minjae cho">
+  <meta name="description" content="{{pageDescription}}">
+  <meta name="keywords" content="{{pageKeywords}}, blog, minjae cho">
   <meta name="author" content="Minjae Cho">
   
   <!-- Open Graph meta tags for social sharing -->
-  <meta property="og:title" content="{{title}} | Minjae's Life & Review Blog">
-  <meta property="og:description" content="{{teaser}}">
-  <meta property="og:image" content="https://sgt-cho.github.io/assets/images/thumbnails/{{thumbnail}}">
-  <meta property="og:url" content="https://sgt-cho.github.io/{{url}}">
-  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{pageTitle}} | Minjae's Life & Review Blog">
+  <meta property="og:description" content="{{pageDescription}}">
+  <meta property="og:image" content="https://sgt-cho.github.io/assets/images/banner.jpg">
+  <meta property="og:url" content="https://sgt-cho.github.io/{{pageUrl}}">
+  <meta property="og:type" content="website">
   
   <!-- Twitter card meta tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{title}}">
-  <meta name="twitter:description" content="{{teaser}}">
-  <meta name="twitter:image" content="https://sgt-cho.github.io/assets/images/thumbnails/{{thumbnail}}">
+  <meta name="twitter:title" content="{{pageTitle}}">
+  <meta name="twitter:description" content="{{pageDescription}}">
+  <meta name="twitter:image" content="https://sgt-cho.github.io/assets/images/banner.jpg">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,9 +48,9 @@
     <div class="nav-links">
       <a href="/life/" class="nav-link" {{#isLife}}class="active"{{/isLife}}>Life</a>
       <a href="/review/" class="nav-link" {{#isReview}}class="active"{{/isReview}}>Review</a>
-      <a href="/portfolio/" class="nav-link">Portfolio</a>
-      <a href="/archive/" class="nav-link">Archive</a>
-      <a href="/about/" class="nav-link">About</a>
+      <a href="/portfolio/" class="nav-link" {{#isPortfolio}}class="active"{{/isPortfolio}}>Portfolio</a>
+      <a href="/archive/" class="nav-link" {{#isArchive}}class="active"{{/isArchive}}>Archive</a>
+      <a href="/about/" class="nav-link" {{#isAbout}}class="active"{{/isAbout}}>About</a>
     </div>
     
     <div class="nav-actions">
@@ -74,43 +74,56 @@
     </div>
   </nav>
   
-  <!-- Post Content -->
-  <article class="post">
-    <h1>{{title}}</h1>
+  <!-- Category Header -->
+  <header class="category-header container">
+    <h1>{{pageTitle}}</h1>
+    <p>{{pageDescription}}</p>
     
-    <div class="meta">
-      <div>
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-        {{date}}
-      </div>
-      
-      <div>
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        {{readtime}} min read
-      </div>
-      
-      <div>
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-        </svg>
-        <a href="/{{category}}/">{{category}}</a>
-      </div>
+    {{#isTags}}
+    <div class="tag-cloud">
+      {{#allTags}}
+      <a href="/tags/{{name}}/">{{name}} <span>({{count}})</span></a>
+      {{/allTags}}
+    </div>
+    {{/isTags}}
+  </header>
+  
+  <!-- Post Listings -->
+  <section class="container">
+    <div class="masonry-grid">
+      {{#posts}}
+      <article class="post-card">
+        <div class="post-card-image">
+          <img src="/assets/images/thumbnails/{{thumbnail}}" alt="{{title}}" loading="lazy">
+        </div>
+        <div class="post-card-content">
+          <span class="post-card-badge">{{category}}</span>
+          <h3><a href="/{{url}}">{{title}}</a></h3>
+          <div class="post-card-meta">
+            <span>{{date}}</span>
+            <span>{{readtime}} min read</span>
+          </div>
+          <p class="post-card-excerpt">{{teaser}}</p>
+          <a href="/{{url}}" class="post-card-link">
+            Read more
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </article>
+      {{/posts}}
     </div>
     
-    <div class="post-tags">
-      {{#tags}}
-      <a href="/tags/{{.}}/" class="post-tag">{{.}}</a>
-      {{/tags}}
+    <!-- Pagination -->
+    {{#hasPagination}}
+    <div class="pagination">
+      {{#pagination}}
+      <a href="{{url}}" {{#isCurrent}}class="active"{{/isCurrent}}>{{label}}</a>
+      {{/pagination}}
     </div>
-    
-    <div class="post-content">
-      {{content}}
-    </div>
-  </article>
+    {{/hasPagination}}
+  </section>
   
   <!-- Search Modal -->
   <div class="search-modal">

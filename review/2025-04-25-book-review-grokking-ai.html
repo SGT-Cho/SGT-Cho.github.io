@@ -1,43 +1,272 @@
-<!DOCTYPE html><html lang="ko"><head>
-  <meta charset="utf-8"><title>Grokking AI: 책 리뷰</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grokking AI: 책 리뷰 | Minjae's Life & Review Blog</title>
+  
+  <!-- Meta tags for SEO and social sharing -->
+  <meta name="description" content="최근 읽은 AI 학습서 'Grokking AI'에 대한 리뷰. 이 책이 AI 초보자와 전문가 모두에게 왜 유용한지 분석해보았다.">
+  <meta name="keywords" content="book review, AI, machine learning, deep learning, grokking ai">
+  <meta name="author" content="Minjae Cho">
+  
+  <!-- Open Graph meta tags for social sharing -->
+  <meta property="og:title" content="Grokking AI: 책 리뷰 | Minjae's Life & Review Blog">
+  <meta property="og:description" content="최근 읽은 AI 학습서 'Grokking AI'에 대한 리뷰. 이 책이 AI 초보자와 전문가 모두에게 왜 유용한지 분석해보았다.">
+  <meta property="og:image" content="https://sgt-cho.github.io/assets/images/thumbnails/book.png">
+  <meta property="og:url" content="https://sgt-cho.github.io/review/2025-04-25-book-review-grokking-ai.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter card meta tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Grokking AI: 책 리뷰">
+  <meta name="twitter:description" content="최근 읽은 AI 학습서 'Grokking AI'에 대한 리뷰. 이 책이 AI 초보자와 전문가 모두에게 왜 유용한지 분석해보았다.">
+  <meta name="twitter:image" content="https://sgt-cho.github.io/assets/images/thumbnails/book.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="/css/style.css">
-</head><body>
-<header>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/assets/images/avatar-minjae.jpg">
+  
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+  <!-- 
+    title: Grokking AI: 책 리뷰
+    date: 2025-04-25
+    category: review
+    tags: book, ai
+    teaser: 최근 읽은 AI 학습서 'Grokking AI'에 대한 리뷰. 이 책이 AI 초보자와 전문가 모두에게 왜 유용한지 분석해보았다.
+    thumbnail: book.png
+    readtime: 8
+  -->
+  
+  <!-- Header/Navigation -->
   <nav>
-    <div class="nav-logo">
+    <a href="/" class="nav-logo">
       <img src="/assets/images/avatar-minjae.jpg" alt="Minjae Cho">
       <span>Minjae Cho</span>
-    </div>
+    </a>
+    
     <div class="nav-links">
-      <a href="/life/">Life</a>
-      <a href="/review/" class="active">Review</a>
-      <a href="/portfolio/">Portfolio</a>
-      <a href="/archive/">Archive</a>
-      <a href="/about/">About</a>
+      <a href="/life/" class="nav-link">Life</a>
+      <a href="/review/" class="nav-link active">Review</a>
+      <a href="/portfolio/" class="nav-link">Portfolio</a>
+      <a href="/archive/" class="nav-link">Archive</a>
+      <a href="/about/" class="nav-link">About</a>
     </div>
-    <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
-      <span></span><span></span><span></span>
+    
+    <div class="nav-actions">
+      <button class="search-toggle" aria-label="Search">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </button>
+      
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.5 5.5 0 01-4.9-8.64A9 9 0 0012 3z" />
+        </svg>
+      </button>
+      
+      <button class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
-</header>
-<article class="post">
-  <h1>Grokking AI: 책 리뷰</h1>
-  <p class="meta">2025-04-25 · 3 min read</p>
-  <img src="/assets/images/thumbnails/book.png" alt="Grokking AI 책 리뷰">
-  <p>AI 분야에 입문하는 사람들에게 추천하고 싶은 책 중 하나가 바로 <strong>Grokking AI</strong>다. 이 책은 복잡한 인공지능 개념을 쉽고 명확하게 설명해주어, 초보자도 부담 없이 읽을 수 있다. 최근 졸업을 앞두고 AI의 기본기를 다시 다지고자 이 책을 정독했다.</p>
-  <p>책의 초반부에서는 인공지능의 역사와 기본 개념, 그리고 머신러닝과 딥러닝의 차이점을 다양한 예시와 함께 설명한다. 중반부에서는 실제 코드 예제와 함께, Python과 TensorFlow를 활용한 간단한 모델 구현 방법을 다룬다. 특히, 챕터마다 실습 코드가 제공되어 직접 따라 해볼 수 있다는 점이 인상적이었다.</p>
-  <pre><code class="language-python"># 간단한 신경망 예제 (TensorFlow)
-import tensorflow as tf
+  
+  <!-- Post Content -->
+  <article class="post">
+    <h1>Grokking AI: 책 리뷰</h1>
+    
+    <div class="meta">
+      <div>
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        April 25, 2025
+      </div>
+      
+      <div>
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        8 min read
+      </div>
+      
+      <div>
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+        </svg>
+        <a href="/review/">Review</a>
+      </div>
+    </div>
+    
+    <div class="post-tags">
+      <a href="/tags/book/" class="post-tag">book</a>
+      <a href="/tags/ai/" class="post-tag">ai</a>
+    </div>
+    
+    <div class="post-content">
+      <p>지난 학기 동안 읽었던 AI 관련 책 중에서 가장 인상 깊었던 <strong>"Grokking AI: Concepts and Algorithms"</strong>에 대한 리뷰를 공유하려고 한다. AI 학습 교재는 많지만, 이 책은 독특한 접근 방식으로 복잡한 개념을 쉽게 설명하면서도 깊이 있는 내용을 놓치지 않는다는 점이 매력적이었다.</p>
+      
+      <img src="/assets/images/thumbnails/book.png" alt="Grokking AI Book Cover" loading="lazy">
+      
+      <h2>책 정보</h2>
+      <ul>
+        <li><strong>제목:</strong> Grokking AI: Concepts and Algorithms</li>
+        <li><strong>저자:</strong> Andrew McMahon</li>
+        <li><strong>출판사:</strong> Manning Publications</li>
+        <li><strong>출판일:</strong> 2024년 2월</li>
+        <li><strong>페이지:</strong> 450 페이지</li>
+      </ul>
+      
+      <h2>책의 구성</h2>
+      
+      <p>이 책은 총 4개 파트, 15개 장으로 구성되어 있다:</p>
+      
+      <ol>
+        <li>AI와 머신러닝의 기초 (1-3장)</li>
+        <li>전통적 머신러닝 알고리즘 (4-7장)</li>
+        <li>딥러닝과 신경망 (8-12장)</li>
+        <li>고급 주제와 실전 적용 (13-15장)</li>
+      </ol>
+      
+      <p>책의 가장 큰 특징은 "Grokking" 시리즈의 일관된 스타일대로, 시각적 요소와 스토리텔링을 적극 활용한다는 점이다. 복잡한 수학 공식과 알고리즘을 이해하기 쉬운 다이어그램과 유사성으로 설명하여, 직관적인 이해를 도와준다.</p>
+      
+      <h2>강점</h2>
+      
+      <h3>1. 시각적 설명</h3>
+      
+      <p>이 책의 가장 큰 장점은 풍부한 시각 자료다. 예를 들어, 신경망의 작동 원리를 물이 흐르는 파이프 시스템에 비유하여 설명하는 부분은 복잡한 개념을 놀랍도록 명확하게 이해할 수 있게 해준다.</p>
+      
+      <h3>2. 코드와 이론의 균형</h3>
+      
+      <p>많은 AI 책들이 이론에 치우치거나 반대로 코드 구현에만 집중하는 경향이 있는데, 이 책은 두 영역을 균형 있게 다룬다. 이론적 개념을 설명한 후 바로 파이썬 코드로 구현하는 방식은 학습 효율을 크게 높여준다.</p>
+      
+      <pre><code class="language-python">
+# 책에서 제시한 신경망 구현 예제 (간소화 버전)
+import numpy as np
 
-model = tf.keras.Sequential([
-    tf.keras.layers.Dense(8, activation='relu', input_shape=(4,)),
-    tf.keras.layers.Dense(3, activation='softmax')
-])
-model.compile(optimizer='adam', loss='categorical_crossentropy')
-  </code></pre>
-  <p>마지막 장에서는 AI의 윤리, 실제 산업 적용 사례, 그리고 앞으로의 트렌드에 대해 다룬다. 이 책을 통해 AI의 전반적인 흐름을 이해하고, 실무에 적용할 수 있는 기초 역량을 쌓을 수 있었다.</p>
-  <blockquote class="notice"><strong>NOTE</strong><br>AI를 공부할 때는 이론과 실습을 병행하는 것이 중요합니다. 직접 코드를 작성하며 개념을 체득해보세요!</blockquote>
-</article>
-<script src="/js/main.js"></script>
-</body></html>
+class SimpleNN:
+    def __init__(self, input_size, hidden_size, output_size):
+        # Xavier 초기화 적용
+        self.W1 = np.random.randn(input_size, hidden_size) * np.sqrt(1 / input_size)
+        self.b1 = np.zeros(hidden_size)
+        self.W2 = np.random.randn(hidden_size, output_size) * np.sqrt(1 / hidden_size)
+        self.b2 = np.zeros(output_size)
+    
+    def relu(self, x):
+        return np.maximum(0, x)
+    
+    def softmax(self, x):
+        exp_x = np.exp(x - np.max(x, axis=1, keepdims=True))
+        return exp_x / np.sum(exp_x, axis=1, keepdims=True)
+    
+    def forward(self, X):
+        # 1층 - 은닉층
+        self.z1 = np.dot(X, self.W1) + self.b1
+        self.a1 = self.relu(self.z1)
+        
+        # 2층 - 출력층
+        self.z2 = np.dot(self.a1, self.W2) + self.b2
+        self.a2 = self.softmax(self.z2)
+        
+        return self.a2
+      </code></pre>
+      
+      <h3>3. "Why" 질문에 대한 답변</h3>
+      
+      <p>많은 교재들이 "어떻게(how)" 구현하는지에 초점을 맞추지만, 이 책은 "왜(why)" 특정 알고리즘이나 접근 방식이 필요한지에 대한 설명을 강조한다. 예를 들어, 왜 RNN보다 Transformer가 긴 시퀀스 처리에 효과적인지에 대한 설명은 단순한 구조 비교를 넘어서 근본적인 이해를 제공한다.</p>
+      
+      <blockquote class="notice"><strong>NOTE</strong> 이 책은 수식의 복잡성보다 개념적 이해를 우선시한다. 하지만 이것이 단점이 아닌 강점으로 작용하는데, 직관적 이해가 선행된 후 수학적 깊이를 더해가는 접근 방식이 학습 곡선을 완만하게 만들기 때문이다.</blockquote>
+      
+      <h2>약점</h2>
+      
+      <h3>1. 최신 기술 부족</h3>
+      
+      <p>책이 출간된 시점의 한계로, GPT-4나 Gemini와 같은 최신 대형 언어 모델에 대한 내용은 충분히 다루지 못하고 있다. 기본 원리는 설명하지만 최근의 발전 사항은 별도의 학습이 필요하다.</p>
+      
+      <h3>2. 깊이 있는 수학 접근의 부재</h3>
+      
+      <p>개념적 이해에 중점을 둔 접근 방식의 필연적 결과로, 일부 고급 수학적 증명이나 깊이 있는 이론적 분석은 생략되어 있다. 연구자 수준의 깊이를 원하는 독자에게는 다소 아쉬운 부분이다.</p>
+      
+      <h2>주요 주제별 평가</h2>
+      
+      <ol>
+        <li>
+          <strong>머신러닝 기초 (★★★★★):</strong>
+          <p>초보자도 쉽게 이해할 수 있는 설명과 예시. 특히 과적합/과소적합에 대한 시각적 설명이 탁월함.</p>
+        </li>
+        <li>
+          <strong>고전적 알고리즘 (★★★★☆):</strong>
+          <p>결정 트리, SVM 등 전통적 알고리즘에 대한 설명이 명확하지만, 일부 최적화 기법에 대한 설명은 다소 피상적.</p>
+        </li>
+        <li>
+          <strong>딥러닝 (★★★★★):</strong>
+          <p>CNN, RNN, Transformer 등 현대 딥러닝의 핵심 구조를 이해하기 쉽게 설명. 특히 어텐션 메커니즘 설명이 뛰어남.</p>
+        </li>
+        <li>
+          <strong>실전 적용 (★★★☆☆):</strong>
+          <p>클라우드 플랫폼과의 통합, 모델 배포, A/B 테스팅 등 실용적 측면에서는 좀 더 깊이 있는 내용이 아쉬움.</p>
+        </li>
+      </ol>
+      
+      <h2>인상 깊은 부분</h2>
+      
+      <p>특히 인상 깊었던 부분은 8장의 "Why Deep Learning Works" 섹션이다. 딥러닝이 왜 효과적인지를 층의 계층적 표현 학습 관점에서 설명하며, 고차원 공간에서의 데이터 표현과 분리 가능성을 시각적으로 보여주는 부분은 직관적 이해를 크게 도왔다.</p>
+      
+      <p>또한 10장에서 CNN의 컨볼루션 필터가 어떻게 이미지의 특징을 추출하는지 단계별로 시각화한 부분도 매우 유익했다. 이론적 설명을 넘어, 실제로 필터가 학습하는 패턴을 볼 수 있어 개념 이해에 큰 도움이 되었다.</p>
+      
+      <h2>이런 사람에게 추천</h2>
+      
+      <ul>
+        <li>AI와 머신러닝을 처음 접하지만 깊이 있게 공부하고 싶은 초보자</li>
+        <li>개념적 이해를 중요시하며 직관적인 설명을 선호하는 학습자</li>
+        <li>이론과 실습을 균형 있게 배우고 싶은 개발자/학생</li>
+        <li>AI 관련 기본 개념은 알지만 딥러닝 분야 지식을 체계화하고 싶은 사람</li>
+      </ul>
+      
+      <h2>결론</h2>
+      
+      <p>Grokking AI는 머신러닝과 딥러닝의 광범위한 주제를 직관적이고 시각적인 방식으로 설명하는 탁월한 책이다. 수학적 깊이보다는 개념적 이해와 실용적 적용에 중점을 두어, AI 입문자부터 중급자까지 폭넓은 독자층에게 유용하다.</p>
+      
+      <p>4년간의 AI 공부와 프로젝트 경험을 바탕으로 평가했을 때, 이 책은 내가 처음 AI를 배울 때 있었으면 좋았을 교재다. 혼란스러운 개념들을 체계적으로 정리하고, "왜"라는 질문에 충실한 대답을 제공하는 점이 가장 큰 매력이다.</p>
+      
+      <p>총점: 9/10 ⭐⭐⭐⭐⭐⭐⭐⭐⭐</p>
+      
+      <p>다음 리뷰에서는 강화학습에 초점을 맞춘 책을 소개할 예정이다. 질문이나 의견이 있으면 댓글로 남겨주세요!</p>
+    </div>
+  </article>
+  
+  <!-- Search Modal -->
+  <div class="search-modal">
+    <div class="search-container">
+      <div class="search-form">
+        <input type="text" class="search-input" placeholder="Search posts, topics, or tags...">
+        <button class="search-close">&times;</button>
+      </div>
+      <div class="search-results">
+        <!-- Results will be populated here -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Minjae Cho · Built with passion and code</p>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="/js/main.js"></script>
+</body>
+</html>

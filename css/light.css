@@ -1,0 +1,189 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f5f7;
+  --fg: #333333;
+  --accent: #0e7490;
+  --card: #ffffff;
+  --border: #e2e2e2;
+  --nav: #ffffff;
+  --notice: #e6f6f7;
+}
+
+blockquote {
+  color: #0e7490;
+  background: #e6f6f7;
+}
+
+.notice {
+  background: var(--notice);
+  color: #333333;
+}
+
+code {
+  background: #eaeaea;
+  color: #333;
+}
+
+pre code {
+  background: #f0f0f0;
+}
+
+/* Light theme styles for Minjae's Blog */
+
+/* Setting up light theme variables */
+:root[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --accent: #0891b2;
+  --accent-hover: #0e7490;
+  --border: #e2e8f0;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --code-bg: #f1f5f9;
+  --code-text: #334155;
+  --tag-bg: #e0f2fe;
+  --tag-text: #0284c7;
+  --notice-bg: #f0f9ff;
+  --notice-border: #bae6fd;
+  --notice-text: #0284c7;
+  --card-bg: #ffffff;
+  --card-hover: #f1f5f9;
+  --nav-border: #e2e8f0;
+}
+
+/* Light theme specific overrides */
+:root[data-theme="light"] .nav-logo img {
+  border: 2px solid var(--border);
+}
+
+:root[data-theme="light"] pre {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+:root[data-theme="light"] .theme-toggle svg {
+  fill: #fbbf24;  /* Sun icon */
+}
+
+:root[data-theme="light"] blockquote {
+  background-color: #f8fafc;
+  border-left: 4px solid #cbd5e1;
+}
+
+:root[data-theme="light"] .hamburger span {
+  background-color: var(--text-primary);
+}
+
+:root[data-theme="light"] .search-modal {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+:root[data-theme="light"] .search-container {
+  background-color: #ffffff;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+:root[data-theme="light"] .search-input {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+:root[data-theme="light"] .search-results .result-item:hover {
+  background-color: #f8fafc;
+}
+
+:root[data-theme="light"] .post-card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+:root[data-theme="light"] .post-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+:root[data-theme="light"] .rating {
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+}
+
+:root[data-theme="light"] footer {
+  border-top: 1px solid var(--border);
+  background-color: var(--bg-secondary);
+}
+
+/* Code syntax highlighting - light theme */
+:root[data-theme="light"] code[class*="language-"],
+:root[data-theme="light"] pre[class*="language-"] {
+  color: #333;
+  background: none;
+  text-shadow: none;
+}
+
+:root[data-theme="light"] .token.comment,
+:root[data-theme="light"] .token.prolog,
+:root[data-theme="light"] .token.doctype,
+:root[data-theme="light"] .token.cdata {
+  color: #8292a2;
+}
+
+:root[data-theme="light"] .token.punctuation {
+  color: #757575;
+}
+
+:root[data-theme="light"] .token.property,
+:root[data-theme="light"] .token.tag,
+:root[data-theme="light"] .token.constant,
+:root[data-theme="light"] .token.symbol {
+  color: #905;
+}
+
+:root[data-theme="light"] .token.boolean,
+:root[data-theme="light"] .token.number {
+  color: #0086b3;
+}
+
+:root[data-theme="light"] .token.selector,
+:root[data-theme="light"] .token.attr-name,
+:root[data-theme="light"] .token.string,
+:root[data-theme="light"] .token.char,
+:root[data-theme="light"] .token.builtin {
+  color: #690;
+}
+
+:root[data-theme="light"] .token.operator,
+:root[data-theme="light"] .token.entity,
+:root[data-theme="light"] .token.url,
+:root[data-theme="light"] .language-css .token.string,
+:root[data-theme="light"] .style .token.string {
+  color: #9a6e3a;
+}
+
+:root[data-theme="light"] .token.keyword {
+  color: #07a;
+}
+
+:root[data-theme="light"] .token.function {
+  color: #dd4a68;
+}
+
+:root[data-theme="light"] .token.class-name {
+  color: #1990b8;
+}
+
+:root[data-theme="light"] .token.regex,
+:root[data-theme="light"] .token.important,
+:root[data-theme="light"] .token.variable {
+  color: #e90;
+}
+
+/* Print-specific styles for light theme */
+@media print {
+  :root[data-theme="light"] {
+    --bg-primary: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #333333;
+  }
+}

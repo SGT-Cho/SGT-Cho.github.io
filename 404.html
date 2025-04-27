@@ -3,25 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{title}} | Minjae's Life & Review Blog</title>
-  
-  <!-- Meta tags for SEO and social sharing -->
-  <meta name="description" content="{{teaser}}">
-  <meta name="keywords" content="{{tags}}, blog, minjae cho">
-  <meta name="author" content="Minjae Cho">
-  
-  <!-- Open Graph meta tags for social sharing -->
-  <meta property="og:title" content="{{title}} | Minjae's Life & Review Blog">
-  <meta property="og:description" content="{{teaser}}">
-  <meta property="og:image" content="https://sgt-cho.github.io/assets/images/thumbnails/{{thumbnail}}">
-  <meta property="og:url" content="https://sgt-cho.github.io/{{url}}">
-  <meta property="og:type" content="article">
-  
-  <!-- Twitter card meta tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{title}}">
-  <meta name="twitter:description" content="{{teaser}}">
-  <meta name="twitter:image" content="https://sgt-cho.github.io/assets/images/thumbnails/{{thumbnail}}">
+  <title>Page Not Found | Minjae's Life & Review Blog</title>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,8 +28,8 @@
     </a>
     
     <div class="nav-links">
-      <a href="/life/" class="nav-link" {{#isLife}}class="active"{{/isLife}}>Life</a>
-      <a href="/review/" class="nav-link" {{#isReview}}class="active"{{/isReview}}>Review</a>
+      <a href="/life/" class="nav-link">Life</a>
+      <a href="/review/" class="nav-link">Review</a>
       <a href="/portfolio/" class="nav-link">Portfolio</a>
       <a href="/archive/" class="nav-link">Archive</a>
       <a href="/about/" class="nav-link">About</a>
@@ -74,43 +56,20 @@
     </div>
   </nav>
   
-  <!-- Post Content -->
-  <article class="post">
-    <h1>{{title}}</h1>
-    
-    <div class="meta">
-      <div>
+  <!-- 404 Content -->
+  <div class="page-404">
+    <h1>404</h1>
+    <h2>죄송합니다! 페이지를 찾을 수 없습니다.</h2>
+    <p>The page you're looking for doesn't exist or has been moved.</p>
+    <div class="mt-4">
+      <a href="/" class="btn">
         <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
         </svg>
-        {{date}}
-      </div>
-      
-      <div>
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        {{readtime}} min read
-      </div>
-      
-      <div>
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-        </svg>
-        <a href="/{{category}}/">{{category}}</a>
-      </div>
+        Go to Homepage
+      </a>
     </div>
-    
-    <div class="post-tags">
-      {{#tags}}
-      <a href="/tags/{{.}}/" class="post-tag">{{.}}</a>
-      {{/tags}}
-    </div>
-    
-    <div class="post-content">
-      {{content}}
-    </div>
-  </article>
+  </div>
   
   <!-- Search Modal -->
   <div class="search-modal">
