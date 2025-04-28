@@ -5,51 +5,37 @@ import re
 
 POST_DIRS = ['life', 'review']
 
-# 카테고리별 기본 썸네일
+# 실제 존재하는 썸네일 파일 목록
+# 현재 coffee.png, book.png, daily.png만 존재함
+AVAILABLE_THUMBNAILS = [
+    '/assets/images/thumbnails/coffee.png',
+    '/assets/images/thumbnails/book.png',
+    '/assets/images/thumbnails/daily.png',
+]
+
+# 카테고리별 기본 썸네일 (존재하는 파일로 변경)
 BASE_THUMBNAILS = {
     'life': '/assets/images/thumbnails/daily.png',
-    'review': '/assets/images/thumbnails/ai.png'
+    'review': '/assets/images/thumbnails/daily.png'  # ai.png가 없으므로 daily.png로 대체
 }
 
-# 직접 설정된 썸네일 매핑 (특정 파일에 대한 명시적 매핑)
+# 직접 설정된 썸네일 매핑
 EXPLICIT_THUMBNAILS = {
     'review/2025-04-26-coffee-review-seoul.html': '/assets/images/thumbnails/coffee.png',
     'review/2025-04-25-book-review-grokking-ai.html': '/assets/images/thumbnails/book.png',
-    'life/2024-09-06-naver-sef-popup-event.html': '/assets/images/thumbnails/event.png',
-    'life/2025-04-27-daily-graduation-prep.html': '/assets/images/thumbnails/graduation.png'
+    'life/2025-04-27-daily-graduation-prep.html': '/assets/images/thumbnails/daily.png'
 }
 
-# 키워드 기반 썸네일 매핑
+# 키워드 기반 썸네일 매핑 (실제 존재하는 파일만 사용)
 KEYWORD_THUMBNAILS = {
     # 리뷰 카테고리 키워드
     'coffee': '/assets/images/thumbnails/coffee.png',
     'cafe': '/assets/images/thumbnails/coffee.png',
     'book': '/assets/images/thumbnails/book.png',
-    'ai': '/assets/images/thumbnails/ai.png',
-    'llm': '/assets/images/thumbnails/ai.png',
-    'segformer': '/assets/images/thumbnails/ai.png',
-    'llama': '/assets/images/thumbnails/ai.png',
-    'multimodal': '/assets/images/thumbnails/ai.png',
-    'cnn': '/assets/images/thumbnails/ai.png',
-    'gan': '/assets/images/thumbnails/ai.png',
-    'yolo': '/assets/images/thumbnails/ai.png',
-    'bert': '/assets/images/thumbnails/ai.png',
-    'neural': '/assets/images/thumbnails/ai.png',
-    'deep': '/assets/images/thumbnails/ai.png',
-    'docker': '/assets/images/thumbnails/tech.png',
-    'tensorflow': '/assets/images/thumbnails/tech.png',
-    'tutorial': '/assets/images/thumbnails/tech.png',
-    'guide': '/assets/images/thumbnails/tech.png',
-    'ocr': '/assets/images/thumbnails/tech.png',
-    
-    # 라이프 카테고리 키워드
-    'graduation': '/assets/images/thumbnails/graduation.png',
-    'event': '/assets/images/thumbnails/event.png',
-    'naver': '/assets/images/thumbnails/event.png',
 }
 
-# 기본 대체 썸네일 (아무 것도 일치하지 않을 때)
-DEFAULT_THUMBNAIL = '/assets/images/thumbnails/empty.png'
+# 기본 대체 썸네일 (empty.png는 존재하는지 확인 필요)
+DEFAULT_THUMBNAIL = '/assets/images/empty.png'
 
 CATEGORY_MAP = {
     'life': 'Life',
@@ -57,10 +43,13 @@ CATEGORY_MAP = {
 }
 
 def extract_title_and_date(filepath):
-    with open(filepath, encoding='utf-8') as f:
-        content = f.read()
-        title_match = re.search(r'<title>(.*?)</title>', content)
-        title = title_match.group(1).strip() if title_match else os.path.basename(filepath)
+    try:
+        with open(filepath, encoding='utf-8') as f:
+            content = f.read()
+            title_match = re.search(r'<title>(.*?)</title>', content)
+            title = title_match.group(1).strip() if title_match else os.path.basename(filepath)
+    except:
+        title = os.path.basename(filepath)
     
     # 파일명에서 날짜 추출
     date_match = re.search(r'(\d{4}-\d{2}-\d{2})', os.path.basename(filepath))
@@ -96,7 +85,7 @@ def get_teaser(filepath, title):
     if category in BASE_THUMBNAILS:
         return BASE_THUMBNAILS[category]
             
-    # 6. 아무것도 없으면 빈 이미지 사용
+    # 6. 아무것도 없으면 기본 이미지 사용
     return DEFAULT_THUMBNAIL
 
 def main():
@@ -135,7 +124,7 @@ def main():
         json.dump(posts, f, ensure_ascii=False, indent=2)
     
     print(f"총 {len(posts)}개의 게시물이 posts.json 파일에 저장되었습니다.")
-    print(f"썸네일 처리 방식: 1) 명시적 설정 -> 2) 키워드 기반 자동 선택 -> 3) 카테고리 기본값 -> 4) empty.png")
+    print(f"사용된 썸네일: {', '.join(set(p['teaser'] for p in posts))}")
 
 if __name__ == '__main__':
     main()
