@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minjae's Life & Review Blog</title>
+  <title>Archive | Minjae Cho</title>
   
   <!-- Meta tags for SEO and social sharing -->
   <meta name="description" content="Browse all posts by date or category on Minjae Cho's blog">
@@ -39,113 +39,93 @@
 </head>
 <body>
   <!-- Header/Navigation -->
-  <nav>
-    <a href="/" class="nav-logo">
-      <img src="/assets/images/minjae.png" alt="Minjae Cho">
-      <span>Minjae Cho</span>
-    </a>
-    
-    <div class="nav-links">
-      <a href="/life/" class="nav-link">Life</a>
-      <a href="/review/" class="nav-link">Review</a>
-      <a href="/portfolio/" class="nav-link">Portfolio</a>
-      <a href="/archive/" class="nav-link" class="active">Archive</a>
-      <a href="/about/" class="nav-link">About</a>
-    </div>
-    
-    <div class="nav-actions">
-      <button class="search-toggle" aria-label="Search">
-        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
-      </button>
+  <header>
+    <nav>
+      <a href="/" class="nav-logo">
+        <img src="/assets/images/minjae.png" alt="Minjae Cho">
+        <span>Minjae Cho</span>
+      </a>
       
-      <button class="theme-toggle" aria-label="Toggle theme">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.5 5.5 0 01-4.9-8.64A9 9 0 0012 3z" />
-        </svg>
-      </button>
-      
-      <button class="hamburger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
-  
-  <!-- Archive Content -->
-  <section class="archive">
-    <h1>Post Archive</h1>
-    
-    <!-- Categories Filter -->
-    <div class="category-links mb-4">
-      <a href="#all" class="active">All Posts</a>
-      <a href="#life">Life</a>
-      <a href="#review">Review</a>
-    </div>
-    
-    <!-- Year: 2025 -->
-    <div class="archive-year open">
-      <div class="archive-year-header">
-        <h2>2025</h2>
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
+      <div class="nav-links">
+        <a href="/life/">Life</a>
+        <a href="/review/">Review</a>
+        <a href="/portfolio/">Portfolio</a>
+        <a href="/archive/" class="active">Archive</a>
+        <a href="/about/">About</a>
       </div>
       
-      <div class="archive-months">
-        <!-- April 2025 -->
-        <div class="archive-month">
-          <h3>April</h3>
-          <ul class="archive-posts">
-            <li class="archive-post">
-              <a href="/life/2025-04-27-daily-graduation-prep.html">졸업 준비 일상: 2025년 봄</a>
-              <span class="archive-post-date">2025-04-27</span>
-            </li>
-            <li class="archive-post">
-              <a href="/review/2025-04-26-coffee-review-seoul.html">서울 카페 탐방: 커피 리뷰</a>
-              <span class="archive-post-date">2025-04-26</span>
-            </li>
-            <li class="archive-post">
-              <a href="/review/2025-04-25-book-review-grokking-ai.html">Grokking AI: 책 리뷰</a>
-              <span class="archive-post-date">2025-04-25</span>
-            </li>
-          </ul>
+      <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+  
+  <main>
+    <section class="intro">
+      <h1>Post Archive</h1>
+      <p class="tagline">Browse all posts by date or category</p>
+    </section>
+    
+    <!-- Archive Content -->
+    <section class="container">
+      <!-- Categories Filter -->
+      <div class="category-links mb-4">
+        <a href="#all" class="active">All Posts</a>
+        <a href="#life">Life</a>
+        <a href="#review">Review</a>
+      </div>
+      
+      <!-- Year: 2025 -->
+      <div class="archive-year open">
+        <div class="archive-year-header">
+          <h2>2025</h2>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+        
+        <div class="archive-months">
+          <!-- April 2025 -->
+          <div class="archive-month">
+            <h3>April</h3>
+            <ul class="archive-posts">
+              <li class="archive-post">
+                <a href="/life/2025-04-27-daily-graduation-prep.html">졸업 준비 일상: 2025년 봄</a>
+                <span class="archive-post-date">2025-04-27</span>
+              </li>
+              <li class="archive-post">
+                <a href="/review/2025-04-26-coffee-review-seoul.html">서울 카페 탐방: 커피 리뷰</a>
+                <span class="archive-post-date">2025-04-26</span>
+              </li>
+              <li class="archive-post">
+                <a href="/review/2025-04-25-book-review-grokking-ai.html">Grokking AI: 책 리뷰</a>
+                <span class="archive-post-date">2025-04-25</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-    
-    <!-- Tag Cloud -->
-    <div class="my-4">
-      <h2>Browse by Tag</h2>
-      <div class="tag-cloud">
-        <a href="/tags/study/">study <span>(1)</span></a>
-        <a href="/tags/graduation/">graduation <span>(1)</span></a>
-        <a href="/tags/coffee/">coffee <span>(1)</span></a>
-        <a href="/tags/seoul/">seoul <span>(1)</span></a>
-        <a href="/tags/book/">book <span>(1)</span></a>
-        <a href="/tags/ai/">ai <span>(1)</span></a>
+      
+      <!-- Tag Cloud -->
+      <div class="my-4">
+        <h2>Browse by Tag</h2>
+        <div class="tag-cloud">
+          <a href="/tags/study/">study <span>(1)</span></a>
+          <a href="/tags/graduation/">graduation <span>(1)</span></a>
+          <a href="/tags/coffee/">coffee <span>(1)</span></a>
+          <a href="/tags/seoul/">seoul <span>(1)</span></a>
+          <a href="/tags/book/">book <span>(1)</span></a>
+          <a href="/tags/ai/">ai <span>(1)</span></a>
+        </div>
       </div>
-    </div>
-  </section>
-  
-  <!-- Search Modal -->
-  <div class="search-modal">
-    <div class="search-container">
-      <div class="search-form">
-        <input type="text" class="search-input" placeholder="Search posts, topics, or tags...">
-        <button class="search-close">&times;</button>
-      </div>
-      <div class="search-results">
-        <!-- Results will be populated here -->
-      </div>
-    </div>
-  </div>
+    </section>
+  </main>
   
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Minjae Cho · Built with passion and code</p>
+    <div class="container">
+      <p>&copy; 2025 Minjae Cho · Built with passion and code</p>
+    </div>
   </footer>
   
   <!-- Scripts -->
