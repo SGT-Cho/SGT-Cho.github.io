@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Life | Minjae's Life & Review Blog</title>
   
   <!-- Meta tags for SEO and social sharing -->
-  <meta name="description" content="Personal life stories, student experiences, and daily journals by Minjae Cho">
-  <meta name="keywords" content="life, daily, student, graduation, AI studies, personal blog">
+  <meta name="description" content="Personal stories, student experiences, and daily journals from my life as an AI Engineer student">
+  <meta name="keywords" content="life, student, AI Engineer, journal, blog">
   <meta name="author" content="Minjae Cho">
   
   <!-- Open Graph meta tags for social sharing -->
   <meta property="og:title" content="Life | Minjae's Life & Review Blog">
-  <meta property="og:description" content="Personal life stories, student experiences, and daily journals by Minjae Cho">
+  <meta property="og:description" content="Personal stories, student experiences, and daily journals from my life as an AI Engineer student">
   <meta property="og:image" content="/assets/images/banner.jpg">
   <meta property="og:url" content="https://sgt-cho.github.io/life/">
   <meta property="og:type" content="website">
@@ -20,7 +20,7 @@
   <!-- Twitter card meta tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Life | Minjae's Life & Review Blog">
-  <meta name="twitter:description" content="Personal life stories, student experiences, and daily journals by Minjae Cho">
+  <meta name="twitter:description" content="Personal stories, student experiences, and daily journals from my life as an AI Engineer student">
   <meta name="twitter:image" content="/assets/images/banner.jpg">
   
   <!-- Fonts -->
@@ -38,6 +38,7 @@
   <link rel="manifest" href="/manifest.json">
 </head>
 <body>
+<header>
   <!-- Header/Navigation -->
   <nav>
     <a href="/" class="nav-logo">
@@ -46,76 +47,47 @@
     </a>
     
     <div class="nav-links">
-      <a href="/life/" class="nav-link active">Life</a>
-      <a href="/review/" class="nav-link">Review</a>
-      <a href="/portfolio/" class="nav-link">Portfolio</a>
-      <a href="/archive/" class="nav-link">Archive</a>
-      <a href="/about/" class="nav-link">About</a>
+      <a href="/life/" class="active">Life</a>
+      <a href="/review/">Review</a>
+      <a href="/portfolio/">Portfolio</a>
+      <a href="/archive/">Archive</a>
+      <a href="/about/">About</a>
     </div>
     
-    <div class="nav-actions">
-      <button class="search-toggle" aria-label="Search">
-        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
-      </button>
-      
-      <button class="theme-toggle" aria-label="Toggle theme">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.5 5.5 0 01-4.9-8.64A9 9 0 0012 3z" />
-        </svg>
-      </button>
-      
-      <button class="hamburger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+    <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
+      <span></span><span></span><span></span>
     </div>
   </nav>
-  
-  <!-- Category Header -->
-  <header class="category-header container">
+</header>
+
+<main>
+  <section class="intro">
     <h1>Life</h1>
-    <p>Personal stories, student experiences, and daily journals from my life as an AI Engineer student</p>
-  </header>
+    <p class="tagline">Personal stories, student experiences, and daily journals from my life as an AI Engineer student</p>
+  </section>
   
   <!-- Post Listings -->
-  <section class="container">
-    <div class="masonry-grid">
-      <!-- Post 1 -->
-      <article class="post-card">
-        <div class="post-card-image">
-          <img src="/assets/images/thumbnails/daily.png" alt="Graduation Preparation" loading="lazy">
-        </div>
-        <div class="post-card-content">
-          <span class="post-card-badge">Life</span>
-          <h3><a href="/life/2025-04-27-daily-graduation-prep.html">졸업 준비 일상: 2025년 봄</a></h3>
-          <div class="post-card-meta">
-            <span>April 27, 2025</span>
-            <span>5 min read</span>
-          </div>
-          <p class="post-card-excerpt">그동안 열심히 준비해온 졸업 논문과 프로젝트의 마무리 단계. 마지막 학기를 보내면서 든 생각들과 앞으로의 계획에 대한 일기.</p>
-          <a href="/life/2025-04-27-daily-graduation-prep.html" class="post-card-link">
-            Read more
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-        </div>
-      </article>
-    </div>
-    
-    <!-- Tag Cloud for this category -->
-    <div class="my-4">
-      <h2>Life Tags</h2>
-      <div class="tag-cloud">
-        <a href="/tags/study/">study <span>(1)</span></a>
-        <a href="/tags/graduation/">graduation <span>(1)</span></a>
-        <a href="/tags/daily/">daily <span>(1)</span></a>
-      </div>
+  <section class="card-grid">
+    <!-- Post 1 -->
+    <div class="project-card">
+      <img src="/assets/images/thumbnails/graduation.png" alt="Graduation Preparation" loading="lazy">
+      <h3>졸업을 향한 일상: 2025년 봄</h3>
+      <p class="project-tags"><span>April 27, 2025</span> <span>5 min read</span></p>
+      <p>그동안 정처없이 흘러왔을 듯한 나의 모든결의 마무리 단계. 이제야 학기를 끝내시면 될것같아 안도하게 되었음에 대한 일기.</p>
+      <a href="/life/2025-04-27-daily-graduation-prep.html" class="post-card-link">Read more →</a>
     </div>
   </section>
+  
+  <!-- Tag Cloud for this category -->
+  <section>
+    <h2>Life Tags</h2>
+    <div class="tag-cloud">
+      <a href="/tags/study/">study <span>(1)</span></a>
+      <a href="/tags/graduation/">graduation <span>(1)</span></a>
+      <a href="/tags/daily/">daily <span>(1)</span></a>
+    </div>
+  </section>
+</main>
   
   <!-- Search Modal -->
   <div class="search-modal">
