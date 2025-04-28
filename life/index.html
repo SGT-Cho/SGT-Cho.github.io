@@ -66,38 +66,16 @@
     <p class="tagline">Personal stories, student experiences, and daily journals from my life as an AI Engineer student</p>
   </section>
   
-  <!-- 처음에 보여지는 포스트 (최신순으로 정렬) -->
-  <section class="card-grid initial-posts">
-    <!-- Post 1 (최신) -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/graduation.png" alt="Graduation Preparation" loading="lazy">
-      <h3>졸업을 향한 일상: 2025년 봄</h3>
-      <p class="project-tags"><span>April 27, 2025</span> <span>5 min read</span></p>
-      <p>그동안 정처없이 흘러왔을 듯한 나의 모든결의 마무리 단계. 이제야 학기를 끝내시면 될것같아 안도하게 되었음에 대한 일기.</p>
-      <a href="/life/2025-04-27-daily-graduation-prep.html" class="post-card-link">Read more →</a>
-    </div>
-    
-    <!-- Post 2 -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/naver.png" alt="Naver SEF Event" loading="lazy">
-      <h3>네이버 SEF 2024 참관기</h3>
-      <p class="project-tags"><span>September 6, 2024</span> <span>7 min read</span></p>
-      <p>네이버에서 진행한 검색 서비스 컨퍼런스 참관 후기와 느낀점을 정리했습니다.</p>
-      <a href="/life/2024-09-06-naver-sef-popup-event.html" class="post-card-link">Read more →</a>
-    </div>
-    
-    <!-- 더 많은 게시물이 있다면 여기에 추가 -->
+  <!-- 포스트 컨테이너 -->
+  <section class="card-grid" id="posts-container">
+    <!-- 포스트는 JavaScript로 동적 로드 -->
   </section>
   
-  <!-- 더보기 버튼 (추가 포스트가 있을 경우에만 표시) -->
-  <div class="text-center" style="margin: 2rem 0; display: none;" id="load-more-container">
-    <button id="load-more-btn" class="btn">더 많은 일상 보기</button>
+  <!-- 더보기 버튼 -->
+  <div class="text-center" style="margin: 2rem 0;">
+    <button id="load-more-btn" class="btn">더 많은 일상 포스트 보기</button>
+    <p id="loading-indicator" style="display: none;">포스트 로딩 중...</p>
   </div>
-  
-  <!-- 추가로 로드될 포스트 (있다면 여기에 추가 - 현재는 비어 있음) -->
-  <section class="card-grid hidden-posts" style="display: none;">
-    <!-- 추가 게시물이 있다면 여기에 추가 -->
-  </section>
   
   <!-- Tag Cloud for this category -->
   <section>
@@ -134,28 +112,134 @@
   <!-- Scripts -->
   <script src="/js/main.js"></script>
   <script>
-    // 추가 포스트가 있을 경우 로드하는 기능
+    // 라이프 포스트 데이터 (더 많은 포스트를 추가할 수 있음)
+    const allPosts = [
+      {
+        id: 1,
+        title: "졸업을 향한 일상: 2025년 봄",
+        date: "April 27, 2025",
+        readTime: "5 min read",
+        excerpt: "그동안 정처없이 흘러왔을 듯한 나의 모든결의 마무리 단계. 이제야 학기를 끝내시면 될것같아 안도하게 되었음에 대한 일기.",
+        thumbnail: "/assets/images/thumbnails/graduation.png",
+        url: "/life/2025-04-27-daily-graduation-prep.html"
+      },
+      {
+        id: 2,
+        title: "네이버 SEF 2024 참관기",
+        date: "September 6, 2024",
+        readTime: "7 min read",
+        excerpt: "네이버에서 진행한 검색 서비스 컨퍼런스 참관 후기와 느낀점을 정리했습니다.",
+        thumbnail: "/assets/images/thumbnails/naver.png",
+        url: "/life/2024-09-06-naver-sef-popup-event.html"
+      },
+      // 추가 포스트 (앞으로 새 게시물이 추가될 예정)
+      {
+        id: 3,
+        title: "인천 벚꽃 축제 나들이",
+        date: "April 10, 2025",
+        readTime: "6 min read",
+        excerpt: "인천대학교 캠퍼스에서 열린 벚꽃 축제와 주변 풍경 사진을 공유합니다.",
+        thumbnail: "/assets/images/thumbnails/sakura.png",
+        url: "/life/2025-04-10-incheon-cherry-blossom-festival.html"
+      },
+      {
+        id: 4,
+        title: "AI 연구실 인턴 합격 후기",
+        date: "March 15, 2025",
+        readTime: "8 min read",
+        excerpt: "서울대 AI 연구실 인턴 지원 과정과 합격 소식, 그리고 앞으로의 계획을 공유합니다.",
+        thumbnail: "/assets/images/thumbnails/internship.png",
+        url: "/life/2025-03-15-ai-lab-internship-acceptance.html"
+      },
+      {
+        id: 5,
+        title: "캡스톤 디자인 중간 발표 후기",
+        date: "March 2, 2025",
+        readTime: "9 min read",
+        excerpt: "졸업 프로젝트인 캡스톤 디자인 중간 발표를 마치고 교수님들의 피드백과 개선 방향을 정리했습니다.",
+        thumbnail: "/assets/images/thumbnails/presentation.png",
+        url: "/life/2025-03-02-capstone-midterm-presentation.html"
+      },
+      {
+        id: 6,
+        title: "정보처리기사 실기 합격 후기",
+        date: "February 20, 2025",
+        readTime: "10 min read",
+        excerpt: "정보처리기사 실기 시험 준비 과정과 공부 방법, 합격 소감을 공유합니다.",
+        thumbnail: "/assets/images/thumbnails/certificate.png",
+        url: "/life/2025-02-20-information-processing-engineer-pass.html"
+      }
+    ];
+
+    // 전역 변수 설정
+    const postsPerPage = 4;
+    let currentPage = 1;
+    
     document.addEventListener('DOMContentLoaded', function() {
+      const postsContainer = document.getElementById('posts-container');
       const loadMoreBtn = document.getElementById('load-more-btn');
-      const loadMoreContainer = document.getElementById('load-more-container');
-      const hiddenPosts = document.querySelector('.hidden-posts');
+      const loadingIndicator = document.getElementById('loading-indicator');
       
-      // 현재는 추가 포스트가 없으므로 더보기 버튼은 숨겨둠
-      // 나중에 게시물이 추가되면 이 부분을 수정하면 됨
-      // loadMoreContainer.style.display = 'block';
+      // 초기 포스트 로드
+      loadPosts();
       
-      if (loadMoreBtn && hiddenPosts) {
-        loadMoreBtn.addEventListener('click', function() {
-          // 숨겨진 포스트 표시
-          hiddenPosts.style.display = 'grid';
-          // 버튼 숨기기
-          loadMoreContainer.style.display = 'none';
-          // 부드러운 스크롤 적용 (첫 번째 추가 포스트로 이동)
-          const firstHiddenPost = hiddenPosts.querySelector('.project-card');
-          if (firstHiddenPost) {
-            firstHiddenPost.scrollIntoView({ behavior: 'smooth' });
+      // 더보기 버튼 클릭 이벤트
+      loadMoreBtn.addEventListener('click', function() {
+        currentPage++;
+        loadPosts();
+      });
+      
+      // 포스트 로드 함수
+      function loadPosts() {
+        // 로딩 표시
+        loadMoreBtn.style.display = 'none';
+        loadingIndicator.style.display = 'block';
+        
+        // 필요한 계산
+        const startIndex = (currentPage - 1) * postsPerPage;
+        const endIndex = startIndex + postsPerPage;
+        const postsToShow = allPosts.slice(startIndex, endIndex);
+        
+        // 지연 효과 추가 (실제 네트워크 로딩 시뮬레이션)
+        setTimeout(() => {
+          // 포스트 HTML 생성
+          let postsHTML = '';
+          
+          postsToShow.forEach(post => {
+            postsHTML += `
+              <div class="project-card">
+                <img src="${post.thumbnail}" alt="${post.title}" loading="lazy">
+                <h3>${post.title}</h3>
+                <p class="project-tags"><span>${post.date}</span> <span>${post.readTime}</span></p>
+                <p>${post.excerpt}</p>
+                <a href="${post.url}" class="post-card-link">Read more →</a>
+              </div>
+            `;
+          });
+          
+          // HTML 추가
+          if (currentPage === 1) {
+            postsContainer.innerHTML = postsHTML;
+          } else {
+            postsContainer.innerHTML += postsHTML;
           }
-        });
+          
+          // 로딩 표시 제거
+          loadingIndicator.style.display = 'none';
+          
+          // 더 표시할 게시물이 있으면 더보기 버튼 표시
+          if (endIndex < allPosts.length) {
+            loadMoreBtn.style.display = 'inline-block';
+            
+            // 다음 포스트 표시를 위해 버튼으로 스크롤
+            if (currentPage > 1) {
+              loadMoreBtn.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }
+          } else {
+            // 더 이상 표시할 게시물이 없음
+            loadMoreBtn.style.display = 'none';
+          }
+        }, 500); // 0.5초 지연
       }
     });
   </script>

@@ -66,160 +66,16 @@
     <p class="tagline">My honest reviews on books, coffee shops, and the latest AI technology trends</p>
   </section>
   
-  <!-- 처음에 보여지는 포스트 8개 (최신순으로 정렬) -->
-  <section class="card-grid initial-posts">
-    <!-- Post 1 (최신) -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/coffee.png" alt="Coffee Review" loading="lazy">
-      <h3>서울 카페 탐방: 커피 리뷰</h3>
-      <p class="project-tags"><span>April 26, 2025</span> <span>6 min read</span></p>
-      <p>서울 홍대와 연남동 지역의 숨은 명소 카페들을 방문하고 맛본 다양한 스페셜티 커피에 대한 리뷰와 추천.</p>
-      <a href="/review/2025-04-26-coffee-review-seoul.html" class="post-card-link">Read more →</a>
-    </div>
-    
-    <!-- Post 2 -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/book.png" alt="Grokking AI Book Review" loading="lazy">
-      <h3>Grokking AI: 책 리뷰</h3>
-      <p class="project-tags"><span>April 25, 2025</span> <span>8 min read</span></p>
-      <p>최근 읽은 AI 학습서 'Grokking AI'에 대한 리뷰. 이 책이 AI 초보자와 전문가 모두에게 왜 유용한지 분석해보았다.</p>
-      <a href="/review/2025-04-25-book-review-grokking-ai.html" class="post-card-link">Read more →</a>
-    </div>
-    
-    <!-- Post 3 -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/lg.png" alt="LG Exaone AI" loading="lazy">
-      <h3>LG AI Exaone 심층 리뷰</h3>
-      <p class="project-tags"><span>March 23, 2025</span> <span>10 min read</span></p>
-      <p>LG가 공개한 한국형 거대 AI 모델 Exaone의 성능과 특징을 자세히 분석해봅니다.</p>
-      <a href="/review/2025-03-23-lg-ai-exaone-deep-review.html" class="post-card-link">Read more →</a>
-    </div>
-    
-    <!-- Post 4 -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/openwebui.png" alt="Open WebUI" loading="lazy">
-      <h3>Open WebUI LLM 가이드</h3>
-      <p class="project-tags"><span>March 11, 2025</span> <span>7 min read</span></p>
-      <p>로컬 LLM 모델을 위한 오픈소스 웹 인터페이스인 Open WebUI의 사용법과 장점을 소개합니다.</p>
-      <a href="/review/2025-03-11-open-webui-llm-guide.html" class="post-card-link">Read more →</a>
-    </div>
-    
-    <!-- Post 5 -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/power.png" alt="AI Power Consumption" loading="lazy">
-      <h3>AI 전력 소비와 컴퓨팅 한계</h3>
-      <p class="project-tags"><span>March 10, 2025</span> <span>9 min read</span></p>
-      <p>대규모 AI 모델의 학습과 추론 과정에서 발생하는 전력 소비 문제와 미래 컴퓨팅 한계에 대한 분석.</p>
-      <a href="/review/2025-03-10-ai-power-consumption-computing-limits.html" class="post-card-link">Read more →</a>
-    </div>
-    
-    <!-- Post 6 -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/grok3.png" alt="Grok 3 Analysis" loading="lazy">
-      <h3>Grok 3 성능 분석</h3>
-      <p class="project-tags"><span>February 18, 2025</span> <span>8 min read</span></p>
-      <p>Elon Musk의 xAI가 공개한 Grok 3 모델의 성능과 특징을 다른 LLM 모델들과 비교 분석합니다.</p>
-      <a href="/review/2025-02-18-grok3-analysis.html" class="post-card-link">Read more →</a>
-    </div>
-    
-    <!-- Post 7 -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/llmquant.png" alt="LLM Quantization" loading="lazy">
-      <h3>LLM 양자화 기법 개요</h3>
-      <p class="project-tags"><span>January 26, 2025</span> <span>6 min read</span></p>
-      <p>대형 언어 모델(LLM)의 효율적인 배포를 위한 양자화 기법들에 대한 개요와 사용 사례를 설명합니다.</p>
-      <a href="/review/2025-01-26-llm-quantization-overview-usage.html" class="post-card-link">Read more →</a>
-    </div>
-    
-    <!-- Post 8 -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/langchain.png" alt="LangChain" loading="lazy">
-      <h3>LangChain: LLM 애플리케이션 프레임워크</h3>
-      <p class="project-tags"><span>January 26, 2025</span> <span>7 min read</span></p>
-      <p>LLM 기반 애플리케이션 개발을 위한 인기 프레임워크인 LangChain의 핵심 기능과 활용법을 소개합니다.</p>
-      <a href="/review/2025-01-26-langchain-llm-application-framework.html" class="post-card-link">Read more →</a>
-    </div>
+  <!-- 포스트를 로드할 컨테이너 -->
+  <section class="card-grid" id="posts-container">
+    <!-- 포스트는 JavaScript로 동적으로 채워집니다 -->
   </section>
   
   <!-- 더보기 버튼 -->
   <div class="text-center" style="margin: 2rem 0;">
     <button id="load-more-btn" class="btn">더 많은 리뷰 보기</button>
+    <p id="loading-indicator" style="display: none;">포스트 로딩 중...</p>
   </div>
-  
-  <!-- 추가로 로드될 포스트 (처음에는 숨겨짐) -->
-  <section class="card-grid hidden-posts" style="display: none;">
-    <!-- Post 9 -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/llama.png" alt="Llama RAG" loading="lazy">
-      <h3>Llama RAG 구현 가이드</h3>
-      <p class="project-tags"><span>January 26, 2025</span> <span>12 min read</span></p>
-      <p>Meta의 Llama 모델을 이용한 Retrieval-Augmented Generation (RAG) 시스템 구현 방법을 단계별로 설명합니다.</p>
-      <a href="/review/2025-01-26-llama-rag-implementation.html" class="post-card-link">Read more →</a>
-    </div>
-    
-    <!-- Post 10 -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/finetuning.png" alt="Llama Fine-tuning" loading="lazy">
-      <h3>Llama 파인튜닝 가이드</h3>
-      <p class="project-tags"><span>January 26, 2025</span> <span>11 min read</span></p>
-      <p>Meta의 Llama 모델을 특정 작업에 맞게 파인튜닝하는 방법과 LoRA를 이용한 경량화 테크닉을 소개합니다.</p>
-      <a href="/review/2025-01-26-llama-fine-tuning-guide.html" class="post-card-link">Read more →</a>
-    </div>
-    
-    <!-- Post 11 -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/multimodal.png" alt="Multimodal AI" loading="lazy">
-      <h3>멀티모달 AI란 무엇인가</h3>
-      <p class="project-tags"><span>January 22, 2025</span> <span>8 min read</span></p>
-      <p>텍스트, 이미지, 오디오 등 여러 형태의 데이터를 처리할 수 있는 멀티모달 AI의 개념과 응용 사례를 알아봅니다.</p>
-      <a href="/review/2025-01-22-what-is-multimodal-ai.html" class="post-card-link">Read more →</a>
-    </div>
-    
-    <!-- Post 12 -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/cursor.png" alt="Cursor AI Editor" loading="lazy">
-      <h3>Cursor AI 에디터 리뷰</h3>
-      <p class="project-tags"><span>January 22, 2025</span> <span>9 min read</span></p>
-      <p>AI 기반 코드 에디터인 Cursor의 주요 기능과 개발 생산성 향상에 미치는 영향을 분석합니다.</p>
-      <a href="/review/2025-01-22-cursor-ai-editor-review.html" class="post-card-link">Read more →</a>
-    </div>
-    
-    <!-- Post 13 -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/qwen.png" alt="Qwen 2.5" loading="lazy">
-      <h3>알리바바 Qwen 2.5 소개</h3>
-      <p class="project-tags"><span>January 20, 2025</span> <span>7 min read</span></p>
-      <p>알리바바에서 출시한 Qwen 2.5 모델의 특징과 이전 버전에 비해 향상된 성능을 벤치마크 결과와 함께 살펴봅니다.</p>
-      <a href="/review/2025-01-20-alibaba-qwen-2.5-intro.html" class="post-card-link">Read more →</a>
-    </div>
-    
-    <!-- Post 14 -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/rag.png" alt="RAG" loading="lazy">
-      <h3>RAG(검색 증강 생성)이란?</h3>
-      <p class="project-tags"><span>January 17, 2025</span> <span>10 min read</span></p>
-      <p>LLM의 환각 현상을 줄이고 정확도를 높이는 Retrieval-Augmented Generation(RAG) 기술의 원리와 구현 방법을 설명합니다.</p>
-      <a href="/review/2025-01-17-what-is-rag.html" class="post-card-link">Read more →</a>
-    </div>
-    
-    <!-- Post 15 -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/agent.png" alt="AI Agent" loading="lazy">
-      <h3>AI 에이전트란 무엇인가</h3>
-      <p class="project-tags"><span>January 13, 2025</span> <span>8 min read</span></p>
-      <p>스스로 목표를 달성하기 위해 행동을 계획하고 실행하는 AI 에이전트의 개념과 최신 연구 동향을 소개합니다.</p>
-      <a href="/review/2025-01-13-what-is-ai-agent.html" class="post-card-link">Read more →</a>
-    </div>
-    
-    <!-- Post 16 -->
-    <div class="project-card">
-      <img src="/assets/images/thumbnails/deepseek.png" alt="DeepSeek V3" loading="lazy">
-      <h3>DeepSeek V3 출시 소식</h3>
-      <p class="project-tags"><span>January 12, 2025</span> <span>6 min read</span></p>
-      <p>중국 AI 스타트업 DeepSeek에서 출시한 V3 모델의 새로운 기능과 성능 개선 사항을 알아봅니다.</p>
-      <a href="/review/2025-01-12-deepseek-v3-release.html" class="post-card-link">Read more →</a>
-    </div>
-  </section>
   
   <!-- Tag Cloud for this category -->
   <section>
@@ -256,24 +112,263 @@
   
   <!-- Scripts -->
   <script src="/js/main.js"></script>
+
+  <!-- 포스트 데이터 (실제로는 JSON 파일이나 API를 통해 불러올 수 있음) -->
   <script>
-    // 더보기 버튼 기능 추가
+    // 리뷰 포스트 데이터 (최신순으로 정렬)
+    const allPosts = [
+      {
+        id: 1,
+        title: "서울 카페 탐방: 커피 리뷰",
+        date: "April 26, 2025",
+        readTime: "6 min read",
+        excerpt: "서울 홍대와 연남동 지역의 숨은 명소 카페들을 방문하고 맛본 다양한 스페셜티 커피에 대한 리뷰와 추천.",
+        thumbnail: "/assets/images/thumbnails/coffee.png",
+        url: "/review/2025-04-26-coffee-review-seoul.html"
+      },
+      {
+        id: 2,
+        title: "Grokking AI: 책 리뷰",
+        date: "April 25, 2025",
+        readTime: "8 min read",
+        excerpt: "최근 읽은 AI 학습서 'Grokking AI'에 대한 리뷰. 이 책이 AI 초보자와 전문가 모두에게 왜 유용한지 분석해보았다.",
+        thumbnail: "/assets/images/thumbnails/book.png",
+        url: "/review/2025-04-25-book-review-grokking-ai.html"
+      },
+      {
+        id: 3,
+        title: "LG AI Exaone 심층 리뷰",
+        date: "March 23, 2025",
+        readTime: "10 min read",
+        excerpt: "LG가 공개한 한국형 거대 AI 모델 Exaone의 성능과 특징을 자세히 분석해봅니다.",
+        thumbnail: "/assets/images/thumbnails/lg.png",
+        url: "/review/2025-03-23-lg-ai-exaone-deep-review.html"
+      },
+      {
+        id: 4,
+        title: "Open WebUI LLM 가이드",
+        date: "March 11, 2025",
+        readTime: "7 min read",
+        excerpt: "로컬 LLM 모델을 위한 오픈소스 웹 인터페이스인 Open WebUI의 사용법과 장점을 소개합니다.",
+        thumbnail: "/assets/images/thumbnails/openwebui.png",
+        url: "/review/2025-03-11-open-webui-llm-guide.html"
+      },
+      {
+        id: 5,
+        title: "AI 전력 소비와 컴퓨팅 한계",
+        date: "March 10, 2025",
+        readTime: "9 min read",
+        excerpt: "대규모 AI 모델의 학습과 추론 과정에서 발생하는 전력 소비 문제와 미래 컴퓨팅 한계에 대한 분석.",
+        thumbnail: "/assets/images/thumbnails/power.png",
+        url: "/review/2025-03-10-ai-power-consumption-computing-limits.html"
+      },
+      {
+        id: 6,
+        title: "Grok 3 성능 분석",
+        date: "February 18, 2025",
+        readTime: "8 min read",
+        excerpt: "Elon Musk의 xAI가 공개한 Grok 3 모델의 성능과 특징을 다른 LLM 모델들과 비교 분석합니다.",
+        thumbnail: "/assets/images/thumbnails/grok3.png",
+        url: "/review/2025-02-18-grok3-analysis.html"
+      },
+      {
+        id: 7,
+        title: "LLM 양자화 기법 개요",
+        date: "January 26, 2025",
+        readTime: "6 min read",
+        excerpt: "대형 언어 모델(LLM)의 효율적인 배포를 위한 양자화 기법들에 대한 개요와 사용 사례를 설명합니다.",
+        thumbnail: "/assets/images/thumbnails/llmquant.png",
+        url: "/review/2025-01-26-llm-quantization-overview-usage.html"
+      },
+      {
+        id: 8,
+        title: "LangChain: LLM 애플리케이션 프레임워크",
+        date: "January 26, 2025",
+        readTime: "7 min read",
+        excerpt: "LLM 기반 애플리케이션 개발을 위한 인기 프레임워크인 LangChain의 핵심 기능과 활용법을 소개합니다.",
+        thumbnail: "/assets/images/thumbnails/langchain.png",
+        url: "/review/2025-01-26-langchain-llm-application-framework.html"
+      },
+      {
+        id: 9,
+        title: "Llama RAG 구현 가이드",
+        date: "January 26, 2025",
+        readTime: "12 min read",
+        excerpt: "Meta의 Llama 모델을 이용한 Retrieval-Augmented Generation (RAG) 시스템 구현 방법을 단계별로 설명합니다.",
+        thumbnail: "/assets/images/thumbnails/llama.png",
+        url: "/review/2025-01-26-llama-rag-implementation.html"
+      },
+      {
+        id: 10,
+        title: "Llama 파인튜닝 가이드",
+        date: "January 26, 2025",
+        readTime: "11 min read",
+        excerpt: "Meta의 Llama 모델을 특정 작업에 맞게 파인튜닝하는 방법과 LoRA를 이용한 경량화 테크닉을 소개합니다.",
+        thumbnail: "/assets/images/thumbnails/finetuning.png",
+        url: "/review/2025-01-26-llama-fine-tuning-guide.html"
+      },
+      {
+        id: 11,
+        title: "멀티모달 AI란 무엇인가",
+        date: "January 22, 2025",
+        readTime: "8 min read",
+        excerpt: "텍스트, 이미지, 오디오 등 여러 형태의 데이터를 처리할 수 있는 멀티모달 AI의 개념과 응용 사례를 알아봅니다.",
+        thumbnail: "/assets/images/thumbnails/multimodal.png",
+        url: "/review/2025-01-22-what-is-multimodal-ai.html"
+      },
+      {
+        id: 12,
+        title: "Cursor AI 에디터 리뷰",
+        date: "January 22, 2025",
+        readTime: "9 min read",
+        excerpt: "AI 기반 코드 에디터인 Cursor의 주요 기능과 개발 생산성 향상에 미치는 영향을 분석합니다.",
+        thumbnail: "/assets/images/thumbnails/cursor.png",
+        url: "/review/2025-01-22-cursor-ai-editor-review.html"
+      },
+      {
+        id: 13,
+        title: "알리바바 Qwen 2.5 소개",
+        date: "January 20, 2025",
+        readTime: "7 min read",
+        excerpt: "알리바바에서 출시한 Qwen 2.5 모델의 특징과 이전 버전에 비해 향상된 성능을 벤치마크 결과와 함께 살펴봅니다.",
+        thumbnail: "/assets/images/thumbnails/qwen.png",
+        url: "/review/2025-01-20-alibaba-qwen-2.5-intro.html"
+      },
+      {
+        id: 14,
+        title: "RAG(검색 증강 생성)이란?",
+        date: "January 17, 2025",
+        readTime: "10 min read",
+        excerpt: "LLM의 환각 현상을 줄이고 정확도를 높이는 Retrieval-Augmented Generation(RAG) 기술의 원리와 구현 방법을 설명합니다.",
+        thumbnail: "/assets/images/thumbnails/rag.png",
+        url: "/review/2025-01-17-what-is-rag.html"
+      },
+      {
+        id: 15,
+        title: "AI 에이전트란 무엇인가",
+        date: "January 13, 2025",
+        readTime: "8 min read",
+        excerpt: "스스로 목표를 달성하기 위해 행동을 계획하고 실행하는 AI 에이전트의 개념과 최신 연구 동향을 소개합니다.",
+        thumbnail: "/assets/images/thumbnails/agent.png",
+        url: "/review/2025-01-13-what-is-ai-agent.html"
+      },
+      {
+        id: 16,
+        title: "DeepSeek V3 출시 소식",
+        date: "January 12, 2025",
+        readTime: "6 min read",
+        excerpt: "중국 AI 스타트업 DeepSeek에서 출시한 V3 모델의 새로운 기능과 성능 개선 사항을 알아봅니다.",
+        thumbnail: "/assets/images/thumbnails/deepseek.png",
+        url: "/review/2025-01-12-deepseek-v3-release.html"
+      },
+      {
+        id: 17,
+        title: "TFlops: GPU 성능 지표",
+        date: "January 9, 2025",
+        readTime: "8 min read",
+        excerpt: "GPU 성능을 비교할 때 자주 언급되는 TFlops의 의미와 실제 사용 시 성능과의 관계를 설명합니다.",
+        thumbnail: "/assets/images/thumbnails/tflops.png",
+        url: "/review/2025-01-09-tflops-gpu-performance-metric.html"
+      },
+      {
+        id: 18,
+        title: "Genesis Physics Engine 소개",
+        date: "January 5, 2025",
+        readTime: "7 min read",
+        excerpt: "실시간 물리 엔진인 Genesis의 특징과 게임 개발에서의 활용 방안에 대해 알아봅니다.",
+        thumbnail: "/assets/images/thumbnails/physics.png",
+        url: "/review/2025-01-05-genesis-physics-engine.html"
+      },
+      {
+        id: 19,
+        title: "TensorFlow zlib.dll 오류 해결",
+        date: "November 29, 2024",
+        readTime: "5 min read",
+        excerpt: "Windows 환경에서 TensorFlow 사용 시 발생하는 zlib.dll 오류의 원인과 해결 방법을 알아봅니다.",
+        thumbnail: "/assets/images/thumbnails/tensorflow.png",
+        url: "/review/2024-11-29-tensorflow-zlibwapi-error-fix.html"
+      },
+      {
+        id: 20,
+        title: "Docker 배포 자동화",
+        date: "November 25, 2024",
+        readTime: "10 min read",
+        excerpt: "CI/CD 파이프라인을 통한 Docker 컨테이너 자동 빌드 및 배포 방법을 단계별로 설명합니다.",
+        thumbnail: "/assets/images/thumbnails/docker.png",
+        url: "/review/2024-11-25-docker-deployment-automation.html"
+      }
+      // 실제로는 더 많은 게시물이 있을 수 있음
+    ];
+
+    // 전역 변수 선언
+    const postsPerPage = 8;
+    let currentPage = 1;
+    
     document.addEventListener('DOMContentLoaded', function() {
+      const postsContainer = document.getElementById('posts-container');
       const loadMoreBtn = document.getElementById('load-more-btn');
-      const hiddenPosts = document.querySelector('.hidden-posts');
+      const loadingIndicator = document.getElementById('loading-indicator');
       
-      if (loadMoreBtn && hiddenPosts) {
-        loadMoreBtn.addEventListener('click', function() {
-          // 숨겨진 포스트 표시
-          hiddenPosts.style.display = 'grid';
-          // 버튼 숨기기
-          loadMoreBtn.style.display = 'none';
-          // 부드러운 스크롤 적용 (첫 번째 추가 포스트로 이동)
-          const firstHiddenPost = hiddenPosts.querySelector('.project-card');
-          if (firstHiddenPost) {
-            firstHiddenPost.scrollIntoView({ behavior: 'smooth' });
+      // 초기 포스트 로드
+      loadPosts();
+      
+      // 더보기 버튼 클릭 이벤트
+      loadMoreBtn.addEventListener('click', function() {
+        currentPage++;
+        loadPosts();
+      });
+      
+      // 포스트 로드 함수
+      function loadPosts() {
+        // 로딩 표시
+        loadMoreBtn.style.display = 'none';
+        loadingIndicator.style.display = 'block';
+        
+        // 필요한 계산
+        const startIndex = (currentPage - 1) * postsPerPage;
+        const endIndex = startIndex + postsPerPage;
+        const postsToShow = allPosts.slice(startIndex, endIndex);
+        
+        // 지연 효과 추가 (실제 네트워크 로딩 시뮬레이션)
+        setTimeout(() => {
+          // 포스트 HTML 생성
+          let postsHTML = '';
+          
+          postsToShow.forEach(post => {
+            postsHTML += `
+              <div class="project-card">
+                <img src="${post.thumbnail}" alt="${post.title}" loading="lazy">
+                <h3>${post.title}</h3>
+                <p class="project-tags"><span>${post.date}</span> <span>${post.readTime}</span></p>
+                <p>${post.excerpt}</p>
+                <a href="${post.url}" class="post-card-link">Read more →</a>
+              </div>
+            `;
+          });
+          
+          // HTML 추가
+          if (currentPage === 1) {
+            postsContainer.innerHTML = postsHTML;
+          } else {
+            postsContainer.innerHTML += postsHTML;
           }
-        });
+          
+          // 로딩 표시 제거
+          loadingIndicator.style.display = 'none';
+          
+          // 더 표시할 게시물이 있으면 더보기 버튼 표시
+          if (endIndex < allPosts.length) {
+            loadMoreBtn.style.display = 'inline-block';
+            
+            // 다음 포스트 표시를 위해 버튼으로 스크롤
+            if (currentPage > 1) {
+              loadMoreBtn.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }
+          } else {
+            // 더 이상 표시할 게시물이 없음
+            loadMoreBtn.style.display = 'none';
+          }
+        }, 500); // 0.5초 지연
       }
     });
   </script>
