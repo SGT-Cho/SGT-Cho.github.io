@@ -285,7 +285,7 @@ const urlsToCache = [
   '/css/style.css',
   '/css/light.css',
   '/js/main.js',
-  '/assets/images/avatar-minjae.jpg',
+  '/assets/images/minjae.png',
   '/assets/images/banner.jpg',
   '/posts.json'
 ];
@@ -380,7 +380,7 @@ def generate_manifest_json():
         "theme_color": "#22d3ee",
         "icons": [
             {
-                "src": "/assets/images/avatar-minjae.jpg",
+                "src": "/assets/images/minjae.png",
                 "sizes": "192x192",
                 "type": "image/jpeg"
             }
