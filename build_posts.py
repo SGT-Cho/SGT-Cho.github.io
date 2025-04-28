@@ -15,8 +15,8 @@ AVAILABLE_THUMBNAILS = [
 
 # 카테고리별 기본 썸네일 (존재하는 파일로 변경)
 BASE_THUMBNAILS = {
-    'life': '/assets/images/thumbnails/daily.png',
-    'review': '/assets/images/thumbnails/daily.png'  # ai.png가 없으므로 daily.png로 대체
+    'life': '/assets/images/thumbnails/coffee.png',
+    'review': '/assets/images/thumbnails/empty.png'  # ai.png가 없으므로 daily.png로 대체
 }
 
 # 직접 설정된 썸네일 매핑
