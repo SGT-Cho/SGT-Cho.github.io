@@ -1,254 +1,274 @@
 [
   {
-    "title": "Life | Minjae's Life & Review Blog",
-    "url": "/life/index.html",
-    "date": "index.html",
-    "category": "Life",
-    "teaser": "/assets/images/thumbnails/daily.png"
-  },
-  {
-    "title": "Review | Minjae's Life & Review Blog",
-    "url": "/review/index.html",
-    "date": "index.html",
-    "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
-  },
-  {
     "title": "졸업 준비 일상: 2025년 봄 | Minjae's Life & Review Blog",
     "url": "/life/2025-04-27-daily-graduation-prep.html",
     "date": "2025-04-27",
     "category": "Life",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/graduation.png",
+    "readtime": 5
   },
   {
     "title": "서울 스페셜티 커피 숍 베스트 5 | Minjae's Life & Review Blog",
     "url": "/review/2025-04-26-coffee-review-seoul.html",
     "date": "2025-04-26",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/coffee.png"
+    "teaser": "/assets/images/thumbnails/coffee.png",
+    "readtime": 5
   },
   {
     "title": "책 리뷰: Grokking AI - 인공지능 알고리즘 이해하기 | Minjae's Life & Review Blog",
     "url": "/review/2025-04-25-book-review-grokking-ai.html",
     "date": "2025-04-25",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/book.png"
+    "teaser": "/assets/images/thumbnails/book.png",
+    "readtime": 5
   },
   {
     "title": "SegFormer를 활용한 균열 감지 세그멘테이션 | Minjae's Life & Review Blog",
     "url": "/review/2025-04-15-segformer-crack-detection.html",
     "date": "2025-04-15",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "LG AI Exaone deep 사용 후기 | Minjae's Life & Review Blog",
     "url": "/review/2025-03-23-lg-ai-exaone-deep-review.html",
     "date": "2025-03-23",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "Open WebUI를 사용한 간편한 LLM 사용기 | Minjae's Life & Review Blog",
     "url": "/review/2025-03-11-open-webui-llm-guide.html",
     "date": "2025-03-11",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "AI가 요구하는 막대한 전력량과 컴퓨팅 구조의 한계 | Minjae's Life & Review Blog",
     "url": "/review/2025-03-10-ai-power-consumption-computing-limits.html",
     "date": "2025-03-10",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "Grok3: xAI의 혁신적인 차세대 AI 모델 분석 | Minjae's Life & Review Blog",
     "url": "/review/2025-02-18-grok3-analysis.html",
     "date": "2025-02-18",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "Llama에 RAG를 적용하여 똑똑한 인공지능 만들기 | Minjae's Life & Review Blog",
     "url": "/review/2025-01-26-llama-rag-implementation.html",
     "date": "2025-01-26",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "LLaMA 모델 파인튜닝: 이론과 실습 | Minjae's Life & Review Blog",
     "url": "/review/2025-01-26-llama-fine-tuning-guide.html",
     "date": "2025-01-26",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "LLM에서의 양자화(Quantization): 개요와 활용 | Minjae's Life & Review Blog",
     "url": "/review/2025-01-26-llm-quantization-overview-usage.html",
     "date": "2025-01-26",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "LangChain: 언어 모델 기반 애플리케이션 개발의 새로운 패러다임 | Minjae's Life & Review Blog",
     "url": "/review/2025-01-26-langchain-llm-application-framework.html",
     "date": "2025-01-26",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "Cursor AI: 혁신적인 AI 기반 코드 편집기 | Minjae's Life & Review Blog",
     "url": "/review/2025-01-22-cursor-ai-editor-review.html",
     "date": "2025-01-22",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "멀티모달(Multimodal)이란 무엇일까? | Minjae's Life & Review Blog",
     "url": "/review/2025-01-22-what-is-multimodal-ai.html",
     "date": "2025-01-22",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "알리바바의 최신 언어 모델: Qwen 2.5 소개 | Minjae's Life & Review Blog",
     "url": "/review/2025-01-20-alibaba-qwen-2.5-intro.html",
     "date": "2025-01-20",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "RAG란 무엇인가? – 검색 기반 생성 모델 (Retrieval-Augmented Generation) | Minjae's Life & Review Blog",
     "url": "/review/2025-01-17-what-is-rag.html",
     "date": "2025-01-17",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "AI 에이전트란 무엇인가? | Minjae's Life & Review Blog",
     "url": "/review/2025-01-13-what-is-ai-agent.html",
     "date": "2025-01-13",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "DeepSeek V3 의 등장: GPT-4를 능가하는 오픈 소스 AI 모델 | Minjae's Life & Review Blog",
     "url": "/review/2025-01-12-deepseek-v3-release.html",
     "date": "2025-01-12",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "TFLOPS: GPU 성능의 핵심 지표 | Minjae's Life & Review Blog",
     "url": "/review/2025-01-09-tflops-gpu-performance-metric.html",
     "date": "2025-01-09",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "Genesis: 로봇 공학과 AI를 위한 혁신적인 물리 엔진 | Minjae's Life & Review Blog",
     "url": "/review/2025-01-05-genesis-physics-engine.html",
     "date": "2025-01-05",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "TensorFlow 'Could not locate zlibwapi.dll' 오류 해결 방법 | Minjae's Life & Review Blog",
     "url": "/review/2024-11-29-tensorflow-zlibwapi-error-fix.html",
     "date": "2024-11-29",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "Docker로 애플리케이션 배포 자동화하기 | Minjae's Life & Review Blog",
     "url": "/review/2024-11-25-docker-deployment-automation.html",
     "date": "2024-11-25",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "선형 회귀란? | Minjae's Life & Review Blog",
     "url": "/review/2024-09-09-linear-regression-basics.html",
     "date": "2024-09-09",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "네이버커넥트 SEF 2024 팝업행사 후기 | Minjae's Life & Review Blog",
     "url": "/life/2024-09-06-naver-sef-popup-event.html",
     "date": "2024-09-06",
     "category": "Life",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/event.png",
+    "readtime": 5
   },
   {
     "title": "생성적 적대 신경망(GAN): AI 기반 생성 기술의 혁신 | Minjae's Life & Review Blog",
     "url": "/review/2024-08-27-gan-generative-adversarial-network.html",
     "date": "2024-08-27",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "YOLO (You Only Look Once): 실시간 객체 탐지를 위한 혁신적인 딥러닝 모델 | Minjae's Life & Review Blog",
     "url": "/review/2024-08-24-yolo-object-detection.html",
     "date": "2024-08-24",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "Convolutional Neural Networks (CNN): 이미지 처리와 딥러닝의 핵심 기술 | Minjae's Life & Review Blog",
     "url": "/review/2024-08-19-cnn-image-processing-deep-learning.html",
     "date": "2024-08-19",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "Anaconda3: Data Science와 Machine Learning 을 위한 필수 플랫폼 - Minjae의 블로그",
     "url": "/review/2024-08-17-anaconda3-data-science-platform.html",
     "date": "2024-08-17",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/book.png",
+    "readtime": 5
   },
   {
     "title": "인공지능의 윤리적 문제: 책임성과 투명성을 위한 고찰 | Minjae's Life & Review Blog",
     "url": "/review/2024-08-15-ai-ethics-responsibility-transparency.html",
     "date": "2024-08-15",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "BERT: 자연어 처리의 혁신 | Minjae's Life & Review Blog",
     "url": "/review/2024-08-14-bert-natural-language-processing-innovation.html",
     "date": "2024-08-14",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "LLM이란? 대규모 언어 모델의 이해 | Minjae's Life & Review Blog",
     "url": "/review/2024-08-12-what-are-large-language-models.html",
     "date": "2024-08-12",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "AI? ML? DL? 인공지능 관련 개념 정리 | Minjae's Life & Review Blog",
     "url": "/review/2024-08-10-ai-ml-dl-concepts.html",
     "date": "2024-08-10",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "Spiking Neural Network(SNN)이란? | Minjae's Life & Review Blog",
     "url": "/review/2024-08-09-spiking-neural-networks-review.html",
     "date": "2024-08-09",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   },
   {
     "title": "Tesseract OCR 엔진 사용 가이드 | Minjae's Life & Review Blog",
     "url": "/review/2023-03-26-Tesseract-ocr-review.html",
     "date": "2023-03-26",
     "category": "Review",
-    "teaser": "/assets/images/thumbnails/daily.png"
+    "teaser": "/assets/images/thumbnails/ai.png",
+    "readtime": 5
   }
 ]
