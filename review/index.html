@@ -66,9 +66,9 @@
     <p class="tagline">My honest reviews on books, coffee shops, and the latest AI technology trends</p>
   </section>
   
-  <!-- Post Listings -->
-  <section class="card-grid">
-    <!-- Post 1 -->
+  <!-- 처음에 보여지는 포스트 8개 (최신순으로 정렬) -->
+  <section class="card-grid initial-posts">
+    <!-- Post 1 (최신) -->
     <div class="project-card">
       <img src="/assets/images/thumbnails/coffee.png" alt="Coffee Review" loading="lazy">
       <h3>서울 카페 탐방: 커피 리뷰</h3>
@@ -139,10 +139,85 @@
       <p>LLM 기반 애플리케이션 개발을 위한 인기 프레임워크인 LangChain의 핵심 기능과 활용법을 소개합니다.</p>
       <a href="/review/2025-01-26-langchain-llm-application-framework.html" class="post-card-link">Read more →</a>
     </div>
+  </section>
+  
+  <!-- 더보기 버튼 -->
+  <div class="text-center" style="margin: 2rem 0;">
+    <button id="load-more-btn" class="btn">더 많은 리뷰 보기</button>
+  </div>
+  
+  <!-- 추가로 로드될 포스트 (처음에는 숨겨짐) -->
+  <section class="card-grid hidden-posts" style="display: none;">
+    <!-- Post 9 -->
+    <div class="project-card">
+      <img src="/assets/images/thumbnails/llama.png" alt="Llama RAG" loading="lazy">
+      <h3>Llama RAG 구현 가이드</h3>
+      <p class="project-tags"><span>January 26, 2025</span> <span>12 min read</span></p>
+      <p>Meta의 Llama 모델을 이용한 Retrieval-Augmented Generation (RAG) 시스템 구현 방법을 단계별로 설명합니다.</p>
+      <a href="/review/2025-01-26-llama-rag-implementation.html" class="post-card-link">Read more →</a>
+    </div>
     
-    <!-- 더보기 버튼 -->
-    <div class="text-center" style="grid-column: 1/-1; margin-top: 2rem;">
-      <a href="/archive/#review" class="btn">더 많은 리뷰 보기</a>
+    <!-- Post 10 -->
+    <div class="project-card">
+      <img src="/assets/images/thumbnails/finetuning.png" alt="Llama Fine-tuning" loading="lazy">
+      <h3>Llama 파인튜닝 가이드</h3>
+      <p class="project-tags"><span>January 26, 2025</span> <span>11 min read</span></p>
+      <p>Meta의 Llama 모델을 특정 작업에 맞게 파인튜닝하는 방법과 LoRA를 이용한 경량화 테크닉을 소개합니다.</p>
+      <a href="/review/2025-01-26-llama-fine-tuning-guide.html" class="post-card-link">Read more →</a>
+    </div>
+    
+    <!-- Post 11 -->
+    <div class="project-card">
+      <img src="/assets/images/thumbnails/multimodal.png" alt="Multimodal AI" loading="lazy">
+      <h3>멀티모달 AI란 무엇인가</h3>
+      <p class="project-tags"><span>January 22, 2025</span> <span>8 min read</span></p>
+      <p>텍스트, 이미지, 오디오 등 여러 형태의 데이터를 처리할 수 있는 멀티모달 AI의 개념과 응용 사례를 알아봅니다.</p>
+      <a href="/review/2025-01-22-what-is-multimodal-ai.html" class="post-card-link">Read more →</a>
+    </div>
+    
+    <!-- Post 12 -->
+    <div class="project-card">
+      <img src="/assets/images/thumbnails/cursor.png" alt="Cursor AI Editor" loading="lazy">
+      <h3>Cursor AI 에디터 리뷰</h3>
+      <p class="project-tags"><span>January 22, 2025</span> <span>9 min read</span></p>
+      <p>AI 기반 코드 에디터인 Cursor의 주요 기능과 개발 생산성 향상에 미치는 영향을 분석합니다.</p>
+      <a href="/review/2025-01-22-cursor-ai-editor-review.html" class="post-card-link">Read more →</a>
+    </div>
+    
+    <!-- Post 13 -->
+    <div class="project-card">
+      <img src="/assets/images/thumbnails/qwen.png" alt="Qwen 2.5" loading="lazy">
+      <h3>알리바바 Qwen 2.5 소개</h3>
+      <p class="project-tags"><span>January 20, 2025</span> <span>7 min read</span></p>
+      <p>알리바바에서 출시한 Qwen 2.5 모델의 특징과 이전 버전에 비해 향상된 성능을 벤치마크 결과와 함께 살펴봅니다.</p>
+      <a href="/review/2025-01-20-alibaba-qwen-2.5-intro.html" class="post-card-link">Read more →</a>
+    </div>
+    
+    <!-- Post 14 -->
+    <div class="project-card">
+      <img src="/assets/images/thumbnails/rag.png" alt="RAG" loading="lazy">
+      <h3>RAG(검색 증강 생성)이란?</h3>
+      <p class="project-tags"><span>January 17, 2025</span> <span>10 min read</span></p>
+      <p>LLM의 환각 현상을 줄이고 정확도를 높이는 Retrieval-Augmented Generation(RAG) 기술의 원리와 구현 방법을 설명합니다.</p>
+      <a href="/review/2025-01-17-what-is-rag.html" class="post-card-link">Read more →</a>
+    </div>
+    
+    <!-- Post 15 -->
+    <div class="project-card">
+      <img src="/assets/images/thumbnails/agent.png" alt="AI Agent" loading="lazy">
+      <h3>AI 에이전트란 무엇인가</h3>
+      <p class="project-tags"><span>January 13, 2025</span> <span>8 min read</span></p>
+      <p>스스로 목표를 달성하기 위해 행동을 계획하고 실행하는 AI 에이전트의 개념과 최신 연구 동향을 소개합니다.</p>
+      <a href="/review/2025-01-13-what-is-ai-agent.html" class="post-card-link">Read more →</a>
+    </div>
+    
+    <!-- Post 16 -->
+    <div class="project-card">
+      <img src="/assets/images/thumbnails/deepseek.png" alt="DeepSeek V3" loading="lazy">
+      <h3>DeepSeek V3 출시 소식</h3>
+      <p class="project-tags"><span>January 12, 2025</span> <span>6 min read</span></p>
+      <p>중국 AI 스타트업 DeepSeek에서 출시한 V3 모델의 새로운 기능과 성능 개선 사항을 알아봅니다.</p>
+      <a href="/review/2025-01-12-deepseek-v3-release.html" class="post-card-link">Read more →</a>
     </div>
   </section>
   
@@ -181,5 +256,26 @@
   
   <!-- Scripts -->
   <script src="/js/main.js"></script>
+  <script>
+    // 더보기 버튼 기능 추가
+    document.addEventListener('DOMContentLoaded', function() {
+      const loadMoreBtn = document.getElementById('load-more-btn');
+      const hiddenPosts = document.querySelector('.hidden-posts');
+      
+      if (loadMoreBtn && hiddenPosts) {
+        loadMoreBtn.addEventListener('click', function() {
+          // 숨겨진 포스트 표시
+          hiddenPosts.style.display = 'grid';
+          // 버튼 숨기기
+          loadMoreBtn.style.display = 'none';
+          // 부드러운 스크롤 적용 (첫 번째 추가 포스트로 이동)
+          const firstHiddenPost = hiddenPosts.querySelector('.project-card');
+          if (firstHiddenPost) {
+            firstHiddenPost.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>

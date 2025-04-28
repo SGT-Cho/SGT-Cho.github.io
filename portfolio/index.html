@@ -31,9 +31,9 @@
     <p class="tagline">실전에 적용하며 다듬어 온 대표 프로젝트들을 정리했습니다.</p>
   </section>
 
-  <!-- Card Grid -->
-  <section class="card-grid">
-    <!-- Local LLM -->
+  <!-- 초기에 표시되는 프로젝트 (3개) -->
+  <section class="card-grid initial-projects">
+    <!-- Local LLM (최신 프로젝트) -->
     <div class="project-card" data-modal="modal-llm">
       <img src="/assets/images/portfolio/llm.png" alt="Local LLM screenshot">
       <h3>Local LLM (LLaMA 3.1 8B + RAG)</h3>
@@ -56,7 +56,15 @@
       <p class="project-tags"><span>#GCP</span> <span>#Streaming</span></p>
       <p>멀티채널·실시간 한국어 음성 인식 시스템</p>
     </div>
-
+  </section>
+  
+  <!-- 더보기 버튼 -->
+  <div class="text-center" style="margin: 2rem 0;">
+    <button id="load-more-btn" class="btn">더 많은 프로젝트 보기</button>
+  </div>
+  
+  <!-- 추가 프로젝트 (처음에는 숨겨짐) -->
+  <section class="card-grid hidden-projects" style="display: none;">
     <!-- Damage Segmentation -->
     <div class="project-card" data-modal="modal-damage">
       <img src="/assets/images/portfolio/cardamage.png" alt="Car Damage Segmentation screenshot">
@@ -175,5 +183,26 @@
   </div>
 </main>
 <script src="/js/main.js"></script>
+<script>
+  // 더보기 버튼 기능 구현
+  document.addEventListener('DOMContentLoaded', function() {
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const hiddenProjects = document.querySelector('.hidden-projects');
+    
+    if (loadMoreBtn && hiddenProjects) {
+      loadMoreBtn.addEventListener('click', function() {
+        // 숨겨진 프로젝트 표시
+        hiddenProjects.style.display = 'grid';
+        // 버튼 숨기기
+        loadMoreBtn.style.display = 'none';
+        // 부드러운 스크롤 적용
+        const firstHiddenProject = hiddenProjects.querySelector('.project-card');
+        if (firstHiddenProject) {
+          firstHiddenProject.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
+  });
+</script>
 </body>
 </html>
