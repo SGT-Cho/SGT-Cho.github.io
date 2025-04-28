@@ -355,7 +355,7 @@ header nav {
 /* Card Grid Layout */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 2rem;
   margin: 2rem 0;
 }
@@ -367,19 +367,19 @@ header nav {
   }
 }
 
-@media (min-width: 1024px) and (max-width: 1399px) {
+@media (min-width: 992px) and (max-width: 1399px) {
   .card-grid {
     grid-template-columns: repeat(3, 1fr); /* 3 cards per row on large screens */
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 576px) and (max-width: 991px) {
   .card-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 cards per row on medium screens */
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 575px) {
   .card-grid {
     grid-template-columns: 1fr; /* 1 card per row on small screens */
   }

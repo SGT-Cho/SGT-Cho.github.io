@@ -83,11 +83,10 @@
       <p>프로젝트를 불러오는 중...</p>
     </div>
   </section>
-  
-  <!-- 더보기 버튼 -->
-  <div class="text-center" style="margin: 2rem 0;">
-    <button id="load-more-btn" class="btn">더 많은 프로젝트 보기</button>
-    <p id="loading-indicator" style="display: none;">프로젝트 로딩 중...</p>
+
+  <!-- Loading indicator for infinite scroll -->
+  <div id="infinite-scroll-status" class="text-center" style="margin: 2rem 0; display: none;">
+    <p>프로젝트 로딩 중...</p>
   </div>
 </main>
   
@@ -205,7 +204,7 @@
     let filteredProjects = [...portfolioProjects];
     
     // 페이지네이션 설정
-    setupDynamicPagination(filteredProjects);
+    setupInfiniteScroll(filteredProjects);
     
     // 필터 버튼 클릭 이벤트
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -224,8 +223,8 @@
           filteredProjects = portfolioProjects.filter(project => project.category === filterValue);
         }
         
-        // 페이지네이션 재설정
-        setupDynamicPagination(filteredProjects);
+        // 무한 스크롤 재설정
+        setupInfiniteScroll(filteredProjects);
       });
     });
     
@@ -255,11 +254,10 @@
       }
     });
     
-    // 화면 크기 기반 동적 페이지네이션 설정
-    function setupDynamicPagination(projects) {
+    // 화면 크기 기반 동적 무한 스크롤 설정
+    function setupInfiniteScroll(projects) {
       const projectsContainer = document.getElementById('projects-container');
-      const loadMoreBtn = document.getElementById('load-more-btn');
-      const loadingIndicator = document.getElementById('loading-indicator');
+      const infiniteScrollStatus = document.getElementById('infinite-scroll-status');
       const loadingInitial = document.getElementById('loading-initial');
       
       // 초기 로딩 표시 제거
@@ -290,32 +288,30 @@
       // 초기 프로젝트 로드
       loadProjects();
       
-      // 더보기 버튼 클릭 이벤트
-      loadMoreBtn.addEventListener('click', function() {
-        loadProjects();
+      // 스크롤 이벤트 감지
+      window.addEventListener('scroll', function() {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+          loadProjects();
+        }
       });
       
       // 화면 크기 변경 감지 이벤트
       window.addEventListener('resize', function() {
         // 화면 크기 변경 시에는 버튼 상태만 업데이트
-        updateButtonState();
+        updateScrollStatus();
       });
       
-      // 버튼 상태 업데이트 함수
-      function updateButtonState() {
+      // 스크롤 상태 업데이트 함수
+      function updateScrollStatus() {
         if (currentIndex >= projects.length) {
-          loadMoreBtn.style.display = 'none';
+          infiniteScrollStatus.style.display = 'none';
         } else {
-          loadMoreBtn.style.display = 'inline-block';
+          infiniteScrollStatus.style.display = 'block';
         }
       }
       
       // 프로젝트 로드 함수
       function loadProjects() {
-        // 로딩 표시
-        loadMoreBtn.style.display = 'none';
-        loadingIndicator.style.display = 'block';
-        
         // 로드할 프로젝트 수 계산
         const projectsToLoadCount = calculateVisibleProjectCount() * 2; // 화면에 표시되는 프로젝트의 2배
         
@@ -353,16 +349,8 @@
           // 현재 인덱스 업데이트
           currentIndex = endIndex;
           
-          // 로딩 표시 제거
-          loadingIndicator.style.display = 'none';
-          
-          // 더보기 버튼 상태 업데이트
-          updateButtonState();
-          
-          // 다음 프로젝트 표시를 위해 버튼으로 스크롤 (첫 로드가 아닐 경우)
-          if (currentIndex > projectsToLoadCount) {
-            loadMoreBtn.scrollIntoView({ behavior: 'smooth', block: 'end' });
-          }
+          // 스크롤 상태 업데이트
+          updateScrollStatus();
         }, 300);
       }
       
