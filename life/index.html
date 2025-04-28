@@ -74,9 +74,9 @@
     </div>
   </section>
   
-  <!-- Loading indicator for infinite scroll -->
-  <div id="infinite-scroll-status" class="text-center" style="margin: 2rem 0; display: none;">
-    <p>포스트 로딩 중...</p>
+  <!-- 디버깅용 정보 -->
+  <div id="debug-info" class="text-center" style="display: none; margin: 1rem 0; color: #999; font-size: 0.8rem;">
+    <p>총 게시물: <span id="total-posts">0</span>, 로드된 게시물: <span id="loaded-posts">0</span></p>
   </div>
   
   <!-- Tag Cloud for this category -->
@@ -115,15 +115,24 @@
 <script src="/js/main.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    console.log('라이프 페이지 로드됨');
+    
     // 실제 게시물 데이터를 posts.json에서 로드
     fetch('/posts.json')
       .then(response => response.json())
       .then(posts => {
+        console.log('posts.json 로드 완료, 총 게시물 수:', posts.length);
+        
         // Life 게시물만 필터링
-        const lifePosts = posts.filter(post => post.url.includes('/life/') && !post.url.includes('index.html'));
+        const lifePosts = posts.filter(post => post.url.includes('/life/') && !post.url.includes('index.html') && !post.url.includes('/md/'));
+        console.log('필터링된 라이프 게시물 수:', lifePosts.length);
+        
         // 최신 순으로 정렬
         lifePosts.sort((a, b) => new Date(b.date) - new Date(a.date));
-        setupInfiniteScroll(lifePosts);
+        console.log('정렬 완료, 첫 번째 게시물:', lifePosts[0]?.title);
+        
+        // 모든 게시물을 한 번에 로드
+        setupAllPosts(lifePosts);
       })
       .catch(error => {
         console.error('Error loading posts:', error);
@@ -131,98 +140,60 @@
           '<p class="text-center" style="grid-column: 1/-1;">게시물을 불러오는 중 오류가 발생했습니다.</p>';
       });
       
-    // 화면 크기 기반 동적 페이지네이션 설정
-    function setupInfiniteScroll(allPosts) {
+    // 모든 게시물을 한 번에 로드하는 함수
+    function setupAllPosts(allPosts) {
       const postsContainer = document.getElementById('posts-container');
-      const infiniteScrollStatus = document.getElementById('infinite-scroll-status');
       const loadingInitial = document.getElementById('loading-initial');
+      const debugInfo = document.getElementById('debug-info');
+      const totalPostsElement = document.getElementById('total-posts');
+      const loadedPostsElement = document.getElementById('loaded-posts');
       
       // 초기 로딩 표시 제거
       loadingInitial.style.display = 'none';
       
-      // 변수 선언
-      let currentIndex = 0;
+      // 디버깅 정보 표시
+      totalPostsElement.textContent = allPosts.length;
+      loadedPostsElement.textContent = allPosts.length;
+      debugInfo.style.display = 'block';
       
-      // 화면에 표시될 게시물 수를 계산하는 함수
-      function calculateVisiblePostCount() {
-        // 그리드 컨테이너의 너비
-        const containerWidth = postsContainer.offsetWidth;
-        // 카드 최소 너비 (CSS의 min-width 값 + 좌우 여백)
-        const cardMinWidth = 280 + 20; // 300px 기준
-        // 한 행에 들어갈 수 있는 최대 카드 수
-        const cardsPerRow = Math.floor(containerWidth / cardMinWidth);
-        // 현재 화면에 표시할 행 수
-        const rows = 2; // 기본 2행 표시
+      // 모든 게시물 HTML 생성
+      let postsHTML = '';
+      
+      allPosts.forEach((post, index) => {
+        console.log(`게시물 ${index + 1} 처리 중:`, post.title);
         
-        // 전체 표시할 카드 수
-        return Math.max(2, cardsPerRow * rows); // 최소 2개 이상
-      }
-      
-      // 초기 포스트 로드
-      loadPosts();
-      
-      // 스크롤 이벤트 감지
-      window.addEventListener('scroll', function() {
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
-          loadPosts();
+        // 게시물 날짜 형식화
+        const postDate = new Date(post.date);
+        const formattedDate = postDate.toLocaleDateString('en-US', { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric' 
+        });
+        
+        // 적절한 썸네일 이미지 선택
+        let thumbnailImage = 'daily.png';
+        if (post.url.includes('graduation')) {
+          thumbnailImage = 'graduation.png';
+        } else if (post.url.includes('event')) {
+          thumbnailImage = 'event.png';
         }
+        
+        postsHTML += `
+          <div class="project-card">
+            <a href="${post.url}" style="text-decoration: none; color: inherit;">
+              <img src="/assets/images/thumbnails/${thumbnailImage}" alt="${post.title}" loading="lazy">
+              <h3>${post.title}</h3>
+              <p class="project-tags"><span>${formattedDate}</span> <span>${post.readtime || '5'} min read</span></p>
+              <p>${post.teaser || '게시물 내용 미리보기...'}</p>
+              <span class="post-card-link">Read more →</span>
+            </a>
+          </div>
+        `;
       });
       
-      // 포스트 로드 함수
-      function loadPosts() {
-        if (currentIndex >= allPosts.length) {
-          return;
-        }
-        
-        // 로딩 표시
-        infiniteScrollStatus.style.display = 'block';
-        
-        // 로드할 포스트 수 계산
-        const postsToLoadCount = calculateVisiblePostCount() * 2; // 화면에 표시되는 게시물의 2배
-        
-        // 실제로 표시할 게시물 배열 구하기
-        const endIndex = Math.min(currentIndex + postsToLoadCount, allPosts.length);
-        const postsToShow = allPosts.slice(currentIndex, endIndex);
-        
-        // 지연 효과 추가 (실제 네트워크 로딩 시뮬레이션)
-        setTimeout(() => {
-          // 포스트 HTML 생성
-          let postsHTML = '';
-          
-          postsToShow.forEach(post => {
-            // 게시물 날짜 형식화
-            const postDate = new Date(post.date);
-            const formattedDate = postDate.toLocaleDateString('en-US', { 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
-            });
-            
-            postsHTML += `
-              <div class="project-card">
-                <img src="/assets/images/thumbnails/daily.png" alt="${post.title}" loading="lazy">
-                <h3>${post.title}</h3>
-                <p class="project-tags"><span>${formattedDate}</span> <span>${post.readtime || '5'} min read</span></p>
-                <p>${post.teaser || '게시물 내용 미리보기...'}</p>
-                <a href="${post.url}" class="post-card-link">Read more →</a>
-              </div>
-            `;
-          });
-          
-          // HTML 추가
-          if (currentIndex === 0) {
-            postsContainer.innerHTML = postsHTML;
-          } else {
-            postsContainer.innerHTML += postsHTML;
-          }
-          
-          // 현재 인덱스 업데이트
-          currentIndex = endIndex;
-          
-          // 로딩 표시 제거
-          infiniteScrollStatus.style.display = 'none';
-        }, 300);
-      }
+      // HTML 추가
+      postsContainer.innerHTML = postsHTML;
+      console.log('모든 게시물 로드 완료');
     }
   });
 </script>

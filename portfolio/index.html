@@ -84,9 +84,9 @@
     </div>
   </section>
 
-  <!-- Loading indicator for infinite scroll -->
-  <div id="infinite-scroll-status" class="text-center" style="margin: 2rem 0; display: none;">
-    <p>프로젝트 로딩 중...</p>
+  <!-- 디버깅용 정보 -->
+  <div id="debug-info" class="text-center" style="display: none; margin: 1rem 0; color: #999; font-size: 0.8rem;">
+    <p>전체 프로젝트 수: <span id="total-projects">0</span>, 표시된 프로젝트 수: <span id="visible-projects">0</span></p>
   </div>
 </main>
   
@@ -203,8 +203,18 @@
     // 필터링된 프로젝트를 저장할 변수
     let filteredProjects = [...portfolioProjects];
     
-    // 페이지네이션 설정
-    setupInfiniteScroll(filteredProjects);
+    // 프로젝트 컨테이너 초기화
+    const projectsContainer = document.getElementById('projects-container');
+    const debugInfo = document.getElementById('debug-info');
+    const totalProjectsSpan = document.getElementById('total-projects');
+    const visibleProjectsSpan = document.getElementById('visible-projects');
+    
+    // 초기 로딩 표시 제거
+    const loadingInitial = document.getElementById('loading-initial');
+    loadingInitial.style.display = 'none';
+    
+    // 모든 프로젝트 로드
+    loadProjects(filteredProjects);
     
     // 필터 버튼 클릭 이벤트
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -223,23 +233,97 @@
           filteredProjects = portfolioProjects.filter(project => project.category === filterValue);
         }
         
-        // 무한 스크롤 재설정
-        setupInfiniteScroll(filteredProjects);
+        // 프로젝트 컨테이너 초기화
+        projectsContainer.innerHTML = '';
+        
+        // 필터링된 프로젝트 로드
+        loadProjects(filteredProjects);
       });
     });
     
-    // 프로젝트 모달 설정
-    const projectModal = document.getElementById('project-modal');
-    const modalClose = document.querySelector('.modal-close');
+    // 프로젝트 로드 함수
+    function loadProjects(projects) {
+      // 디버깅 정보 업데이트
+      totalProjectsSpan.textContent = portfolioProjects.length;
+      visibleProjectsSpan.textContent = projects.length;
+      debugInfo.style.display = 'block';
+      
+      // 프로젝트 HTML 생성
+      projects.forEach(project => {
+        const projectCard = document.createElement('div');
+        projectCard.className = 'project-card';
+        projectCard.setAttribute('data-project-id', project.id);
+        
+        projectCard.innerHTML = `
+          <img src="/assets/images/portfolio/${project.image}" alt="${project.title}" loading="lazy">
+          <h3>${project.title}</h3>
+          <p class="project-tags">
+            ${project.tags.map(tag => `<span>${tag}</span>`).join(' ')}
+          </p>
+          <p>${project.shortDesc}</p>
+          <button class="btn view-project-btn">View Project</button>
+        `;
+        
+        projectsContainer.appendChild(projectCard);
+        
+        // 프로젝트 카드 클릭 이벤트
+        const viewBtn = projectCard.querySelector('.view-project-btn');
+        viewBtn.addEventListener('click', function() {
+          showProjectDetails(project);
+        });
+      });
+    }
+    
+    // 프로젝트 상세 정보 표시 함수
+    function showProjectDetails(project) {
+      const projectModal = document.getElementById('project-modal');
+      const modalBody = document.querySelector('.modal-body');
+      
+      // 프로젝트 링크 버튼 HTML 생성
+      let linksHTML = '';
+      if (project.github) {
+        linksHTML += `<a href="${project.github}" class="btn btn-outline" target="_blank" rel="noopener noreferrer">GitHub Repository</a>`;
+      }
+      if (project.demo) {
+        linksHTML += `<a href="${project.demo}" class="btn" target="_blank" rel="noopener noreferrer">Live Demo</a>`;
+      }
+      
+      // 모달 내용 생성
+      modalBody.innerHTML = `
+        <div class="modal-project">
+          <img src="/assets/images/portfolio/${project.image}" alt="${project.title}" class="modal-project-img">
+          <div class="modal-project-info">
+            <h2>${project.title}</h2>
+            <p class="project-date">${project.date}</p>
+            <div class="project-tags modal-tags">
+              ${project.tags.map(tag => `<span>${tag}</span>`).join(' ')}
+            </div>
+            <div class="project-description">
+              <p>${project.longDesc}</p>
+            </div>
+            <div class="project-links">
+              ${linksHTML}
+            </div>
+          </div>
+        </div>
+      `;
+      
+      // 모달 표시
+      projectModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+    }
     
     // 모달 닫기 버튼 이벤트
+    const modalClose = document.querySelector('.modal-close');
     modalClose.addEventListener('click', function() {
+      const projectModal = document.getElementById('project-modal');
       projectModal.style.display = 'none';
       document.body.style.overflow = 'auto'; // 스크롤 다시 활성화
     });
     
     // 모달 외부 클릭 시 닫기
     window.addEventListener('click', function(event) {
+      const projectModal = document.getElementById('project-modal');
       if (event.target === projectModal) {
         projectModal.style.display = 'none';
         document.body.style.overflow = 'auto';
@@ -248,150 +332,12 @@
     
     // ESC 키로 모달 닫기
     window.addEventListener('keydown', function(event) {
+      const projectModal = document.getElementById('project-modal');
       if (event.key === 'Escape' && projectModal.style.display === 'flex') {
         projectModal.style.display = 'none';
         document.body.style.overflow = 'auto';
       }
     });
-    
-    // 화면 크기 기반 동적 무한 스크롤 설정
-    function setupInfiniteScroll(projects) {
-      const projectsContainer = document.getElementById('projects-container');
-      const infiniteScrollStatus = document.getElementById('infinite-scroll-status');
-      const loadingInitial = document.getElementById('loading-initial');
-      
-      // 초기 로딩 표시 제거
-      loadingInitial.style.display = 'none';
-      
-      // 변수 초기화
-      let currentIndex = 0;
-      
-      // 화면에 표시될 프로젝트 수를 계산하는 함수
-      function calculateVisibleProjectCount() {
-        // 그리드 컨테이너의 너비
-        const containerWidth = projectsContainer.offsetWidth;
-        // 카드 최소 너비 (CSS의 min-width 값 + 좌우 여백)
-        const cardMinWidth = 320 + 24; // 프로젝트 카드는 조금 더 넓게
-        // 한 행에 들어갈 수 있는 최대 카드 수
-        const cardsPerRow = Math.floor(containerWidth / cardMinWidth) || 1; // 최소 1
-        // 현재 화면에 표시할 행 수
-        const rows = 2; // 기본 2행 표시
-        
-        // 전체 표시할 카드 수
-        return Math.max(1, cardsPerRow * rows); // 최소 1개 이상
-      }
-      
-      // 프로젝트 컨테이너 초기화
-      projectsContainer.innerHTML = '';
-      currentIndex = 0;
-      
-      // 초기 프로젝트 로드
-      loadProjects();
-      
-      // 스크롤 이벤트 감지
-      window.addEventListener('scroll', function() {
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
-          loadProjects();
-        }
-      });
-      
-      // 화면 크기 변경 감지 이벤트
-      window.addEventListener('resize', function() {
-        // 화면 크기 변경 시에는 버튼 상태만 업데이트
-        updateScrollStatus();
-      });
-      
-      // 스크롤 상태 업데이트 함수
-      function updateScrollStatus() {
-        if (currentIndex >= projects.length) {
-          infiniteScrollStatus.style.display = 'none';
-        } else {
-          infiniteScrollStatus.style.display = 'block';
-        }
-      }
-      
-      // 프로젝트 로드 함수
-      function loadProjects() {
-        // 로드할 프로젝트 수 계산
-        const projectsToLoadCount = calculateVisibleProjectCount() * 2; // 화면에 표시되는 프로젝트의 2배
-        
-        // 실제로 표시할 프로젝트 배열 구하기
-        const endIndex = Math.min(currentIndex + projectsToLoadCount, projects.length);
-        const projectsToShow = projects.slice(currentIndex, endIndex);
-        
-        // 지연 효과 추가 (실제 네트워크 로딩 시뮬레이션)
-        setTimeout(() => {
-          // 프로젝트 HTML 생성
-          projectsToShow.forEach(project => {
-            const projectCard = document.createElement('div');
-            projectCard.className = 'project-card';
-            projectCard.setAttribute('data-project-id', project.id);
-            
-            projectCard.innerHTML = `
-              <img src="/assets/images/portfolio/${project.image}" alt="${project.title}" loading="lazy">
-              <h3>${project.title}</h3>
-              <p class="project-tags">
-                ${project.tags.map(tag => `<span>${tag}</span>`).join(' ')}
-              </p>
-              <p>${project.shortDesc}</p>
-              <button class="btn view-project-btn">View Project</button>
-            `;
-            
-            projectsContainer.appendChild(projectCard);
-            
-            // 프로젝트 카드 클릭 이벤트
-            const viewBtn = projectCard.querySelector('.view-project-btn');
-            viewBtn.addEventListener('click', function() {
-              showProjectDetails(project);
-            });
-          });
-          
-          // 현재 인덱스 업데이트
-          currentIndex = endIndex;
-          
-          // 스크롤 상태 업데이트
-          updateScrollStatus();
-        }, 300);
-      }
-      
-      // 프로젝트 상세 정보 표시 함수
-      function showProjectDetails(project) {
-        const modalBody = document.querySelector('.modal-body');
-        
-        // 프로젝트 링크 버튼 HTML 생성
-        let linksHTML = '';
-        if (project.github) {
-          linksHTML += `<a href="${project.github}" class="btn btn-outline" target="_blank" rel="noopener noreferrer">GitHub Repository</a>`;
-        }
-        if (project.demo) {
-          linksHTML += `<a href="${project.demo}" class="btn" target="_blank" rel="noopener noreferrer">Live Demo</a>`;
-        }
-        
-        // 모달 내용 생성
-        modalBody.innerHTML = `
-          <div class="modal-project">
-            <img src="/assets/images/portfolio/${project.image}" alt="${project.title}" class="modal-project-img">
-            <div class="modal-project-info">
-              <h2>${project.title}</h2>
-              <p class="project-date">${project.date}</p>
-              <div class="project-tags modal-tags">
-                ${project.tags.map(tag => `<span>${tag}</span>`).join(' ')}
-              </div>
-              <div class="project-description">
-                <p>${project.longDesc}</p>
-              </div>
-              <div class="project-links">
-                ${linksHTML}
-              </div>
-            </div>
-          </div>
-        `;
-        
-        // 모달 표시
-        projectModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
-      }
-    }
   });
 </script>
 </body>
