@@ -69,6 +69,9 @@
   <!-- 포스트 컨테이너 -->
   <section class="card-grid" id="posts-container">
     <!-- 포스트는 JavaScript로 동적 로드 -->
+    <div id="loading-initial" class="text-center" style="grid-column: 1/-1;">
+      <p>게시물을 불러오는 중...</p>
+    </div>
   </section>
   
   <!-- 더보기 버튼 -->
@@ -89,105 +92,96 @@
   </section>
 </main>
   
-  <!-- Search Modal -->
-  <div class="search-modal">
-    <div class="search-container">
-      <div class="search-form">
-        <input type="text" class="search-input" placeholder="Search posts, topics, or tags...">
-        <button class="search-close">&times;</button>
-      </div>
-      <div class="search-results">
-        <!-- Results will be populated here -->
-      </div>
+<!-- Search Modal -->
+<div class="search-modal">
+  <div class="search-container">
+    <div class="search-form">
+      <input type="text" class="search-input" placeholder="Search posts, topics, or tags...">
+      <button class="search-close">&times;</button>
+    </div>
+    <div class="search-results">
+      <!-- Results will be populated here -->
     </div>
   </div>
+</div>
   
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Minjae Cho · Built with passion and code</p>
-    </div>
-  </footer>
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>&copy; 2025 Minjae Cho · Built with passion and code</p>
+  </div>
+</footer>
   
-  <!-- Scripts -->
-  <script src="/js/main.js"></script>
-  <script>
-    // 라이프 포스트 데이터 (더 많은 포스트를 추가할 수 있음)
-    const allPosts = [
-      {
-        id: 1,
-        title: "졸업을 향한 일상: 2025년 봄",
-        date: "April 27, 2025",
-        readTime: "5 min read",
-        excerpt: "그동안 정처없이 흘러왔을 듯한 나의 모든결의 마무리 단계. 이제야 학기를 끝내시면 될것같아 안도하게 되었음에 대한 일기.",
-        thumbnail: "/assets/images/thumbnails/graduation.png",
-        url: "/life/2025-04-27-daily-graduation-prep.html"
-      },
-      {
-        id: 2,
-        title: "네이버 SEF 2024 참관기",
-        date: "September 6, 2024",
-        readTime: "7 min read",
-        excerpt: "네이버에서 진행한 검색 서비스 컨퍼런스 참관 후기와 느낀점을 정리했습니다.",
-        thumbnail: "/assets/images/thumbnails/naver.png",
-        url: "/life/2024-09-06-naver-sef-popup-event.html"
-      },
-      // 추가 포스트 (앞으로 새 게시물이 추가될 예정)
-      {
-        id: 3,
-        title: "인천 벚꽃 축제 나들이",
-        date: "April 10, 2025",
-        readTime: "6 min read",
-        excerpt: "인천대학교 캠퍼스에서 열린 벚꽃 축제와 주변 풍경 사진을 공유합니다.",
-        thumbnail: "/assets/images/thumbnails/sakura.png",
-        url: "/life/2025-04-10-incheon-cherry-blossom-festival.html"
-      },
-      {
-        id: 4,
-        title: "AI 연구실 인턴 합격 후기",
-        date: "March 15, 2025",
-        readTime: "8 min read",
-        excerpt: "서울대 AI 연구실 인턴 지원 과정과 합격 소식, 그리고 앞으로의 계획을 공유합니다.",
-        thumbnail: "/assets/images/thumbnails/internship.png",
-        url: "/life/2025-03-15-ai-lab-internship-acceptance.html"
-      },
-      {
-        id: 5,
-        title: "캡스톤 디자인 중간 발표 후기",
-        date: "March 2, 2025",
-        readTime: "9 min read",
-        excerpt: "졸업 프로젝트인 캡스톤 디자인 중간 발표를 마치고 교수님들의 피드백과 개선 방향을 정리했습니다.",
-        thumbnail: "/assets/images/thumbnails/presentation.png",
-        url: "/life/2025-03-02-capstone-midterm-presentation.html"
-      },
-      {
-        id: 6,
-        title: "정보처리기사 실기 합격 후기",
-        date: "February 20, 2025",
-        readTime: "10 min read",
-        excerpt: "정보처리기사 실기 시험 준비 과정과 공부 방법, 합격 소감을 공유합니다.",
-        thumbnail: "/assets/images/thumbnails/certificate.png",
-        url: "/life/2025-02-20-information-processing-engineer-pass.html"
-      }
-    ];
-
-    // 전역 변수 설정
-    const postsPerPage = 4;
-    let currentPage = 1;
-    
-    document.addEventListener('DOMContentLoaded', function() {
+<!-- Scripts -->
+<script src="/js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 실제 게시물 데이터를 posts.json에서 로드
+    fetch('/posts.json')
+      .then(response => response.json())
+      .then(posts => {
+        // Life 게시물만 필터링
+        const lifePosts = posts.filter(post => post.url.includes('/life/') && !post.url.includes('index.html'));
+        // 최신 순으로 정렬
+        lifePosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        setupDynamicPagination(lifePosts);
+      })
+      .catch(error => {
+        console.error('Error loading posts:', error);
+        document.getElementById('posts-container').innerHTML = 
+          '<p class="text-center" style="grid-column: 1/-1;">게시물을 불러오는 중 오류가 발생했습니다.</p>';
+      });
+      
+    // 화면 크기 기반 동적 페이지네이션 설정
+    function setupDynamicPagination(allPosts) {
       const postsContainer = document.getElementById('posts-container');
       const loadMoreBtn = document.getElementById('load-more-btn');
       const loadingIndicator = document.getElementById('loading-indicator');
+      const loadingInitial = document.getElementById('loading-initial');
+      
+      // 초기 로딩 표시 제거
+      loadingInitial.style.display = 'none';
+      
+      // 변수 선언
+      let currentIndex = 0;
+      
+      // 화면에 표시될 게시물 수를 계산하는 함수
+      function calculateVisiblePostCount() {
+        // 그리드 컨테이너의 너비
+        const containerWidth = postsContainer.offsetWidth;
+        // 카드 최소 너비 (CSS의 min-width 값 + 좌우 여백)
+        const cardMinWidth = 280 + 20; // 300px 기준
+        // 한 행에 들어갈 수 있는 최대 카드 수
+        const cardsPerRow = Math.floor(containerWidth / cardMinWidth);
+        // 현재 화면에 표시할 행 수
+        const rows = 2; // 기본 2행 표시
+        
+        // 전체 표시할 카드 수
+        return Math.max(2, cardsPerRow * rows); // 최소 2개 이상
+      }
       
       // 초기 포스트 로드
       loadPosts();
       
       // 더보기 버튼 클릭 이벤트
       loadMoreBtn.addEventListener('click', function() {
-        currentPage++;
         loadPosts();
       });
+      
+      // 화면 크기 변경 감지 이벤트
+      window.addEventListener('resize', function() {
+        // 화면 크기 변경 시에는 버튼 상태만 업데이트
+        updateButtonState();
+      });
+      
+      // 버튼 상태 업데이트 함수
+      function updateButtonState() {
+        if (currentIndex >= allPosts.length) {
+          loadMoreBtn.style.display = 'none';
+        } else {
+          loadMoreBtn.style.display = 'inline-block';
+        }
+      }
       
       // 포스트 로드 함수
       function loadPosts() {
@@ -195,10 +189,12 @@
         loadMoreBtn.style.display = 'none';
         loadingIndicator.style.display = 'block';
         
-        // 필요한 계산
-        const startIndex = (currentPage - 1) * postsPerPage;
-        const endIndex = startIndex + postsPerPage;
-        const postsToShow = allPosts.slice(startIndex, endIndex);
+        // 로드할 포스트 수 계산
+        const postsToLoadCount = calculateVisiblePostCount() * 2; // 화면에 표시되는 게시물의 2배
+        
+        // 실제로 표시할 게시물 배열 구하기
+        const endIndex = Math.min(currentIndex + postsToLoadCount, allPosts.length);
+        const postsToShow = allPosts.slice(currentIndex, endIndex);
         
         // 지연 효과 추가 (실제 네트워크 로딩 시뮬레이션)
         setTimeout(() => {
@@ -206,42 +202,49 @@
           let postsHTML = '';
           
           postsToShow.forEach(post => {
+            // 게시물 날짜 형식화
+            const postDate = new Date(post.date);
+            const formattedDate = postDate.toLocaleDateString('en-US', { 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric' 
+            });
+            
             postsHTML += `
               <div class="project-card">
-                <img src="${post.thumbnail}" alt="${post.title}" loading="lazy">
+                <img src="/assets/images/thumbnails/daily.png" alt="${post.title}" loading="lazy">
                 <h3>${post.title}</h3>
-                <p class="project-tags"><span>${post.date}</span> <span>${post.readTime}</span></p>
-                <p>${post.excerpt}</p>
+                <p class="project-tags"><span>${formattedDate}</span> <span>${post.readtime || '5'} min read</span></p>
+                <p>${post.teaser || '게시물 내용 미리보기...'}</p>
                 <a href="${post.url}" class="post-card-link">Read more →</a>
               </div>
             `;
           });
           
           // HTML 추가
-          if (currentPage === 1) {
+          if (currentIndex === 0) {
             postsContainer.innerHTML = postsHTML;
           } else {
             postsContainer.innerHTML += postsHTML;
           }
           
+          // 현재 인덱스 업데이트
+          currentIndex = endIndex;
+          
           // 로딩 표시 제거
           loadingIndicator.style.display = 'none';
           
-          // 더 표시할 게시물이 있으면 더보기 버튼 표시
-          if (endIndex < allPosts.length) {
-            loadMoreBtn.style.display = 'inline-block';
-            
-            // 다음 포스트 표시를 위해 버튼으로 스크롤
-            if (currentPage > 1) {
-              loadMoreBtn.scrollIntoView({ behavior: 'smooth', block: 'end' });
-            }
-          } else {
-            // 더 이상 표시할 게시물이 없음
-            loadMoreBtn.style.display = 'none';
+          // 더보기 버튼 상태 업데이트
+          updateButtonState();
+          
+          // 다음 포스트 표시를 위해 버튼으로 스크롤 (첫 로드가 아닐 경우)
+          if (currentIndex > postsToLoadCount) {
+            loadMoreBtn.scrollIntoView({ behavior: 'smooth', block: 'end' });
           }
-        }, 500); // 0.5초 지연
+        }, 300);
       }
-    });
-  </script>
+    }
+  });
+</script>
 </body>
 </html>

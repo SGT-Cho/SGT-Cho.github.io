@@ -1,18 +1,51 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <title>Portfolio · Minjae Cho</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Minjae's Life & Review Blog</title>
+  
+  <!-- Meta tags for SEO and social sharing -->
+  <meta name="description" content="Featured projects and works by Minjae Cho, AI Engineer and Developer">
+  <meta name="keywords" content="portfolio, AI, deep learning, projects, engineer, developer">
+  <meta name="author" content="Minjae Cho">
+  
+  <!-- Open Graph meta tags for social sharing -->
+  <meta property="og:title" content="Portfolio | Minjae's Life & Review Blog">
+  <meta property="og:description" content="Featured projects and works by Minjae Cho, AI Engineer and Developer">
+  <meta property="og:image" content="/assets/images/banner.jpg">
+  <meta property="og:url" content="https://sgt-cho.github.io/portfolio/">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter card meta tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portfolio | Minjae's Life & Review Blog">
+  <meta name="twitter:description" content="Featured projects and works by Minjae Cho, AI Engineer and Developer">
+  <meta name="twitter:image" content="/assets/images/banner.jpg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="/css/style.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/assets/images/minjae.png">
+  
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/manifest.json">
 </head>
 <body>
 <header>
+  <!-- Header/Navigation -->
   <nav>
     <a href="/" class="nav-logo">
       <img src="/assets/images/minjae.png" alt="Minjae Cho">
       <span>Minjae Cho</span>
     </a>
+    
     <div class="nav-links">
       <a href="/life/">Life</a>
       <a href="/review/">Review</a>
@@ -20,20 +53,35 @@
       <a href="/archive/">Archive</a>
       <a href="/about/">About</a>
     </div>
+    
     <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
       <span></span><span></span><span></span>
     </div>
   </nav>
 </header>
+
 <main>
   <section class="intro">
-    <h1>📂 Project Showcase</h1>
-    <p class="tagline">실전에 적용하며 다듬어 온 대표 프로젝트들을 정리했습니다.</p>
+    <h1>Portfolio</h1>
+    <p class="tagline">Selected projects demonstrating my skills and interests as an AI Engineer</p>
   </section>
-
-  <!-- 프로젝트 카드 그리드 -->
+  
+  <!-- Project filters -->
+  <section class="filters">
+    <div class="filter-options">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="ai">AI Models</button>
+      <button class="filter-btn" data-filter="web">Web Development</button>
+      <button class="filter-btn" data-filter="research">Research</button>
+    </div>
+  </section>
+  
+  <!-- Portfolio projects -->
   <section class="card-grid" id="projects-container">
-    <!-- 프로젝트 카드는 JavaScript로 동적으로 로드됩니다 -->
+    <!-- Projects will be loaded dynamically -->
+    <div id="loading-initial" class="text-center" style="grid-column: 1/-1;">
+      <p>프로젝트를 불러오는 중...</p>
+    </div>
   </section>
   
   <!-- 더보기 버튼 -->
@@ -41,347 +89,321 @@
     <button id="load-more-btn" class="btn">더 많은 프로젝트 보기</button>
     <p id="loading-indicator" style="display: none;">프로젝트 로딩 중...</p>
   </div>
-
-  <!-- Modals (detailed descriptions) -->
-  <div class="project-modal" id="modal-llm">
-    <div class="project-modal-content">
-      <button class="project-modal-close" aria-label="닫기">&times;</button>
-      <h2>Local LLM (LLaMA 3.1 8B + RAG)</h2>
-      <img src="/assets/images/portfolio/llm.png" alt="Local LLM">
-      <h4>🍀 핵심 성과</h4>
-      <ul>
-        <li>LoRA 기반 미세조정으로 VRAM 16 GB에서 추론 가능하도록 최적화</li>
-        <li>Retrieval‑Augmented Generation을 통해 사내 문서 95 % ↑ 정확도로 질의응답</li>
-        <li>Kubernetes + Helm 차트로 GPU 서버 자동 확장 & 무중단 배포</li>
-      </ul>
-      <h4>🛠 기술 스택</h4>
-      <p>Python · PyTorch · HuggingFace Transformers · FAISS · Docker · Kubernetes · nginx</p>
-      <h4>🔗 관련 링크</h4>
-      <p><a href="https://github.com/SGT-Cho/LLM" target="_blank">GitHub Repo</a></p>
-    </div>
-  </div>
-
-  <div class="project-modal" id="modal-crack">
-    <div class="project-modal-content">
-      <button class="project-modal-close" aria-label="닫기">&times;</button>
-      <h2>Building Crack Detection (SegFormer)</h2>
-      <img src="/assets/images/portfolio/crack.png" alt="Crack Detection">
-      <h4>🍀 핵심 성과</h4>
-      <ul>
-        <li>자체 촬영 + 공개 데이터 5 k 장 라벨링 → mIoU 0.87 달성</li>
-        <li>TFLite 변환 & 딥스트림 파이프라인으로 Edge GPU(NVIDIA Jetson) 실시간 추론</li>
-        <li>프로젝트 결과를 2024 INU 캡스톤 Design 전시, 49 팀 중 4위</li>
-      </ul>
-      <h4>🛠 기술 스택</h4>
-      <p>Python · PyTorch · SegFormer · Albumentations · NVIDIA TensorRT</p>
-      <h4>🔗 관련 링크</h4>
-      <p><a href="https://github.com/SGT-Cho/BldgCrackDetection" target="_blank">GitHub Repo</a></p>
-    </div>
-  </div>
-
-  <div class="project-modal" id="modal-speech">
-    <div class="project-modal-content">
-      <button class="project-modal-close" aria-label="닫기">&times;</button>
-      <h2>Speech Recognition (Google Cloud STT)</h2>
-      <img src="/assets/images/portfolio/speech_mfcc.png" alt="Speech Recognition MFCC">
-      <h4>🍀 핵심 성과</h4>
-      <ul>
-        <li>Google Speech Commands v0.02 기준 Top‑1 정확도 63.5 %</li>
-        <li>모델 사이즈 848 KB (5‑state, 2‑mixture GMM‑HMM)로 Edge CPU 구동</li>
-        <li>실시간 스트리밍 WebSocket 파이프라인에서 200 ms 이내 응답 지연 유지</li>
-      </ul>
-      <h4>⚡ 세부 내용</h4>
-      <ul>
-        <li><strong>데이터셋</strong>: 74 k train / 21 k val / 10 k test, 비율 0.7 : 0.2 : 0.1</li>
-        <li><strong>특징 추출</strong>: 13‑dim MFCC + Δ + ΔΔ, 글로벌 CMVN 적용</li>
-        <li><strong>모델링</strong>: SC ASR 패키지 + Numpy 로 순수 CPU 학습 (Python 3.7)</li>
-        <li><strong>훈련</strong>: Early‑stop 5 iter, Validation loss 기반</li>
-        <li><strong>환경</strong>: Windows 11 · Ryzen 5800H · 32 GB RAM</li>
-      </ul>
-      <h4>🛠 기술 스택</h4>
-      <p>Python · Numpy · SC‑ASR · MFCC · GMM‑HMM · Flask‑SocketIO</p>
-      <h4>🔗 관련 링크</h4>
-      <p><a href="https://github.com/SGT-Cho/speech_recognition" target="_blank">GitHub Repo</a></p>
-    </div>
-  </div>
-
-  <div class="project-modal" id="modal-damage">
-    <div class="project-modal-content">
-      <button class="project-modal-close" aria-label="닫기">&times;</button>
-      <h2>Car Damage Segmentation (U‑Net Variant)</h2>
-      <img src="/assets/images/portfolio/cardamage.png" alt="Car Damage Segmentation">
-      <h4>🍀 핵심 성과</h4>
-      <ul>
-        <li>AIFFELTHON 대회 Top 7 % (F1 0.92) 기록</li>
-        <li>Self‑Attention Gate 추가로 U‑Net 기본 대비 F1 3 %↑</li>
-        <li>클라우드 플레어 워커스 + CF R2로 웹 데모 배포</li>
-      </ul>
-      <h4>🛠 기술 스택</h4>
-      <p>TensorFlow · Keras · cv2 · Streamlit</p>
-      <h4>🔗 관련 링크</h4>
-      <p><a href="https://github.com/SGT-Cho/AIFFELTHON" target="_blank">GitHub Repo</a></p>
-    </div>
-  </div>
-
-  <div class="project-modal" id="modal-tracking">
-    <div class="project-modal-content">
-      <button class="project-modal-close" aria-label="닫기">&times;</button>
-      <h2>Real‑Time Car Tracking (CCTV)</h2>
-      <img src="/assets/images/portfolio/cartracking.png" alt="Real‑Time Car Tracking">
-      <h4>🍀 핵심 성과</h4>
-      <ul>
-        <li>YOLOv8 + DeepSORT 파이프라인: 30 FPS 실시간 처리(1080p)</li>
-        <li>Haversine 기반 거리 계산 → 속도 ±2 km/h 정확도</li>
-        <li>FastAPI 백엔드 + Flutter 앱으로 알림 & 대시보드 제공</li>
-      </ul>
-      <h4>🛠 기술 스택</h4>
-      <p>Python · OpenCV · YOLOv8 · DeepSORT · FastAPI · Flutter</p>
-      <h4>🔗 관련 링크</h4>
-      <p><a href="https://github.com/SGT-Cho/RealTimeCarTracking-ComputerVision-" target="_blank">GitHub Repo</a></p>
-    </div>
-  </div>
-
-  <!-- 추가 프로젝트 모달 -->
-  <div class="project-modal" id="modal-text2img">
-    <div class="project-modal-content">
-      <button class="project-modal-close" aria-label="닫기">&times;</button>
-      <h2>텍스트 기반 이미지 생성</h2>
-      <img src="/assets/images/portfolio/text2img.png" alt="Text to Image">
-      <h4>🍀 핵심 성과</h4>
-      <ul>
-        <li>한국어 텍스트 입력을 위한 KoNLPy + CLIP 임베딩 최적화</li>
-        <li>Stable Diffusion XL 모델 WebGPU 최적화로 브라우저 내 실행</li>
-        <li>사용자 피드백 기반 강화학습으로 생성 품질 점진적 향상</li>
-      </ul>
-      <h4>🛠 기술 스택</h4>
-      <p>PyTorch · Diffusers · CLIP · KoNLPy · WebGPU · React</p>
-      <h4>🔗 관련 링크</h4>
-      <p><a href="https://github.com/SGT-Cho/text2img-korean" target="_blank">GitHub Repo</a></p>
-    </div>
-  </div>
-
-  <div class="project-modal" id="modal-recommender">
-    <div class="project-modal-content">
-      <button class="project-modal-close" aria-label="닫기">&times;</button>
-      <h2>논문 추천 시스템</h2>
-      <img src="/assets/images/portfolio/paper.png" alt="Paper Recommender">
-      <h4>🍀 핵심 성과</h4>
-      <ul>
-        <li>arXiv API + Semantic Scholar 데이터로 150k+ 논문 색인</li>
-        <li>BERT + TransE 하이브리드 그래프 임베딩으로 인용 네트워크 분석</li>
-        <li>개인화된 논문 추천 정확도 기존 시스템 대비 27% 향상</li>
-      </ul>
-      <h4>🛠 기술 스택</h4>
-      <p>Python · PyTorch · BERT · Neo4j · FastAPI · Vue.js</p>
-      <h4>🔗 관련 링크</h4>
-      <p><a href="https://github.com/SGT-Cho/PaperRec" target="_blank">GitHub Repo</a></p>
-    </div>
-  </div>
-
-  <div class="project-modal" id="modal-nlp-analytics">
-    <div class="project-modal-content">
-      <button class="project-modal-close" aria-label="닫기">&times;</button>
-      <h2>SNS 감성 분석 시스템</h2>
-      <img src="/assets/images/portfolio/sentiment.png" alt="Sentiment Analysis">
-      <h4>🍀 핵심 성과</h4>
-      <ul>
-        <li>KoELECTRA 감성 파인튜닝으로 5가지 감정 F1 0.89 달성</li>
-        <li>Kafka + Spark Streaming 파이프라인으로 실시간 SNS 데이터 처리</li>
-        <li>브랜드 평판 지표 대시보드로 마케팅팀 의사결정 지원</li>
-      </ul>
-      <h4>🛠 기술 스택</h4>
-      <p>PyTorch · KoELECTRA · Kafka · Spark · Grafana</p>
-      <h4>🔗 관련 링크</h4>
-      <p><a href="https://github.com/SGT-Cho/SentimentKR" target="_blank">GitHub Repo</a></p>
-    </div>
-  </div>
 </main>
+  
+<!-- Project Modal -->
+<div class="modal" id="project-modal">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <div class="modal-body">
+      <!-- Project details will be inserted here -->
+    </div>
+  </div>
+</div>
+  
+<!-- Search Modal -->
+<div class="search-modal">
+  <div class="search-container">
+    <div class="search-form">
+      <input type="text" class="search-input" placeholder="Search posts, topics, or tags...">
+      <button class="search-close">&times;</button>
+    </div>
+    <div class="search-results">
+      <!-- Results will be populated here -->
+    </div>
+  </div>
+</div>
+  
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>&copy; 2025 Minjae Cho · Built with passion and code</p>
+  </div>
+</footer>
+  
+<!-- Scripts -->
 <script src="/js/main.js"></script>
 <script>
-  // 프로젝트 데이터
-  const allProjects = [
-    {
-      id: "llm",
-      title: "Local LLM (LLaMA 3.1 8B + RAG)",
-      tags: ["#LLM", "#RAG", "#LoRA"],
-      description: "로컬·프라이빗 환경에서 동작하는 생성형 AI 파이프라인",
-      image: "/assets/images/portfolio/llm.png"
-    },
-    {
-      id: "crack",
-      title: "Building Crack Detection (SegFormer)",
-      tags: ["#CV", "#Segmentation"],
-      description: "콘크리트 구조물 균열 자동 탐지 모델",
-      image: "/assets/images/portfolio/crack.png"
-    },
-    {
-      id: "speech",
-      title: "Speech Recognition (Google Cloud STT)",
-      tags: ["#GCP", "#Streaming"],
-      description: "멀티채널·실시간 한국어 음성 인식 시스템",
-      image: "/assets/images/portfolio/speech_mfcc.png"
-    },
-    {
-      id: "damage",
-      title: "Car Damage Segmentation (U‑Net Variant)",
-      tags: ["#CV", "#SemanticSeg"],
-      description: "차량 손상 부위 정밀 분할 AI (AIFFELTHON)",
-      image: "/assets/images/portfolio/cardamage.png"
-    },
-    {
-      id: "tracking",
-      title: "Real‑Time Car Tracking (CCTV)",
-      tags: ["#YOLO", "#DeepSORT"],
-      description: "CCTV 영상 기반 실시간 속도 측정",
-      image: "/assets/images/portfolio/cartracking.png"
-    },
-    {
-      id: "text2img",
-      title: "텍스트 기반 이미지 생성",
-      tags: ["#StableDiffusion", "#NLP"],
-      description: "한국어 텍스트 입력으로 이미지를 생성하는 AI 모델",
-      image: "/assets/images/portfolio/text2img.png"
-    },
-    {
-      id: "recommender",
-      title: "논문 추천 시스템",
-      tags: ["#RecSys", "#GraphNN"],
-      description: "인용 네트워크 기반 관련 연구 논문 추천 시스템",
-      image: "/assets/images/portfolio/paper.png"
-    },
-    {
-      id: "nlp-analytics",
-      title: "SNS 감성 분석 시스템",
-      tags: ["#NLP", "#Sentiment"],
-      description: "실시간 SNS 데이터 감정 분석 및 트렌드 모니터링",
-      image: "/assets/images/portfolio/sentiment.png"
-    }
-  ];
-
-  // 전역 변수 설정
-  const projectsPerPage = 3;
-  let currentPage = 1;
-  
   document.addEventListener('DOMContentLoaded', function() {
-    const projectsContainer = document.getElementById('projects-container');
-    const loadMoreBtn = document.getElementById('load-more-btn');
-    const loadingIndicator = document.getElementById('loading-indicator');
+    // 프로젝트 데이터 (실제로는 이 데이터를 서버에서 로드하거나 posts.json에서 가져올 수 있음)
+    const portfolioProjects = [
+      {
+        id: 1,
+        title: "차량 손상 감지 AI 모델",
+        category: "ai",
+        image: "cardamage.png",
+        shortDesc: "딥러닝을 활용해 차량 이미지에서 손상 부위를 자동으로 감지하는 모델 개발",
+        tags: ["Computer Vision", "AI", "Auto Insurance"],
+        date: "2025-04",
+        github: "https://github.com/SGT-Cho/car-damage-detection",
+        demo: "",
+        longDesc: "보험 청구 과정을 자동화하기 위해 YOLOv8 기반의 객체 탐지 모델을 개발했습니다. 이 모델은 차량의 스크래치, 덴트, 파손 등 다양한 유형의 손상을 감지하고 분류할 수 있습니다. 약 5,000장의 차량 이미지로 학습했으며 약 92%의 정확도를 달성했습니다."
+      },
+      {
+        id: 2,
+        title: "멀티모달 LLM 프로젝트",
+        category: "ai",
+        image: "llm.png",
+        shortDesc: "텍스트와 이미지를 함께 처리할 수 있는 대규모 언어 모델 구현",
+        tags: ["NLP", "LLM", "Multimodal AI"],
+        date: "2025-03",
+        github: "https://github.com/SGT-Cho/multimodal-llm",
+        demo: "https://huggingface.co/spaces/SGT-Cho/multimodal-demo",
+        longDesc: "LLaMA 아키텍처를 기반으로 이미지 입력을 처리할 수 있도록 확장한 멀티모달 대규모 언어 모델을 구현했습니다. CLIP 인코더를 활용하여 이미지를 토큰화하고 이를 LLM의 컨텍스트에 통합하는 방식으로 동작합니다. 한국어와 영어 모두 지원합니다."
+      },
+      {
+        id: 3,
+        title: "콘크리트 균열 감지 시스템",
+        category: "ai",
+        image: "crack.png",
+        shortDesc: "안전 점검을 위한 콘크리트 구조물의 균열을 감지하는 컴퓨터 비전 시스템",
+        tags: ["Computer Vision", "Segmentation", "Safety"],
+        date: "2025-02",
+        github: "https://github.com/SGT-Cho/concrete-crack-detection",
+        demo: "",
+        longDesc: "교량, 빌딩 등 콘크리트 구조물의 정기 안전점검을 자동화하기 위한 균열 감지 시스템입니다. SegFormer 아키텍처를 사용해 균열의 정확한 위치와 심각도를 측정할 수 있습니다. 드론으로 촬영한 이미지에서도 높은 성능을 발휘하도록 설계했습니다."
+      },
+      {
+        id: 4,
+        title: "차량 추적 시스템",
+        category: "research",
+        image: "cartracking.png",
+        shortDesc: "교통 모니터링을 위한 실시간 차량 추적 시스템 연구",
+        tags: ["Computer Vision", "Tracking", "Traffic Analysis"],
+        date: "2025-01",
+        github: "https://github.com/SGT-Cho/vehicle-tracking-system",
+        demo: "",
+        longDesc: "CCTV 영상에서 차량을 실시간으로 추적하고 차종과 색상을 식별할 수 있는 시스템입니다. DeepSORT 알고리즘을 개선하여 혼잡한 교통 상황에서도 개별 차량의 이동 경로를 추적할 수 있습니다. 교통 패턴 분석 및 비정상 상황 감지에 활용 가능합니다."
+      },
+      {
+        id: 5,
+        title: "음성 인식 MFCC 분석기",
+        category: "research",
+        image: "speech_mfcc.png",
+        shortDesc: "음성 신호 처리를 위한 MFCC 특성 추출 및 분석 도구",
+        tags: ["Signal Processing", "Audio Analysis", "Speech Recognition"],
+        date: "2024-12",
+        github: "https://github.com/SGT-Cho/mfcc-analyzer",
+        demo: "https://share.streamlit.io/SGT-Cho/mfcc-demo",
+        longDesc: "음성 인식 시스템의 성능 향상을 위한 MFCC(Mel-Frequency Cepstral Coefficients) 분석 도구입니다. 다양한 음성 샘플에서 특성을 추출하고 시각화할 수 있으며, 노이즈 제거와 특성 강화를 위한 여러 전처리 옵션을 제공합니다."
+      },
+      {
+        id: 6,
+        title: "블로그 플랫폼",
+        category: "web",
+        image: "llm.png", // 임시 이미지
+        shortDesc: "정적 사이트 생성기를 활용한 개인 블로그 플랫폼 개발",
+        tags: ["Web Development", "HTML/CSS", "JavaScript"],
+        date: "2024-11",
+        github: "https://github.com/SGT-Cho/SGT-Cho.github.io",
+        demo: "https://sgt-cho.github.io",
+        longDesc: "직접 디자인하고 개발한 개인 블로그 플랫폼입니다. 마크다운 문서를 HTML로 변환하는 정적 사이트 생성 스크립트를 포함하며, 반응형 디자인과 다크 모드 지원, 검색 기능 등을 구현했습니다."
+      }
+    ];
     
-    // 초기 프로젝트 로드
-    loadProjects();
+    // 필터링된 프로젝트를 저장할 변수
+    let filteredProjects = [...portfolioProjects];
     
-    // 더보기 버튼 클릭 이벤트
-    loadMoreBtn.addEventListener('click', function() {
-      currentPage++;
-      loadProjects();
+    // 페이지네이션 설정
+    setupDynamicPagination(filteredProjects);
+    
+    // 필터 버튼 클릭 이벤트
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        // 활성 필터 클래스 변경
+        filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        // 프로젝트 필터링
+        const filterValue = this.getAttribute('data-filter');
+        
+        if (filterValue === 'all') {
+          filteredProjects = [...portfolioProjects];
+        } else {
+          filteredProjects = portfolioProjects.filter(project => project.category === filterValue);
+        }
+        
+        // 페이지네이션 재설정
+        setupDynamicPagination(filteredProjects);
+      });
     });
     
-    // 프로젝트 로드 함수
-    function loadProjects() {
-      // 로딩 표시
-      loadMoreBtn.style.display = 'none';
-      loadingIndicator.style.display = 'block';
+    // 프로젝트 모달 설정
+    const projectModal = document.getElementById('project-modal');
+    const modalClose = document.querySelector('.modal-close');
+    
+    // 모달 닫기 버튼 이벤트
+    modalClose.addEventListener('click', function() {
+      projectModal.style.display = 'none';
+      document.body.style.overflow = 'auto'; // 스크롤 다시 활성화
+    });
+    
+    // 모달 외부 클릭 시 닫기
+    window.addEventListener('click', function(event) {
+      if (event.target === projectModal) {
+        projectModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+    
+    // ESC 키로 모달 닫기
+    window.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && projectModal.style.display === 'flex') {
+        projectModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+    
+    // 화면 크기 기반 동적 페이지네이션 설정
+    function setupDynamicPagination(projects) {
+      const projectsContainer = document.getElementById('projects-container');
+      const loadMoreBtn = document.getElementById('load-more-btn');
+      const loadingIndicator = document.getElementById('loading-indicator');
+      const loadingInitial = document.getElementById('loading-initial');
       
-      // 필요한 계산
-      const startIndex = (currentPage - 1) * projectsPerPage;
-      const endIndex = startIndex + projectsPerPage;
-      const projectsToShow = allProjects.slice(startIndex, endIndex);
+      // 초기 로딩 표시 제거
+      loadingInitial.style.display = 'none';
       
-      // 지연 효과 추가 (실제 네트워크 로딩 시뮬레이션)
-      setTimeout(() => {
-        // 프로젝트 HTML 생성
-        let projectsHTML = '';
+      // 변수 초기화
+      let currentIndex = 0;
+      
+      // 화면에 표시될 프로젝트 수를 계산하는 함수
+      function calculateVisibleProjectCount() {
+        // 그리드 컨테이너의 너비
+        const containerWidth = projectsContainer.offsetWidth;
+        // 카드 최소 너비 (CSS의 min-width 값 + 좌우 여백)
+        const cardMinWidth = 320 + 24; // 프로젝트 카드는 조금 더 넓게
+        // 한 행에 들어갈 수 있는 최대 카드 수
+        const cardsPerRow = Math.floor(containerWidth / cardMinWidth) || 1; // 최소 1
+        // 현재 화면에 표시할 행 수
+        const rows = 2; // 기본 2행 표시
         
-        projectsToShow.forEach(project => {
-          projectsHTML += `
-            <div class="project-card" data-modal="modal-${project.id}">
-              <img src="${project.image}" alt="${project.title}" loading="lazy">
+        // 전체 표시할 카드 수
+        return Math.max(1, cardsPerRow * rows); // 최소 1개 이상
+      }
+      
+      // 프로젝트 컨테이너 초기화
+      projectsContainer.innerHTML = '';
+      currentIndex = 0;
+      
+      // 초기 프로젝트 로드
+      loadProjects();
+      
+      // 더보기 버튼 클릭 이벤트
+      loadMoreBtn.addEventListener('click', function() {
+        loadProjects();
+      });
+      
+      // 화면 크기 변경 감지 이벤트
+      window.addEventListener('resize', function() {
+        // 화면 크기 변경 시에는 버튼 상태만 업데이트
+        updateButtonState();
+      });
+      
+      // 버튼 상태 업데이트 함수
+      function updateButtonState() {
+        if (currentIndex >= projects.length) {
+          loadMoreBtn.style.display = 'none';
+        } else {
+          loadMoreBtn.style.display = 'inline-block';
+        }
+      }
+      
+      // 프로젝트 로드 함수
+      function loadProjects() {
+        // 로딩 표시
+        loadMoreBtn.style.display = 'none';
+        loadingIndicator.style.display = 'block';
+        
+        // 로드할 프로젝트 수 계산
+        const projectsToLoadCount = calculateVisibleProjectCount() * 2; // 화면에 표시되는 프로젝트의 2배
+        
+        // 실제로 표시할 프로젝트 배열 구하기
+        const endIndex = Math.min(currentIndex + projectsToLoadCount, projects.length);
+        const projectsToShow = projects.slice(currentIndex, endIndex);
+        
+        // 지연 효과 추가 (실제 네트워크 로딩 시뮬레이션)
+        setTimeout(() => {
+          // 프로젝트 HTML 생성
+          projectsToShow.forEach(project => {
+            const projectCard = document.createElement('div');
+            projectCard.className = 'project-card';
+            projectCard.setAttribute('data-project-id', project.id);
+            
+            projectCard.innerHTML = `
+              <img src="/assets/images/portfolio/${project.image}" alt="${project.title}" loading="lazy">
               <h3>${project.title}</h3>
               <p class="project-tags">
                 ${project.tags.map(tag => `<span>${tag}</span>`).join(' ')}
               </p>
-              <p>${project.description}</p>
-            </div>
-          `;
-        });
-        
-        // HTML 추가
-        if (currentPage === 1) {
-          projectsContainer.innerHTML = projectsHTML;
-        } else {
-          projectsContainer.innerHTML += projectsHTML;
-        }
-        
-        // 로딩 표시 제거
-        loadingIndicator.style.display = 'none';
-        
-        // 더 표시할 프로젝트가 있으면 더보기 버튼 표시
-        if (endIndex < allProjects.length) {
-          loadMoreBtn.style.display = 'inline-block';
+              <p>${project.shortDesc}</p>
+              <button class="btn view-project-btn">View Project</button>
+            `;
+            
+            projectsContainer.appendChild(projectCard);
+            
+            // 프로젝트 카드 클릭 이벤트
+            const viewBtn = projectCard.querySelector('.view-project-btn');
+            viewBtn.addEventListener('click', function() {
+              showProjectDetails(project);
+            });
+          });
           
-          // 다음 프로젝트 표시를 위해 버튼으로 스크롤
-          if (currentPage > 1) {
+          // 현재 인덱스 업데이트
+          currentIndex = endIndex;
+          
+          // 로딩 표시 제거
+          loadingIndicator.style.display = 'none';
+          
+          // 더보기 버튼 상태 업데이트
+          updateButtonState();
+          
+          // 다음 프로젝트 표시를 위해 버튼으로 스크롤 (첫 로드가 아닐 경우)
+          if (currentIndex > projectsToLoadCount) {
             loadMoreBtn.scrollIntoView({ behavior: 'smooth', block: 'end' });
           }
-        } else {
-          // 더 이상 표시할 프로젝트가 없음
-          loadMoreBtn.style.display = 'none';
+        }, 300);
+      }
+      
+      // 프로젝트 상세 정보 표시 함수
+      function showProjectDetails(project) {
+        const modalBody = document.querySelector('.modal-body');
+        
+        // 프로젝트 링크 버튼 HTML 생성
+        let linksHTML = '';
+        if (project.github) {
+          linksHTML += `<a href="${project.github}" class="btn btn-outline" target="_blank" rel="noopener noreferrer">GitHub Repository</a>`;
+        }
+        if (project.demo) {
+          linksHTML += `<a href="${project.demo}" class="btn" target="_blank" rel="noopener noreferrer">Live Demo</a>`;
         }
         
-        // 프로젝트 카드 클릭 이벤트 재설정 (동적으로 추가된 요소에 대해)
-        setupProjectModals();
-      }, 500); // 0.5초 지연
-    }
-    
-    // 프로젝트 모달 설정 함수
-    function setupProjectModals() {
-      const projectCards = document.querySelectorAll('.project-card');
-      const projectModals = document.querySelectorAll('.project-modal');
-      const closeButtons = document.querySelectorAll('.project-modal-close');
-      
-      // 프로젝트 카드 클릭 이벤트
-      projectCards.forEach(card => {
-        card.addEventListener('click', function() {
-          const modalId = this.getAttribute('data-modal');
-          const modal = document.getElementById(modalId);
-          
-          if (modal) {
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // 스크롤 방지
-          }
-        });
-      });
-      
-      // 닫기 버튼 클릭 이벤트
-      closeButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const modal = this.closest('.project-modal');
-          modal.style.display = 'none';
-          document.body.style.overflow = ''; // 스크롤 재활성화
-        });
-      });
-      
-      // 모달 외부 클릭 시 닫기
-      projectModals.forEach(modal => {
-        modal.addEventListener('click', function(event) {
-          if (event.target === this) {
-            this.style.display = 'none';
-            document.body.style.overflow = '';
-          }
-        });
-      });
-    }
-    
-    // ESC 키로 모달 닫기 (문서 전체에 적용)
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        const visibleModal = document.querySelector('.project-modal[style="display: flex;"]');
-        if (visibleModal) {
-          visibleModal.style.display = 'none';
-          document.body.style.overflow = '';
-        }
+        // 모달 내용 생성
+        modalBody.innerHTML = `
+          <div class="modal-project">
+            <img src="/assets/images/portfolio/${project.image}" alt="${project.title}" class="modal-project-img">
+            <div class="modal-project-info">
+              <h2>${project.title}</h2>
+              <p class="project-date">${project.date}</p>
+              <div class="project-tags modal-tags">
+                ${project.tags.map(tag => `<span>${tag}</span>`).join(' ')}
+              </div>
+              <div class="project-description">
+                <p>${project.longDesc}</p>
+              </div>
+              <div class="project-links">
+                ${linksHTML}
+              </div>
+            </div>
+          </div>
+        `;
+        
+        // 모달 표시
+        projectModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
       }
-    });
+    }
   });
 </script>
 </body>
