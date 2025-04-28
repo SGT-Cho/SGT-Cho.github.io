@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepSeek V3 의 등장: GPT-4를 능가하는 오픈 소스 AI 모델 | Minjae's Life & Review Blog</title>
+
+  <meta name="description" content="중국 AI 스타트업 딥시크(DeepSeek)가 발표한 671B 파라미터 오픈 소스 언어 모델 DeepSeek-V3 소개 및 특징 분석">
+  <meta name="keywords" content="DeepSeek, DeepSeek V3, LLM, AI, 인공지능, 오픈 소스, GPT-4, MoE, MLA">
+  <meta name="author" content="Minjae Cho">
+
+  <meta property="og:title" content="DeepSeek V3 의 등장: GPT-4를 능가하는 오픈 소스 AI 모델 | Minjae's Life & Review Blog">
+  <meta property="og:description" content="중국 AI 스타트업 딥시크(DeepSeek)가 발표한 671B 파라미터 오픈 소스 언어 모델 DeepSeek-V3 소개 및 특징 분석">
+  <meta property="og:image" content="https://velog.velcdn.com/images/sgt-cho/post/467adb58-4732-4db0-9c37-8c57231a280d/image.png">
+  <meta property="og:url" content="https://sgt-cho.github.io/review/2025-01-12-deepseek-v3-release.html"> <meta property="og:type" content="article">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DeepSeek V3 의 등장: GPT-4를 능가하는 오픈 소스 AI 모델">
+  <meta name="twitter:description" content="중국 AI 스타트업 딥시크(DeepSeek)가 발표한 671B 파라미터 오픈 소스 언어 모델 DeepSeek-V3 소개 및 특징 분석">
+  <meta name="twitter:image" content="https://velog.velcdn.com/images/sgt-cho/post/467adb58-4732-4db0-9c37-8c57231a280d/image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css"> <link rel="icon" type="image/x-icon" href="/assets/images/minjae.png"> <link rel="manifest" href="/manifest.json"> </head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="nav-logo"> <img src="/assets/images/minjae.png" alt="Minjae Cho"> <span>Minjae Cho</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/life/">Life</a> <a href="/review/" class="active">Review</a> <a href="/portfolio/">Portfolio</a> <a href="/archive/">Archive</a> <a href="/about/">About</a> </div>
+
+      <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <article class="post">
+    <div class="container">
+      <h1>DeepSeek-V3: GPT-4를 능가하는 오픈 소스 AI 모델의 등장</h1>
+
+      <div class="meta">
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          January 12, 2025
+        </div>
+
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          4 min read </div>
+
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+          </svg>
+          <a href="/review/">Review</a> </div>
+      </div>
+
+      <div class="post-tags">
+        <a href="/tags/DeepSeek/" class="post-tag">DeepSeek</a> <a href="/tags/DeepSeek-V3/" class="post-tag">DeepSeek-V3</a> <a href="/tags/LLM/" class="post-tag">LLM</a> <a href="/tags/AI/" class="post-tag">AI</a> <a href="/tags/오픈소스/" class="post-tag">오픈소스</a> <a href="/tags/GPT-4/" class="post-tag">GPT-4</a> </div>
+
+      <div class="post-content">
+        <img src="https://velog.velcdn.com/images/sgt-cho/post/467adb58-4732-4db0-9c37-8c57231a280d/image.png" alt="DeepSeek V3 Logo/Image" class="post-image">
+
+        <p>최근 인공지능(AI) 분야에서 주목할 만한 소식이 전해졌습니다. 중국의 AI 스타트업 딥시크(DeepSeek)가 6,710억 개의 매개변수를 가진 초대형 오픈 소스 언어 모델인 <strong>DeepSeek-V3</strong>를 발표했습니다. 이는 현재까지 공개된 오픈 소스 모델 중 최대 규모로, OpenAI의 GPT-4와 견줄 만한 성능을 보인다고 합니다.</p>
+
+        <h2>DeepSeek-V3의 주요 특징</h2>
+        <ul>
+          <li><strong>모델 규모</strong>: 총 6,710억 개의 매개변수를 보유하고 있으며, 각 토큰 처리 시 370억 개의 매개변수가 활성화됩니다.</li>
+          <li><strong>아키텍처</strong>: Multi-head Latent Attention(MLA)과 Mixture-of-Experts(MoE) 구조를 채택하여 효율적인 추론과 비용 효율적인 학습을 구현했습니다.</li>
+          <li><strong>학습 데이터</strong>: 14조 8천억 개의 고품질 토큰으로 사전 학습되었으며, Supervised Fine-Tuning(SFT) 및 Reinforcement Learning(RL) 단계를 거쳐 성능을 극대화했습니다.</li>
+          <li><strong>학습 비용</strong>: 엔비디아 H800 GPU를 활용하여 총 2,788,000 GPU 시간을 사용하였으며, 이는 약 557만 달러의 비용으로, 다른 대규모 모델에 비해 경제적입니다.</li>
+        </ul>
+
+        <h2>성능 및 벤치마크 결과</h2>
+        <p>DeepSeek-V3는 다양한 벤치마크 테스트에서 우수한 성능을 입증했습니다. 특히 수학 및 코딩 분야에서 두각을 나타내며, GPT-4를 비롯한 기존 모델들을 능가하는 결과를 보였습니다.</p>
+        <ul>
+          <li><strong>MATH-500 테스트</strong>: 90.2점으로, 기존 모델들을 크게 앞섰습니다.</li>
+          <li><strong>코딩 플랫폼 Codeforces</strong>: 상위 51.6 퍼센타일에 위치하며, 우수한 코딩 능력을 보여주었습니다.</li>
+        </ul>
+
+        <h2>오픈 소스 및 활용 가능성</h2>
+        <p>DeepSeek-V3는 MIT 라이선스 하에 오픈 소스로 공개되어, 상업적 활용이 가능합니다. 이는 연구자와 개발자들에게 새로운 기회를 제공하며, AI 생태계의 발전에 기여할 것으로 기대됩니다.</p>
+
+        <h2>결론</h2>
+        <p>DeepSeek-V3의 등장은 오픈 소스 AI 모델의 새로운 지평을 열었습니다. 특히 GPT-4와 견줄 만한 성능을 보이면서도 경제적인 학습 비용을 실현한 점에서 큰 의미를 갖습니다. 앞으로 이 모델이 다양한 분야에서 어떻게 활용될지 기대됩니다.</p>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Minjae Cho · Built with passion and code</p> </div>
+  </footer>
+
+  <script src="/js/main.js"></script> </body>
+</html>

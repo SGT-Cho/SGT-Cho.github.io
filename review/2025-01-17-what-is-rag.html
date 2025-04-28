@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAG란 무엇인가? – 검색 기반 생성 모델 (Retrieval-Augmented Generation) | Minjae's Life & Review Blog</title>
+
+  <meta name="description" content="검색 기술과 생성 모델을 결합한 RAG(Retrieval-Augmented Generation)의 개념, 작동 원리, 장점 및 활용 사례 소개">
+  <meta name="keywords" content="RAG, Retrieval-Augmented Generation, LLM, AI, 인공지능, 검색 기반 생성, NLP, 챗봇, Q&A 시스템">
+  <meta name="author" content="Minjae Cho">
+
+  <meta property="og:title" content="RAG란 무엇인가? – 검색 기반 생성 모델 (Retrieval-Augmented Generation) | Minjae's Life & Review Blog">
+  <meta property="og:description" content="검색 기술과 생성 모델을 결합한 RAG(Retrieval-Augmented Generation)의 개념, 작동 원리, 장점 및 활용 사례 소개">
+  <meta property="og:url" content="https://sgt-cho.github.io/review/2025-01-17-what-is-rag.html"> <meta property="og:type" content="article">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RAG란 무엇인가? – 검색 기반 생성 모델 (Retrieval-Augmented Generation)">
+  <meta name="twitter:description" content="검색 기술과 생성 모델을 결합한 RAG(Retrieval-Augmented Generation)의 개념, 작동 원리, 장점 및 활용 사례 소개">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css"> <link rel="icon" type="image/x-icon" href="/assets/images/minjae.png"> <link rel="manifest" href="/manifest.json"> </head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="nav-logo"> <img src="/assets/images/minjae.png" alt="Minjae Cho"> <span>Minjae Cho</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/life/">Life</a> <a href="/review/" class="active">Review</a> <a href="/portfolio/">Portfolio</a> <a href="/archive/">Archive</a> <a href="/about/">About</a> </div>
+
+      <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <article class="post">
+    <div class="container">
+      <h1>RAG란 무엇인가? – 검색 기반 생성 모델 (Retrieval-Augmented Generation)</h1>
+
+      <div class="meta">
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          January 17, 2025
+        </div>
+
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          5 min read </div>
+
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+          </svg>
+          <a href="/review/">Review</a> </div>
+      </div>
+
+      <div class="post-tags">
+        <a href="/tags/RAG/" class="post-tag">RAG</a> <a href="/tags/LLM/" class="post-tag">LLM</a> <a href="/tags/AI/" class="post-tag">AI</a> <a href="/tags/검색기반생성/" class="post-tag">검색기반생성</a> <a href="/tags/NLP/" class="post-tag">NLP</a> <a href="/tags/인공지능/" class="post-tag">인공지능</a> </div>
+
+      <div class="post-content">
+        <p>AI와 자연어 처리(NLP)의 발전으로 인해 언어 모델(LLM, Large Language Model)이 많은 관심을 받고 있습니다. 그러나 언어 모델은 사전에 학습한 데이터만으로 답변을 생성하기 때문에 최신 정보나 구체적인 문맥을 반영하기 어렵다는 한계가 있습니다. 이러한 문제를 해결하기 위해 등장한 기술이 바로 <strong>RAG(Retrieval-Augmented Generation)</strong>입니다.</p>
+        <p>이번 글에서는 RAG의 개념, 작동 원리, 장점, 그리고 활용 사례까지 자세히 알아보겠습니다.</p>
+
+        <h2>RAG란 무엇인가?</h2>
+        <p>RAG는 "Retrieval-Augmented Generation"의 약자로, 말 그대로 검색 기반 생성을 의미합니다. 이는 검색 기술과 생성 모델을 결합하여 더 신뢰할 수 있고 풍부한 정보를 제공하는 AI 기술입니다. RAG는 사용자의 질문에 대해 외부 데이터베이스에서 필요한 정보를 검색하고, 이를 바탕으로 언어 모델이 답변을 생성합니다.</p>
+        <p>RAG는 기존 언어 모델이 갖고 있던 두 가지 한계를 극복합니다:</p>
+        <ul>
+          <li><strong>최신성 부족:</strong> 사전 학습 데이터가 최신 정보를 포함하지 못하는 문제.</li>
+          <li><strong>구체성 부족:</strong> 특정 주제나 도메인에 대한 상세한 정보 제공이 어려운 문제.</li>
+        </ul>
+
+        <h2>RAG의 작동 원리</h2>
+        <p>RAG의 작동 과정은 크게 두 단계로 나뉩니다.</p>
+        <h3>1. 정보 검색 (Retrieval)</h3>
+        <ul>
+          <li>사용자가 입력한 질문에 대해 외부 데이터베이스에서 관련 정보를 검색합니다.</li>
+          <li>검색 과정은 일반적으로 벡터 데이터베이스를 활용해 이루어지며, 대표적인 검색 모델로는 <strong>Dense Passage Retrieval(DPR)</strong>이 사용됩니다.</li>
+          <li>이 단계에서는 사용자 질문과 관련된 문서나 데이터를 검색해 <strong>컨텍스트(context)</strong>를 생성 모델에 전달합니다.</li>
+        </ul>
+        <h3>2. 텍스트 생성 (Generation)</h3>
+        <ul>
+          <li>검색된 정보를 바탕으로 대규모 언어 모델(예: GPT-3, T5)이 최종 답변을 생성합니다.</li>
+          <li>검색된 문서는 생성 모델의 입력으로 주어지며, 이를 통해 보다 정확하고 신뢰할 수 있는 응답을 만들어냅니다.</li>
+        </ul>
+        <p>RAG는 두 가지 주요 구조로 구현될 수 있습니다:</p>
+        <ul>
+          <li><strong>RAG-Sequence:</strong> 검색된 문서를 순차적으로 처리하여 답변 생성.</li>
+          <li><strong>RAG-Token:</strong> 검색된 문서에서 단어(토큰) 단위로 정보를 병합하여 답변 생성.</li>
+        </ul>
+
+        <h2>RAG의 장점</h2>
+        <p>RAG는 기존 언어 모델이 갖고 있던 한계를 보완하며 다음과 같은 장점을 제공합니다.</p>
+        <ol>
+          <li><strong>최신 정보 제공</strong>
+            <ul><li>RAG는 실시간 검색을 통해 최신 데이터를 반영할 수 있습니다.</li>
+            <li>이는 주기적으로 업데이트되는 데이터를 필요로 하는 뉴스, 금융, 기술 분야에서 특히 유용합니다.</li></ul>
+          </li>
+          <li><strong>높은 신뢰성</strong>
+            <ul><li>RAG는 검색된 데이터에 기반하여 답변을 생성하기 때문에 결과의 근거를 제공할 수 있습니다.</li>
+            <li>이로 인해 사용자 신뢰도가 높아지고, 생성된 답변이 더 신뢰성 있게 느껴집니다.</li></ul>
+          </li>
+          <li><strong>도메인 특화</strong>
+            <ul><li>특정 도메인(예: 의료, 법률, 기술)에 최적화된 데이터베이스를 활용하면, 해당 분야에 특화된 고품질의 답변을 제공할 수 있습니다.</li></ul>
+          </li>
+          <li><strong>확장성</strong>
+            <ul><li>벡터 데이터베이스와 생성 모델을 결합하는 구조로, 다양한 규모의 데이터 및 애플리케이션에 유연하게 적용할 수 있습니다.</li></ul>
+          </li>
+        </ol>
+
+        <h2>RAG의 활용 사례</h2>
+        <p>RAG는 다양한 분야에서 응용될 수 있습니다. 몇 가지 주요 활용 사례는 다음과 같습니다.</p>
+        <ol>
+          <li><strong>챗봇</strong>: 고객 지원용 챗봇에서 제품 설명서, 자주 묻는 질문(FAQ) 등을 검색해 사용자가 원하는 답변을 제공합니다.</li>
+          <li><strong>문서 요약</strong>: 방대한 문서에서 필요한 정보를 추출하고 요약하여 사용자에게 전달합니다.</li>
+          <li><strong>질문 응답 시스템</strong>: 특정 주제(예: 의료 진단, 법률 상담)에 대해 정확하고 구체적인 정보를 제공하는 Q&A 시스템에 활용됩니다.</li>
+          <li><strong>연구 및 학술</strong>: 학술 논문이나 연구 자료를 검색하여 관련된 지식을 바탕으로 요약을 생성하거나 연구를 지원합니다.</li>
+        </ol>
+
+        <h2>RAG와 함께하는 미래</h2>
+        <p>RAG는 검색과 생성을 결합함으로써 AI가 단순히 정적인 답변을 생성하는 것을 넘어, 실시간으로 변화하는 정보를 반영하고 사용자 요구에 맞는 답변을 제공할 수 있게 합니다.<br>
+        앞으로 RAG는 다양한 산업에서 중요한 기술로 자리 잡을 것이며, 특히 정보의 신뢰성과 최신성을 요구하는 분야에서 큰 혁신을 가져올 것으로 기대됩니다.</p>
+
+        <h2>결론</h2>
+        <p>RAG는 언어 모델의 한계를 극복하며 AI가 더 실용적이고 신뢰성 높은 방식으로 활용될 수 있도록 돕는 혁신적인 기술입니다. 검색 기반 생성이라는 개념은 단순히 AI 모델을 사용하는 것을 넘어, 실제 문제 해결에 적합한 도구로 자리 잡게 만듭니다.</p>
+        <p>RAG를 통해 AI의 가능성을 확장하고, 새로운 세대의 정보 활용 방식을 함께 경험해 보세요! 😊</p>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Minjae Cho · Built with passion and code</p> </div>
+  </footer>
+
+  <script src="/js/main.js"></script> </body>
+</html>

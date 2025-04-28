@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM에서의 양자화(Quantization): 개요와 활용 | Minjae's Life & Review Blog</title>
+  
+  <!-- Meta tags for SEO and social sharing -->
+  <meta name="description" content="대규모 언어 모델(LLM)에서 양자화 기술의 활용 방법과 장단점, 실무 적용 가이드">
+  <meta name="keywords" content="LLM, 양자화, Quantization, AI, 모델 경량화, 추론 최적화">
+  <meta name="author" content="Minjae Cho">
+  
+  <!-- Open Graph meta tags for social sharing -->
+  <meta property="og:title" content="LLM에서의 양자화(Quantization): 개요와 활용 | Minjae's Life & Review Blog">
+  <meta property="og:description" content="대규모 언어 모델(LLM)에서 양자화 기술의 활용 방법과 장단점, 실무 적용 가이드">
+  <meta property="og:image" content="https://sgt-cho.github.io/assets/images/portfolio/llm.png">
+  <meta property="og:url" content="https://sgt-cho.github.io/review/2025-01-26-llm-quantization-overview-usage.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter card meta tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LLM에서의 양자화(Quantization): 개요와 활용">
+  <meta name="twitter:description" content="대규모 언어 모델(LLM)에서 양자화 기술의 활용 방법과 장단점, 실무 적용 가이드">
+  <meta name="twitter:image" content="https://sgt-cho.github.io/assets/images/portfolio/llm.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/assets/images/minjae.png">
+  
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+  <!-- 
+    title: LLM에서의 양자화(Quantization): 개요와 활용
+    date: 2025-01-26
+    category: review
+    tags: AI, LLM, 양자화, Quantization, 모델최적화
+    teaser: 대규모 언어 모델(LLM)에서 양자화 기술의 활용 방법과 장단점, 실무 적용 가이드
+    thumbnail: llm.png
+    readtime: 6
+  -->
+  
+  <!-- Header/Navigation -->
+  <header>
+    <nav>
+      <a href="/" class="nav-logo">
+        <img src="/assets/images/minjae.png" alt="Minjae Cho">
+        <span>Minjae Cho</span>
+      </a>
+      
+      <div class="nav-links">
+        <a href="/life/">Life</a>
+        <a href="/review/" class="active">Review</a>
+        <a href="/portfolio/">Portfolio</a>
+        <a href="/archive/">Archive</a>
+        <a href="/about/">About</a>
+      </div>
+      
+      <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Post Content -->
+  <article class="post">
+    <div class="container">
+      <h1>LLM에서의 양자화(Quantization): 개요와 활용</h1>
+      
+      <div class="meta">
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          January 26, 2025
+        </div>
+        
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          6 min read
+        </div>
+        
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+          </svg>
+          <a href="/review/">Review</a>
+        </div>
+      </div>
+      
+      <div class="post-tags">
+        <a href="/tags/AI/" class="post-tag">AI</a>
+        <a href="/tags/LLM/" class="post-tag">LLM</a>
+        <a href="/tags/양자화/" class="post-tag">양자화</a>
+        <a href="/tags/Quantization/" class="post-tag">Quantization</a>
+        <a href="/tags/모델최적화/" class="post-tag">모델최적화</a>
+      </div>
+      
+      <div class="post-content">
+        <h2>🤔 양자화(Quantization)란?</h2>
+        
+        <p>양자화는 <strong>모델의 가중치와 연산을 낮은 비트(bit)로 변환하는 기술</strong>입니다.<br>
+        예시: 32비트 부동소수점(FP32) → 8비트 정수(INT8)로 변환하여 모델 경량화.</p>
+        <p>수식 예시 (간소화):<br>
+        FP32 값 범위: [-3.4e38, 3.4e38]<br>
+        INT8 변환: [-128, 127] 범위로 매핑 후 반올림</p>
+        
+        <hr>
+        
+        <h2>🎯 양자화가 필요한 이유</h2>
+        
+        <ol>
+          <li>
+            <strong>대규모 언어 모델(LLM)의 리소스 문제</strong>
+            <ul>
+              <li>GPT-3: 175B 파라미터 → FP32 기준 약 <strong>700GB 메모리</strong> 필요</li>
+              <li>양자화 시 <strong>4배 이상 메모리 감소</strong> (INT8: ~175GB)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>실시간 추론 요구 증가</strong>
+            <ul>
+              <li>100ms 이하 응답이 필요한 애플리케이션(챗봇, 번역 등)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>에지 디바이스 제약</strong>
+            <ul>
+              <li>모바일 기기: 평균 RAM 4-8GB → 풀사이즈 모델 배포 불가능</li>
+            </ul>
+          </li>
+        </ol>
+        
+        <hr>
+        
+        <h2>📌 양자화가 필요한 상황</h2>
+        
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>상황</th>
+                <th>설명</th>
+                <th>사례</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>모바일 배포</strong></td>
+                <td>낮은 메모리/전력 환경</td>
+                <td>스마트폰 AI 어시스턴트</td>
+              </tr>
+              <tr>
+                <td><strong>서버 비용 절감</strong></td>
+                <td>동시 처리량 증가</td>
+                <td>클라우드 NLP API 서비스</td>
+              </tr>
+              <tr>
+                <td><strong>저사양 하드웨어</strong></td>
+                <td>GPU 없이 CPU만 사용</td>
+                <td>IoT 기기에서의 텍스트 생성</td>
+              </tr>
+              <tr>
+                <td><strong>대기시간 감소</strong></td>
+                <td>실시간 응답 필요</td>
+                <td>게임 NPC 대화 시스템</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <hr>
+        
+        <h2>👍 양자화의 장점</h2>
+        
+        <ol>
+          <li>
+            <strong>메모리 사용량 감소</strong>
+            <ul>
+              <li>ResNet-50 기준: FP32(98MB) → INT8(25MB)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>추론 속도 향상</strong>
+            <ul>
+              <li>NVIDIA 테스트: INT8이 FP32 대비 <strong>1.5~4배 빠름</strong></li>
+            </ul>
+          </li>
+          <li>
+            <strong>에너지 효율성</strong>
+            <ul>
+              <li>8비트 연산 시 전력 소비 최대 <strong>70% 감소</strong> (ARM 연구 결과)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>하드웨어 최적화</strong>
+            <ul>
+              <li>TPU, NPU 등 AI 가속기와 호환성 향상</li>
+            </ul>
+          </li>
+        </ol>
+        
+        <hr>
+        
+        <h2>👎 양자화의 단점</h2>
+        
+        <pre><code># 양자화 손실 예시 코드 (개념적 구현)
+original_output = model_fp32(input)
+quantized_model = quantize(model_fp32)
+quantized_output = quantized_model(input)
+
+accuracy_drop = calculate_loss(original_output, quantized_output)  # 일반적으로 1-5% 손실</code></pre>
+        
+        <ol>
+          <li>
+            <strong>정확도 하락</strong>
+            <ul>
+              <li>특히 작은 모델에서 영향 큼(BERT-base: ~2% 정확도 감소)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>양자화 노이즈</strong>
+            <ul>
+              <li>극단값(extreme values) 처리 문제</li>
+            </ul>
+          </li>
+          <li>
+            <strong>하드웨어 제약</strong>
+            <ul>
+              <li>일부 저가 장비: 8비트 연산 미지원</li>
+            </ul>
+          </li>
+          <li>
+            <strong>복잡한 파이프라인</strong>
+            <ul>
+              <li>QAT(Quantization-Aware Training) 필요 시 학습 비용 증가</li>
+            </ul>
+          </li>
+        </ol>
+        
+        <hr>
+        
+        <h2>🛠️ 실무 적용 가이드</h2>
+        
+        <p><strong>양자화 방식을 선택할 때 고려사항</strong>:<br>
+        1. 목표 정확도 vs 압축률 트레이드오프<br>
+        2. 타겟 하드웨어 지원 여부 확인<br>
+        3. 프레임워크 호환성 검증(PyTorch, TensorFlow 등)<br>
+        4. PTQ(사후 양자화) vs QAT(양자화 인지 학습) 선택</p>
+        
+        <p><strong>추천 도구</strong>:</p>
+        <ul>
+          <li>PyTorch: <code>torch.quantization</code></li>
+          <li>TensorFlow: <code>TFLite Converter</code></li>
+          <li>ONNX Runtime 양자화 지원</li>
+        </ul>
+        
+        <h3>PyTorch에서의 양자화 적용 예시</h3>
+        
+        <pre><code>import torch
+
+# 1. 모델 준비
+model_fp32 = torch.load("large_llm_model.pth")
+
+# 2. 양자화 준비
+model_fp32.qconfig = torch.quantization.get_default_qconfig('fbgemm')
+model_prepared = torch.quantization.prepare(model_fp32)
+
+# 3. 캘리브레이션 데이터로 양자화 파라미터 결정
+for data in calibration_dataloader:
+    model_prepared(data)
+
+# 4. 양자화 적용
+model_int8 = torch.quantization.convert(model_prepared)
+
+# 5. 저장
+torch.save(model_int8.state_dict(), "quantized_llm_model.pth")</code></pre>
+        
+        <h3>TensorFlow에서의 양자화 적용 예시</h3>
+        
+        <pre><code>import tensorflow as tf
+
+# 원본 모델 로드
+model = tf.keras.models.load_model('original_model.h5')
+
+# TFLite 변환기 초기화
+converter = tf.lite.TFLiteConverter.from_keras_model(model)
+
+# 양자화 설정
+converter.optimizations = [tf.lite.Optimize.DEFAULT]
+converter.target_spec.supported_types = [tf.int8]
+
+# 양자화 캘리브레이션 데이터 생성 함수
+def representative_dataset():
+    for data in calibration_data:
+        yield [tf.dtypes.cast(data, tf.float32)]
+
+converter.representative_dataset = representative_dataset
+
+# 변환 실행
+quantized_model = converter.convert()
+
+# 저장
+with open('quantized_model.tflite', 'wb') as f:
+    f.write(quantized_model)</code></pre>
+        
+        <hr>
+        
+        <h2>📝 결론: 양자화는 선택이 아닌 필수</h2>
+        
+        <p><strong>적용 판단 기준</strong>:</p>
+        
+        <pre><code>[모델 크기] > 500MB → 필수 고려
+[응답시간] > 200ms → 양자화 검토
+[배포 환경] 에지 디바이스 → 필수 적용</code></pre>
+        
+        <p>양자화는 현실적인 제약 조건에서 LLM을 활용하기 위한 핵심 기술입니다.<br>
+        <strong>정확도 손실을 최소화하면서 효율성을 극대화하는 방법</strong>을 찾는 것이 중요합니다.</p>
+        
+        <h3>양자화의 미래 전망</h3>
+        
+        <p>양자화 기술은 계속 발전하고 있으며, 특히 다음과 같은 방향으로 진화하고 있습니다:</p>
+        
+        <ul>
+          <li><strong>혼합 정밀도(Mixed Precision) 양자화</strong>: 모델의 중요한 부분은 높은 비트로, 덜 중요한 부분은 낮은 비트로 양자화하여 성능과 효율성의 균형을 맞추는 방식이 주목받고 있습니다.</li>
+          <li><strong>신경망 구조 탐색</strong>: 양자화에 더 적합한 모델 아키텍처를 자동으로 찾는 Neural Architecture Search(NAS) 기술이 발전하고 있습니다.</li>
+          <li><strong>하드웨어 최적화 양자화</strong>: 특정 하드웨어에 맞춤형으로 최적화된 양자화 기법이 등장하여, 더 높은 성능 향상을 이룰 것으로 예상됩니다.</li>
+        </ul>
+        
+        <p>대규모 언어 모델이 지속적으로 성장함에 따라, 양자화는 이러한 모델을 실제 환경에서 효율적으로 활용하기 위한 필수 기술로 자리매김할 것입니다. 앞으로도 정확도 손실은 최소화하면서 효율성은 극대화하는 더 발전된 양자화 기법이 계속 연구될 것으로 기대됩니다.</p>
+      </div>
+    </div>
+  </article>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Minjae Cho · Built with passion and code</p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="/js/main.js"></script>
+</body>
+</html>

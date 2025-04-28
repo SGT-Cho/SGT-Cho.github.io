@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선형 회귀란? | Minjae's Life & Review Blog</title>
+
+  <meta name="description" content="머신러닝 알고리즘 중 하나인 선형 회귀의 기본 개념, 주요 용어, 손실 함수, 최적화 방법 및 과적합 방지 기법 소개">
+  <meta name="keywords" content="선형 회귀, 머신러닝, AI, 데이터 과학, 손실 함수, 경사 하강법, 정규화, 과적합">
+  <meta name="author" content="Minjae Cho">
+
+  <meta property="og:title" content="선형 회귀란? | Minjae's Life & Review Blog">
+  <meta property="og:description" content="머신러닝 알고리즘 중 하나인 선형 회귀의 기본 개념, 주요 용어, 손실 함수, 최적화 방법 및 과적합 방지 기법 소개">
+  <meta property="og:url" content="https://sgt-cho.github.io/review/2024-09-09-linear-regression-basics.html"> <meta property="og:type" content="article">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="선형 회귀란?">
+  <meta name="twitter:description" content="머신러닝 알고리즘 중 하나인 선형 회귀의 기본 개념, 주요 용어, 손실 함수, 최적화 방법 및 과적합 방지 기법 소개">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css"> <link rel="icon" type="image/x-icon" href="/assets/images/minjae.png"> <link rel="manifest" href="/manifest.json"> </head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="nav-logo"> <img src="/assets/images/minjae.png" alt="Minjae Cho"> <span>Minjae Cho</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/life/">Life</a> <a href="/review/" class="active">Review</a> <a href="/portfolio/">Portfolio</a> <a href="/archive/">Archive</a> <a href="/about/">About</a> </div>
+
+      <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <article class="post">
+    <div class="container">
+      <h1>선형 회귀란?</h1>
+
+      <div class="meta">
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          September 9, 2024
+        </div>
+
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          4 min read </div>
+
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+          </svg>
+          <a href="/review/">Review</a> </div>
+      </div>
+
+      <div class="post-tags">
+        <a href="/tags/선형회귀/" class="post-tag">선형회귀</a> <a href="/tags/머신러닝/" class="post-tag">머신러닝</a> <a href="/tags/AI/" class="post-tag">AI</a> <a href="/tags/데이터과학/" class="post-tag">데이터과학</a> <a href="/tags/알고리즘/" class="post-tag">알고리즘</a> </div>
+
+      <div class="post-content">
+        <p>선형 회귀는 머신러닝 알고리즘 중 하나로, 주어진 입력 데이터에 대해 숫자 값(예: 집값, 주식 가격 등)을 예측하는 데 사용됩니다. 이 알고리즘은 선형 함수를 사용하여 입력과 출력 사이의 관계를 모델링합니다.</p>
+        <p>쉽게 말해, 선형 회귀는 "입력값에 따라 결과값이 선형적으로 변한다"는 가정을 기반으로 합니다. 예를 들어, 집 크기가 클수록 가격도 비례해서 올라간다고 가정할 수 있겠죠? 그 관계를 수학적으로 표현해 예측을 하게 되는 것입니다.</p>
+
+        <h2>선형 회귀의 주요 개념</h2>
+        <h3>모델</h3>
+        <p>선형 회귀에서 우리는 아래와 같은 수식을 사용함:</p>
+        $$y = w_1x_1 + w_2x_2 + \cdots + w_Dx_D + b$$
+        <p>여기서 $y$는 우리가 예측하고 싶은 결과값(예: 주식 가격), $x_1, x_2, \dots, x_D$는 입력값(예: 연령, 키 등), $w_1, w_2, \dots, w_D$는 각 입력에 곱해지는 가중치, 그리고 $b$는 바이어스(또는 상수)라고 합니다. 이때 이 가중치와 바이어스를 통해 데이터를 기반으로 예측하는 것이 목표입니다.</p>
+
+        <h3>손실 함수</h3>
+        <p>예측값과 실제값이 얼마나 차이나는지 측정하는 함수입니다. 일반적으로 제곱 오차를 사용합니다:</p>
+        $$L(y,t) = \frac{1}{2}(y-t)^2$$
+        <p>여기서 $y$는 예측값, $t$는 실제값입니다. 이 손실 함수는 예측이 실제와 얼마나 차이나는지 보여줍니다. 이 값이 작을수록 모델의 예측이 더 정확하다는 의미입니다.</p>
+
+        <h3>벡터화</h3>
+        <p>선형 회귀 모델은 주로 많은 데이터를 처리하기 때문에, 효율적으로 계산할 수 있는 방법이 필요합니다. 벡터화는 수학적 계산을 벡터나 행렬 형태로 변환하여 빠르게 처리하는 방법을 말합니다. 예를 들어, 파이썬에서 for문으로 처리하는 대신 numpy를 이용해 벡터화된 연산을 사용하는 게 더 빠릅니다.</p>
+
+        <h3>최소화 문제 해결</h3>
+        <p>우리는 손실 함수가 가장 작은 가중치와 바이어스를 찾아야 합니다. 이를 위해 두 가지 접근 방식이 있습니다:</p>
+        <ul>
+          <li><strong>직접 해법</strong>: 수식을 풀어 가중치와 바이어스를 구하는 방식입니다.</li>
+          <li><strong>최적화 알고리즘</strong>: 반복적으로 계산을 통해 점진적으로 최적값을 찾는 방식입니다. <strong>경사 하강법(Gradient Descent)</strong>이 대표적입니다.</li>
+        </ul>
+
+        <h2>정규화와 과적합</h2>
+        <p>모델이 너무 복잡하면 훈련 데이터에는 잘 맞지만, 새로운 데이터에는 성능이 떨어질 수 있습니다. 이를 <strong>과적합(Overfitting)</strong>이라고 합니다. 이를 방지하기 위해 우리는 <strong>정규화(Regularization)</strong>를 사용합니다. 그중 대표적인 방법은 L2 정규화로, 너무 큰 가중치를 벌하는 방식입니다.</p>
+
+        <h2>결론</h2>
+        <p>선형 회귀는 간단하지만 매우 강력한 머신러닝 알고리즘입니다. 주어진 데이터로부터 선형적인 관계를 학습하고, 이를 통해 새로운 데이터를 예측하는 데 적합합니다.</p>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Minjae Cho · Built with passion and code</p> </div>
+  </footer>
+
+  <script src="/js/main.js"></script> </body>
+</html>

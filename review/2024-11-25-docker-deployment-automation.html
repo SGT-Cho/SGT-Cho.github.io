@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docker로 애플리케이션 배포 자동화하기 | Minjae's Life & Review Blog</title>
+
+  <meta name="description" content="컨테이너 기술 Docker의 기본 개념, 설치, 사용법 및 Docker Compose를 활용한 서비스 관리 방법 소개">
+  <meta name="keywords" content="Docker, 컨테이너, 배포 자동화, DevOps, Dockerfile, Docker Compose, Flask, Python">
+  <meta name="author" content="Minjae Cho">
+
+  <meta property="og:title" content="Docker로 애플리케이션 배포 자동화하기 | Minjae's Life & Review Blog">
+  <meta property="og:description" content="컨테이너 기술 Docker의 기본 개념, 설치, 사용법 및 Docker Compose를 활용한 서비스 관리 방법 소개">
+  <meta property="og:image" content="https://velog.velcdn.com/images/sgt-cho/post/2e0e8d2c-5ac0-44a3-a48b-2c4b0ac6f5b0/image.png">
+  <meta property="og:url" content="https://sgt-cho.github.io/review/2024-11-25-docker-deployment-automation.html"> <meta property="og:type" content="article">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Docker로 애플리케이션 배포 자동화하기">
+  <meta name="twitter:description" content="컨테이너 기술 Docker의 기본 개념, 설치, 사용법 및 Docker Compose를 활용한 서비스 관리 방법 소개">
+  <meta name="twitter:image" content="https://velog.velcdn.com/images/sgt-cho/post/2e0e8d2c-5ac0-44a3-a48b-2c4b0ac6f5b0/image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css"> <link rel="icon" type="image/x-icon" href="/assets/images/minjae.png"> <link rel="manifest" href="/manifest.json"> </head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="nav-logo"> <img src="/assets/images/minjae.png" alt="Minjae Cho"> <span>Minjae Cho</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/life/">Life</a> <a href="/review/" class="active">Review</a> <a href="/portfolio/">Portfolio</a> <a href="/archive/">Archive</a> <a href="/about/">About</a> </div>
+
+      <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <article class="post">
+    <div class="container">
+      <h1>Docker로 애플리케이션 배포 자동화하기</h1>
+
+      <div class="meta">
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          November 25, 2024
+        </div>
+
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          5 min read </div>
+
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+          </svg>
+          <a href="/review/">Review</a> </div>
+      </div>
+
+      <div class="post-tags">
+        <a href="/tags/Docker/" class="post-tag">Docker</a> <a href="/tags/컨테이너/" class="post-tag">컨테이너</a> <a href="/tags/배포/" class="post-tag">배포</a> <a href="/tags/자동화/" class="post-tag">자동화</a> <a href="/tags/DevOps/" class="post-tag">DevOps</a> <a href="/tags/Dockerfile/" class="post-tag">Dockerfile</a> <a href="/tags/Docker%20Compose/" class="post-tag">Docker Compose</a> </div>
+
+      <div class="post-content">
+        <img src="https://velog.velcdn.com/images/sgt-cho/post/2e0e8d2c-5ac0-44a3-a48b-2c4b0ac6f5b0/image.png" alt="Docker 로고" class="post-image">
+        <h2>1. Docker란 무엇인가?</h2>
+        <p>Docker는 컨테이너 기술을 기반으로 애플리케이션과 그 실행 환경을 패키징하여 어디서든 동일한 환경에서 실행할 수 있게 해주는 도구입니다.<br>
+        복잡한 설치 과정을 간소화하고, 개발 환경과 운영 환경의 차이를 줄여주는 장점이 있습니다.</p>
+
+        <hr/>
+
+        <h2>2. Docker의 주요 개념</h2>
+        <ul>
+          <li><strong>이미지(Image)</strong>: 실행 가능한 애플리케이션과 필요한 모든 것을 포함한 읽기 전용 템플릿.</li>
+          <li><strong>컨테이너(Container)</strong>: 이미지로부터 생성된 실행 가능한 인스턴스.</li>
+          <li><strong>Dockerfile</strong>: 이미지를 생성하기 위한 설정 파일.</li>
+          <li><strong>Docker Hub</strong>: Docker 이미지를 공유할 수 있는 레지스트리 서비스.</li>
+        </ul>
+
+        <hr/>
+
+        <h2>3. Docker 설치하기</h2>
+        <ul>
+          <li><a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">Docker 공식 사이트</a>에서 OS에 맞는 Docker Desktop 설치.</li>
+          <li>설치 후, 터미널에서 다음 명령어로 설치 확인:</li>
+        </ul>
+        <pre><code>docker --version</code></pre>
+
+        <h2>4. 간단한 Docker 프로젝트</h2>
+        <p>여기서는 Python Flask 앱을 Docker로 컨테이너화하는 방법을 알아봅니다.</p>
+
+        <h3>4.1 Flask 애플리케이션 만들기</h3>
+        <p>아래와 같은 `app.py` 파일을 생성합니다:</p>
+        <pre><code>from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Hello, Docker!"
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)</code></pre>
+
+        <h3>4.2 Dockerfile 작성</h3>
+        <p>Dockerfile은 이미지 생성 규칙을 정의하는 파일입니다. 같은 디렉토리에 아래 내용을 작성합니다:</p>
+        <pre><code># 베이스 이미지 설정
+FROM python:3.9-slim
+
+# 작업 디렉토리 설정
+WORKDIR /app
+
+# 종속성 파일 복사 및 설치
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+# 애플리케이션 파일 복사
+COPY . .
+
+# 컨테이너 실행 시 실행될 명령어
+CMD ["python", "app.py"]</code></pre>
+
+        <h3>4.3 requirements.txt 파일 작성</h3>
+        <p>Flask를 설치하기 위한 종속성 파일을 작성합니다:</p>
+        <pre><code>flask</code></pre>
+
+        <h3>4.4 Docker 이미지 빌드</h3>
+        <p>아래 명령어로 Docker 이미지를 생성합니다:</p>
+        <pre><code>docker build -t flask-app .</code></pre>
+
+        <h3>4.5 컨테이너 실행</h3>
+        <p>이미지로부터 컨테이너를 생성하고 실행합니다:</p>
+        <pre><code>docker run -p 5000:5000 flask-app</code></pre>
+        <p>브라우저에서 `http://localhost:5000`에 접속하면 “Hello, Docker!” 메시지를 확인할 수 있습니다.</p>
+
+        <h2>5. Docker Compose로 서비스 관리</h2>
+        <p>복잡한 애플리케이션에서는 여러 컨테이너를 조합해야 할 때가 많습니다.<br>
+        이 경우, `docker-compose`를 사용하면 간단하게 설정할 수 있습니다.</p>
+
+        <h3>5.1 docker-compose.yml 작성</h3>
+        <pre><code>version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"</code></pre>
+
+        <h3>5.2 Compose 명령어 실행</h3>
+        <pre><code>docker-compose up</code></pre>
+        <p>이 명령어 하나로 애플리케이션 빌드와 실행이 완료됩니다.</p>
+
+        <h2>6. Docker를 사용하는 이유</h2>
+        <ul>
+          <li><strong>환경 일관성</strong>: 개발 환경과 배포 환경의 차이를 제거.</li>
+          <li><strong>빠른 배포</strong>: 컨테이너 기반으로 신속하게 배포 가능.</li>
+          <li><strong>확장성</strong>: 여러 컨테이너를 조합하여 쉽게 확장 가능.</li>
+          <li><strong>경량화</strong>: 가상머신보다 가볍고 빠른 실행.</li>
+        </ul>
+
+        <h2>7. 결론</h2>
+        <p>Docker는 현대 소프트웨어 개발에서 필수 도구로 자리 잡았습니다.<br>
+        위의 예제처럼 간단한 앱부터 시작하여, Docker Compose와 Kubernetes로 확장할 수 있습니다.<br>
+        꾸준히 연습하며 Docker 생태계에 익숙해지세요!</p>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Minjae Cho · Built with passion and code</p> </div>
+  </footer>
+
+  <script src="/js/main.js"></script> </body>
+</html>

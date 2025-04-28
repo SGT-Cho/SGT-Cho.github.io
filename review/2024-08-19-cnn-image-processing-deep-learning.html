@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convolutional Neural Networks (CNN): 이미지 처리와 딥러닝의 핵심 기술 | Minjae's Life & Review Blog</title>
+
+  <meta name="description" content="합성곱 신경망(CNN)의 기본 개념, 구조, 작동 원리 및 이미지 처리, 컴퓨터 비전 분야에서의 응용 사례 소개">
+  <meta name="keywords" content="CNN, Convolutional Neural Network, 딥러닝, 이미지 처리, 컴퓨터 비전, 합성곱, 풀링, 활성화 함수">
+  <meta name="author" content="Minjae Cho">
+
+  <meta property="og:title" content="Convolutional Neural Networks (CNN): 이미지 처리와 딥러닝의 핵심 기술 | Minjae's Life & Review Blog">
+  <meta property="og:description" content="합성곱 신경망(CNN)의 기본 개념, 구조, 작동 원리 및 이미지 처리, 컴퓨터 비전 분야에서의 응용 사례 소개">
+  <meta property="og:image" content="https://velog.velcdn.com/images/sgt-cho/post/2bfbd57f-e213-4087-8e6b-5efcac79c551/image.png">
+  <meta property="og:url" content="https://sgt-cho.github.io/review/2024-08-19-cnn-image-processing-deep-learning.html"> <meta property="og:type" content="article">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Convolutional Neural Networks (CNN): 이미지 처리와 딥러닝의 핵심 기술">
+  <meta name="twitter:description" content="합성곱 신경망(CNN)의 기본 개념, 구조, 작동 원리 및 이미지 처리, 컴퓨터 비전 분야에서의 응용 사례 소개">
+  <meta name="twitter:image" content="https://velog.velcdn.com/images/sgt-cho/post/2bfbd57f-e213-4087-8e6b-5efcac79c551/image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css"> <link rel="icon" type="image/x-icon" href="/assets/images/minjae.png"> <link rel="manifest" href="/manifest.json"> </head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="nav-logo"> <img src="/assets/images/minjae.png" alt="Minjae Cho"> <span>Minjae Cho</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/life/">Life</a> <a href="/review/" class="active">Review</a> <a href="/portfolio/">Portfolio</a> <a href="/archive/">Archive</a> <a href="/about/">About</a> </div>
+
+      <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <article class="post">
+    <div class="container">
+      <h1>Convolutional Neural Networks (CNN): 이미지 처리와 딥러닝의 핵심 기술</h1>
+
+      <div class="meta">
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          August 19, 2024
+        </div>
+
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          6 min read </div>
+
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+          </svg>
+          <a href="/review/">Review</a> </div>
+      </div>
+
+      <div class="post-tags">
+        <a href="/tags/CNN/" class="post-tag">CNN</a> <a href="/tags/합성곱신경망/" class="post-tag">합성곱신경망</a> <a href="/tags/딥러닝/" class="post-tag">딥러닝</a> <a href="/tags/이미지처리/" class="post-tag">이미지처리</a> <a href="/tags/컴퓨터비전/" class="post-tag">컴퓨터비전</a> <a href="/tags/AI/" class="post-tag">AI</a> </div>
+
+      <div class="post-content">
+        <img src="https://velog.velcdn.com/images/sgt-cho/post/2bfbd57f-e213-4087-8e6b-5efcac79c551/image.png" alt="CNN 구조 예시" class="post-image">
+
+        <p><strong>Convolutional Neural Networks (CNN)</strong>은 딥러닝에서 가장 널리 사용되는 모델 중 하나로, 특히 이미지 처리 및 컴퓨터 비전 분야에서 큰 성공을 거두고 있습니다. CNN은 이미지, 비디오, 텍스트 등의 데이터에서 패턴을 학습하고, 이를 기반으로 분류, 인식, 예측 등의 작업을 수행하는 데 뛰어난 성능을 보입니다. CNN의 기본 개념, 구조, 작동 원리, 그리고 주요 응용 분야에 대해 살펴보겠습니다.</p>
+
+        <h2>1. CNN이란 무엇인가?</h2>
+        <p>CNN은 다층 퍼셉트론(Multilayer Perceptron, MLP)에서 발전된 형태의 인공신경망으로, 특히 2차원 데이터의 처리에 최적화된 모델입니다. CNN은 이미지 데이터를 처리하는 데 매우 효과적이며, 이는 합성곱(Convolution) 연산을 통해 이미지의 공간적 정보를 보존하면서 특징을 추출할 수 있기 때문입니다.</p>
+
+        <h2>2. CNN의 주요 구성 요소</h2>
+        <p>CNN은 다음과 같은 주요 구성 요소로 이루어져 있습니다:</p>
+        <ul>
+          <li><strong>합성곱 층 (Convolutional Layer):</strong> 합성곱 층은 CNN의 핵심 구성 요소로, 입력 이미지에서 특징을 추출하는 역할을 합니다. 이 층에서는 필터(또는 커널)가 입력 데이터에 대해 합성곱 연산을 수행하여 특징 맵(Feature Map)을 생성하고, 이 필터는 이미지의 특정 패턴, 예를 들어 엣지, 코너, 텍스처 등을 감지하는 역할을 합니다.</li>
+          <li><strong>풀링 층 (Pooling Layer):</strong> 풀링 층은 합성곱 층에서 생성된 특징 맵의 차원을 줄이는 역할을 합니다. 이 과정은 다운샘플링이라고도 하며, 주요 정보는 보존하면서 계산량을 줄이고, 모델의 과적합을 방지하는 데 도움이 됩니다. 가장 일반적인 풀링 방법으로는 최대 풀링(Max Pooling)과 평균 풀링(Average Pooling)이 있습니다.</li>
+          <li><strong>활성화 함수(Activation Function):</strong> 일반적인 활성화 함수로는 ReLU(Rectified Linear Unit), 시그모이드(Sigmoid), 하이퍼볼릭 탄젠트(Tanh) 등이 있습니다. 이러한 활성화 함수는 뉴런의 출력값을 비선형적으로 변환하여, 모델이 복잡한 패턴을 학습할 수 있도록 돕습니다.
+            <ul>
+              <li>ReLU (Rectified Linear Unit)는 입력이 0 이상일 때는 입력값을 그대로 반환하고, 0 이하일 때는 0을 반환하는 활성화 함수입니다. CNN에서 가장 많이 사용되는 활성화 함수로, 학습 과정에서 기울기 소실 문제를 줄이는 데 효과적입니다.</li>
+              <li>시그모이드 (Sigmoid)함수는 입력값을 0과 1 사이의 값으로 변환합니다. 출력이 확률로 해석될 수 있어, 이진 분류 문제에서 자주 사용됩니다. 그러나 큰 값이나 작은 값에서 기울기가 거의 0에 가까워지는 "기울기 소실(Gradient Vanishing)" 문제가 발생할 수 있습니다.</li>
+              <li>하이퍼볼릭 탄젠트 (Tanh)함수는 입력값을 -1과 1 사이의 값으로 변환합니다. 시그모이드 함수와 유사하지만, 출력값이 -1과 1 사이에 분포하므로 시그모이드보다 기울기 소실 문제가 덜합니다.</li>
+            </ul>
+            활성화 함수는 신경망의 성능에 큰 영향을 미치며, 문제의 특성에 따라 적절한 함수를 선택하는 것이 중요합니다. CNN에서는 일반적으로 ReLU가 사용되지만, 특정 상황에서는 시그모이드나 Tanh 같은 다른 활성화 함수가 더 적합할 수 있습니다.
+          </li>
+          <li><strong>완전 연결 층 (Fully Connected Layer):</strong> 완전 연결 층은 CNN의 마지막 단계에서 주로 사용되며, 이 층에서는 모든 뉴런이 이전 층의 모든 뉴런과 연결됩니다. 이 층은 특징 맵에서 추출된 정보를 바탕으로 최종 분류를 수행합니다.</li>
+          <li><strong>드롭아웃 (Dropout):</strong> 드롭아웃은 과적합을 방지하기 위한 정규화 기법 중 하나로, 학습 과정에서 임의로 뉴런을 비활성화하여 모델이 특정 패턴에 지나치게 의존하지 않도록 합니다.</li>
+        </ul>
+
+        <h2>3. CNN의 작동 원리</h2>
+        <p>CNN의 작동 과정은 입력 데이터가 여러 층을 통과하며 점차적으로 고수준의 특징을 학습하는 방식으로 이루어집니다. 처음에는 이미지의 저수준 특징(예: 엣지, 텍스처 등)을 학습하고, 이후 층을 거치면서 점차적으로 고수준의 특징(예: 형태, 개체 등)을 학습하게 됩니다. 이 과정을 통해 CNN은 복잡한 이미지 데이터를 효과적으로 처리할 수 있게됩니다.</p>
+
+        <h2>4. CNN의 주요 응용 분야</h2>
+        <p>CNN은 다양한 응용 분야에서 활용되고 있으며, 특히 이미지와 영상 처리에서 탁월한 성능을 보여주고 있습니다.</p>
+        <ul>
+          <li><strong>이미지 분류 (Image Classification):</strong> CNN은 이미지의 각 픽셀 값을 기반으로 특정 카테고리에 이미지를 분류하는 작업에서 널리 사용됩니다. 예를 들어, 손글씨 숫자 이미지(MNIST 데이터셋)나 개와 고양이 이미지(CIFAR-10 데이터셋)를 분류하는 작업에 활용됩니다.</li>
+          <li><strong>객체 탐지 (Object Detection):</strong> CNN은 이미지 내에서 다양한 객체를 탐지하고, 그 위치를 정확하게 표시하는 작업에 활용됩니다. 대표적인 알고리즘으로는 YOLO(You Only Look Once), R-CNN(Region-based CNN) 등이 있습니다.</li>
+          <li><strong>영상 분석 (Video Analysis):</strong> CNN은 연속된 이미지 프레임을 처리하여 영상 내의 움직임을 분석하고, 특정 이벤트를 감지하는 데 사용됩니다.</li>
+          <li><strong>의료 영상 분석 (Medical Image Analysis):</strong> CNN은 MRI, CT 스캔 등의 의료 영상을 분석하여 질병을 진단하는 데 사용되며, 암 진단, 장기 세분화 등의 분야에서 높은 정확도를 보입니다.</li>
+        </ul>
+
+        <h2>5. CNN의 장점과 한계</h2>
+        <p>CNN은 이미지와 같은 고차원 데이터의 특징을 효과적으로 추출하고, 이를 바탕으로 정확한 예측을 수행하는 데 매우 유리한 모델이지만, CNN은 많은 양의 데이터를 필요로 하며, 훈련 과정에서 높은 계산 자원이 요구된다는 한계가 있습니다. 또한, CNN의 구조와 하이퍼파라미터를 최적화하는 데는 경험과 노하우가 필요합니다.</p>
+
+        <h2>6. 결론</h2>
+        <p>Convolutional Neural Networks (CNN)은 딥러닝의 핵심 기술 중 하나로, 이미지 처리와 컴퓨터 비전 분야에서 매우 중요한 역할을 하고 있습니다. CNN의 기본 개념과 구조, 주요 응용 분야를 이해함으로써, 이미지 데이터에 대한 다양한 문제를 효과적으로 해결할 수 있는 기반을 마련할 수 있습니다.</p>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Minjae Cho · Built with passion and code</p> </div>
+  </footer>
+
+  <script src="/js/main.js"></script> </body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tesseract OCR 엔진 사용 가이드 | Minjae's Life & Review Blog</title>
+  
+  <!-- Meta tags for SEO and social sharing -->
+  <meta name="description" content="다양한 운영 체제를 위한 광학 문자 인식 엔진 Tesseract의 기본 사용법과 Python 연동 방법">
+  <meta name="keywords" content="Tesseract, OCR, 광학문자인식, Python, pytesseract, 이미지 텍스트 추출">
+  <meta name="author" content="Minjae Cho">
+  
+  <!-- Open Graph meta tags for social sharing -->
+  <meta property="og:title" content="Tesseract OCR 엔진 사용 가이드 | Minjae's Life & Review Blog">
+  <meta property="og:description" content="다양한 운영 체제를 위한 광학 문자 인식 엔진 Tesseract의 기본 사용법과 Python 연동 방법">
+  <meta property="og:image" content="https://sgt-cho.github.io/assets/images/thumbnails/daily.png">
+  <meta property="og:url" content="https://sgt-cho.github.io/review/2023-03-26-Tesseract-ocr-review.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter card meta tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tesseract OCR 엔진 사용 가이드">
+  <meta name="twitter:description" content="다양한 운영 체제를 위한 광학 문자 인식 엔진 Tesseract의 기본 사용법과 Python 연동 방법">
+  <meta name="twitter:image" content="https://sgt-cho.github.io/assets/images/thumbnails/daily.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/assets/images/minjae.png">
+  
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+  <!-- 
+    title: Tesseract OCR 엔진 사용 가이드
+    date: 2023-03-26
+    category: review
+    tags: Tesseract, OCR, Python, 광학문자인식, 이미지처리
+    teaser: 다양한 운영 체제를 위한 광학 문자 인식 엔진 Tesseract의 기본 사용법과 Python 연동 방법
+    thumbnail: daily.png
+    readtime: 4
+  -->
+  
+  <!-- Header/Navigation -->
+  <header>
+    <nav>
+      <a href="/" class="nav-logo">
+        <img src="/assets/images/minjae.png" alt="Minjae Cho">
+        <span>Minjae Cho</span>
+      </a>
+      
+      <div class="nav-links">
+        <a href="/life/">Life</a>
+        <a href="/review/" class="active">Review</a>
+        <a href="/portfolio/">Portfolio</a>
+        <a href="/archive/">Archive</a>
+        <a href="/about/">About</a>
+      </div>
+      
+      <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Post Content -->
+  <article class="post">
+    <div class="container">
+      <h1>Tesseract OCR 엔진 사용 가이드</h1>
+      
+      <div class="meta">
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          March 26, 2023
+        </div>
+        
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          4 min read
+        </div>
+        
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+          </svg>
+          <a href="/review/">Review</a>
+        </div>
+      </div>
+      
+      <div class="post-tags">
+        <a href="/tags/Tesseract/" class="post-tag">Tesseract</a>
+        <a href="/tags/OCR/" class="post-tag">OCR</a>
+        <a href="/tags/Python/" class="post-tag">Python</a>
+        <a href="/tags/광학문자인식/" class="post-tag">광학문자인식</a>
+        <a href="/tags/이미지처리/" class="post-tag">이미지처리</a>
+      </div>
+      
+      <div class="post-content">
+        <h2>Tesseract OCR 소개</h2>
+        
+        <p>Tesseract는 다양한 운영 체제를 위한 광학 문자 인식(OCR) 엔진입니다.</p>
+        
+        <p>요즘 스마트폰을 이용해서 글이나 문자를 카메라로 찍어서 사진을 확인해보면 그 문자들을 인식해서, 복사를 하거나, 검색을 할 수 있는 기능이 있습니다. 이러한 기능이 바로 OCR(광학문자인식)을 이용한 것입니다. 사람이 봤을 때 문자를 인식하는 것은 당연한 거지만, 기계가 이를 수행하기 위해선, 사실상 A.I.(인공지능)을 이용해야만 합니다.</p>
+        
+        <p>그리고 가장 많이 쓰이는 OCR 엔진중의 하나가 바로 'Tesseract' 입니다.</p>
+        
+        <div class="code-block">
+          <a href="https://github.com/tesseract-ocr/tesseract" target="_blank" rel="noopener noreferrer">https://github.com/tesseract-ocr/tesseract</a>
+        </div>
+        
+        <p>위 주소는 Tesseract의 공식 Repository입니다.</p>
+        
+        <h2>Python에서 Tesseract 사용하기</h2>
+        
+        <p>위를 참고해 Tesseract를 설치한 후, Python에서 Tesseract를 사용하기 위해서는 pytesseract와 pillow를 설치해야 합니다.</p>
+        
+        <p>cmd창에서 pip로 설치를 합니다.</p>
+        
+        <pre><code>pip install pillow
+pip install pytesseract</code></pre>
+        
+        <p>설치가 끝난후 아래의 예시를 실행시켜 봅시다.</p>
+        
+        <pre><code>from PIL import Image
+from pytesseract import *
+
+filename = 파일위치 #예시 filename = "C:/Users/lenovo/downloads/ocr/sample.jpg"
+image = Image.open(filename)
+text = image_to_string(image, lang="kor")
+
+with open("sample.txt", "w") as f:
+    f.write(text)</code></pre>
+        
+        <p>위의 코드를 ocr_tesseract.py로 저장 후 실행시키면 sample.txt로 결과가 생성됩니다.</p>
+        
+        <h2>Tesseract OCR의 장점</h2>
+        
+        <ul>
+          <li>다양한 언어 지원: 한국어를 포함한 100개 이상의 언어 인식 가능</li>
+          <li>오픈 소스: 무료로 사용 가능하며 지속적으로 발전</li>
+          <li>다양한 프로그래밍 언어와 연동 가능: Python 외에도 Java, C++ 등과 연동 지원</li>
+          <li>높은 인식률: 깨끗한 텍스트 이미지의 경우 95% 이상의 정확도</li>
+        </ul>
+        
+        <h2>활용 사례</h2>
+        
+        <p>Tesseract OCR은 다음과 같은 다양한 분야에서 활용될 수 있습니다:</p>
+        
+        <ul>
+          <li>문서 디지털화: 종이 문서를 디지털 텍스트로 변환</li>
+          <li>자동차 번호판 인식</li>
+          <li>명함 정보 자동 추출</li>
+          <li>스캔된 책이나 문서에서 텍스트 추출</li>
+          <li>모바일 애플리케이션의 텍스트 인식 기능</li>
+        </ul>
+        
+        <p>Tesseract를 활용하면 다양한 이미지 속 텍스트를 프로그래밍 방식으로 쉽게 추출할 수 있어, 데이터 처리 자동화에 큰 도움이 됩니다.</p>
+      </div>
+    </div>
+  </article>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Minjae Cho · Built with passion and code</p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="/js/main.js"></script>
+</body>
+</html>

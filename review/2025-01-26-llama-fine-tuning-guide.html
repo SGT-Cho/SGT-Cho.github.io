@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLaMA 모델 파인튜닝: 이론과 실습 | Minjae's Life & Review Blog</title>
+
+  <meta name="description" content="Meta AI의 LLaMA 모델 파인튜닝에 대한 이론적 배경, 준비 사항 및 단계별 실습 가이드">
+  <meta name="keywords" content="LLaMA, 파인튜닝, Fine-tuning, LLM, AI, 인공지능, 자연어처리, PEFT, QLoRA, Transformers">
+  <meta name="author" content="Minjae Cho">
+
+  <meta property="og:title" content="LLaMA 모델 파인튜닝: 이론과 실습 | Minjae's Life & Review Blog">
+  <meta property="og:description" content="Meta AI의 LLaMA 모델 파인튜닝에 대한 이론적 배경, 준비 사항 및 단계별 실습 가이드">
+  <meta property="og:url" content="https://sgt-cho.github.io/review/2025-01-26-llama-fine-tuning-guide.html"> <meta property="og:type" content="article">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LLaMA 모델 파인튜닝: 이론과 실습">
+  <meta name="twitter:description" content="Meta AI의 LLaMA 모델 파인튜닝에 대한 이론적 배경, 준비 사항 및 단계별 실습 가이드">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css"> <link rel="icon" type="image/x-icon" href="/assets/images/minjae.png"> <link rel="manifest" href="/manifest.json"> </head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="nav-logo"> <img src="/assets/images/minjae.png" alt="Minjae Cho"> <span>Minjae Cho</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/life/">Life</a> <a href="/review/" class="active">Review</a> <a href="/portfolio/">Portfolio</a> <a href="/archive/">Archive</a> <a href="/about/">About</a> </div>
+
+      <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <article class="post">
+    <div class="container">
+      <h1>LLaMA 모델 파인튜닝: 이론과 실습</h1>
+
+      <div class="meta">
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          January 26, 2025
+        </div>
+
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          7 min read </div>
+
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+          </svg>
+          <a href="/review/">Review</a> </div>
+      </div>
+
+      <div class="post-tags">
+        <a href="/tags/LLaMA/" class="post-tag">LLaMA</a> <a href="/tags/파인튜닝/" class="post-tag">파인튜닝</a> <a href="/tags/LLM/" class="post-tag">LLM</a> <a href="/tags/AI/" class="post-tag">AI</a> <a href="/tags/NLP/" class="post-tag">NLP</a> <a href="/tags/PEFT/" class="post-tag">PEFT</a> <a href="/tags/QLoRA/" class="post-tag">QLoRA</a> <a href="/tags/Transformers/" class="post-tag">Transformers</a> </div>
+
+      <div class="post-content">
+        <h2>1. 서론</h2>
+        <p>대규모 언어 모델(LLM)의 발전으로 자연어 처리 분야는 혁신적인 변화를 맞이하고 있습니다. 그중에서도 Meta AI에서 개발한 <strong>LLaMA</strong>(Large Language Model Meta AI) 모델은 상대적으로 적은 파라미터 수로도 우수한 성능을 보이며, 연구자들과 개발자들의 주목을 받고 있습니다. 이러한 모델을 특정 작업이나 도메인에 맞게 최적화하는 과정이 <strong>파인튜닝(Fine-Tuning)</strong>입니다. 본 글에서는 LLaMA 모델의 파인튜닝에 대한 이론적 배경과 함께, 실제로 파인튜닝을 수행하는 방법을 예제를 통해 상세히 설명하겠습니다.</p>
+
+        <h2>2. 파인튜닝이란?</h2>
+        <p><strong>파인튜닝</strong>은 사전 학습된 대규모 언어 모델을 특정 작업이나 도메인에 맞게 미세 조정하는 과정을 의미합니다. 일반적으로 LLM은 방대한 양의 텍스트 데이터를 기반으로 사전 학습되어 다양한 작업을 수행할 수 있는 능력을 갖추고 있습니다. 그러나 특정 작업에서 최적의 성능을 발휘하기 위해서는 해당 작업에 특화된 추가 학습이 필요합니다. 이를 통해 모델은 특정 도메인의 용어와 문맥을 더 잘 이해하고, 해당 분야에 맞는 정확한 결과를 생성할 수 있습니다.</p>
+
+        <h2>3. LLaMA 모델 소개</h2>
+        <p><strong>LLaMA</strong>는 Meta AI에서 개발한 언어 모델로, GPT-3와 비교하여 더 적은 파라미터 수를 가지면서도 높은 성능을 보입니다. 이는 연구자들과 개발자들에게 더 적은 자원으로 효율적인 모델 학습과 활용을 가능하게 합니다. LLaMA 모델은 7B, 13B, 70B 등 다양한 크기로 제공되며, 각 모델은 파라미터 수에 따라 성능과 자원 요구 사항이 다릅니다.</p>
+
+        <h2>4. 파인튜닝을 위한 준비</h2>
+        <p>파인튜닝을 수행하기 위해서는 다음과 같은 준비가 필요합니다:</p>
+        <h3>4.1. 환경 설정</h3>
+        <p>파인튜닝 작업은 높은 연산 자원을 필요로 하므로, GPU를 활용하는 것이 권장됩니다. 로컬 환경에 GPU가 없다면, Google Colab Pro와 같은 클라우드 서비스를 활용할 수 있습니다.</p>
+        <h3>4.2. 라이브러리 설치</h3>
+        <p>파인튜닝에 필요한 주요 라이브러리는 다음과 같습니다:</p>
+        <ul>
+          <li><code>transformers</code>: 다양한 사전 학습된 언어 모델을 손쉽게 활용할 수 있는 라이브러리입니다.</li>
+          <li><code>datasets</code>: 다양한 데이터셋을 쉽게 로드하고 전처리할 수 있도록 지원합니다.</li>
+          <li><code>peft</code>: 파라미터 효율적 파인튜닝(Parameter-Efficient Fine-Tuning)을 위한 라이브러리로, 대규모 언어 모델을 효율적으로 미세 조정할 수 있습니다.</li>
+          <li><code>bitsandbytes</code>: 모델 파라미터의 양자화를 통해 메모리 사용량을 절감할 수 있는 라이브러리입니다.</li>
+          <li><code>trl</code>: 트랜스포머 모델에 강화 학습을 적용할 수 있는 라이브러리입니다.</li>
+        </ul>
+        <p>다음은 이러한 라이브러리들을 설치하는 명령어입니다:</p>
+        <pre><code>pip install -U accelerate peft bitsandbytes transformers trl datasets</code></pre>
+        <h3>4.3. 데이터셋 준비</h3>
+        <p>파인튜닝에 사용할 데이터셋을 준비해야 합니다. 데이터셋은 모델이 학습할 수 있는 형식으로 전처리되어야 하며, 일반적으로 입력과 출력 쌍으로 구성됩니다. 예를 들어, 뉴스 기사의 요약 작업을 위한 데이터셋은 기사 본문과 해당 요약문으로 이루어집니다.</p>
+
+        <h2>5. 파인튜닝 단계별 실습</h2>
+        <p>이제 실제로 LLaMA 모델을 파인튜닝하는 과정을 단계별로 살펴보겠습니다.</p>
+        <h3>5.1. 라이브러리 임포트</h3>
+        <p>먼저, 필요한 라이브러리를 임포트합니다:</p>
+        <pre><code>import os
+import torch
+from datasets import load_dataset
+from transformers import (
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    BitsAndBytesConfig,
+    TrainingArguments,
+    pipeline,
+    logging,
+)
+from peft import LoraConfig
+from trl import SFTTrainer</code></pre>
+        <h3>5.2. 모델 및 데이터셋 설정</h3>
+        <p>파인튜닝에 사용할 모델과 데이터셋을 설정합니다. 여기서는 한국어로 파인튜닝된 LLaMA 모델과 주가 증권 보고서 데이터셋을 예시로 사용하겠습니다:</p>
+        <pre><code># 베이스 모델 설정
+base_model = "beomi/Llama-3-Open-Ko-8B"
+
+# 데이터셋 설정
+dataset_name = "uiyong/gemini_result_kospi_0517_jsonl" # 예시 데이터셋
+
+# 새로운 모델 이름
+new_model_name = "Llama3-owen-Ko-3-8B-kospi"</code></pre>
+        <h3>5.3. GPU 환경 확인 및 설정</h3>
+        <p>파인튜닝 작업은 높은 연산 자원을 필요로 하므로, GPU 환경을 확인하고 설정합니다:</p>
+        <pre><code># GPU 사용 여부 확인
+device = "cuda" if torch.cuda.is_available() else "cpu"</code></pre>
+        <h3>5.4. 모델 로드 및 양자화 설정</h3>
+        <p>모델을 로드하고 양자화를 설정하여 메모리 사용량을 최적화합니다:</p>
+        <pre><code># 양자화 설정 (4-bit QLoRA)
+bnb_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_quant_type="nf4",
+    bnb_4bit_compute_dtype=torch.bfloat16, # bf16 타입으로 계산
+    # bnb_4bit_use_double_quant=False, # 이중 양자화 비활성화 - 주석 처리 (bitsandbytes 최신 버전에서 기본값 변경 가능성)
+)
+
+# 모델 로드
+model = AutoModelForCausalLM.from_pretrained(
+    base_model,
+    quantization_config=bnb_config,
+    device_map="auto", # 사용 가능한 GPU에 모델 자동 할당
+)
+model.config.use_cache = False # 캐시 사용 비활성화 (파인튜닝 시 권장)
+model.config.pretraining_tp = 1 # 사전 학습 텐서 병렬 처리 설정 (1은 비활성화)</code></pre>
+        <h3>5.5. 토크나이저 설정</h3>
+        <p>토크나이저를 로드하고 필요한 설정을 수행합니다:</p>
+        <pre><code>tokenizer = AutoTokenizer.from_pretrained(base_model, trust_remote_code=True, add_special_tokens=True)
+tokenizer.pad_token = tokenizer.eos_token # 패딩 토큰을 EOS 토큰으로 설정
+tokenizer.padding_side = 'right' # 패딩을 오른쪽에 추가</code></pre>
+        <h3>5.6. 프롬프트 템플릿 생성</h3>
+        <p>파인튜닝에 사용할 프롬프트 템플릿을 생성합니다. LLaMA 모델의 경우, 특정한 프롬프트 형식을 따릅니다:</p>
+        <pre><code># 예시: 뉴스 기사 요약 프롬프트
+def generate_prompts(example):
+    prompt_list = []
+    # 'document'와 'summary' 키가 존재하는지 확인 (데이터셋 스키마에 따라 다를 수 있음)
+    doc_key = 'document' if 'document' in example else list(example.keys())[0] # 첫 번째 키를 문서로 가정
+    sum_key = 'summary' if 'summary' in example else list(example.keys())[1] # 두 번째 키를 요약으로 가정
+
+    for i in range(len(example[doc_key])):
+        prompt_list.append(
+            f"""&lt;|begin_of_text|&gt;&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+
+다음 글을 요약해주세요: {example[doc_key][i]}
+
+&lt;|eot_id|&gt;&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+
+{example[sum_key][i]}&lt;|eot_id|&gt;"""
+        )
+    return {"text": prompt_list} # SFTTrainer가 인식할 수 있도록 'text' 키 사용
+</code></pre>
+        <h3>5.7. 데이터셋 전처리</h3>
+        <p>모델 학습을 위해 데이터셋을 로드하고 전처리합니다. 이전에 정의한 `generate_prompts` 함수를 사용하여 프롬프트를 생성합니다.</p>
+        <pre><code># 데이터셋 로드
+# dataset = load_dataset(dataset_name, split="train") # Hugging Face Hub에서 로드
+# 로컬 jsonl 파일 로드 예시 (경로 수정 필요)
+dataset = load_dataset("json", data_files=dataset_name, split="train")
+
+
+# 데이터셋 구조 확인 후 키 이름 조정 필요
+# print(dataset.features) # 로드 후 데이터셋 구조 확인
+
+# 프롬프트 생성 및 데이터셋 변환
+# 'remove_columns'는 로드된 데이터셋의 실제 컬럼 이름으로 설정해야 함
+dataset = dataset.map(generate_prompts, batched=True, remove_columns=list(dataset.features))
+
+# (참고) 토큰화는 SFTTrainer 내부에서 처리되므로 별도 토큰화 불필요
+</code></pre>
+        <p>위 코드는 데이터셋을 로드 (로컬 파일 또는 Hub) 하고, 각 예제에 대해 정의된 프롬프트 형식으로 변환합니다. `remove_columns`를 사용하여 기존 컬럼을 제거하고 생성된 프롬프트(`text` 컬럼)만 남깁니다. `SFTTrainer`를 사용하면 토큰화가 내부적으로 처리됩니다.</p>
+
+        <h3>5.8. 파인튜닝 설정 (PEFT 및 TrainingArguments)</h3>
+        <p>파인튜닝을 위한 PEFT(LoRA) 설정과 TrainingArguments를 정의합니다.</p>
+        <pre><code>from peft import LoraConfig
+
+# PEFT (LoRA) 설정
+peft_config = LoraConfig(
+    lora_alpha=16,     # LoRA 스케일링 인자
+    lora_dropout=0.1,  # LoRA 레이어 드롭아웃 비율
+    r=64,              # LoRA 차원 (랭크)
+    bias="none",       # 바이어스 사용 안 함
+    task_type="CAUSAL_LM", # 작업 유형: 인과 언어 모델링
+    target_modules=[   # LoRA를 적용할 모듈 지정 (모델 아키텍처에 따라 다를 수 있음)
+        "q_proj", "k_proj", "v_proj", "o_proj",
+        "gate_proj", "up_proj", "down_proj"
+    ]
+)
+
+# TrainingArguments 설정
+training_arguments = TrainingArguments(
+    output_dir="./results_llama3_kospi", # 결과 저장 디렉토리
+    num_train_epochs=1,             # 훈련 에포크 수 (테스트용으로 1, 실제로는 더 많이)
+    per_device_train_batch_size=4,  # GPU당 훈련 배치 크기 (메모리에 맞게 조절)
+    gradient_accumulation_steps=1,  # 그래디언트 누적 스텝 (배치 크기 늘리는 효과)
+    optim="paged_adamw_32bit",      # 옵티마이저 (메모리 효율적인 paged_adamw)
+    save_steps=500,                 # 체크포인트 저장 간격 (스텝 기준)
+    logging_steps=100,              # 로그 기록 간격 (스텝 기준)
+    learning_rate=2e-4,             # 학습률
+    weight_decay=0.001,             # 가중치 감쇠
+    fp16=False,                     # FP16 비활성화 (bf16 사용 시)
+    bf16=True,                      # BF16 활성화 (Ampere 이상 GPU 필요)
+    max_grad_norm=0.3,              # 그래디언트 클리핑 최대값
+    max_steps=-1,                   # 최대 훈련 스텝 (-1: 에포크 기준)
+    warmup_ratio=0.03,              # 웜업 비율
+    group_by_length=True,           # 길이별 그룹화로 효율성 증대
+    lr_scheduler_type="constant",   # 학습률 스케줄러 유형 ("cosine" 등)
+    report_to="tensorboard"         # 리포팅 대상 ("wandb", "tensorboard", "none")
+)
+</code></pre>
+        <p>위 설정은 PEFT 기법 중 LoRA를 사용하여 파인튜닝할 대상 모듈과 관련 하이퍼파라미터를 지정하고, `TrainingArguments`를 통해 학습률, 배치 크기, 에포크 수, 옵티마이저, 저장 및 로깅 간격 등을 상세하게 설정합니다. BF16 사용은 지원되는 하드웨어에서 메모리 효율성과 속도를 높일 수 있습니다.</p>
+
+        <h3>5.9. 트레이너 초기화 및 학습</h3>
+        <p>SFTTrainer를 사용하여 트레이너를 초기화하고 모델 학습을 시작합니다.</p>
+        <pre><code>from trl import SFTTrainer
+
+# SFTTrainer 초기화
+trainer = SFTTrainer(
+    model=model,
+    train_dataset=dataset, # 전처리된 데이터셋 전달
+    peft_config=peft_config, # PEFT 설정 전달
+    dataset_text_field="text", # 데이터셋에서 텍스트 필드 지정
+    max_seq_length=None,       # 최대 시퀀스 길이 (None: 모델 기본값 사용 또는 수동 지정)
+    tokenizer=tokenizer,
+    args=training_arguments,
+    packing=False,             # 패킹 비활성화 (True로 설정 시 여러 짧은 시퀀스를 하나로 묶어 효율 증대)
+)
+
+# 모델 학습 시작
+trainer.train()
+</code></pre>
+        <p>위 코드는 `SFTTrainer` 객체를 초기화하며, 모델, 훈련 데이터셋, PEFT 설정, 토크나이저, 학습 인자 등을 전달합니다. `trainer.train()`을 호출하여 실제 모델 학습을 시작합니다.</p>
+
+        <h3>5.10. 모델 저장 및 평가 (선택 사항)</h3>
+        <p>학습이 완료되면 모델을 저장하고, 필요시 평가를 수행합니다.</p>
+        <pre><code># 모델 저장 (LoRA 어댑터 저장)
+trainer.model.save_pretrained(new_model_name)
+tokenizer.save_pretrained(new_model_name)     # 토크나이저 저장
+
+# (선택 사항) 평가 - 별도의 평가 데이터셋과 메트릭 필요
+# import math
+# eval_dataset = load_dataset(dataset_name, split="validation") # 또는 다른 평가셋
+# eval_dataset = eval_dataset.map(generate_prompts, batched=True, remove_columns=list(eval_dataset.features))
+# eval_results = trainer.evaluate(eval_dataset=eval_dataset)
+# print(f"Perplexity: {math.exp(eval_results['eval_loss']):.2f}")
+
+# 병합 및 전체 모델 저장 (선택 사항, 메모리 많이 필요)
+# from peft import AutoPeftModelForCausalLM
+# merged_model = AutoPeftModelForCausalLM.from_pretrained(new_model_name)
+# merged_model = merged_model.merge_and_unload()
+# merged_model.save_pretrained("merged_llama3_kospi")
+# tokenizer.save_pretrained("merged_llama3_kospi")
+</code></pre>
+        <p>위 코드는 학습된 LoRA 어댑터 가중치와 토크나이저를 지정된 이름(`new_model_name`)으로 저장합니다. 주석 처리된 부분은 평가 또는 전체 모델 병합(LoRA 가중치를 기본 모델에 통합)을 위한 예시 코드입니다.</p>
+
+        <h2>6. 결론</h2>
+        <p>본 글에서는 LLaMA 모델을 특정 작업에 맞게 파인튜닝하는 전체 과정을 단계별로 살펴보았습니다. 파인튜닝을 통해 사전 학습된 대규모 언어 모델을 특정 도메인이나 작업에 최적화하여 더욱 우수한 성능을 달성할 수 있습니다. 특히 PEFT와 QLoRA 같은 기술을 활용하면 제한된 자원 환경에서도 효율적인 파인튜닝이 가능합니다. 이러한 과정을 통해 다양한 분야에서 LLaMA 모델을 효과적으로 활용할 수 있을 것으로 기대됩니다.</p>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Minjae Cho · Built with passion and code</p> </div>
+  </footer>
+
+  <script src="/js/main.js"></script> </body>
+</html>

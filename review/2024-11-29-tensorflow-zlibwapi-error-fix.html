@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TensorFlow 'Could not locate zlibwapi.dll' 오류 해결 방법 | Minjae's Life & Review Blog</title>
+
+  <meta name="description" content="TensorFlow 사용 중 발생하는 'Could not locate zlibwapi.dll' 오류 해결 방법 공유 (Anaconda 환경)">
+  <meta name="keywords" content="TensorFlow, zlibwapi.dll, zlib, CUDA, NVIDIA, 오류 해결, Anaconda, Python">
+  <meta name="author" content="Minjae Cho">
+
+  <meta property="og:title" content="TensorFlow 'Could not locate zlibwapi.dll' 오류 해결 방법 | Minjae's Life & Review Blog">
+  <meta property="og:description" content="TensorFlow 사용 중 발생하는 'Could not locate zlibwapi.dll' 오류 해결 방법 공유 (Anaconda 환경)">
+  <meta property="og:url" content="https://sgt-cho.github.io/review/2024-11-29-tensorflow-zlibwapi-error-fix.html"> <meta property="og:type" content="article">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TensorFlow 'Could not locate zlibwapi.dll' 오류 해결 방법">
+  <meta name="twitter:description" content="TensorFlow 사용 중 발생하는 'Could not locate zlibwapi.dll' 오류 해결 방법 공유 (Anaconda 환경)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css"> <link rel="icon" type="image/x-icon" href="/assets/images/minjae.png"> <link rel="manifest" href="/manifest.json"> </head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="nav-logo"> <img src="/assets/images/minjae.png" alt="Minjae Cho"> <span>Minjae Cho</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/life/">Life</a> <a href="/review/" class="active">Review</a> <a href="/portfolio/">Portfolio</a> <a href="/archive/">Archive</a> <a href="/about/">About</a> </div>
+
+      <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <article class="post">
+    <div class="container">
+      <h1>Could not locate zlibwapi.dll. Please make sure it is in your library path! 오류해결</h1>
+
+      <div class="meta">
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          November 29, 2024
+        </div>
+
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          2 min read </div>
+
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+          </svg>
+          <a href="/review/">Review</a> </div>
+      </div>
+
+      <div class="post-tags">
+        <a href="/tags/TensorFlow/" class="post-tag">TensorFlow</a> <a href="/tags/오류해결/" class="post-tag">오류해결</a> <a href="/tags/zlib/" class="post-tag">zlib</a> <a href="/tags/CUDA/" class="post-tag">CUDA</a> <a href="/tags/Anaconda/" class="post-tag">Anaconda</a> <a href="/tags/Python/" class="post-tag">Python</a> <a href="/tags/팁/" class="post-tag">팁</a> </div>
+
+      <div class="post-content">
+        <p>tensorflow를 사용하려던 중 계속 오류가 나고 저는 아나콘다 환경을 사용중이라</p>
+        <pre><code>conda install -c conda-forge zlib</code></pre>
+        <p>이거를 입력해서 설치를 받아도 계속 같은 오류만 생겼었다,<br>
+        구글링을 해보니 답이 나와서 공유차 글을 쓴다.</p>
+
+        <p><code>C:\Program Files\NVIDIA Corporation\Nsight Systems 2022.4.2\host-windows-x64\zlib.dll</code></p>
+        <p>에 있는 `zlib.dll` 파일을 복사해서</p>
+        <p><code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin\zlibwapi.dll</code></p>
+        <p>에 붙여넣고 이름을 `zlibwapi.dll`로 바꿔주니 정상 작동했습니다.</p>
+        <p><em>(참고: 위 경로는 사용자 환경에 따라 다를 수 있습니다. CUDA 및 NVIDIA Nsight Systems 설치 경로를 확인하세요.)</em></p>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Minjae Cho · Built with passion and code</p> </div>
+  </footer>
+
+  <script src="/js/main.js"></script> </body>
+</html>

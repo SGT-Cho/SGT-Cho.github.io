@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Llama에 RAG를 적용하여 똑똑한 인공지능 만들기 | Minjae's Life & Review Blog</title>
+
+  <meta name="description" content="LLaMA 모델에 RAG(Retrieval-Augmented Generation) 시스템을 적용하는 단계별 구현 가이드 및 주의사항">
+  <meta name="keywords" content="LLaMA, RAG, LangChain, AI, 인공지능, LLM, 검색 기반 생성, 벡터DB, FAISS, Ollama">
+  <meta name="author" content="Minjae Cho">
+
+  <meta property="og:title" content="Llama에 RAG를 적용하여 똑똑한 인공지능 만들기 | Minjae's Life & Review Blog">
+  <meta property="og:description" content="LLaMA 모델에 RAG(Retrieval-Augmented Generation) 시스템을 적용하는 단계별 구현 가이드 및 주의사항">
+  <meta property="og:url" content="https://sgt-cho.github.io/review/2025-01-26-llama-rag-implementation.html"> <meta property="og:type" content="article">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Llama에 RAG를 적용하여 똑똑한 인공지능 만들기">
+  <meta name="twitter:description" content="LLaMA 모델에 RAG(Retrieval-Augmented Generation) 시스템을 적용하는 단계별 구현 가이드 및 주의사항">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css"> <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad:true});</script>
+
+
+  <link rel="icon" type="image/x-icon" href="/assets/images/minjae.png"> <link rel="manifest" href="/manifest.json"> </head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="nav-logo"> <img src="/assets/images/minjae.png" alt="Minjae Cho"> <span>Minjae Cho</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/life/">Life</a> <a href="/review/" class="active">Review</a> <a href="/portfolio/">Portfolio</a> <a href="/archive/">Archive</a> <a href="/about/">About</a> </div>
+
+      <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <article class="post">
+    <div class="container">
+      <h1>Llama에 RAG를 적용하여 똑똑한 인공지능 만들기</h1>
+
+      <div class="meta">
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          January 26, 2025
+        </div>
+
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          6 min read </div>
+
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+          </svg>
+          <a href="/review/">Review</a> </div>
+      </div>
+
+      <div class="post-tags">
+        <a href="/tags/LLaMA/" class="post-tag">LLaMA</a> <a href="/tags/RAG/" class="post-tag">RAG</a> <a href="/tags/LangChain/" class="post-tag">LangChain</a> <a href="/tags/AI/" class="post-tag">AI</a> <a href="/tags/LLM/" class="post-tag">LLM</a> <a href="/tags/벡터DB/" class="post-tag">벡터DB</a> <a href="/tags/Ollama/" class="post-tag">Ollama</a> <a href="/tags/구현가이드/" class="post-tag">구현가이드</a> </div>
+
+      <div class="post-content">
+        <h2>1. 기본 준비 사항</h2>
+        <ul>
+          <li><strong>Ollama 설치</strong>: <a href="https://ollama.ai/" target="_blank" rel="noopener noreferrer">공식 문서</a> 참조</li>
+          <li><strong>LLaMA3 모델 로드</strong>:
+            <pre><code>ollama pull llama3</code></pre>
+          </li>
+          <li><strong>필요 라이브러리</strong>:
+            <pre><code>pip install langchain langchain_community faiss-cpu sentence-transformers</code></pre>
+            (Note: `faiss-cpu` assumes CPU usage. For GPU, use `faiss-gpu`.)<br>
+            (Note: Added `langchain_community` based on recent LangChain updates)
+          </li>
+        </ul>
+
+        <hr/>
+
+        <h2>2. RAG 시스템 아키텍처</h2>
+        <pre class="mermaid">
+flowchart LR
+    A[사용자 질문] --> B[질문 임베딩]
+    B --> C[벡터DB 유사도 검색]
+    C --> D[관련 문서 청크 추출]
+    D --> E[LLaMA3 답변 생성]
+        </pre>
+
+        <hr/>
+
+        <h2>3. 단계별 구현 (저작권 주의사항 포함)</h2>
+
+        <h3>1. 데이터 준비</h3>
+        <ul>
+          <li><strong>✅ 허용 데이터</strong>:
+            <ul>
+              <li>자체 제작 문서</li>
+              <li>CC-BY, MIT License 등 <strong>오픈 라이선스</strong> 자료</li>
+              <li>위키백과(CC BY-SA 3.0)</li>
+            </ul>
+          </li>
+          <li><strong>❌ 금지 데이터</strong>:
+            <ul>
+              <li>저작권이 있는 서적/논문</li>
+              <li>웹 스크래핑 데이터(명시적 허락 없을 시)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>2. 문서 청킹 & 임베딩</h3>
+        <pre><code>from langchain.text_splitter import RecursiveCharacterTextSplitter
+# from langchain.embeddings import HuggingFaceEmbeddings # Deprecated
+from langchain_community.embeddings import HuggingFaceEmbeddings # Correct import
+from langchain_community.document_loaders import TextLoader # Example loader
+
+# 예시: 로컬 텍스트 파일 로드 (반드시 자신의 데이터로 대체)
+# loader = TextLoader("your_document.txt", encoding="utf-8")
+# your_own_data = loader.load() # Load your data here
+
+# 실제 사용 시 your_own_data 변수에 로드된 Document 객체 리스트를 할당하세요.
+# 예시를 위해 임시 데이터 생성 (실제로는 파일 로드 필요)
+from langchain_core.documents import Document
+your_own_data = [Document(page_content="여기에 자체 제작 문서 또는 허용된 데이터를 넣으세요. 저작권에 유의하세요.")]
+
+# 문서 분할
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=512,  # 청크 크기 조정
+    chunk_overlap=50
+)
+chunks = text_splitter.split_documents(your_own_data)  # 반드시 자체 데이터 사용
+
+# 임베딩 생성
+embedder = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
+# 한국어 모델 예시: embedder = HuggingFaceEmbeddings(model_name="jhgan/ko-sroberta-multitask")
+</code></pre>
+
+        <h3>3. 벡터 DB 구축</h3>
+        <pre><code># from langchain.vectorstores import FAISS # Deprecated
+from langchain_community.vectorstores import FAISS # Correct import
+
+# FAISS 벡터 저장소 생성
+vector_db = FAISS.from_documents(
+    documents=chunks,
+    embedding=embedder
+)
+vector_db.save_local("your_custom_index")  # 고유한 인덱스 이름 사용
+</code></pre>
+
+        <h3>4. 검색 & 생성 파이프라인</h3>
+        <pre><code>from langchain.chains import RetrievalQA
+# from langchain.llms import Ollama # Deprecated
+from langchain_community.llms import Ollama # Correct import
+# from langchain.prompts import PromptTemplate # Deprecated
+from langchain_core.prompts import PromptTemplate # Correct import
+
+# 커스텀 프롬프트 템플릿 정의 (Llama3 형식 준수)
+template = """&lt;|begin_of_text|&gt;&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
+
+You are an assistant for question-answering tasks. Use the following pieces of retrieved context to answer the question. If you don't know the answer, just say that you don't know. Use three sentences maximum and keep the answer concise. Do not mention the source of the context in your answer.&lt;|eot_id|&gt;&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+
+Question: {question}
+Context: {context}
+
+&lt;|eot_id|&gt;&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+Answer:"""
+custom_prompt = PromptTemplate(template=template, input_variables=["context", "question"])
+
+
+# RAG 체인 구성
+llm = Ollama(model="llama3") # 로컬 Ollama에서 llama3 모델 사용
+retriever = vector_db.as_retriever(search_kwargs={"k": 3}) # 상위 3개 청크 검색
+
+rag_chain = RetrievalQA.from_chain_type(
+    llm=llm,
+    chain_type="stuff", # "stuff" 방식 사용 (가장 일반적)
+    retriever=retriever,
+    chain_type_kwargs={"prompt": custom_prompt},
+    return_source_documents=True # 소스 문서 반환 여부
+)
+</code></pre>
+        <p><em>참고: 위 LangChain 코드는 라이브러리 버전에 따라 임포트 경로 및 클래스 이름이 변경될 수 있습니다. 최신 LangChain 문서를 참조하세요. Llama3 모델의 프롬프트 형식을 따르는 것이 중요합니다.</em></p>
+        <hr/>
+
+        <h2>4. 실행 예시 (자체 데이터 기반)</h2>
+        <pre><code># 사용자 정의 질의응답
+question = "우리 회사 제품의 주요 기술은 무엇인가요?"  # 실제 자사 데이터로 테스트
+# response = rag_chain.run(question) # .run is deprecated
+response = rag_chain.invoke({"query": question}) # invoke 사용
+
+print("답변:", response['result'])
+# print("\n참고 문서:")
+# for doc in response['source_documents']:
+#     print("- ", doc.page_content[:100] + "...") # 내용 일부 출력
+</code></pre>
+
+        <hr/>
+
+        <h2>5. 주의사항</h2>
+        <ol>
+          <li><strong>데이터 소싱</strong>: 반드시 사용 권한이 확인된 데이터만 활용 (저작권 침해 금지)</li>
+          <li><strong>출력 검증</strong>: 생성 결과가 특정 저작물을 그대로 복제하지 않는지 확인 필요</li>
+          <li><strong>임베딩 모델</strong>: 문서 및 질문의 언어에 맞는 모델 선택 (예: 한국어 `jhgan/ko-sroberta-multitask`, 다국어 `intfloat/multilingual-e5-large`)</li>
+          <li><strong>모델 튜닝</strong>: LoRA 등 파라미터 효율적 파인튜닝(PEFT) 기법을 활용해 자체 데이터로 미세조정 시 RAG 성능 향상 가능</li>
+        </ol>
+        <blockquote>
+          💡 <strong>참고</strong>: RAG 시스템의 성능은 검색에 사용되는 **데이터의 품질**과 **임베딩 모델의 성능**에 크게 의존합니다. 자체 지식 베이스를 체계적으로 구축하고 적절한 임베딩 모델을 선택하는 것이 가장 중요합니다.
+        </blockquote>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Minjae Cho · Built with passion and code</p> </div>
+  </footer>
+
+  <script src="/js/main.js"></script> </body>
+</html>
