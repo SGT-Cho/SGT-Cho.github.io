@@ -178,23 +178,16 @@
           day: 'numeric' 
         });
         
-        // 적절한 썸네일 이미지 선택
-        let thumbnailImage = 'coffee.png';
-        if (post.url.includes('coffee') || post.url.includes('cafe')) {
-          thumbnailImage = 'coffee.png';
-        } else if (post.url.includes('book')) {
-          thumbnailImage = 'book.png';
-        } else if (post.url.includes('ai') || post.url.includes('llm')) {
-          thumbnailImage = 'ai.png';
-        }
+        // posts.json에서 지정된 썸네일 경로 사용
+        const thumbnailSrc = post.teaser || '/assets/images/empty.png';
         
         postsHTML += `
           <div class="project-card">
             <a href="${post.url}" style="text-decoration: none; color: inherit;">
-              <img src="/assets/images/thumbnails/${thumbnailImage}" alt="${post.title}" loading="lazy">
+              <img src="${thumbnailSrc}" alt="${post.title}" loading="lazy">
               <h3>${post.title}</h3>
               <p class="project-tags"><span>${formattedDate}</span> <span>${post.readtime || '5'} min read</span></p>
-              <p>${post.teaser || '게시물 내용 미리보기...'}</p>
+              <p>${post.title || '게시물 내용 미리보기...'}</p>
               <span class="post-card-link">Read more →</span>
             </a>
           </div>
