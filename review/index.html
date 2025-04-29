@@ -164,6 +164,9 @@
       loadedPostsElement.textContent = allPosts.length;
       debugInfo.style.display = 'block';
       
+      // 디버그를 위한 이미지 로딩 실패 카운터
+      let failedImages = 0;
+      
       // 모든 게시물 HTML 생성
       let postsHTML = '';
       
@@ -178,16 +181,19 @@
           day: 'numeric' 
         });
         
-        // posts.json에서 지정된 썸네일 경로 사용
+        // 썸네일 이미지 소스를 post.teaser 경로 그대로 사용
         const thumbnailSrc = post.teaser || '/assets/images/empty.png';
+        
+        // 게시물 제목에서 | 이전 부분만 표시
+        const shortTitle = post.title.split('|')[0].trim();
         
         postsHTML += `
           <div class="project-card">
             <a href="${post.url}" style="text-decoration: none; color: inherit;">
-              <img src="${thumbnailSrc}" alt="${post.title}" loading="lazy">
-              <h3>${post.title}</h3>
+              <img src="${thumbnailSrc}" alt="${shortTitle}" loading="lazy" onerror="this.onerror=null; this.src='/assets/images/empty.png'; console.log('이미지 로드 실패: ${thumbnailSrc}');">
+              <h3>${shortTitle}</h3>
               <p class="project-tags"><span>${formattedDate}</span> <span>${post.readtime || '5'} min read</span></p>
-              <p>${post.title || '게시물 내용 미리보기...'}</p>
+              <p>${shortTitle}</p>
               <span class="post-card-link">Read more →</span>
             </a>
           </div>
@@ -197,6 +203,16 @@
       // HTML 추가
       postsContainer.innerHTML = postsHTML;
       console.log('모든 게시물 로드 완료');
+      
+      // 이미지 로딩 실패 시 대체 이미지 사용
+      document.querySelectorAll('#posts-container img').forEach(img => {
+        img.addEventListener('error', function() {
+          console.log(`이미지 로드 실패: ${this.src}`);
+          this.src = '/assets/images/empty.png';
+          failedImages++;
+          console.log(`실패한 이미지 수: ${failedImages}`);
+        });
+      });
     }
   });
 </script>
