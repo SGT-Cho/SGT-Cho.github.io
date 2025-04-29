@@ -1,0 +1,61 @@
+# 비밀 문서 및 개인 정보 파일
+secret/
+private/
+*.secret.*
+*.private.*
+
+# 작성 중인 초안 문서
+draft/
+drafts/
+*.draft.md
+*_draft.*
+
+# 임시 파일
+tmp/
+temp/
+*.tmp
+*.temp
+.DS_Store
+
+# 로그 파일
+*.log
+logs/
+
+# 캐시 파일
+.cache/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 개발 환경 설정 파일
+.env
+.venv
+env/
+venv/
+ENV/
+.idea/
+.vscode/
+
+# 백업 파일
+*~
+*.bak
+*.backup
+*.swp
+
+# 빌드 출력 및 바이너리 파일
+dist/
+build/
+*.so
+*.dll
+*.exe
+
+# 미완성 포스트 
+md/unpublished/
+md/*_wip.md
+md/*_todo.md
+
+# 블로그 관리 도구 및 가이드
+easy_post.py
+easy_post_gui.py
+WRITER_GUIDE.md
+md/
