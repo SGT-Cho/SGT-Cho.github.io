@@ -443,7 +443,7 @@ header nav {
 }
 
 /* Project Modal Styles */
-.project-modal {
+.modal, #project-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -458,9 +458,9 @@ header nav {
   padding: 20px;
 }
 
-.project-modal-content {
+.modal-content {
   background: var(--bg-secondary);
-  max-width: 700px;
+  max-width: 800px;
   width: 100%;
   border-radius: 8px;
   padding: 25px;
@@ -469,7 +469,7 @@ header nav {
   box-shadow: var(--shadow-lg);
 }
 
-.project-modal-close {
+.modal-close, .modal-project-close {
   position: absolute;
   top: 15px;
   right: 20px;
@@ -480,18 +480,85 @@ header nav {
   cursor: pointer;
 }
 
-.project-modal h2 {
+.modal h2, .modal-project h2 {
   margin-bottom: 20px;
   font-size: 1.8rem;
 }
 
-.project-modal img {
+.modal-body img, .modal-project img {
   width: 100%;
   height: auto;
-  max-height: 300px; /* 최대 높이 축소 */
-  object-fit: contain; /* 이미지 비율 유지하면서 컨테이너에 맞춤 */
+  max-height: 400px;
+  object-fit: contain;
   border-radius: 6px;
   margin-bottom: 20px;
+}
+
+.modal-project {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-project-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.modal-project-info {
+  flex: 1;
+}
+
+.modal-tags {
+  margin: 15px 0;
+}
+
+.project-description {
+  margin: 20px 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.project-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.project-date {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+  transition: var(--transition);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .modal-project {
+    flex-direction: column;
+  }
+  
+  .modal-content {
+    margin: 20px;
+    padding: 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
 }
 
 /* 프로필 카드 스타일 - About 페이지용 */
