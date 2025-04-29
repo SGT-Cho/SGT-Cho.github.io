@@ -6,25 +6,25 @@
   <description>Personal blog of Minjae Cho (조민제)</description>
   <language>ko</language>
   <item>
-    <title>졸업 준비 일상: 2025년 봄</title>
-    <link>/life/2025-04-27-daily-graduation-prep.html</link>
-    <pubDate>Sun, 27 Apr 2025 09:00:00 +0900</pubDate>
-    <category>Life</category>
-    <description>졸업을 앞두고 느끼는 변화와 준비 과정에 대한 이야기.</description>
+    <title>SegFormer를 활용한 균열 감지 세그멘테이션</title>
+    <link>/review/2025-04-15-segformer-crack-detection.html</link>
+    <pubDate>Wed, 15 Apr 2025 09:00:00 +0900</pubDate>
+    <category>Review</category>
+    <description>콘크리트 구조물의 균열을 감지하기 위한 SegFormer 모델의 적용 과정과 결과를 분석합니다.</description>
   </item>
   <item>
-    <title>서울 카페 탐방: 커피 리뷰</title>
-    <link>/review/2025-04-26-coffee-review-seoul.html</link>
-    <pubDate>Sat, 26 Apr 2025 09:00:00 +0900</pubDate>
+    <title>LG AI Exaone deep 사용 후기</title>
+    <link>/review/2025-03-23-lg-ai-exaone-deep-review.html</link>
+    <pubDate>Sun, 23 Mar 2025 09:00:00 +0900</pubDate>
     <category>Review</category>
-    <description>서울의 다양한 카페에서 맛본 커피와 분위기 리뷰.</description>
+    <description>LG에서 개발한 Exaone 한국어 AI 모델의 기능과 성능을 상세히 분석합니다.</description>
   </item>
   <item>
-    <title>Grokking AI: 책 리뷰</title>
-    <link>/review/2025-04-25-book-review-grokking-ai.html</link>
-    <pubDate>Fri, 25 Apr 2025 09:00:00 +0900</pubDate>
+    <title>Open WebUI를 사용한 간편한 LLM 사용기</title>
+    <link>/review/2025-03-11-open-webui-llm-guide.html</link>
+    <pubDate>Tue, 11 Mar 2025 09:00:00 +0900</pubDate>
     <category>Review</category>
-    <description>AI 입문자를 위한 책 'Grokking AI'의 주요 내용과 소감.</description>
+    <description>오픈소스 LLM 모델을 위한 Open WebUI 인터페이스의 사용법과 장점을 소개합니다.</description>
   </item>
 </channel>
 </rss>

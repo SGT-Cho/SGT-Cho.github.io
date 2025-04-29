@@ -65,31 +65,25 @@
   
   <!-- Category Cards -->
   <section class="container">
-    <div class="category-cards">
+    <div class="category-cards" id="category-cards">
       <a href="/life/" class="category-card">
         <h2>Life</h2>
-        <ul>
-          <li>졸업 준비 일상</li>
-          <li>인턴십 후기</li>
-          <li>AI 공부법</li>
+        <ul id="life-links">
+          <li>로딩 중...</li>
         </ul>
       </a>
       
       <a href="/review/" class="category-card">
         <h2>Review</h2>
-        <ul>
-          <li>책리뷰</li>
-          <li>코드리뷰</li>
-          <li>AITech 트렌드</li>
+        <ul id="review-links">
+          <li>로딩 중...</li>
         </ul>
       </a>
 
       <a href="/portfolio/" class="category-card">
         <h2>Portfolio</h2>
-        <ul>
-          <li>Local LLM</li>
-          <li>Crack Detection</li>
-          <li>Car Tracking</li>
+        <ul id="portfolio-links">
+          <li>로딩 중...</li>
         </ul>
       </a>
     </div>
@@ -99,59 +93,10 @@
   <section class="latest-posts container">
     <h2>Latest Posts</h2>
     
-    <div class="posts-grid">
-      <!-- Post 1 -->
-      <div class="post-card">
-        <div class="post-card-content">
-          <span class="post-card-badge">Life</span>
-          <h3>졸업 준비 일상</h3>
-          <div class="post-card-meta">
-            <span>2025년 4월 27일</span>
-          </div>
-          <p class="post-card-excerpt">졸업을 앞두고 마무리해야 할 것들과 다양한 준비 과정을 기록해봅니다.</p>
-          <a href="/life/2025-04-27-daily-graduation-prep.html" class="post-card-link">
-            읽기
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-        </div>
-      </div>
-      
-      <!-- Post 2 -->
-      <div class="post-card">
-        <div class="post-card-content">
-          <span class="post-card-badge">Review</span>
-          <h3>서울 카페 리뷰</h3>
-          <div class="post-card-meta">
-            <span>2025년 4월 26일</span>
-          </div>
-          <p class="post-card-excerpt">서울 도심에서 찾은 숨은 보석 같은 카페들을 리뷰합니다.</p>
-          <a href="/review/2025-04-26-coffee-review-seoul.html" class="post-card-link">
-            읽기
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-        </div>
-      </div>
-      
-      <!-- Post 3 -->
-      <div class="post-card">
-        <div class="post-card-content">
-          <span class="post-card-badge">Review</span>
-          <h3>책 리뷰: Grokking AI</h3>
-          <div class="post-card-meta">
-            <span>2025년 4월 25일</span>
-          </div>
-          <p class="post-card-excerpt">AI의 기본 개념부터 최신 트렌드까지 다루는 'Grokking AI'를 읽고 리뷰합니다.</p>
-          <a href="/review/2025-04-25-book-review-grokking-ai.html" class="post-card-link">
-            읽기
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-        </div>
+    <div class="posts-grid" id="latest-posts-container">
+      <!-- 최신 게시글이 여기에 동적으로 로드됩니다 -->
+      <div class="loading-posts">
+        <p>게시글을 불러오는 중...</p>
       </div>
     </div>
     
@@ -171,5 +116,122 @@
   
   <!-- Scripts -->
   <script src="/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 포스트 데이터 가져오기
+      fetch('/posts.json')
+        .then(response => response.json())
+        .then(posts => {
+          // 포스트를 날짜순으로 정렬
+          posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+          
+          // 카테고리별 최신 포스트 가져오기
+          const lifePosts = posts.filter(post => post.category === 'Life').slice(0, 3);
+          const reviewPosts = posts.filter(post => post.category === 'Review').slice(0, 3);
+          
+          // Portfolio 섹션 업데이트 (포트폴리오는 별도 처리)
+          updatePortfolioLinks();
+          
+          // Life 카테고리 링크 업데이트
+          const lifeLinks = document.getElementById('life-links');
+          lifeLinks.innerHTML = '';
+          if (lifePosts.length > 0) {
+            lifePosts.forEach(post => {
+              const li = document.createElement('li');
+              const title = post.title.includes('|') ? post.title.split('|')[0].trim() : post.title;
+              li.innerHTML = title;
+              lifeLinks.appendChild(li);
+            });
+          } else {
+            const li = document.createElement('li');
+            li.innerHTML = '게시글이 없습니다';
+            lifeLinks.appendChild(li);
+          }
+          
+          // Review 카테고리 링크 업데이트
+          const reviewLinks = document.getElementById('review-links');
+          reviewLinks.innerHTML = '';
+          if (reviewPosts.length > 0) {
+            reviewPosts.forEach(post => {
+              const li = document.createElement('li');
+              const title = post.title.includes('|') ? post.title.split('|')[0].trim() : post.title;
+              li.innerHTML = title;
+              reviewLinks.appendChild(li);
+            });
+          } else {
+            const li = document.createElement('li');
+            li.innerHTML = '게시글이 없습니다';
+            reviewLinks.appendChild(li);
+          }
+          
+          // 최신 포스트 3개 표시
+          const latestPosts = posts.slice(0, 3);
+          const latestPostsContainer = document.getElementById('latest-posts-container');
+          latestPostsContainer.innerHTML = '';
+          
+          latestPosts.forEach(post => {
+            const postDate = new Date(post.date);
+            const formattedDate = `${postDate.getFullYear()}년 ${postDate.getMonth() + 1}월 ${postDate.getDate()}일`;
+            const postTitle = post.title.includes('|') ? post.title.split('|')[0].trim() : post.title;
+            
+            // 게시글 요약 가져오기 (나중에 실제 콘텐츠에서 가져올 수 있음)
+            let excerpt = '';
+            if (post.url.includes('segformer-crack-detection')) {
+              excerpt = '콘크리트 구조물의 균열을 감지하기 위한 SegFormer 모델의 적용 과정과 결과를 분석합니다.';
+            } else if (post.url.includes('lg-ai-exaone')) {
+              excerpt = 'LG에서 개발한 Exaone 한국어 AI 모델의 기능과 성능을 상세히 분석합니다.';
+            } else if (post.url.includes('open-webui')) {
+              excerpt = '오픈소스 LLM 모델을 위한 Open WebUI 인터페이스의 사용법과 장점을 소개합니다.';
+            } else {
+              excerpt = '새로운 글을 확인해보세요.';
+            }
+            
+            const postCard = document.createElement('div');
+            postCard.className = 'post-card';
+            postCard.innerHTML = `
+              <div class="post-card-content">
+                <span class="post-card-badge">${post.category}</span>
+                <h3>${postTitle}</h3>
+                <div class="post-card-meta">
+                  <span>${formattedDate}</span>
+                </div>
+                <p class="post-card-excerpt">${excerpt}</p>
+                <a href="${post.url}" class="post-card-link">
+                  읽기
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            `;
+            
+            latestPostsContainer.appendChild(postCard);
+          });
+        })
+        .catch(error => {
+          console.error('포스트 데이터를 불러오는 데 실패했습니다:', error);
+          document.getElementById('latest-posts-container').innerHTML = '<p>게시글을 불러오는데 문제가 발생했습니다.</p>';
+        });
+        
+      // 포트폴리오 링크 업데이트
+      function updatePortfolioLinks() {
+        const portfolioLinks = document.getElementById('portfolio-links');
+        portfolioLinks.innerHTML = '';
+        
+        // 포트폴리오 프로젝트 목록
+        const portfolioProjects = [
+          'Local LLM',
+          'Crack Detection',
+          'Car Tracking'
+        ];
+        
+        portfolioProjects.forEach(project => {
+          const li = document.createElement('li');
+          li.innerHTML = project;
+          portfolioLinks.appendChild(li);
+        });
+      }
+    });
+  </script>
 </body>
 </html>

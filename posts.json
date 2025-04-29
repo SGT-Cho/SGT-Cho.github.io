@@ -1,29 +1,5 @@
 [
   {
-    "title": "졸업 준비 일상: 2025년 봄 | Minjae's Life & Review Blog",
-    "url": "/life/2025-04-27-daily-graduation-prep.html",
-    "date": "2025-04-27",
-    "category": "Life",
-    "teaser": "/assets/images/thumbnails/daily.png",
-    "readtime": 5
-  },
-  {
-    "title": "서울 스페셜티 커피 숍 베스트 5 | Minjae's Life & Review Blog",
-    "url": "/review/2025-04-26-coffee-review-seoul.html",
-    "date": "2025-04-26",
-    "category": "Review",
-    "teaser": "/assets/images/thumbnails/coffee.png",
-    "readtime": 5
-  },
-  {
-    "title": "책 리뷰: Grokking AI - 인공지능 알고리즘 이해하기 | Minjae's Life & Review Blog",
-    "url": "/review/2025-04-25-book-review-grokking-ai.html",
-    "date": "2025-04-25",
-    "category": "Review",
-    "teaser": "/assets/images/thumbnails/book.png",
-    "readtime": 5
-  },
-  {
     "title": "SegFormer를 활용한 균열 감지 세그멘테이션 | Minjae's Life & Review Blog",
     "url": "/review/2025-04-15-segformer-crack-detection.html",
     "date": "2025-04-15",
