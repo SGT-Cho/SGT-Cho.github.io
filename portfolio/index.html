@@ -135,7 +135,6 @@
         tags: ["Computer Vision", "AI", "Auto Insurance"],
         date: "2025-04",
         github: "https://github.com/SGT-Cho/car-damage-detection",
-        demo: "",
         longDesc: "보험 청구 과정을 자동화하기 위해 YOLOv8 기반의 객체 탐지 모델을 개발했습니다. 이 모델은 차량의 스크래치, 덴트, 파손 등 다양한 유형의 손상을 감지하고 분류할 수 있습니다. 약 5,000장의 차량 이미지로 학습했으며 약 92%의 정확도를 달성했습니다."
       },
       {
@@ -147,7 +146,6 @@
         tags: ["NLP", "LLM", "Multimodal AI"],
         date: "2025-03",
         github: "https://github.com/SGT-Cho/multimodal-llm",
-        demo: "https://huggingface.co/spaces/SGT-Cho/multimodal-demo",
         longDesc: "LLaMA 아키텍처를 기반으로 이미지 입력을 처리할 수 있도록 확장한 멀티모달 대규모 언어 모델을 구현했습니다. CLIP 인코더를 활용하여 이미지를 토큰화하고 이를 LLM의 컨텍스트에 통합하는 방식으로 동작합니다. 한국어와 영어 모두 지원합니다."
       },
       {
@@ -159,7 +157,6 @@
         tags: ["Computer Vision", "Segmentation", "Safety"],
         date: "2025-02",
         github: "https://github.com/SGT-Cho/concrete-crack-detection",
-        demo: "",
         longDesc: "교량, 빌딩 등 콘크리트 구조물의 정기 안전점검을 자동화하기 위한 균열 감지 시스템입니다. SegFormer 아키텍처를 사용해 균열의 정확한 위치와 심각도를 측정할 수 있습니다. 드론으로 촬영한 이미지에서도 높은 성능을 발휘하도록 설계했습니다."
       },
       {
@@ -171,7 +168,6 @@
         tags: ["Computer Vision", "Tracking", "Traffic Analysis"],
         date: "2025-01",
         github: "https://github.com/SGT-Cho/vehicle-tracking-system",
-        demo: "",
         longDesc: "CCTV 영상에서 차량을 실시간으로 추적하고 차종과 색상을 식별할 수 있는 시스템입니다. DeepSORT 알고리즘을 개선하여 혼잡한 교통 상황에서도 개별 차량의 이동 경로를 추적할 수 있습니다. 교통 패턴 분석 및 비정상 상황 감지에 활용 가능합니다."
       },
       {
@@ -183,7 +179,6 @@
         tags: ["Signal Processing", "Audio Analysis", "Speech Recognition"],
         date: "2024-12",
         github: "https://github.com/SGT-Cho/mfcc-analyzer",
-        demo: "https://share.streamlit.io/SGT-Cho/mfcc-demo",
         longDesc: "음성 인식 시스템의 성능 향상을 위한 MFCC(Mel-Frequency Cepstral Coefficients) 분석 도구입니다. 다양한 음성 샘플에서 특성을 추출하고 시각화할 수 있으며, 노이즈 제거와 특성 강화를 위한 여러 전처리 옵션을 제공합니다."
       },
       {
@@ -195,7 +190,6 @@
         tags: ["Web Development", "HTML/CSS", "JavaScript"],
         date: "2024-11",
         github: "https://github.com/SGT-Cho/SGT-Cho.github.io",
-        demo: "https://sgt-cho.github.io",
         longDesc: "직접 디자인하고 개발한 개인 블로그 플랫폼입니다. 마크다운 문서를 HTML로 변환하는 정적 사이트 생성 스크립트를 포함하며, 반응형 디자인과 다크 모드 지원, 검색 기능 등을 구현했습니다."
       }
     ];
@@ -279,13 +273,10 @@
       const projectModal = document.getElementById('project-modal');
       const modalBody = document.querySelector('.modal-body');
       
-      // 프로젝트 링크 버튼 HTML 생성
+      // 깃허브 링크만 표시
       let linksHTML = '';
       if (project.github) {
-        linksHTML += `<a href="${project.github}" class="btn btn-outline" target="_blank" rel="noopener noreferrer">GitHub Repository</a>`;
-      }
-      if (project.demo) {
-        linksHTML += `<a href="${project.demo}" class="btn" target="_blank" rel="noopener noreferrer">Live Demo</a>`;
+        linksHTML += `<a href="${project.github}" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repository</a>`;
       }
       
       // 모달 내용 생성
