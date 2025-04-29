@@ -26,7 +26,7 @@ POST_THUMBNAILS = {
     'review/2025-01-26-llama-rag-implementation.html': '/assets/images/llama.png',
     'review/2025-01-26-llama-fine-tuning-guide.html': '/assets/images/llama.png',
     'review/2025-01-26-llm-quantization-overview-usage.html': '/assets/images/quantization.png',
-    'review/2025-01-26-langchain-llm-application-framework.html': '/assets/images/langchain.png',
+    'review/2025-01-26-langchain-llm-application-framework.html': '/assets/images/Langchain.png',
     'review/2025-01-22-cursor-ai-editor-review.html': '/assets/images/cursor.png',
     'review/2025-01-22-what-is-multimodal-ai.html': '/assets/images/multimodal.png',
     'review/2025-01-20-alibaba-qwen-2.5-intro.html': '/assets/images/qwen25.png',
@@ -50,7 +50,7 @@ POST_THUMBNAILS = {
     
     # Life 게시물
     'life/2025-04-27-daily-graduation-prep.html': '/assets/images/thumbnails/daily.png',
-    'life/2024-09-06-naver-sef-popup-event.html': '/assets/images/event.png'
+    'life/2024-09-06-naver-sef-popup-event.html': '/assets/images/sef2024.jpg'
 }
 
 # 카테고리별 기본 썸네일
