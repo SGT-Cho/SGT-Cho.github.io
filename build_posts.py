@@ -14,17 +14,49 @@ EXCLUDED_IMAGES = [
     'assets/images/minjae.png'
 ]
 
+# 게시물별 직접 지정된 썸네일 매핑 (파일명 기반)
+POST_THUMBNAILS = {
+    # Review 게시물
+    'review/2025-04-26-coffee-review-seoul.html': '/assets/images/thumbnails/coffee.png',
+    'review/2025-04-25-book-review-grokking-ai.html': '/assets/images/thumbnails/book.png',
+    'review/2025-04-15-segformer-crack-detection.html': '/assets/images/crack.png',
+    'review/2025-03-23-lg-ai-exaone-deep-review.html': '/assets/images/exaone35.png',
+    'review/2025-03-10-ai-power-consumption-computing-limits.html': '/assets/images/aiElectricity.avif',
+    'review/2025-02-18-grok3-analysis.html': '/assets/images/grok3.png',
+    'review/2025-01-26-llama-rag-implementation.html': '/assets/images/llama-rag.png',
+    'review/2025-01-26-llama-fine-tuning-guide.html': '/assets/images/llama.png',
+    'review/2025-01-26-llm-quantization-overview-usage.html': '/assets/images/quantization.png',
+    'review/2025-01-26-langchain-llm-application-framework.html': '/assets/images/langchain.png',
+    'review/2025-01-22-cursor-ai-editor-review.html': '/assets/images/cursor.png',
+    'review/2025-01-22-what-is-multimodal-ai.html': '/assets/images/multimodal.png',
+    'review/2025-01-20-alibaba-qwen-2.5-intro.html': '/assets/images/qwen.png',
+    'review/2025-01-17-what-is-rag.html': '/assets/images/rag.png',
+    'review/2025-01-13-what-is-ai-agent.html': '/assets/images/aiAgent.webp',
+    'review/2025-01-12-deepseek-v3-release.html': '/assets/images/deepseek.png',
+    'review/2025-01-09-tflops-gpu-performance-metric.html': '/assets/images/tflops.png',
+    'review/2025-01-05-genesis-physics-engine.html': '/assets/images/genesis.jpg',
+    'review/2024-11-25-docker-deployment-automation.html': '/assets/images/docker.png',
+    'review/2024-09-09-linear-regression-basics.html': '/assets/images/linear-regression.png',
+    'review/2024-08-27-gan-generative-adversarial-network.html': '/assets/images/gan.png',
+    'review/2024-08-24-yolo-object-detection.html': '/assets/images/yolo.png',
+    'review/2024-08-19-cnn-image-processing-deep-learning.html': '/assets/images/cnn.png',
+    'review/2024-08-17-anaconda3-data-science-platform.html': '/assets/images/anaconda.png',
+    'review/2024-08-15-ai-ethics-responsibility-transparency.html': '/assets/images/aiethic.png',
+    'review/2024-08-14-bert-natural-language-processing-innovation.html': '/assets/images/bert.png',
+    'review/2024-08-12-what-are-large-language-models.html': '/assets/images/llm.png',
+    'review/2024-08-10-ai-ml-dl-concepts.html': '/assets/images/aimldl.png',
+    'review/2024-08-09-spiking-neural-networks-review.html': '/assets/images/snn.png',
+    'review/2023-03-26-Tesseract-ocr-review.html': '/assets/images/tesseract.png',
+    
+    # Life 게시물
+    'life/2025-04-27-daily-graduation-prep.html': '/assets/images/thumbnails/daily.png',
+    'life/2024-09-06-naver-sef-popup-event.html': '/assets/images/event.png'
+}
+
 # 카테고리별 기본 썸네일
 BASE_THUMBNAILS = {
     'life': '/assets/images/thumbnails/daily.png',
-    'review': '/assets/images/thumbnails/daily.png'
-}
-
-# 직접 설정된 썸네일 매핑
-EXPLICIT_THUMBNAILS = {
-    'review/2025-04-26-coffee-review-seoul.html': '/assets/images/thumbnails/coffee.png',
-    'review/2025-04-25-book-review-grokking-ai.html': '/assets/images/thumbnails/book.png',
-    'life/2025-04-27-daily-graduation-prep.html': '/assets/images/thumbnails/daily.png'
+    'review': '/assets/images/empty.png'  # 기본값은 empty.png
 }
 
 # 기본 대체 썸네일
@@ -82,9 +114,9 @@ def extract_first_image(content):
     return None
 
 def get_teaser(filepath, title):
-    # 1. 명시적으로 지정된 썸네일이 있는지 확인
-    if filepath in EXPLICIT_THUMBNAILS:
-        return EXPLICIT_THUMBNAILS[filepath]
+    # 1. 게시물별 직접 지정된 썸네일이 있는지 확인
+    if filepath in POST_THUMBNAILS:
+        return POST_THUMBNAILS[filepath]
     
     # 2. 파일 내용에서 첫 번째 적합한 이미지를 찾아 썸네일로 사용
     try:
