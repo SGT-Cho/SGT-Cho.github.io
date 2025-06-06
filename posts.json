@@ -1,5 +1,13 @@
 [
   {
+    "title": "생성형 AI 결과물 저작권 침해 실시간 검증 시스템 - 기술적 분석과 전망 | Minjae's Review Blog",
+    "url": "/review/2025-06-06-ai-copyright-verification-system-review.html",
+    "date": "2025-06-06",
+    "category": "Review",
+    "teaser": "/assets/images/aiethic.png",
+    "readtime": 5
+  },
+  {
     "title": "AWS Summit 2025 참가 후기 - LLM Tool Use와 Agent 활용 강연 | Minjae's Life & Review Blog",
     "url": "/life/2025-05-25-aws-reinvent-llm-agent-session.html",
     "date": "2025-05-25",
@@ -80,11 +88,11 @@
     "readtime": 5
   },
   {
-    "title": "2025-01-25-ai-job-recruitment-rag-system-review.html",
+    "title": "AI 기반 채용정보 수집 및 RAG 분석 시스템 프로젝트 회고 - SGT-Cho's Life",
     "url": "/life/2025-01-25-ai-job-recruitment-rag-system-review.html",
     "date": "2025-01-25",
     "category": "Life",
-    "teaser": "/assets/images/thumbnails/daily.png",
+    "teaser": "/assets/images/portfolio/careers.png",
     "readtime": 5
   },
   {
