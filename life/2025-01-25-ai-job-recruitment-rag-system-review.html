@@ -1,309 +1,120 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 기반 채용정보 수집 및 RAG 분석 시스템 프로젝트 회고 - SGT-Cho's Life</title>
-    <meta name="description" content="Selenium 웹 크롤링, ChromaDB, LangChain RAG 시스템으로 구현한 AI 기반 채용정보 수집 시스템 개발 경험과 기술적 도전 과제들을 정리했습니다.">
-    <meta name="keywords" content="RAG, LLM, ChromaDB, LangChain, 웹크롤링, Discord Bot, 채용정보, AI 시스템">
-    <meta name="author" content="SGT-Cho">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="AI 기반 채용정보 수집 및 RAG 분석 시스템 프로젝트 회고">
-    <meta property="og:description" content="Selenium 웹 크롤링, ChromaDB, LangChain RAG 시스템으로 구현한 AI 기반 채용정보 수집 시스템 개발 경험과 기술적 도전 과제들을 정리했습니다.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://sgt-cho.github.io/life/2025-01-25-ai-job-recruitment-rag-system-review.html">
-    <meta property="og:image" content="https://sgt-cho.github.io/assets/images/portfolio/careers.png">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI 기반 채용정보 수집 및 RAG 분석 시스템 프로젝트 회고">
-    <meta name="twitter:description" content="Selenium 웹 크롤링, ChromaDB, LangChain RAG 시스템으로 구현한 AI 기반 채용정보 수집 시스템 개발 경험과 기술적 도전 과제들을 정리했습니다.">
-    <meta name="twitter:image" content="https://sgt-cho.github.io/assets/images/portfolio/careers.png">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            line-height: 1.7;
-            color: #333;
-        }
-        
-        .blog-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 4rem 0;
-            margin-bottom: 3rem;
-        }
-        
-        .blog-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .blog-meta {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        .blog-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .blog-content h2 {
-            color: #667eea;
-            font-weight: 700;
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #e9ecef;
-        }
-        
-        .blog-content h3 {
-            color: #495057;
-            font-weight: 600;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .blog-content p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .blog-content ul {
-            margin-bottom: 1.5rem;
-        }
-        
-        .blog-content li {
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .tech-stack {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        
-        .tech-stack h4 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-        
-        .tech-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .tech-badge {
-            background: #667eea;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        
-        .highlight-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        
-        .highlight-box h4 {
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-        
-        .metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .metric-card {
-            background: white;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-align: center;
-        }
-        
-        .metric-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #667eea;
-            margin-bottom: 0.5rem;
-        }
-        
-        .metric-label {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .blog-image {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 8px;
-            margin: 2rem auto;
-            display: block;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        
-        .code-block {
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
-            padding: 1rem 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-        }
-        
-        .challenge-box {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .challenge-box h4 {
-            color: #856404;
-            margin-bottom: 1rem;
-        }
-        
-        .solution-box {
-            background: #d1edff;
-            border: 1px solid #b8daff;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 1rem 0;
-        }
-        
-        .solution-box h5 {
-            color: #004085;
-            margin-bottom: 0.5rem;
-        }
-        
-        .navigation {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-brand {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: #667eea;
-            text-decoration: none;
-        }
-        
-        .nav-links a {
-            color: #333;
-            text-decoration: none;
-            margin-left: 2rem;
-            font-weight: 500;
-        }
-        
-        .nav-links a:hover {
-            color: #667eea;
-        }
-        
-        @media (max-width: 768px) {
-            .blog-title {
-                font-size: 2rem;
-            }
-            
-            .blog-content {
-                padding: 0 1rem;
-            }
-            
-            .metrics {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-links a {
-                margin-left: 1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 기반 채용정보 수집 및 RAG 분석 시스템 프로젝트 회고 | Minjae's Life & Review Blog</title>
+  
+  <!-- Meta tags for SEO and social sharing -->
+  <meta name="description" content="Selenium 웹 크롤링, ChromaDB, LangChain RAG 시스템으로 구현한 AI 기반 채용정보 수집 시스템 개발 경험과 기술적 도전 과제들을 정리했습니다.">
+  <meta name="keywords" content="RAG, LLM, ChromaDB, LangChain, 웹크롤링, Discord Bot, 채용정보, AI 시스템">
+  <meta name="author" content="Minjae Cho">
+  
+  <!-- Open Graph meta tags for social sharing -->
+  <meta property="og:title" content="AI 기반 채용정보 수집 및 RAG 분석 시스템 프로젝트 회고">
+  <meta property="og:description" content="Selenium 웹 크롤링, ChromaDB, LangChain RAG 시스템으로 구현한 AI 기반 채용정보 수집 시스템 개발 경험과 기술적 도전 과제들을 정리했습니다.">
+  <meta property="og:image" content="/assets/images/portfolio/careers.png">
+  <meta property="og:url" content="https://sgt-cho.github.io/life/2025-01-25-ai-job-recruitment-rag-system-review.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter card meta tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI 기반 채용정보 수집 및 RAG 분석 시스템 프로젝트 회고">
+  <meta name="twitter:description" content="Selenium 웹 크롤링, ChromaDB, LangChain RAG 시스템으로 구현한 AI 기반 채용정보 수집 시스템 개발 경험과 기술적 도전 과제들을 정리했습니다.">
+  <meta name="twitter:image" content="/assets/images/portfolio/careers.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/assets/images/minjae.png">
+  
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/manifest.json">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navigation">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center">
-                <a href="../" class="nav-brand">SGT-Cho</a>
-                <div class="nav-links">
-                    <a href="../">홈</a>
-                    <a href="../portfolio/">포트폴리오</a>
-                    <a href="./">라이프</a>
-                    <a href="../about/">소개</a>
-                </div>
-            </div>
-        </div>
+  <!-- 
+    title: AI 기반 채용정보 수집 및 RAG 분석 시스템 프로젝트 회고
+    date: 2025-01-25
+    category: life
+    tags: RAG, LLM, ChromaDB, LangChain, 웹크롤링, Discord Bot, 채용정보, AI 시스템
+    teaser: Selenium 웹 크롤링, ChromaDB, LangChain RAG 시스템으로 구현한 AI 기반 채용정보 수집 시스템 개발 경험과 기술적 도전 과제들을 정리했습니다.
+    thumbnail: careers.png
+    readtime: 12
+  -->
+  
+  <!-- Header/Navigation -->
+  <header>
+    <nav>
+      <a href="/" class="nav-logo">
+        <img src="/assets/images/minjae.png" alt="Minjae Cho">
+        <span>Minjae Cho</span>
+      </a>
+      
+      <div class="nav-links">
+        <a href="/life/" class="active">Life</a>
+        <a href="/review/">Review</a>
+        <a href="/portfolio/">Portfolio</a>
+        <a href="/archive/">Archive</a>
+        <a href="/about/">About</a>
+      </div>
+      
+      <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </nav>
-
-    <!-- Blog Header -->
-    <header class="blog-header">
-        <div class="container text-center">
-            <h1 class="blog-title">AI 기반 채용정보 수집 및 RAG 분석 시스템 프로젝트 회고</h1>
-            <div class="blog-meta">
-                <span>2025년 1월 25일</span> • <span>프로젝트 리뷰</span> • <span>RAG & AI 시스템</span>
-            </div>
+  </header>
+  
+  <!-- Post Content -->
+  <article class="post">
+    <div class="container">
+      <h1>AI 기반 채용정보 수집 및 RAG 분석 시스템 프로젝트 회고</h1>
+      
+      <div class="meta">
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          January 25, 2025
         </div>
-    </header>
-
-    <!-- Blog Content -->
-    <main class="blog-content">
-        <img src="../assets/images/portfolio/careers.png" alt="AI 기반 채용정보 수집 시스템" class="blog-image">
+        
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          12 min read
+        </div>
+        
+        <div>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+          </svg>
+          <a href="/life/">Life</a>
+        </div>
+      </div>
+      
+      <div class="post-tags">
+        <a href="/tags/RAG/" class="post-tag">RAG</a>
+        <a href="/tags/LLM/" class="post-tag">LLM</a>
+        <a href="/tags/ChromaDB/" class="post-tag">ChromaDB</a>
+        <a href="/tags/LangChain/" class="post-tag">LangChain</a>
+        <a href="/tags/웹크롤링/" class="post-tag">웹크롤링</a>
+        <a href="/tags/Discord-Bot/" class="post-tag">Discord Bot</a>
+        <a href="/tags/채용정보/" class="post-tag">채용정보</a>
+        <a href="/tags/AI-시스템/" class="post-tag">AI 시스템</a>
+      </div>
+      
+      <div class="post-content">
+        <img src="/assets/images/portfolio/careers.png" alt="AI 기반 채용정보 수집 시스템" class="post-image">
         
         <p>최근 완성한 <strong>"AI 기반 채용정보 수집 및 RAG 분석 시스템"</strong> 프로젝트를 돌아보며, 개발 과정에서 겪었던 기술적 도전과 해결 과정, 그리고 얻은 인사이트들을 정리해보고자 합니다. 이 프로젝트는 단순한 웹 크롤링을 넘어서 RAG(Retrieval-Augmented Generation) 기술과 LLM을 활용한 지능형 채용정보 검색 시스템을 구현한 것입니다.</p>
-
-        <div class="highlight-box">
-            <h4>📊 프로젝트 핵심 성과</h4>
-            <div class="metrics">
-                <div class="metric-card">
-                    <div class="metric-number">10</div>
-                    <div class="metric-label">주요 IT 기업 커버</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-number">850+</div>
-                    <div class="metric-label">월 평균 공고 수집</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-number">87%</div>
-                    <div class="metric-label">검색 정확도</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-number">24/7</div>
-                    <div class="metric-label">실시간 모니터링</div>
-                </div>
-            </div>
-        </div>
 
         <h2>🎯 프로젝트 개요 및 목표</h2>
         
@@ -318,21 +129,20 @@
             <li><strong>개인화된 추천</strong>: 사용자 프로필 기반 맞춤형 채용정보 제공</li>
         </ul>
 
-        <div class="tech-stack">
-            <h4>🛠️ 기술 스택</h4>
-            <div class="tech-badges">
-                <span class="tech-badge">Python</span>
-                <span class="tech-badge">Selenium</span>
-                <span class="tech-badge">ChromaDB</span>
-                <span class="tech-badge">LangChain</span>
-                <span class="tech-badge">OpenAI GPT</span>
-                <span class="tech-badge">Discord.py</span>
-                <span class="tech-badge">BeautifulSoup</span>
-                <span class="tech-badge">Pandas</span>
-                <span class="tech-badge">FastAPI</span>
-                <span class="tech-badge">Docker</span>
-            </div>
-        </div>
+        <h2>🛠️ 기술 스택</h2>
+        
+        <p>이 프로젝트에서 사용한 주요 기술들은 다음과 같습니다:</p>
+        
+        <ul>
+            <li><strong>Python</strong>: 메인 개발 언어</li>
+            <li><strong>Selenium</strong>: 웹 크롤링</li>
+            <li><strong>ChromaDB</strong>: 벡터 데이터베이스</li>
+            <li><strong>LangChain</strong>: RAG 파이프라인 구축</li>
+            <li><strong>OpenAI GPT</strong>: 언어 모델</li>
+            <li><strong>Discord.py</strong>: 봇 개발</li>
+            <li><strong>BeautifulSoup</strong>: HTML 파싱</li>
+            <li><strong>FastAPI</strong>: API 서버</li>
+        </ul>
 
         <h2>🕸️ 웹 크롤링: 데이터 수집의 기반</h2>
         
@@ -340,38 +150,11 @@
 
         <h3>기술적 도전 과제들</h3>
 
-        <div class="challenge-box">
-            <h4>⚠️ 도전 과제 1: 다양한 웹사이트 구조</h4>
-            <p>각 기업마다 다른 웹사이트 구조와 JavaScript 기반의 동적 콘텐츠 로딩 방식을 사용하고 있어, 일관된 크롤링 로직을 구현하기 어려웠습니다.</p>
-            
-            <div class="solution-box">
-                <h5>💡 해결 방안</h5>
-                <p><strong>Selenium WebDriver</strong>를 활용하여 실제 브라우저 환경을 시뮬레이션하고, 각 사이트별로 맞춤형 크롤러를 개발했습니다. 동적 로딩을 위한 적절한 대기 시간과 요소 감지 로직을 구현했습니다.</p>
-            </div>
-        </div>
+        <p><strong>다양한 웹사이트 구조</strong><br>
+        각 기업마다 다른 웹사이트 구조와 JavaScript 기반의 동적 콘텐츠 로딩 방식을 사용하고 있어, 일관된 크롤링 로직을 구현하기 어려웠습니다. <strong>Selenium WebDriver</strong>를 활용하여 실제 브라우저 환경을 시뮬레이션하고, 각 사이트별로 맞춤형 크롤러를 개발했습니다.</p>
 
-        <div class="challenge-box">
-            <h4>⚠️ 도전 과제 2: Anti-Bot 보호 시스템</h4>
-            <p>대부분의 기업 사이트들이 CAPTCHA, IP 차단, Rate Limiting 등의 보호 메커니즘을 운영하고 있었습니다.</p>
-            
-            <div class="solution-box">
-                <h5>💡 해결 방안</h5>
-                <p>User-Agent 로테이션, 랜덤 딜레이, 프록시 서버 활용, 그리고 무엇보다 <strong>윤리적 크롤링</strong>을 위한 robots.txt 준수와 적절한 요청 간격 설정을 통해 해결했습니다.</p>
-            </div>
-        </div>
-
-        <div class="code-block">
-<strong>크롤링 코드 예시:</strong><br>
-# Selenium 설정 및 웹드라이버 초기화<br>
-options = webdriver.ChromeOptions()<br>
-options.add_argument('--headless')  # 백그라운드 실행<br>
-options.add_argument('--no-sandbox')<br>
-driver = webdriver.Chrome(options=options)<br><br>
-
-# 동적 콘텐츠 로딩 대기<br>
-wait = WebDriverWait(driver, 10)<br>
-elements = wait.until(EC.presence_of_all_elements_located((By.CLASS_NAME, "job-item")))
-        </div>
+        <p><strong>Anti-Bot 보호 시스템</strong><br>
+        대부분의 기업 사이트들이 CAPTCHA, IP 차단, Rate Limiting 등의 보호 메커니즘을 운영하고 있었습니다. User-Agent 로테이션, 랜덤 딜레이, 프록시 서버 활용, 그리고 무엇보다 <strong>윤리적 크롤링</strong>을 위한 robots.txt 준수와 적절한 요청 간격 설정을 통해 해결했습니다.</p>
 
         <h2>🧠 RAG 시스템: 지능형 검색의 핵심</h2>
         
@@ -388,22 +171,6 @@ elements = wait.until(EC.presence_of_all_elements_located((By.CLASS_NAME, "job-i
             <li>🔗 <strong>LangChain 호환성</strong>: 원활한 통합</li>
         </ul>
 
-        <div class="code-block">
-<strong>RAG 시스템 구현 예시:</strong><br>
-# ChromaDB 컬렉션 생성<br>
-collection = chroma_client.create_collection(<br>
-&nbsp;&nbsp;&nbsp;&nbsp;name="job_postings",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;embedding_function=embedding_function<br>
-)<br><br>
-
-# 문서 임베딩 및 저장<br>
-collection.add(<br>
-&nbsp;&nbsp;&nbsp;&nbsp;documents=job_descriptions,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;metadatas=job_metadata,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;ids=job_ids<br>
-)
-        </div>
-
         <h3>LangChain을 통한 RAG 파이프라인</h3>
 
         <p><strong>LangChain</strong>을 활용하여 다음과 같은 RAG 파이프라인을 구축했습니다:</p>
@@ -416,10 +183,9 @@ collection.add(<br>
             <li><strong>응답 생성</strong>: LLM을 통한 자연어 응답 생성</li>
         </ol>
 
-        <div class="highlight-box">
-            <h4>🎯 RAG 시스템의 핵심 장점</h4>
-            <p><strong>"Python 백엔드 개발자 채용공고 찾아줘"</strong>라고 물어보면, 단순히 'Python'이나 '백엔드'라는 키워드가 포함된 공고만 찾는 것이 아니라, Django, FastAPI, Flask 등 관련 기술 스택이 포함된 공고들까지 의미적으로 연관된 결과를 제공합니다.</p>
-        </div>
+        <blockquote>
+          <p><strong>"Python 백엔드 개발자 채용공고 찾아줘"</strong>라고 물어보면, 단순히 'Python'이나 '백엔드'라는 키워드가 포함된 공고만 찾는 것이 아니라, Django, FastAPI, Flask 등 관련 기술 스택이 포함된 공고들까지 의미적으로 연관된 결과를 제공합니다.</p>
+        </blockquote>
 
         <h2>🤖 Discord Bot: 사용자 인터페이스</h2>
         
@@ -434,38 +200,19 @@ collection.add(<br>
             <li><strong>즐겨찾기</strong>: 관심있는 채용공고 저장 및 관리</li>
         </ul>
 
-        <div class="challenge-box">
-            <h4>⚠️ 도전 과제 3: 응답 시간 최적화</h4>
-            <p>RAG 검색과 LLM 응답 생성에 소요되는 시간이 길어져 사용자 경험이 저하되는 문제가 있었습니다.</p>
-            
-            <div class="solution-box">
-                <h5>💡 해결 방안</h5>
-                <p><strong>비동기 처리</strong>와 <strong>캐싱 시스템</strong>을 도입했습니다. 자주 검색되는 키워드에 대해서는 결과를 캐시하고, 백그라운드에서 임베딩 생성을 미리 처리하여 응답 시간을 단축했습니다.</p>
-            </div>
-        </div>
+        <p><strong>응답 시간 최적화</strong><br>
+        RAG 검색과 LLM 응답 생성에 소요되는 시간이 길어져 사용자 경험이 저하되는 문제가 있었습니다. <strong>비동기 처리</strong>와 <strong>캐싱 시스템</strong>을 도입했습니다. 자주 검색되는 키워드에 대해서는 결과를 캐시하고, 백그라운드에서 임베딩 생성을 미리 처리하여 응답 시간을 단축했습니다.</p>
 
         <h2>📊 성과 분석 및 학습된 점</h2>
 
         <h3>정량적 성과</h3>
         
-        <div class="metrics">
-            <div class="metric-card">
-                <div class="metric-number">850+</div>
-                <div class="metric-label">월평균 수집 공고수</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-number">87%</div>
-                <div class="metric-label">검색 정확도</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-number">2.3초</div>
-                <div class="metric-label">평균 응답시간</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-number">95%</div>
-                <div class="metric-label">시스템 가동률</div>
-            </div>
-        </div>
+        <ul>
+            <li><strong>850+</strong> 월평균 수집 공고수</li>
+            <li><strong>87%</strong> 검색 정확도</li>
+            <li><strong>2.3초</strong> 평균 응답시간</li>
+            <li><strong>95%</strong> 시스템 가동률</li>
+        </ul>
 
         <h3>기술적 인사이트</h3>
 
@@ -500,24 +247,24 @@ collection.add(<br>
 
         <p>특히 <strong>LLM과 벡터 데이터베이스의 결합</strong>이 얼마나 강력한지 체감할 수 있었고, 앞으로 더 많은 도메인에서 이러한 기술을 활용한 혁신적인 서비스가 등장할 것이라는 확신을 갖게 되었습니다.</p>
 
-        <div class="highlight-box">
-            <h4>🔗 프로젝트 링크</h4>
-            <p><strong>GitHub Repository:</strong> <a href="https://github.com/SGT-Cho/careers" style="color: white; text-decoration: underline;">https://github.com/SGT-Cho/careers</a></p>
-            <p>더 자세한 코드와 구현 내용은 GitHub에서 확인하실 수 있습니다.</p>
-        </div>
+        <blockquote>
+          <p><strong>GitHub Repository:</strong> <a href="https://github.com/SGT-Cho/careers">https://github.com/SGT-Cho/careers</a><br>
+          더 자세한 코드와 구현 내용은 GitHub에서 확인하실 수 있습니다.</p>
+        </blockquote>
 
         <p><em>다음 프로젝트에서는 이번 경험을 바탕으로 더욱 정교한 AI 시스템을 구축해보고 싶습니다. RAG 기술의 가능성은 무궁무진하다고 생각합니다!</em></p>
-    </main>
-
-    <!-- Footer -->
-    <footer style="background: #f8f9fa; padding: 3rem 0; margin-top: 4rem; text-align: center; color: #666;">
-        <div class="container">
-            <p>&copy; 2025 SGT-Cho. All rights reserved.</p>
-            <p>지속적인 학습과 성장을 추구하는 AI 개발자</p>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="../assets/js/vendor/bootstrap.bundle.min.js"></script>
+      </div>
+    </div>
+  </article>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Minjae Cho · Built with passion and code</p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="/js/main.js"></script>
 </body>
 </html>
