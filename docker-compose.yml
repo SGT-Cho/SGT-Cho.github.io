@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  nginx:
+    build: ./docker/nginx
+    container_name: blog-nginx
+    ports:
+      - "8000:8000"
+    volumes:
+      # 블로그 정적 파일 마운트
+      - ./:/var/www/blog:ro
+      # 로그 디렉토리
+      - ./logs/nginx:/var/log/nginx
+    depends_on:
+      - blog
+    networks:
+      - blog-network
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  blog:
+    build: .
+    container_name: blog-app
+    ports:
+      - "8001:8001"
+    volumes:
+      # 개발 시에는 코드 마운트, 프로덕션에서는 제거
+      - ./logs:/app/logs
+      - ./index:/app/index:ro
+      - ./posts.json:/app/posts.json:ro
+      - ./life:/app/life:ro
+      - ./review:/app/review:ro
+      - ./portfolio:/app/portfolio:ro
+      - ./assets:/app/assets:ro
+      - ./css:/app/css:ro
+      - ./js:/app/js:ro
+      - ./templates:/app/templates:ro
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    networks:
+      - blog-network
+    restart: unless-stopped
+    command: gunicorn -c gunicorn_config.py blog_server_with_llm:app
+
+networks:
+  blog-network:
+    driver: bridge

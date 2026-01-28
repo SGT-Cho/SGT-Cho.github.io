@@ -1,41 +1,224 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Archive | Minjae Cho</title>
   
   <!-- Meta tags for SEO and social sharing -->
-  <meta name="description" content="Browse all posts by date or category on Minjae Cho's blog">
+  <meta name="description" content="모든 포스트를 날짜별, 카테고리별로 확인하세요">
   <meta name="keywords" content="archive, blog, posts, minjae cho">
   <meta name="author" content="Minjae Cho">
   
   <!-- Open Graph meta tags for social sharing -->
-  <meta property="og:title" content="Archive | Minjae's Life & Review Blog">
-  <meta property="og:description" content="Browse all posts by date or category on Minjae Cho's blog">
+  <meta property="og:title" content="Archive | Minjae Cho">
+  <meta property="og:description" content="모든 포스트를 날짜별, 카테고리별로 확인하세요">
   <meta property="og:image" content="/assets/images/banner.jpg">
-  <meta property="og:url" content="https://sgt-cho.github.io/archive/">
+  <meta property="og:url" content="https://sgtcho.com/archive/">
   <meta property="og:type" content="website">
   
-  <!-- Twitter card meta tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Archive | Minjae's Life & Review Blog">
-  <meta name="twitter:description" content="Browse all posts by date or category on Minjae Cho's blog">
-  <meta name="twitter:image" content="/assets/images/banner.jpg">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css?v=20250702">
   
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/assets/images/minjae.png">
   
-  <!-- Web App Manifest -->
-  <link rel="manifest" href="/manifest.json">
+  <style>
+    .archive-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    .archive-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .archive-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .archive-header p {
+      color: #888;
+      font-size: 1.1rem;
+    }
+    
+    .category-filter {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .category-btn {
+      padding: 0.5rem 1.5rem;
+      border: 1px solid #333;
+      border-radius: 25px;
+      background: transparent;
+      color: #ccc;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.95rem;
+    }
+    
+    .category-btn:hover {
+      border-color: #00ff88;
+      color: #00ff88;
+    }
+    
+    .category-btn.active {
+      background: #00ff88;
+      color: #000;
+      border-color: #00ff88;
+    }
+    
+    .posts-by-year {
+      margin-bottom: 3rem;
+    }
+    
+    .year-section {
+      margin-bottom: 2rem;
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid #333;
+    }
+    
+    .year-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    
+    .year-header h2 {
+      margin: 0;
+      color: #00ff88;
+      font-size: 1.8rem;
+    }
+    
+    .year-header .post-count {
+      color: #888;
+      font-size: 1rem;
+    }
+    
+    .month-section {
+      margin-bottom: 1.5rem;
+    }
+    
+    .month-header {
+      color: #4ec9b0;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+      padding-left: 1rem;
+    }
+    
+    .post-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .post-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid #2a2a2a;
+      transition: all 0.2s;
+    }
+    
+    .post-item:hover {
+      background: #252525;
+      padding-left: 1.5rem;
+    }
+    
+    .post-item:last-child {
+      border-bottom: none;
+    }
+    
+    .post-link {
+      color: #ccc;
+      text-decoration: none;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .post-link:hover {
+      color: #00ff88;
+    }
+    
+    .post-category {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      background: #333;
+      color: #888;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+    }
+    
+    .post-category.life {
+      background: #2a4a3a;
+      color: #00ff88;
+    }
+    
+    .post-category.review {
+      background: #3a3a4a;
+      color: #88aaff;
+    }
+    
+    .post-date {
+      color: #666;
+      font-size: 0.9rem;
+      font-family: monospace;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      color: #888;
+    }
+    
+    .no-posts {
+      text-align: center;
+      padding: 3rem;
+      color: #666;
+    }
+    
+    .stats-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .stat-card {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+      color: #00ff88;
+      font-weight: bold;
+    }
+    
+    .stat-label {
+      color: #888;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
   <!-- Header/Navigation -->
@@ -55,70 +238,48 @@
       </div>
       
       <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </nav>
   </header>
   
   <main>
-    <section class="intro">
-      <h1>Post Archive</h1>
-      <p class="tagline">Browse all posts by date or category</p>
-    </section>
-    
-    <!-- Archive Content -->
-    <section class="container">
-      <!-- Categories Filter -->
-      <div class="category-links mb-4">
-        <a href="#all" class="active">All Posts</a>
-        <a href="#life">Life</a>
-        <a href="#review">Review</a>
+    <div class="archive-container">
+      <div class="archive-header">
+        <h1>Post Archive</h1>
+        <p>모든 포스트를 날짜별, 카테고리별로 확인하세요</p>
       </div>
       
-      <!-- Year: 2025 -->
-      <div class="archive-year open">
-        <div class="archive-year-header">
-          <h2>2025</h2>
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
+      <!-- Statistics -->
+      <div class="stats-section" id="stats-section">
+        <div class="stat-card">
+          <div class="stat-number" id="total-posts">0</div>
+          <div class="stat-label">Total Posts</div>
         </div>
-        
-        <div class="archive-months">
-          <!-- April 2025 -->
-          <div class="archive-month">
-            <h3>April</h3>
-            <ul class="archive-posts">
-              <li class="archive-post">
-                <a href="/life/2025-04-27-daily-graduation-prep.html">졸업 준비 일상: 2025년 봄</a>
-                <span class="archive-post-date">2025-04-27</span>
-              </li>
-              <li class="archive-post">
-                <a href="/review/2025-04-26-coffee-review-seoul.html">서울 카페 탐방: 커피 리뷰</a>
-                <span class="archive-post-date">2025-04-26</span>
-              </li>
-              <li class="archive-post">
-                <a href="/review/2025-04-25-book-review-grokking-ai.html">Grokking AI: 책 리뷰</a>
-                <span class="archive-post-date">2025-04-25</span>
-              </li>
-            </ul>
-          </div>
+        <div class="stat-card">
+          <div class="stat-number" id="life-posts">0</div>
+          <div class="stat-label">Life Posts</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="review-posts">0</div>
+          <div class="stat-label">Review Posts</div>
         </div>
       </div>
       
-      <!-- Tag Cloud -->
-      <div class="my-4">
-        <h2>Browse by Tag</h2>
-        <div class="tag-cloud">
-          <a href="/tags/study/">study <span>(1)</span></a>
-          <a href="/tags/graduation/">graduation <span>(1)</span></a>
-          <a href="/tags/coffee/">coffee <span>(1)</span></a>
-          <a href="/tags/seoul/">seoul <span>(1)</span></a>
-          <a href="/tags/book/">book <span>(1)</span></a>
-          <a href="/tags/ai/">ai <span>(1)</span></a>
-        </div>
+      <!-- Category Filter -->
+      <div class="category-filter">
+        <button class="category-btn active" data-category="all">All Posts</button>
+        <button class="category-btn" data-category="Life">Life</button>
+        <button class="category-btn" data-category="Review">Review</button>
       </div>
-    </section>
+      
+      <!-- Posts by Year -->
+      <div class="posts-by-year" id="posts-container">
+        <div class="loading">포스트를 불러오는 중...</div>
+      </div>
+    </div>
   </main>
   
   <!-- Footer -->
@@ -130,5 +291,135 @@
   
   <!-- Scripts -->
   <script src="/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      let allPosts = [];
+      let currentCategory = 'all';
+      
+      // Fetch posts data
+      fetch('/posts.json')
+        .then(response => response.json())
+        .then(posts => {
+          allPosts = posts;
+          updateStats();
+          displayPosts();
+        })
+        .catch(error => {
+          console.error('Failed to load posts:', error);
+          document.getElementById('posts-container').innerHTML = '<div class="no-posts">포스트를 불러오는데 실패했습니다.</div>';
+        });
+      
+      // Category filter handlers
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          currentCategory = this.dataset.category;
+          displayPosts();
+        });
+      });
+      
+      function updateStats() {
+        const lifePosts = allPosts.filter(p => p.category === 'Life').length;
+        const reviewPosts = allPosts.filter(p => p.category === 'Review').length;
+        
+        document.getElementById('total-posts').textContent = allPosts.length;
+        document.getElementById('life-posts').textContent = lifePosts;
+        document.getElementById('review-posts').textContent = reviewPosts;
+      }
+      
+      function displayPosts() {
+        const container = document.getElementById('posts-container');
+        container.innerHTML = '';
+        
+        // Filter posts by category
+        const filteredPosts = currentCategory === 'all' 
+          ? allPosts 
+          : allPosts.filter(p => p.category === currentCategory);
+        
+        if (filteredPosts.length === 0) {
+          container.innerHTML = '<div class="no-posts">해당 카테고리에 포스트가 없습니다.</div>';
+          return;
+        }
+        
+        // Group posts by year and month
+        const postsByYear = {};
+        filteredPosts.forEach(post => {
+          const date = new Date(post.date);
+          const year = date.getFullYear();
+          const month = date.getMonth();
+          
+          if (!postsByYear[year]) {
+            postsByYear[year] = {};
+          }
+          if (!postsByYear[year][month]) {
+            postsByYear[year][month] = [];
+          }
+          postsByYear[year][month].push(post);
+        });
+        
+        // Sort years in descending order
+        const years = Object.keys(postsByYear).sort((a, b) => b - a);
+        
+        years.forEach(year => {
+          const yearSection = document.createElement('div');
+          yearSection.className = 'year-section';
+          
+          const yearPosts = Object.values(postsByYear[year]).flat();
+          const yearHeader = document.createElement('div');
+          yearHeader.className = 'year-header';
+          yearHeader.innerHTML = `
+            <h2>${year}</h2>
+            <span class="post-count">(${yearPosts.length} posts)</span>
+          `;
+          yearSection.appendChild(yearHeader);
+          
+          // Sort months in descending order
+          const months = Object.keys(postsByYear[year]).sort((a, b) => b - a);
+          
+          months.forEach(month => {
+            const monthSection = document.createElement('div');
+            monthSection.className = 'month-section';
+            
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                               'July', 'August', 'September', 'October', 'November', 'December'];
+            const monthHeader = document.createElement('h3');
+            monthHeader.className = 'month-header';
+            monthHeader.textContent = monthNames[month];
+            monthSection.appendChild(monthHeader);
+            
+            const postList = document.createElement('ul');
+            postList.className = 'post-list';
+            
+            // Sort posts by date in descending order
+            postsByYear[year][month].sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            postsByYear[year][month].forEach(post => {
+              const postItem = document.createElement('li');
+              postItem.className = 'post-item';
+              
+              const postTitle = post.title.includes('|') ? post.title.split('|')[0].trim() : post.title;
+              const categoryClass = post.category.toLowerCase();
+              
+              postItem.innerHTML = `
+                <a href="${post.url}" class="post-link">
+                  <span class="post-category ${categoryClass}">${post.category}</span>
+                  <span>${postTitle}</span>
+                </a>
+                <span class="post-date">${post.date}</span>
+              `;
+              
+              postList.appendChild(postItem);
+            });
+            
+            monthSection.appendChild(postList);
+            yearSection.appendChild(monthSection);
+          });
+          
+          container.appendChild(yearSection);
+        });
+      }
+    });
+  </script>
 </body>
 </html>

@@ -113,8 +113,8 @@ def generate_feed_xml(posts: List[Dict[str, Any]]):
         rss_items.append(f"""
         <item>
             <title>{post.get('title', '').replace('&', '&amp;')}</title>
-            <link>https://sgt-cho.github.io{post.get('url', '')}</link>
-            <guid>https://sgt-cho.github.io{post.get('url', '')}</guid>
+            <link>https://sgtcho.com{post.get('url', '')}</link>
+            <guid>https://sgtcho.com{post.get('url', '')}</guid>
             <pubDate>{format_rfc822_date(post.get('date', ''))}</pubDate>
             <description>{description}</description>
             <category>{post.get('category', '')}</category>
@@ -126,8 +126,8 @@ def generate_feed_xml(posts: List[Dict[str, Any]]):
     <channel>
         <title>Minjae's Life &amp; Review Blog</title>
         <description>Personal blog of Minjae Cho - Life stories and reviews</description>
-        <link>https://sgt-cho.github.io</link>
-        <atom:link href="https://sgt-cho.github.io/feed.xml" rel="self" type="application/rss+xml" />
+        <link>https://sgtcho.com</link>
+        <atom:link href="https://sgtcho.com/feed.xml" rel="self" type="application/rss+xml" />
         <language>en-us</language>
         <lastBuildDate>{format_rfc822_date(datetime.now().strftime('%Y-%m-%d'))}</lastBuildDate>
         {''.join(rss_items)}
@@ -156,12 +156,12 @@ def generate_sitemap_xml(posts: List[Dict[str, Any]]):
     
     # Static pages
     static_urls = [
-        'https://sgt-cho.github.io/',
-        'https://sgt-cho.github.io/about/',
-        'https://sgt-cho.github.io/life/',
-        'https://sgt-cho.github.io/review/',
-        'https://sgt-cho.github.io/portfolio/',
-        'https://sgt-cho.github.io/archive/',
+        'https://sgtcho.com/',
+        'https://sgtcho.com/about/',
+        'https://sgtcho.com/life/',
+        'https://sgtcho.com/review/',
+        'https://sgtcho.com/portfolio/',
+        'https://sgtcho.com/archive/',
     ]
     
     url_entries = []
@@ -178,7 +178,7 @@ def generate_sitemap_xml(posts: List[Dict[str, Any]]):
     
     # Add posts
     for post in posts:
-        url = f"https://sgt-cho.github.io{post.get('url', '')}"
+        url = f"https://sgtcho.com{post.get('url', '')}"
         date = post.get('date', datetime.now().strftime('%Y-%m-%d'))
         url_entries.append(f"""
     <url>

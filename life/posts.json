@@ -1,0 +1,23 @@
+[
+  {
+    "title": "네이버커넥트 SEF 2024 팝업행사 후기 | Minjae's Life & Review Blog",
+    "url": "/life/2024-09-06-naver-sef-popup-event.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "오늘 성수에서 열린 네이버 SEF(Software Edu Festival) 2024 팝업 행사에 참가하였다. 소프트웨어와 A.I. 관련 팝업 행사였다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "AI 기반 채용정보 수집 및 RAG 분석 시스템 프로젝트 회고 | Minjae's Life & Review Blog",
+    "url": "/life/2025-01-25-ai-job-recruitment-rag-system-review.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "최근 완성한 \"AI 기반 채용정보 수집 및 RAG 분석 시스템\" 프로젝트를 돌아보며, 개발 과정에서 겪었던 기술적 도전과 해결 과정, 그리고 얻은 인사이트들을 정리해보고자 합니다. 이 프로젝트는 단순한 웹 크롤링을 넘어서 RAG(Retrieval-Augmented Generation) 기술과 LLM을 활용한 지능형 채용정보 검색 시스템을 구현한 것입니다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "AWS Summit 2025 참가 후기 - LLM Tool Use와 Agent 활용 강연 | Minjae's Life & Review Blog",
+    "url": "/life/2025-05-25-aws-reinvent-llm-agent-session.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "2025년 AWS Summit에 참가하여 여러 기업들의 AWS 활용 사례와 AI 기술 동향을 살펴볼 수 있는 귀중한 기회를 가졌다. 특히 인상 깊었던 강연 중 하나는 LLM의 한계를 극복하는 Tool Use와 Agent 개념, 그리고 Amazon Bedrock을 활용한 구현 방법에 관한 세션이었다....",
+    "thumbnail": "/assets/images/minjae.png"
+  }
+]

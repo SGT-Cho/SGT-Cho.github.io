@@ -1,8 +1,278 @@
-<!DOCTYPE html><html lang="ko"><head>
-  <meta charset="utf-8"><title>About · Minjae Cho</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="/css/style.css">
-</head><body>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About · Minjae Cho</title>
+  <link rel="stylesheet" href="/css/style.css?v=20250702">
+  <style>
+    .cv-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    .cv-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    
+    .cv-header::before {
+      content: '/**';
+      position: absolute;
+      left: 0;
+      top: -10px;
+      color: #6a9955;
+      font-family: monospace;
+      font-size: 1.2rem;
+    }
+    
+    .cv-header::after {
+      content: '**/';
+      position: absolute;
+      right: 0;
+      bottom: -10px;
+      color: #6a9955;
+      font-family: monospace;
+      font-size: 1.2rem;
+    }
+    
+    .cv-title {
+      font-size: 3rem;
+      margin: 0;
+      background: linear-gradient(135deg, #00ff88 0%, #00aaff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: 'Consolas', 'Monaco', monospace;
+    }
+    
+    .cv-subtitle {
+      color: #888;
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      font-family: monospace;
+    }
+    
+    .cv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    @media (max-width: 768px) {
+      .cv-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .cv-section {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      border: 1px solid #333;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cv-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #00ff88 0%, #00aaff 100%);
+    }
+    
+    .cv-section h3 {
+      color: #4ec9b0;
+      font-family: monospace;
+      margin: 0 0 1rem 0;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .cv-section h3::before {
+      content: '>';
+      color: #00ff88;
+    }
+    
+    .code-block {
+      background: #252526;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      border: 1px solid #3e3e3e;
+    }
+    
+    .property {
+      color: #9cdcfe;
+    }
+    
+    .value {
+      color: #ce9178;
+    }
+    
+    .keyword {
+      color: #c586c0;
+    }
+    
+    .number {
+      color: #b5cea8;
+    }
+    
+    .comment {
+      color: #6a9955;
+      font-style: italic;
+    }
+    
+    .array-item {
+      color: #ce9178;
+      display: inline-block;
+      margin: 0.2rem 0.5rem 0.2rem 1.5rem;
+      position: relative;
+    }
+    
+    .array-item::before {
+      content: '•';
+      position: absolute;
+      left: -1rem;
+      color: #00ff88;
+    }
+    
+    .object-property {
+      margin-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    
+    .bracket {
+      color: #ffd700;
+    }
+    
+    .achievement-item {
+      background: #2d2d30;
+      border-radius: 6px;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border-left: 3px solid #00ff88;
+      transition: transform 0.2s;
+    }
+    
+    .achievement-item:hover {
+      transform: translateX(5px);
+    }
+    
+    .project-card {
+      background: #2d2d30;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border: 1px solid #3e3e3e;
+      transition: all 0.3s;
+    }
+    
+    .project-card:hover {
+      border-color: #00ff88;
+      box-shadow: 0 0 12px rgba(0, 255, 136, 0.2);
+    }
+    
+    .project-name {
+      color: #4ec9b0;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    
+    .project-desc {
+      color: #cccccc;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    
+    .tech-tag {
+      background: #3e3e3e;
+      color: #00ff88;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      border: 1px solid #00ff88;
+    }
+    
+    .contact-section {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+      border: 1px solid #333;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .contact-item {
+      background: #2d2d30;
+      padding: 1rem;
+      border-radius: 8px;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: #fff;
+      border: 1px solid #3e3e3e;
+    }
+    
+    .contact-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+      border-color: #00ff88;
+    }
+    
+    .contact-label {
+      color: #888;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .contact-value {
+      color: #00ff88;
+      margin-top: 0.5rem;
+      font-family: monospace;
+    }
+    
+    .full-width {
+      grid-column: 1 / -1;
+    }
+    
+    .typing-effect {
+      border-right: 2px solid #00ff88;
+      animation: blink 1s infinite;
+    }
+    
+    @keyframes blink {
+      0%, 50% { border-color: transparent; }
+      51%, 100% { border-color: #00ff88; }
+    }
+  </style>
+</head>
+<body>
 <header>
   <nav>
     <a href="/" class="nav-logo">
@@ -17,30 +287,164 @@
       <a href="/about/" class="active">About</a>
     </div>
     <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </nav>
 </header>
+
 <main>
-  <div class="profile-card">
-    <img src="/assets/images/minjae.png" alt="Minjae Cho">
-    <h1>Minjae Cho <span style="font-size:1rem;color:#b5f5ec;">(조민제)</span></h1>
-    <div class="award">🏅 2024 INU 캡스톤디자인 4위 (49팀 중)</div>
-    <p>Junior A.I. Engineer<br>Incheon National University<br>졸업예정: 2025년 8월</p>
-    <div class="skills">
-      <strong>Skills:</strong>
-      <ul>
-        <li>Python, PyTorch, TensorFlow</li>
-        <li>Computer Vision, NLP, Speech Recognition, RAG</li>
-        <li>n8n, Docker, AWS, GCP</li>
-      </ul>
+  <div class="cv-container">
+    <div class="cv-header">
+      <h1 class="cv-title">Minjae Cho</h1>
+      <p class="cv-subtitle">
+        <span class="keyword">const</span> <span class="property">role</span> = <span class="value">"Junior A.I. Engineer"</span><span class="typing-effect"></span>
+      </p>
     </div>
-    <div class="contact-btns">
-      <a class="contact-btn" href="https://github.com/SGT-Cho" target="_blank" rel="noopener">GitHub</a>
-      <a class="contact-btn" href="https://www.linkedin.com/in/sgtchominjae/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="contact-btn" href="/feed.xml" target="_blank">RSS</a>
+    
+    <div class="cv-grid">
+      <!-- Left Column -->
+      <div>
+        <div class="cv-section">
+          <h3>Profile</h3>
+          <div class="code-block">
+            <div><span class="property">name:</span> <span class="value">"조민제"</span></div>
+            <div><span class="property">english:</span> <span class="value">"Minjae Cho"</span></div>
+            <div><span class="property">university:</span> <span class="value">"Incheon National University"</span></div>
+            <div><span class="property">major:</span> <span class="value">"Computer Science & Engineering"</span></div>
+            <div><span class="property">graduation:</span> <span class="value">"2025.08"</span></div>
+            <div><span class="property">location:</span> <span class="value">"Incheon, South Korea"</span></div>
+          </div>
+        </div>
+        
+        <div class="cv-section">
+          <h3>Technical Skills</h3>
+          <div class="code-block">
+            <div><span class="property">languages:</span> <span class="bracket">[</span></div>
+            <div class="array-item">"Python"</div>
+            <div class="array-item">"JavaScript"</div>
+            <div class="array-item">"TypeScript"</div>
+            <div class="array-item">"SQL"</div>
+            <div><span class="bracket">]</span></div>
+            
+            <div style="margin-top: 1rem;"><span class="property">frameworks:</span> <span class="bracket">[</span></div>
+            <div class="array-item">"PyTorch"</div>
+            <div class="array-item">"TensorFlow"</div>
+            <div class="array-item">"LangChain"</div>
+            <div class="array-item">"FastAPI"</div>
+            <div class="array-item">"Next.js"</div>
+            <div class="array-item">"React"</div>
+            <div><span class="bracket">]</span></div>
+          </div>
+        </div>
+        
+        <div class="cv-section">
+          <h3>Expertise</h3>
+          <div class="code-block">
+            <div><span class="property">ai_ml:</span> <span class="bracket">[</span></div>
+            <div class="array-item">"Computer Vision"</div>
+            <div class="array-item">"Natural Language Processing"</div>
+            <div class="array-item">"RAG (Retrieval-Augmented Generation)"</div>
+            <div class="array-item">"Speech Recognition"</div>
+            <div class="array-item">"LLM Fine-tuning"</div>
+            <div><span class="bracket">]</span></div>
+            
+            <div style="margin-top: 1rem;"><span class="property">tools:</span> <span class="bracket">[</span></div>
+            <div class="array-item">"Docker"</div>
+            <div class="array-item">"n8n"</div>
+            <div class="array-item">"Git"</div>
+            <div class="array-item">"AWS"</div>
+            <div class="array-item">"GCP"</div>
+            <div><span class="bracket">]</span></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Column -->
+      <div>
+        <div class="cv-section">
+          <h3>Achievements</h3>
+          <div class="achievement-item">
+            <div><span class="property">year:</span> <span class="number">2024</span></div>
+            <div><span class="property">title:</span> <span class="value">"INU 캡스톤디자인 4위"</span></div>
+            <div><span class="property">detail:</span> <span class="value">"49팀 중 4위 🏅"</span></div>
+          </div>
+          <div class="achievement-item">
+            <div><span class="property">year:</span> <span class="number">2024</span></div>
+            <div><span class="property">title:</span> <span class="value">"SEF 2024 참가"</span></div>
+            <div><span class="property">detail:</span> <span class="value">"Naver Software Engineering Festival"</span></div>
+          </div>
+        </div>
+        
+        <div class="cv-section">
+          <h3>Featured Projects</h3>
+          <div class="project-card">
+            <div class="project-name">Local LLM with RAG</div>
+            <div class="project-desc">프라이빗 문서 검색을 위한 로컬 LLM 구축</div>
+            <div class="tech-stack">
+              <span class="tech-tag">LangChain</span>
+              <span class="tech-tag">Ollama</span>
+              <span class="tech-tag">ChromaDB</span>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="project-name">Crack Detection System</div>
+            <div class="project-desc">SegFormer를 이용한 콘크리트 균열 탐지</div>
+            <div class="tech-stack">
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">Computer Vision</span>
+              <span class="tech-tag">SegFormer</span>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="project-name">AI Blog Platform</div>
+            <div class="project-desc">AI/ML 기술 리뷰 및 학습 블로그</div>
+            <div class="tech-stack">
+              <span class="tech-tag">HTML/CSS/JS</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">GitHub Pages</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Contact Section -->
+    <div class="contact-section">
+      <h3 style="color: #4ec9b0; text-align: center; margin-bottom: 1rem;">
+        <span style="color: #00ff88;">&gt;</span> Get In Touch
+      </h3>
+      <div class="contact-grid">
+        <a href="mailto:devcho3356@gmail.com" class="contact-item">
+          <div class="contact-label">Email</div>
+          <div class="contact-value">devcho3356@gmail.com</div>
+        </a>
+        <a href="https://github.com/SGT-Cho" target="_blank" rel="noopener" class="contact-item">
+          <div class="contact-label">GitHub</div>
+          <div class="contact-value">@SGT-Cho</div>
+        </a>
+        <a href="https://www.linkedin.com/in/sgtchominjae/" target="_blank" rel="noopener" class="contact-item">
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">sgtchominjae</div>
+        </a>
+        <a href="https://sgtcho.com" class="contact-item">
+          <div class="contact-label">Blog</div>
+          <div class="contact-value">sgtcho.com</div>
+        </a>
+      </div>
     </div>
   </div>
 </main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2025 Minjae Cho · Built with passion and code</p>
+  </div>
+</footer>
+
 <script src="/js/main.js"></script>
-</body></html>
+</body>
+</html>

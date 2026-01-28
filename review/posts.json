@@ -1,0 +1,219 @@
+[
+  {
+    "title": "Tesseract OCR 엔진 사용 가이드 | Minjae's Life & Review Blog",
+    "url": "/review/2023-03-26-Tesseract-ocr-review.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "Tesseract는 다양한 운영 체제를 위한 광학 문자 인식(OCR) 엔진입니다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "Spiking Neural Network(SNN)이란? | Minjae's Life & Review Blog",
+    "url": "/review/2024-08-09-spiking-neural-networks-review.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "스파이킹 신경망(Spiking Neural Networks, SNN)은 인공지능 분야에서 유망한 접근 방식으로 떠오르고 있습니다. SNN은 전통적인 인공신경망과 달리, 인간 뇌의 신경 활동의 이산적 특성을 모방하여 더 효율적이고 잠재적으로 더 강력한 계산 패러다임을 제공합니다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "AI? ML? DL? 인공지능 관련 개념 정리 | Minjae's Life & Review Blog",
+    "url": "/review/2024-08-10-ai-ml-dl-concepts.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "인공지능(AI), 머신러닝(ML), 딥러닝(DL)은 오늘날 기술 분야에서 가장 핫한 주제들입니다. 이 개념들은 서로 밀접하지만, 각각의 개념은 고유한 의미와 목적을 가지고 있습니다. 이 세 가지 개념을 어떻게 설명할 수 있는지에 대해 자세히 알아보도록 하겠습니다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "LLM이란? 대규모 언어 모델의 이해 | Minjae's Life & Review Blog",
+    "url": "/review/2024-08-12-what-are-large-language-models.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "LLM(대규모 언어 모델, Large Language Model)은 최근 인공지능(AI)과 자연어 처리(NLP) 분야에서 가장 주목받고 있는 기술 중 하나입니다. LLM은 방대한 양의 텍스트 데이터를 학습하여, 인간과 유사한 언어 이해 및 생성 능력을 갖춘 모델입니다. 이러한 모델은 대화형 AI, 텍스트 생성, 번역, 요약 등 다양한 응용 분야에서 활용되고...",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "BERT: 자연어 처리의 혁신 | Minjae's Life & Review Blog",
+    "url": "/review/2024-08-14-bert-natural-language-processing-innovation.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "BERT(Bidirectional Encoder Representations from Transformers)는 구글이 2018년에 발표한 혁신적인 자연어 처리(NLP) 모델입니다. 이 모델은 텍스트의 문맥을 양방향으로 이해하는 능력을 갖추고 있어, 기존의 언어 모델보다 훨씬 더 정확하고 유연한 언어 이해가 가능합니다. BERT의 등장은 자연어 처리 분야에...",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "인공지능의 윤리적 문제: 책임성과 투명성을 위한 고찰 | Minjae's Life & Review Blog",
+    "url": "/review/2024-08-15-ai-ethics-responsibility-transparency.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "인공지능(Artificial Intelligence, 이하 AI)은 현대 기술 혁신의 중심에 있으며, 많은 분야에서 변화를 일으키고 있습니다. 의료, 금융, 교육, 제조 등 여러 산업에서 AI의 적용은 이미 널리 퍼져 있으며, 그 영향력은 계속해서 확장되는 추세입니다. 그러나 AI의 급속한 발전과 확산은 동시에 중요한 윤리적 문제를 제기하고 있습니다. AI...",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "Convolutional Neural Networks (CNN): 이미지 처리와 딥러닝의 핵심 기술 | Minjae's Life & Review Blog",
+    "url": "/review/2024-08-19-cnn-image-processing-deep-learning.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "Convolutional Neural Networks (CNN)은 딥러닝에서 가장 널리 사용되는 모델 중 하나로, 특히 이미지 처리 및 컴퓨터 비전 분야에서 큰 성공을 거두고 있습니다. CNN은 이미지, 비디오, 텍스트 등의 데이터에서 패턴을 학습하고, 이를 기반으로 분류, 인식, 예측 등의 작업을 수행하는 데 뛰어난 성능을 보입니다. CNN의 기본 개념,...",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "YOLO (You Only Look Once): 실시간 객체 탐지를 위한 혁신적인 딥러닝 모델 | Minjae's Life & Review Blog",
+    "url": "/review/2024-08-24-yolo-object-detection.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "YOLO(You Only Look Once)는 실시간 객체 탐지(Object Detection) 분야에서 혁신을 일으킨 딥러닝 모델입니다. YOLO는 이미지를 한 번만 처리하여 객체를 탐지하는 방식으로, 매우 빠른 속도와 높은 정확도를 자랑합니다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "생성적 적대 신경망(GAN): AI 기반 생성 기술의 혁신 | Minjae's Life & Review Blog",
+    "url": "/review/2024-08-27-gan-generative-adversarial-network.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "생성적 적대 신경망(GAN, Generative Adversarial Network)은 2014년 제안된 딥러닝 모델로, 데이터 생성 분야에서 혁신적인 변화를 가져온 기술입니다. GAN은 두 개의 신경망, 즉 생성자(Generator)와 판별자(Discriminator)를 서로 경쟁시키는 방식으로 동작합니다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "선형 회귀란? | Minjae's Life & Review Blog",
+    "url": "/review/2024-09-09-linear-regression-basics.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "선형 회귀는 머신러닝 알고리즘 중 하나로, 주어진 입력 데이터에 대해 숫자 값(예: 집값, 주식 가격 등)을 예측하는 데 사용됩니다. 이 알고리즘은 선형 함수를 사용하여 입력과 출력 사이의 관계를 모델링합니다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "Docker로 애플리케이션 배포 자동화하기 | Minjae's Life & Review Blog",
+    "url": "/review/2024-11-25-docker-deployment-automation.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "Docker는 컨테이너 기술을 기반으로 애플리케이션과 그 실행 환경을 패키징하여 어디서든 동일한 환경에서 실행할 수 있게 해주는 도구입니다.\n        복잡한 설치 과정을 간소화하고, 개발 환경과 운영 환경의 차이를 줄여주는 장점이 있습니다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "TensorFlow 'Could not locate zlibwapi.dll' 오류 해결 방법 | Minjae's Life & Review Blog",
+    "url": "/review/2024-11-29-tensorflow-zlibwapi-error-fix.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "tensorflow를 사용하려던 중 계속 오류가 나고 저는 아나콘다 환경을 사용중이라...",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "Genesis: 로봇 공학과 AI를 위한 혁신적인 물리 엔진 | Minjae's Life & Review Blog",
+    "url": "/review/2025-01-05-genesis-physics-engine.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "Genesis는 로보틱스와 인공지능 연구를 위한 혁신적인 범용 물리 엔진입니다. 이 엔진은 다양한 물리적 현상을 고속으로 시뮬레이션하며, 사용자 친화적인 파이썬 기반 인터페이스를 제공합니다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "TFLOPS: GPU 성능의 핵심 지표 | Minjae's Life & Review Blog",
+    "url": "/review/2025-01-09-tflops-gpu-performance-metric.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "TFLOPS(Tera Floating Point Operations Per Second)는 GPU의 초당 부동소수점 연산 속도를 나타내는 주요 성능 지표입니다. 이 값은 GPU가 초당 얼마나 많은 연산을 수행할 수 있는지를 수치로 표현하며, 그래픽 작업, 게임, AI 및 딥러닝 등 다양한 응용 분야에서 중요한 역할을 합니다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "DeepSeek V3 의 등장: GPT-4를 능가하는 오픈 소스 AI 모델 | Minjae's Life & Review Blog",
+    "url": "/review/2025-01-12-deepseek-v3-release.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "최근 인공지능(AI) 분야에서 주목할 만한 소식이 전해졌습니다. 중국의 AI 스타트업 딥시크(DeepSeek)가 6,710억 개의 매개변수를 가진 초대형 오픈 소스 언어 모델인 DeepSeek-V3를 발표했습니다. 이는 현재까지 공개된 오픈 소스 모델 중 최대 규모로, OpenAI의 GPT-4와 견줄 만한 성능을 보인다고 합니다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "AI 에이전트란 무엇인가? | Minjae's Life & Review Blog",
+    "url": "/review/2025-01-13-what-is-ai-agent.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "AI 에이전트(Artificial Intelligence Agent)는 사용자의 요청을 이해하고 이에 맞는 작업을 수행하는 지능형 시스템을 의미합니다. 최근 ChatGPT와 같은 생성형 AI가 주목받으면서 AI 에이전트의 활용이 다양한 산업군에서 빠르게 확산되고 있습니다. 이 글에서는 AI 에이전트의 개념, 종류, 활용 사례, 그리고 앞으로의 가능성에 대해...",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "RAG란 무엇인가? – 검색 기반 생성 모델 (Retrieval-Augmented Generation) | Minjae's Life & Review Blog",
+    "url": "/review/2025-01-17-what-is-rag.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "AI와 자연어 처리(NLP)의 발전으로 인해 언어 모델(LLM, Large Language Model)이 많은 관심을 받고 있습니다. 그러나 언어 모델은 사전에 학습한 데이터만으로 답변을 생성하기 때문에 최신 정보나 구체적인 문맥을 반영하기 어렵다는 한계가 있습니다. 이러한 문제를 해결하기 위해 등장한 기술이 바로 RAG(Retrieval-Augmented...",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "알리바바의 최신 언어 모델: Qwen 2.5 소개 | Minjae's Life & Review Blog",
+    "url": "/review/2025-01-20-alibaba-qwen-2.5-intro.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "알리바바 클라우드는 최근 최신 대규모 언어 모델(LLM)인 Qwen 2.5를 공개하였습니다. 이 모델은 다양한 크기와 기능을 갖추어 여러 분야에서 활용될 수 있도록 설계되었습니다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "Cursor AI: 혁신적인 AI 기반 코드 편집기 | Minjae's Life & Review Blog",
+    "url": "/review/2025-01-22-cursor-ai-editor-review.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "Cursor AI는 인공지능을 활용하여 개발자의 생산성을 극대화하는 혁신적인 코드 편집기입니다. 코드 자동 완성, 자연어 코드 생성, 실시간 오류 감지 등 다양한 기능을 제공하여 초보자부터 숙련된 개발자까지 모두에게 유용한 도구로 자리 잡고 있습니다. 이번 글에서는 Cursor AI의 주요 기능과 설치 방법, 그리고 활용법에 대해 알아보겠습니다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "멀티모달(Multimodal)이란 무엇일까? | Minjae's Life & Review Blog",
+    "url": "/review/2025-01-22-what-is-multimodal-ai.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "멀티모달(Multimodal)은 여러 가지 형태의 데이터를 동시에 활용하는 방식을 의미합니다. 예를 들어, 텍스트, 이미지, 오디오, 비디오 등 다양한 형태의 데이터를 결합하여 정보를 처리하거나 표현하는 것을 말합니다. 이러한 접근 방식은 인간의 복합적인 의사소통 방식을 모사하며, 인공지능 분야에서 특히 주목받고 있습니다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "LangChain: 언어 모델 기반 애플리케이션 개발의 새로운 패러다임 | Minjae's Life & Review Blog",
+    "url": "/review/2025-01-26-langchain-llm-application-framework.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "인공지능(AI)의 발전과 함께 대규모 언어 모델(LLM)의 활용이 급증하고 있습니다. 이러한 모델들은 자연어 처리 분야에서 혁신적인 변화를 이끌어내고 있으며, 다양한 애플리케이션 개발에 핵심적인 역할을 하고 있습니다. 그러나 LLM을 실제 애플리케이션에 통합하고 활용하는 과정은 여전히 복잡하고 도전적인 과제입니다. 이러한 문제를 해결하기 위해 등장한 것이 ...",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "LLaMA 모델 파인튜닝: 이론과 실습 | Minjae's Life & Review Blog",
+    "url": "/review/2025-01-26-llama-fine-tuning-guide.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "대규모 언어 모델(LLM)의 발전으로 자연어 처리 분야는 혁신적인 변화를 맞이하고 있습니다. 그중에서도 Meta AI에서 개발한 LLaMA(Large Language Model Meta AI) 모델은 상대적으로 적은 파라미터 수로도 우수한 성능을 보이며, 연구자들과 개발자들의 주목을 받고 있습니다. 이러한 모델을 특정 작업이나 도메인에 맞게 최적화하는 과정...",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "Llama에 RAG를 적용하여 똑똑한 인공지능 만들기 | Minjae's Life & Review Blog",
+    "url": "/review/2025-01-26-llama-rag-implementation.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "참고: 위 LangChain 코드는 라이브러리 버전에 따라 임포트 경로 및 클래스 이름이 변경될 수 있습니다. 최신 LangChain 문서를 참조하세요. Llama3 모델의 프롬프트 형식을 따르는 것이 중요합니다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "LLM에서의 양자화(Quantization): 개요와 활용 | Minjae's Life & Review Blog",
+    "url": "/review/2025-01-26-llm-quantization-overview-usage.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "양자화는 모델의 가중치와 연산을 낮은 비트(bit)로 변환하는 기술입니다.\n        예시: 32비트 부동소수점(FP32) → 8비트 정수(INT8)로 변환하여 모델 경량화....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "Grok3: xAI의 혁신적인 차세대 AI 모델 분석 | Minjae's Life & Review Blog",
+    "url": "/review/2025-02-18-grok3-analysis.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "2025년 2월 18일, 인공지능(AI) 업계에 또 한 번의 혁신이 찾아왔습니다. 일론 머스크가 이끄는 AI 전문 기업 xAI가 최신 AI 모델 Grok3를 공식 공개했습니다. 이번 Grok3는 기존 모델 Grok2의 10배에 달하는 연산 능력과 혁신적인 기능을 탑재하여, 오픈AI의 챗GPT-4o, 구글의 제미나이, 앤트로픽의 클로드 3.5 등 주요 경쟁 ...",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "AI가 요구하는 막대한 전력량과 컴퓨팅 구조의 한계 | Minjae's Life & Review Blog",
+    "url": "/review/2025-03-10-ai-power-consumption-computing-limits.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "최근 ChatGPT와 같은 거대 언어모델(LLM)의 등장은 사회 각 분야에 큰 변화를 일으키고 있습니다. 그러나 이러한 혁신 뒤편에는 막대한 전력 소모와 컴퓨팅 자원의 한계라는 심각한 문제가 숨겨져 있습니다. 본 글에서는 현재 인공지능(AI)이 요구하는 전력량의 실태를 점검하고, 기존 폰 노이만(Von Neumann) 구조의 컴퓨팅 시스템이 마주한 한계, ...",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "Open WebUI를 사용한 간편한 LLM 사용기 | Minjae's Life & Review Blog",
+    "url": "/review/2025-03-11-open-webui-llm-guide.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "최근에 QwQ 32B 모델이 꽤나 큰 화제였다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "LG AI Exaone deep 사용 후기 | Minjae's Life & Review Blog",
+    "url": "/review/2025-03-23-lg-ai-exaone-deep-review.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "최근에 LG AI Research에서 나온 모델인 Exaone 3.5가 있었다.\n        그리고 얼마전에 또 추론이 가능한 모델로 Exaone deep이 출시되었다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "SegFormer를 활용한 균열 감지 세그멘테이션 | Minjae's Life & Review Blog",
+    "url": "/review/2025-04-15-segformer-crack-detection.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "오늘은 SegFormer 모델을 활용하여 균열 감지를 위한 세그멘테이션 작업을 진행했습니다. 프로젝트의 주요 목표는 다양한 이미지에서 균열을 정확히 탐지하는 모델을 학습시키는 것이었으며, 이를 위해 SegFormer라는 세그멘테이션 모델을 사용했습니다. 이번 프로젝트에서 사용한 기술과 참고할 만한 내용들을 정리해보겠습니다....",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "생성형 AI 결과물 저작권 침해 실시간 검증 시스템 - 기술적 분석과 전망 | Minjae's Review Blog",
+    "url": "/review/2025-06-06-ai-copyright-verification-system-review.html",
+    "date": "2025-07-02T17:25:02",
+    "excerpt": "생성형 AI 기술의 폭발적 성장과 함께 디지털 콘텐츠 생태계에 새로운 도전이 등장했다. ChatGPT, DALL-E, Midjourney 등이 창조하는 방대한 양의 콘텐츠가 온라인을 가득 채우고 있지만, 이 중 상당수가 원저작물의 저작권을 침해할 가능성을 안고 있다는 심각한 문제가 대두되고 있다. 최근 접한 연구 제안서를 통해 이러한 문제를 해결하는 혁신적...",
+    "thumbnail": "/assets/images/minjae.png"
+  },
+  {
+    "title": "Anaconda3: Data Science와 Machine Learning 을 위한 필수 플랫폼 - Minjae의 블로그",
+    "url": "/review/2024-08-17-anaconda3-data-science-platform.html",
+    "date": "2025-07-02T15:49:57",
+    "excerpt": "Anaconda3는 데이터 과학과 머신러닝 분야에서 필수적인 플랫폼으로 자리 잡고 있다. 이는 특히 Python과 R을 기반으로 하는 데이터 분석, 머신러닝, 인공지능(AI) 프로젝트에 강력한 도구를 제공한다. Anaconda3의 주요 기능과 장점, 설치 및 사용 방법에 대해 자세히 알아보도록 하자....",
+    "thumbnail": "https://velog.velcdn.com/images/sgt-cho/post/1ee78e25-2f51-43ea-a45c-8415ca1b5263/image.png"
+  }
+]

@@ -1,0 +1,138 @@
+version: '3.8'
+
+services:
+  nginx:
+    build: ./docker/nginx
+    container_name: blog-nginx
+    ports:
+      - "8000:8000"
+    volumes:
+      # 블로그 정적 파일 마운트
+      - ./:/var/www/blog:ro
+      # Job Site 정적 파일 마운트
+      - ./jobs:/var/www/blog/jobs:ro
+      # 로그 디렉토리
+      - ./logs/nginx:/var/log/nginx
+      # Nginx 설정 파일
+      - ./nginx_blog_with_jobs.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - blog
+      - job-api
+    networks:
+      - blog-network
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  blog:
+    build: .
+    container_name: blog-app
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./logs:/app/logs
+      - ./index:/app/index:ro
+      - ./posts.json:/app/posts.json:ro
+      - ./life:/app/life:ro
+      - ./review:/app/review:ro
+      - ./portfolio:/app/portfolio:ro
+      - ./assets:/app/assets:ro
+      - ./css:/app/css:ro
+      - ./js:/app/js:ro
+      - ./templates:/app/templates:ro
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    networks:
+      - blog-network
+    restart: unless-stopped
+    command: gunicorn -c gunicorn_config.py blog_server_with_llm:app
+
+  job-api:
+    build:
+      context: ./job-site-server
+      dockerfile: Dockerfile
+    container_name: job-api
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./job-site-server/logs:/app/logs
+      - /Users/minjaecho/Sites/careers/crawler:/crawler:ro
+    environment:
+      - NODE_ENV=production
+      - PORT=5001
+      - DB_HOST=job-postgres
+      - DB_PORT=5432
+      - DB_NAME=job_crawler
+      - DB_USER=postgres
+      - DB_PASSWORD=jobcrawler123
+      - REDIS_URL=redis://job-redis:6379
+      - CACHE_ENABLED=true
+      - CORS_ORIGIN=https://sgtcho.com,http://localhost:8000
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - blog-network
+    restart: unless-stopped
+    command: node start.js
+
+  postgres:
+    image: postgres:16
+    container_name: job-postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: jobcrawler123
+      POSTGRES_DB: job_crawler
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - blog-network
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: job-redis
+    networks:
+      - blog-network
+    restart: unless-stopped
+
+  crawler:
+    build:
+      context: /Users/minjaecho/Sites/careers/crawler
+      dockerfile: Dockerfile
+    container_name: job-crawler
+    volumes:
+      - crawler_output:/app/output
+      - crawler_logs:/app/logs
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=job-postgres
+      - DB_PORT=5432
+      - DB_NAME=job_crawler
+      - DB_USER=postgres
+      - DB_PASSWORD=jobcrawler123
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY:-}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - DISPLAY=:99
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - blog-network
+    restart: "no"
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+volumes:
+  postgres_data:
+  crawler_output:
+  crawler_logs:
+
+networks:
+  blog-network:
+    driver: bridge

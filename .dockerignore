@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# 로그
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Docker 관련
+docker/
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# 개발 관련
+*.md
+LICENSE
+test-*
+*_test.py
+*.bak

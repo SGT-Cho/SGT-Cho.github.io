@@ -1,0 +1,8 @@
+{
+  "created_at": "2025-07-12T23:53:56.178725",
+  "total_posts": 37,
+  "total_chunks": 224,
+  "chunk_size": 500,
+  "chunk_overlap": 100,
+  "embedding_dim": 768
+}

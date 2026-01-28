@@ -1,120 +1,236 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Life | Minjae's Life & Review Blog</title>
-  
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Life | Minjae's Life &amp; Review Blog
+  </title>
   <!-- Meta tags for SEO and social sharing -->
-  <meta name="description" content="Personal stories, student experiences, and daily journals from my life as an AI Engineer student">
-  <meta name="keywords" content="life, student, AI Engineer, journal, blog">
-  <meta name="author" content="Minjae Cho">
-  
+  <meta content="Personal stories, student experiences, and daily journals from my life as an AI Engineer student" name="description"/>
+  <meta content="life, student, AI Engineer, journal, blog" name="keywords"/>
+  <meta content="Minjae Cho" name="author"/>
   <!-- Open Graph meta tags for social sharing -->
-  <meta property="og:title" content="Life | Minjae's Life & Review Blog">
-  <meta property="og:description" content="Personal stories, student experiences, and daily journals from my life as an AI Engineer student">
-  <meta property="og:image" content="/assets/images/banner.jpg">
-  <meta property="og:url" content="https://sgt-cho.github.io/life/">
-  <meta property="og:type" content="website">
-  
+  <meta content="Life | Minjae's Life &amp; Review Blog" property="og:title"/>
+  <meta content="Personal stories, student experiences, and daily journals from my life as an AI Engineer student" property="og:description"/>
+  <meta content="/assets/images/banner.jpg" property="og:image"/>
+  <meta content="https://sgtcho.com/life/" property="og:url"/>
+  <meta content="website" property="og:type"/>
   <!-- Twitter card meta tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Life | Minjae's Life & Review Blog">
-  <meta name="twitter:description" content="Personal stories, student experiences, and daily journals from my life as an AI Engineer student">
-  <meta name="twitter:image" content="/assets/images/banner.jpg">
-  
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Life | Minjae's Life &amp; Review Blog" name="twitter:title"/>
+  <meta content="Personal stories, student experiences, and daily journals from my life as an AI Engineer student" name="twitter:description"/>
+  <meta content="/assets/images/banner.jpg" name="twitter:image"/>
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="/css/style.css">
-  
+  <link href="/css/style.css?v=20250702" rel="stylesheet"/>
+  <style>
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Card height consistency improvements */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem 1rem;
+      align-items: stretch;
+    }
+    
+    /* Ensure all cards have equal height */
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 420px;
+      position: relative;
+      background: var(--bg-secondary);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .project-card > a {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    
+    .project-card h3 {
+      margin: 1rem 1rem 0.5rem;
+      font-size: 1.2rem;
+      line-height: 1.4;
+      min-height: 2.8em;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      font-weight: 600;
+    }
+    
+    .project-card .project-tags {
+      padding: 0 1rem;
+      margin-bottom: 0.5rem;
+      min-height: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 0.5rem;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+    
+    .project-card .project-tags span {
+      background: var(--bg-primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+    }
+    
+    .project-card > a > p:last-of-type {
+      padding: 0 1rem;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+    
+    .post-card-link {
+      margin: 1rem;
+      margin-top: auto;
+      align-self: flex-start;
+      color: var(--accent);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .project-card:hover .post-card-link {
+      color: var(--accent-hover);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .project-card {
+        min-height: auto;
+      }
+    }
+  </style>
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/assets/images/minjae.png">
-  
+  <link href="/assets/images/minjae.png" rel="icon" type="image/x-icon"/>
   <!-- Web App Manifest -->
-  <link rel="manifest" href="/manifest.json">
-</head>
-<body>
-<header>
-  <!-- Header/Navigation -->
-  <nav>
-    <a href="/" class="nav-logo">
-      <img src="/assets/images/minjae.png" alt="Minjae Cho">
-      <span>Minjae Cho</span>
+  <link href="/manifest.json" rel="manifest"/>
+ </head>
+ <body>
+  <header>
+   <!-- Header/Navigation -->
+   <nav>
+    <a class="nav-logo" href="/">
+     <img alt="Minjae Cho" src="/assets/images/minjae.png"/>
+     <span>
+      Minjae Cho
+     </span>
     </a>
-    
     <div class="nav-links">
-      <a href="/life/" class="active">Life</a>
-      <a href="/review/">Review</a>
-      <a href="/portfolio/">Portfolio</a>
-      <a href="/archive/">Archive</a>
-      <a href="/about/">About</a>
+     <a class="active" href="/life/">
+      Life
+     </a>
+     <a href="/review/">
+      Review
+     </a>
+     <a href="/portfolio/">
+      Portfolio
+     </a>
+     <a href="/archive/">
+      Archive
+     </a>
+     <a href="/about/">
+      About
+     </a>
     </div>
-    
-    <div class="hamburger" aria-label="메뉴 열기" tabindex="0">
-      <span></span><span></span><span></span>
+    <div aria-label="메뉴 열기" class="hamburger" tabindex="0">
+     <span>
+     </span>
+     <span>
+     </span>
+     <span>
+     </span>
     </div>
-  </nav>
-</header>
-
-<main>
-  <section class="intro">
+   </nav>
+  </header>
+  <main>
+   <section class="intro">
     <h1>Life</h1>
-    <p class="tagline">Personal stories, student experiences, and daily journals from my life as an AI Engineer student</p>
-  </section>
-  
-  <!-- 포스트 컨테이너 -->
-  <section class="card-grid" id="posts-container">
-    <!-- 포스트는 JavaScript로 동적 로드 -->
-    <div id="loading-initial" class="text-center" style="grid-column: 1/-1;">
-      <p>게시물을 불러오는 중...</p>
-    </div>
-  </section>
-  
-  <!-- 디버깅용 정보 -->
-  <div id="debug-info" class="text-center" style="display: none; margin: 1rem 0; color: #999; font-size: 0.8rem;">
+    <p class="tagline">Personal stories and experiences from my journey as an AI Engineer</p>
+   </section>
+   
+   <div id="loading-initial" class="loading-container" style="text-align: center; padding: 2rem;">
+    <div class="spinner" style="border: 3px solid #f3f3f3; border-top: 3px solid #333; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto;"></div>
+    <p>게시물을 불러오는 중...</p>
+   </div>
+   
+   <div id="posts-container" class="posts-grid">
+    <!-- 게시물이 여기에 동적으로 로드됩니다 -->
+   </div>
+   
+   <div id="debug-info" style="display: none; text-align: center; padding: 1rem; color: #999; font-size: 0.8rem;">
     <p>총 게시물: <span id="total-posts">0</span>, 로드된 게시물: <span id="loaded-posts">0</span></p>
-  </div>
-  
-  <!-- Tag Cloud for this category -->
-  <section>
-    <h2>Life Tags</h2>
-    <div class="tag-cloud">
-      <a href="/tags/study/">study <span>(1)</span></a>
-      <a href="/tags/graduation/">graduation <span>(1)</span></a>
-      <a href="/tags/daily/">daily <span>(1)</span></a>
-      <a href="/tags/event/">event <span>(1)</span></a>
-    </div>
-  </section>
-</main>
-  
-<!-- Search Modal -->
-<div class="search-modal">
-  <div class="search-container">
+   </div>
+  </main>
+  <!-- Search Modal -->
+  <div class="search-modal">
+   <div class="search-container">
     <div class="search-form">
-      <input type="text" class="search-input" placeholder="Search posts, topics, or tags...">
-      <button class="search-close">&times;</button>
+     <input class="search-input" placeholder="Search posts, topics, or tags..." type="text"/>
+     <button class="search-close">
+      ×
+     </button>
     </div>
     <div class="search-results">
-      <!-- Results will be populated here -->
+     <!-- Results will be populated here -->
     </div>
+   </div>
   </div>
-</div>
-  
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <p>&copy; 2025 Minjae Cho · Built with passion and code</p>
-  </div>
-</footer>
-  
-<!-- Scripts -->
-<script src="/js/main.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
+  <!-- Footer -->
+  <footer>
+   <div class="container">
+    <p>
+     © 2025 Minjae Cho · Built with passion and code
+    </p>
+   </div>
+  </footer>
+  <!-- Scripts -->
+  <script src="/js/main.js">
+  </script>
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
     console.log('라이프 페이지 로드됨');
     
     // 실제 게시물 데이터를 posts.json에서 로드
@@ -179,13 +295,19 @@
         // 게시물 제목에서 | 이전 부분만 표시
         const shortTitle = post.title.split('|')[0].trim();
         
+        // 설명 텍스트 (제목과 다르게 표시하기 위해 첫 문장이나 요약 사용)
+        const description = post.excerpt || shortTitle;
+        
         postsHTML += `
           <div class="project-card">
-            <a href="${post.url}" style="text-decoration: none; color: inherit;">
+            <a href="${post.url}">
               <img src="${thumbnailSrc}" alt="${shortTitle}" loading="lazy" onerror="this.onerror=null; this.src='/assets/images/empty.png'; console.log('이미지 로드 실패: ${thumbnailSrc}');">
               <h3>${shortTitle}</h3>
-              <p class="project-tags"><span>${formattedDate}</span> <span>${post.readtime || '5'} min read</span></p>
-              <p>${shortTitle}</p>
+              <p class="project-tags">
+                <span>${formattedDate}</span>
+                <span>${post.readtime || '5'} min read</span>
+              </p>
+              <p>${description}</p>
               <span class="post-card-link">Read more →</span>
             </a>
           </div>
@@ -207,6 +329,6 @@
       });
     }
   });
-</script>
-</body>
+  </script>
+ </body>
 </html>

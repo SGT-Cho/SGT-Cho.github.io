@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
+	<meta name="google-site-verification" content="B1tIe6J_sHT2HyTwFy-THifOJBHTcONU6ZE0hJ__zRU" />
+	<meta name="naver-site-verification" content="037adc1ed5ce0290ea959386e2f2c804fa7b61a4" />
+	<meta property="og:type" content="website" />
+
+	<meta property="og:title" content="NAVER Corporation" />
+	<meta property="og:description" content="모두를 위한 기술 플랫폼, A Technology Platform for All" />
+
+	<meta property="og:url" content="https://www.navercorp.com" />
+	<meta property="og:image" content="https://www.navercorp.com/img/og/OG_TAG_1-1_NAVER.png">
+	<title>네이버(주) l NAVER Corporation</title>
+
+	<!-- Icon & Favicon -->
+	<link rel="shortcut icon" href="/img/favicon.ico" />
+	<!-- // Icon & Favicon -->
+
+	<link rel="stylesheet" href="/css/navercorp.css" />
+	<link rel="stylesheet" href="/css/libs.css" />
+
+	<script type="text/javascript" src="/js/plugins/lcslog.js"></script>
+	<script>
+	var g_ssc = "navercorp.main";
+	var ccsrv = "cc.naver.com";
+
+	</script>
+	<script type="text/javascript" src="/js/plugins/nclk_v0.8.1.js"></script>
+	<script type="text/javascript">
+	window.addEventListener('pageshow', function (event) {
+	  lcs_do();
+	});
+
+	</script>
+
+</head>
+
+<body style="display: none">
+	<!-- Skip Navigation -->
+	<ul class="skip">
+		<li><a href="#header" onclick="document.querySelector('.header').tabIndex=-1;document.querySelector('.header').focus();return false;">Skip to navigation</a></li>
+		<li><a href="#content" onclick="document.getElementById('content').tabIndex=-1;document.getElementById('content').focus();return false">Skip to content</a></li>
+	</ul>
+	<!-- // Skip Navigation -->
+
+	<div class="navercorp main">
+		<!-- HEADER -->
+
+		<header class="header ">
+
+			<div class="header__inner">
+				<h1 class="header__logo">
+					<a href="/main.html" class="header__link" data-nclick="gnb.logo">
+						<span class="blind">logo</span>
+					</a>
+				</h1>
+				<nav class="nav">
+					<ul class="nav__list">
+						<li class="nav__item">
+							<a href="/naver/naverMain.html" class="nav__link" data-i18n="[html]header:naver.naver" data-nclick="gnb.naver">회사소개</a>
+							<!-- 활성화 시 is-active -->
+							<ul class="nav__list2 nav-vertical">
+								<!-- 활성화 시 is-active -->
+								<li class="nav__item2">
+									<a href="/naver/naverMain.html" class="nav__link2" data-i18n="[html]header:naver.main" data-nclick="lnb.info">소개</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/naver/teamNaver.html" class="nav__link2" data-i18n="[html]header:naver.team" data-nclick="lnb.team">주요 계열사</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/naver/history.html" class="nav__link2" data-i18n="[html]header:naver.history" data-nclick="lnb.history">주요연혁</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/naver/proposalInquire.html" class="nav__link2" data-i18n="[html]header:naver.partnerships" data-nclick="lnb.psl">제휴제안</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/naver/naverContact.html" class="nav__link2" data-i18n="[html]header:naver.contact" data-nclick="lnb.contact">Contact</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav__item">
+							<a href="/service/serviceMain.html" class="nav__link" data-i18n="[html]header:service.service" data-nclick="gnb.service">서비스</a>
+							<ul class="nav__list2">
+								<li class="nav__item2">
+									<a href="/service/serviceMain.html" class="nav__link2" data-i18n="[html]header:service.main" data-nclick="lnb.smy">주요 서비스 요약</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/service/serviceFintech.html" class="nav__link2" data-i18n="[html]header:service.fintech" data-nclick="lnb.pin">핀테크</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/service/serviceNaver.html" class="nav__link2" data-i18n="[html]header:service.naver" data-nclick="lnb.naver">네이버</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/service/serviceContents.html" class="nav__link2" data-i18n="[html]header:service.contents" data-nclick="lnb.cnt">콘텐츠</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/service/serviceSearch.html" class="nav__link2" data-i18n="[html]header:service.search" data-nclick="lnb.sch">검색</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/service/serviceCommunity.html" class="nav__link2" data-i18n="[html]header:service.community" data-nclick="lnb.cmt">커뮤니티</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/service/serviceAD.html" class="nav__link2" data-i18n="[html]header:service.ad" data-nclick="lnb.ad">광고</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/service/serviceC2c.html" class="nav__link2" data-nclick="lnb.ctc">C2C</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/service/serviceCommerce.html" class="nav__link2" data-i18n="[html]header:service.commerce" data-nclick="lnb.cms">커머스</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/service/serviceMap.html" class="nav__link2" data-i18n="[html]header:service.map" data-nclick="lnb.map">지도</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/service/serviceCloud.html" class="nav__link2" data-i18n="[html]header:service.cloud" data-nclick="lnb.cloud">클라우드</a>
+								</li>
+								<li class="nav__item2 kor">
+									<a href="/service/serviceAll.html" class="nav__link2" data-i18n="[html]header:service.allService" data-nclick="lnb.view">전체 서비스 보기</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav__item">
+							<a href="/tech/techMain.html" class="nav__link" data-i18n="[html]header:tech.tech" data-nclick="gnb.tech">기술</a>
+							<ul class="nav__list2">
+								<li class="nav__item2">
+									<a href="/tech/techMain.html" class="nav__link2" data-i18n="[html]header:tech.main" data-nclick="lnb.tchsmy">주요 기술 요약</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/tech/digitalTwin.html" class="nav__link2" data-i18n="[html]header:tech.digitalTwin" data-nclick="lnb.twtch">디지털 트윈 기술</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/tech/techAI.html" class="nav__link2" data-i18n="[html]header:tech.ai" data-nclick="lnb.aitch">AI 기술</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/tech/datacenterGak.html" class="nav__link2" data-i18n="[html]header:tech.datacenterGak" data-nclick="lnb.dtk">데이터센터 각</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/tech/techSearch.html" class="nav__link2" data-i18n="[html]header:tech.search" data-nclick="lnb.schtch">검색 기술</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/tech/tech1784.html" class="nav__link2" data-nclick="lnb.1784">1784</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/tech/robotics.html" class="nav__link2" data-i18n="[html]header:tech.robotics" data-nclick="lnb.rbtch">로봇 기술</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/tech/companion.html" class="nav__link2" data-i18n="[html]header:tech.companion" data-nclick="lnb.tgh">기술 상생</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav__item">
+							<a href="/esg/main.html" class="nav__link" data-i18n="[html]header:esg.esg" data-nclick="gnb.esg">ESG</a>
+							<ul class="nav__list2">
+								<li class="nav__item2">
+									<a href="/esg/main.html" class="nav__link2" data-i18n="[html]header:esg.main" data-nclick="lnb.esmy">주요 ESG 프로그램 요약</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/esg/privacy.html" class="nav__link2" data-i18n="[html]header:esg.privacy" data-nclick="lnb.inform">정보보호</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/esg/sustainability.html" class="nav__link2" data-i18n="[html]header:esg.sustainability" data-nclick="lnb.stn">지속가능경영</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/esg/projectFlower.html" class="nav__link2" data-i18n="[html]header:esg.projectFlower" data-nclick="lnb.flw">프로젝트 꽃</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/esg/environment.html" class="nav__link2" data-i18n="[html]header:esg.environment" data-nclick="lnb.evt">환경</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/esg/socialValue.html" class="nav__link2" data-i18n="[html]header:esg.social" data-nclick="lnb.sct">사회공헌</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/esg/ethics.html" class="nav__link2" data-i18n="[html]header:esg.ethics" data-nclick="lnb.ethic">기업윤리</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/esg/resources.html" class="nav__link2" data-i18n="[html]header:esg.resource" data-nclick="lnb.rfm">ESG 자료실</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/esg/humanrights.html" class="nav__link2" data-i18n="[html]header:esg.humanRights" data-nclick="lnb.right">인권존중</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav__item">
+							<a href="/investment/investors.html" class="nav__link" data-i18n="[html]header:ir.ir" data-nclick="gnb.invest">투자정보</a>
+							<ul class="nav__list2 nav-vertical">
+								<li class="nav__item2">
+									<a href="/investment/investors.html" class="nav__link2" data-i18n="[html]header:ir.news" data-nclick="lnb.irsmy">주요 IR 요약</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/investment/governance.html" class="nav__link2" data-i18n="[html]header:ir.governance" data-nclick="lnb.gvn">기업지배구조</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/investment/irEvents.html" class="nav__link2" data-i18n="[html]header:ir.meeting" data-nclick="lnb.irsl">IR 일정</a>
+								</li>
+								<li class="nav__item2 kor">
+									<a href="/investment/disclosure.html" class="nav__link2" data-i18n="[html]header:ir.financial" data-nclick="lnb.irinform">재무정보</a>
+								</li>
+								<li class="nav__item2 eng">
+									<a href="/investment/stock.html" class="nav__link2" data-i18n="[html]header:ir.financial" data-nclick="lnb.irinform">재무정보</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/investment/earningsRelease.html" class="nav__link2" data-i18n="[html]header:ir.resource" data-nclick="lnb.irm">IR 자료실</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav__item">
+							<a href="/media/pressReleases.html" class="nav__link" data-i18n="[html]header:media.media" data-nclick="gnb.media">미디어</a>
+							<ul class="nav__list2 nav-vertical">
+								<li class="nav__item2">
+									<a href="/media/pressReleases.html" class="nav__link2" data-i18n="[html]header:media.news" data-nclick="lnb.news">보도자료</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/media/conference.html" class="nav__link2" data-i18n="[html]header:media.event" data-nclick="lnb.event">미디어 행사</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/media/brandGuide.html" class="nav__link2" data-i18n="[html]header:media.brand" data-nclick="lnb.rsc">브랜드 리소스</a>
+								</li>
+								<li class="nav__item2">
+									<a href="/media/communication.html" class="nav__link2" data-i18n="[html]header:media.communication" data-nclick="lnb.comm">커뮤니케이션 채널</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav__item">
+							<a href="/story/storyMain.html" class="nav__link" data-i18n="[html]header:story" data-nclick="gnb.story">스토리</a>
+						</li>
+						<li class="nav__item is-arrow">
+							<a href="https://recruit.navercorp.com/" class="nav__link" target="_blank" data-i18n="[html]header:recruitment" data-nclick="gnb.incruit">채용</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="header__utils">
+					<button type="button" class="btn-search" data-nclick="gnb.search">
+						<span class="blind">search</span>
+					</button>
+					<div class="btn-lang">
+						<button type="button" class="btn-selected" data-nclick="gnb.lng">
+							KR
+							<span class="blind">한국어</span>
+						</button>
+						<ul class="btn-lang__list">
+							<li class="btn-lang__item" data-lang="ko">
+								<button type="button" class="btn-ko">KR</button>
+							</li>
+							<li class="btn-lang__item" data-lang="en">
+								<button type="button" class="btn-en">EN</button>
+							</li>
+						</ul>
+					</div>
+					<button type="button" class="btn-mo-nav">
+						<span class="blind">mobile menu</span>
+					</button>
+				</div>
+			</div>
+			<!-- search tab -->
+			<div class="search-tab">
+				<div class="search-tab__inner">
+					<div class="search-tab__box">
+						<input type="text" class="search" data-i18n="[placeholder]search:inputPlaceholder" placeholder="네이버 기업사이트 내 검색" />
+						<button type="button" class="btn-search"><span class="blind">검색하기</span></button>
+						<button type="button" class="btn-delete"><span class="blind">삭제</span></button>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- dim -->
+		<div class="dim"></div>
+
+		<div class="hidden-logo">
+			<a href="/main.html" class="logo__link" data-nclick="gnb.logo">
+				<span class="blind">logo</span>
+			</a>
+		</div>
+		<!-- mobile menu -->
+		<div class="mo-nav">
+			<div class="mo-nav__inner">
+				<a href="/main.html" class="mo-nav__logo is-hide" data-nclick="gnb.logo">
+					<span class="blind">logo</span>
+				</a>
+				<div class="mo-nav__utils">
+					<div class="btn-lang">
+						<button type="button" class="btn-selected" data-nclick="gnb.lng">
+							KR
+							<span class="blind">한국어</span>
+						</button>
+						<ul class="btn-lang__list">
+							<li class="btn-lang__item" data-lang="ko">
+								<button type="button" class="btn-ko">KR</button>
+							</li>
+							<li class="btn-lang__item" data-lang="en">
+								<button type="button" class="btn-en">EN</button>
+							</li>
+						</ul>
+					</div>
+					<button type="button" class="btn-close">
+						<span class="blind">close</span>
+					</button>
+
+				</div>
+				<ul class="mo-nav__list">
+					<li class="mo-nav__item">
+						<a href="javascript:void(0);" class="mo-nav__link" data-i18n="[html]header:naver.naver" data-nclick="gnb.naver">회사소개</a>
+						<ul class="mo-nav__list2">
+							<li class="mo-nav__item2">
+								<a href="/naver/naverMain.html" class="mo-nav__link2" data-i18n="[html]header:naver.main" data-nclick="lnb.info">소개</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/naver/teamNaver.html" class="mo-nav__link2" data-i18n="[html]header:naver.team" data-nclick="lnb.team">주요 계열사</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/naver/history.html" class="mo-nav__link2" data-i18n="[html]header:naver.history" data-nclick="lnb.history">주요연혁</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/naver/proposalInquire.html" class="mo-nav__link2" data-i18n="[html]header:naver.partnerships" data-nclick="lnb.psl">제휴제안</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/naver/naverContact.html" class="mo-nav__link2" data-nclick="lnb.contact">Contact</a>
+							</li>
+						</ul>
+					</li>
+					<li class="mo-nav__item">
+						<a href="javascript:void(0);" class="mo-nav__link" data-i18n="[html]header:service.service" data-nclick="gnb.service">서비스</a>
+						<ul class="mo-nav__list2">
+							<li class="mo-nav__item2">
+								<a href="/service/serviceMain.html" class="mo-nav__link2" data-i18n="[html]header:service.main" data-nclick="lnb.smy">주요 서비스 요약</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/service/serviceNaver.html" class="mo-nav__link2" data-i18n="[html]header:service.naver" data-nclick="lnb.naver">네이버</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/service/serviceSearch.html" class="mo-nav__link2" data-i18n="[html]header:service.search" data-nclick="lnb.sch">검색</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/service/serviceAD.html" class="mo-nav__link2" data-i18n="[html]header:service.ad" data-nclick="lnb.ad">광고</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/service/serviceCommerce.html" class="mo-nav__link2" data-i18n="[html]header:service.commerce" data-nclick="lnb.cms">커머스</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/service/serviceCloud.html" class="mo-nav__link2" data-i18n="[html]header:service.cloud" data-nclick="lnb.cloud">클라우드</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/service/serviceFintech.html" class="mo-nav__link2" data-i18n="[html]header:service.fintech" data-nclick="lnb.pin">핀테크</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/service/serviceContents.html" class="mo-nav__link2" data-i18n="[html]header:service.contents" data-nclick="lnb.cnt">콘텐츠</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/service/serviceCommunity.html" class="mo-nav__link2" data-i18n="[html]header:service.community" data-nclick="lnb.cmt">커뮤니티</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/service/serviceC2c.html" class="mo-nav__link2" data-nclick="lnb.ctc">C2C</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/service/serviceMap.html" class="mo-nav__link2" data-i18n="[html]header:service.map" data-nclick="lnb.map">지도</a>
+							</li>
+							<li class="mo-nav__item2 kor">
+								<a href="/service/serviceAll.html" class="mo-nav__link2" data-i18n="[html]header:service.allService" data-nclick="lnb.view">전체 서비스 보기</a>
+							</li>
+						</ul>
+					</li>
+					<li class="mo-nav__item">
+						<a href="javascript:void(0);" class="mo-nav__link" data-i18n="[html]header:tech.tech" data-nclick="gnb.tech">기술</a>
+						<ul class="mo-nav__list2">
+							<li class="mo-nav__item2">
+								<a href="/tech/techMain.html" class="mo-nav__link2" data-i18n="[html]header:tech.main" data-nclick="lnb.tchsmy">주요 기술 요약</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/tech/techAI.html" class="mo-nav__link2" data-i18n="[html]header:tech.ai" data-nclick="lnb.aitch">AI 기술</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/tech/techSearch.html" class="mo-nav__link2" data-i18n="[html]header:tech.search" data-nclick="lnb.schtch">검색 기술</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/tech/robotics.html" class="mo-nav__link2" data-i18n="[html]header:tech.robotics" data-nclick="lnb.rbtch">로봇 기술</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/tech/digitalTwin.html" class="mo-nav__link2" data-i18n="[html]header:tech.digitalTwin" data-nclick="lnb.twtch">디지털 트윈 기술</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/tech/datacenterGak.html" class="mo-nav__link2" data-i18n="[html]header:tech.datacenterGak" data-nclick="lnb.dtk">데이터센터 각</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/tech/tech1784.html" class="mo-nav__link2" data-nclick="lnb.1784">1784</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/tech/companion.html" class="mo-nav__link2" data-i18n="[html]header:tech.companion" data-nclick="lnb.tgh">기술 상생</a>
+							</li>
+						</ul>
+					</li>
+					<li class="mo-nav__item">
+						<a href="javascript:void(0);" class="mo-nav__link" data-nclick="gnb.esg">ESG</a>
+						<ul class="mo-nav__list2">
+							<li class="mo-nav__item2">
+								<a href="/esg/main.html" class="mo-nav__link2" data-i18n="[html]header:esg.main" data-nclick="lnb.esmy">주요 ESG 프로그램 요약</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/esg/sustainability.html" class="mo-nav__link2" data-i18n="[html]header:esg.sustainability" data-nclick="lnb.stn">지속가능경영</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/esg/environment.html" class="mo-nav__link2" data-i18n="[html]header:esg.environment" data-nclick="lnb.evt">환경</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/esg/ethics.html" class="mo-nav__link2" data-i18n="[html]header:esg.ethics" data-nclick="lnb.ethic">기업윤리</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/esg/humanrights.html" class="mo-nav__link2" data-i18n="[html]header:esg.humanRights" data-nclick="lnb.right">인권존중</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/esg/privacy.html" class="mo-nav__link2" data-i18n="[html]header:esg.privacy" data-nclick="lnb.inform">정보보호</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/esg/projectFlower.html" class="mo-nav__link2" data-i18n="[html]header:esg.projectFlower" data-nclick="lnb.flw">프로젝트 꽃</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/esg/socialValue.html" class="mo-nav__link2" data-i18n="[html]header:esg.social" data-nclick="lnb.sct">사회공헌</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/esg/resources.html" class="mo-nav__link2" data-i18n="[html]header:esg.resource" data-nclick="lnb.rfm">ESG 자료실</a>
+							</li>
+						</ul>
+					</li>
+					<li class="mo-nav__item">
+						<a href="javascript:void(0);" class="mo-nav__link" data-i18n="[html]header:ir.ir" data-nclick="gnb.invest">투자정보</a>
+						<ul class="mo-nav__list2">
+							<li class="mo-nav__item2">
+								<a href="/investment/investors.html" class="mo-nav__link2" data-i18n="[html]header:ir.news" data-nclick="lnb.irsmy">주요 IR 요약</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/investment/governance.html" class="mo-nav__link2" data-i18n="[html]header:ir.governance" data-nclick="lnb.gvn">기업지배구조</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/investment/irEvents.html" class="mo-nav__link2" data-i18n="[html]header:ir.meeting" data-nclick="lnb.irsl">IR 일정</a>
+							</li>
+							<li class="mo-nav__item2 kor">
+								<a href="/investment/disclosure.html" class="mo-nav__link2" data-i18n="[html]header:ir.financial" data-nclick="lnb.irinform">재무정보</a>
+							</li>
+							<li class="mo-nav__item2 eng">
+								<a href="/investment/stock.html" class="mo-nav__link2" data-i18n="[html]header:ir.financial" data-nclick="lnb.irinform">재무정보</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/investment/earningsRelease.html" class="mo-nav__link2" data-i18n="[html]header:ir.resource" data-nclick="lnb.irm">IR 자료실</a>
+							</li>
+						</ul>
+					</li>
+					<li class="mo-nav__item">
+						<a href="javascript:void(0);" class="mo-nav__link" data-i18n="[html]header:media.media" data-nclick="gnb.media">미디어</a>
+						<ul class="mo-nav__list2">
+							<li class="mo-nav__item2">
+								<a href="/media/pressReleases.html" class="mo-nav__link2" data-i18n="[html]header:media.news" data-nclick="lnb.news">보도자료</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/media/conference.html" class="mo-nav__link2" data-i18n="[html]header:media.event" data-nclick="lnb.event">미디어 행사</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/media/brandGuide.html" class="mo-nav__link2" data-i18n="[html]header:media.brand" data-nclick="lnb.rsc">브랜드 리소스</a>
+							</li>
+							<li class="mo-nav__item2">
+								<a href="/media/communication.html" class="mo-nav__link2" data-i18n="[html]header:media.communication" data-nclick="lnb.comm">커뮤니케이션 채널</a>
+							</li>
+						</ul>
+					</li>
+					<li class="mo-nav__item no-list">
+						<a href="/story/storyMain.html" class="mo-nav__link" data-i18n="[html]header:story" data-nclick="gnb.story">스토리</a>
+					</li>
+					<li class="mo-nav__item no-list is-arrow">
+						<a href="https://recruit.navercorp.com/" class="mo-nav__link" target="_blank" data-i18n="[html]header:recruitment" data-nclick="gnb.incruit">채용</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- mobile menu dim -->
+		<div class="dim"></div>
+
+		<!--// HEADER -->
+
+		<!-- MAIN -->
+		<main class="container">
+			<div class="main-content">
+				<div class="main-content__inner cont-summary">
+					<div class="main-content__title">
+						<strong class="location">
+							<span class="nation">대한민국</span>
+						</strong>
+						<div class="time">
+							<span class="hour">12</span>
+							<span class="colon">:</span>
+							<span class="minute">08</span>
+							<span class="colon">:</span>
+							<span class="second">08</span>
+						</div>
+						<a href="#section_shortcut" class="btn-arrow"><span class="blind">scroll down</span></a>
+					</div>
+					<div class="cont__area type-c">
+						<div class="slogan">
+							<a href="/naver/naverMain" class="slogan__link" target="_blank" data-nclick="bct.banner">
+								<div class="lottie__wrap">
+									<div class="lottie__container" id="sloganLottie1"></div>
+									<div class="lottie__container" id="sloganLottie2"></div>
+								</div>
+								<span class="outlink">
+									<span class="blind">네이버 페이지 바로가기</span>
+								</span>
+							</a>
+						</div>
+						<ul class="cont__list">
+							<li class="cont__item media">
+								<a class="cont__link" href="/media/conference.html" data-nclick="mct.aevent">
+									<div class="thumb-box">
+										<div class="thumbnail" style="background-image:url(/img/pc/main-media.png)"></div>
+									</div>
+									<div class="text-wrap">
+										<span class="head">미디어 이벤트</span>
+										<strong class="title">naver<br> deview 2023</strong>
+									</div>
+								</a>
+							</li>
+							<li class="cont__item news">
+								<a class="cont__link" href="/media/pressReleases.html" data-nclick="mct.anews">
+									<div class="thumb-box">
+										<div class="thumbnail" style="background-image:url(/img/pc/main-press-release.png)"></div>
+									</div>
+									<div class="text-box">
+										<div class="text-wrap">
+											<span class="head">보도자료</span>
+											<strong class="title">네이버, 북미 1위 패션 C2C 플랫폼<br>포쉬마크(Poshmark) 인수</strong>
+										</div>
+										<span class="date">2023.05.15</span>
+									</div>
+									<span class="outlink"><span class="blind">보도자료 바로가기</span></span>
+								</a>
+							</li>
+							<li class="cont__item story">
+								<a class="cont__link" href="/story/storyMain.html" data-nclick="mct.astory">
+									<div class="thumb-box">
+										<div class="thumbnail" style="background-image:url(/img/pc/main-story.png)"></div>
+									</div>
+									<span class="head">스토리</span>
+									<div class="text-wrap">
+										<span class="category">People</span>
+										<strong class="title">당신의 가능성이 팀네이버의 가능성으로!</strong>
+									</div>
+								</a>
+							</li>
+							<li class="cont__item ad">
+								<a class="cont__link" href="/media/brandGuide.html" data-nclick="mct.aad">
+									<span class="head">네이버 도착보장</span>
+									<strong class="title">naver<br>webtoon</strong>
+									<div class="thumb-box">
+										<div class="thumbnail" style="background-image:url(/img/pc/main-ad-poster.png)"></div>
+									</div>
+								</a>
+							</li>
+							<li class="cont__item recruit is-hiring">
+								<a class="cont__link" href="https://recruit.navercorp.com/" target="_blank" data-nclick="mct.arecruit">
+									<span class="head">채용</span>
+									<strong class="title">당신의 가능성이 팀네이버의 가능성으로!</strong>
+									<span class="outlink"><span class="blind">채용 페이지 바로가기</span></span>
+								</a>
+							</li>
+							<li class="cont__item stock">
+								<a class="cont__link" href="/investment/stock.html" data-nclick="mct.astock">
+									<span class="head">주가</span>
+									<div class="text-wrap">
+										<!-- 상승 : up / 하락 : down 클래스명 추가시 색상, 아이콘 변경 -->
+										<span class="num-info up">
+											<span class="blind">상승</span>
+											<span class="num">1,200</span>
+											(<span class="percent">0.6%</span>)
+										</span>
+										<strong class="count">206,000</strong>
+									</div>
+								</a>
+							</li>
+							<li class="cont__item ir is-no-bg">
+								<a class="cont__link" href="/investment/investors.html" data-nclick="mct.air">
+									<div class="text-wrap">
+										<span class="head">투자정보</span>
+										<strong class="title">결산 공고</strong>
+									</div>
+									<p class="desc">네이버의 재무상태표를<br>확인 할 수 있습니다.</p>
+									<span class="outlink"><span class="blind">투자정보 페이지 바로가기</span></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="main-content__inner cont-feature is-active">
+					<div class="main-content__title">
+						<strong data-i18n="[html]main:title01">주요 서비스와 <br>기술</strong>
+					</div>
+					<div class="cont__area">
+						<div class="cont__wrap swiper">
+							<ul class="cont__list swiper-wrapper">
+
+								<li class="cont__item swiper-slide testbed">
+									<a class="cont__link" href="/tech/tech1784.html">
+										<div class="thumb-box">
+											<div class="thumbnail"><span class="blind">썸네일 이미지</span></div>
+										</div>
+										<div class="text-box">
+											<div class="title-wrap">
+												<span class="category">tech</span>
+												<strong class="title">1784<br>the testbed</strong>
+											</div>
+											<p class="desc">네이버는 1784를 거대한 TESTBED 삼아<br>실험하고 도전하며 새로운 내일을 만들어 갑니다.</p>
+										</div>
+									</a>
+								</li>
+								<li class="cont__item swiper-slide arcverse">
+									<a class="cont__link" href="/tech/digitalTwin.html">
+										<div class="thumb-box">
+											<div class="thumbnail"><span class="blind">썸네일 이미지</span></div>
+										</div>
+										<div class="text-box">
+											<div class="title-wrap">
+												<span class="category">tech</span>
+												<strong class="title">arcverse<br>naver labs</strong>
+											</div>
+											<p class="desc">AI, 로봇, 클라우드, 디지털 트윈 기술로 여는<br>새로운 유니버스 - ARCVERSE</p>
+										</div>
+									</a>
+								</li>
+								<li class="cont__item swiper-slide search">
+									<a class="cont__link" href="/service/serviceSearch.html">
+										<div class="thumb-box">
+											<div class="thumbnail"><span class="blind">썸네일 이미지</span></div>
+										</div>
+										<div class="text-box">
+											<div class="title-wrap">
+												<span class="category">service</span>
+												<strong class="title">search<br>platform</strong>
+											</div>
+											<p class="desc">사용자에게 맞춤화된 검색 경험을 제공하는<br>최고 수준의 검색 플랫폼을 제공합니다.</p>
+										</div>
+									</a>
+								</li>
+								<li class="cont__item swiper-slide cloud">
+									<a class="cont__link" href="/service/serviceNaver.html">
+										<div class="thumb-box">
+											<div class="thumbnail"><span class="blind">썸네일 이미지</span></div>
+										</div>
+										<div class="text-box color-black">
+											<div class="title-wrap">
+												<span class="category">service</span>
+												<strong class="title">naver<br>cloud &amp; AI </strong>
+											</div>
+											<p class="desc">모든 비즈니스를 가능하게 하는<br>네이버 클라우드와 AI</p>
+										</div>
+									</a>
+								</li>
+								<li class="cont__item swiper-slide datacenter">
+									<a class="cont__link" href="/tech/datacenterGak.html">
+										<div class="thumb-box">
+											<div class="thumbnail"><span class="blind">썸네일 이미지</span></div>
+										</div>
+										<div class="text-box color-black">
+											<div class="title-wrap">
+												<span class="category">tech</span>
+												<strong class="title">datacenter<br>gak</strong>
+											</div>
+											<p class="desc">새로운 혁신과 신기술로 다양한 가치를 창출하여<br>미래 산업에 지속성 있는 가치를 제공합니다.</p>
+										</div>
+									</a>
+								</li>
+								<li class="cont__item swiper-slide fintech">
+									<a class="cont__link" href="">
+										<div class="thumb-box">
+											<div class="thumbnail"><span class="blind">썸네일 이미지</span></div>
+										</div>
+										<div class="text-box color-black">
+											<div class="title-wrap">
+												<span class="category">service</span>
+												<strong class="title">fintech</strong>
+											</div>
+											<p class="desc">생활금융 서비스와 다양한 파트너들의<br>성공을 위한 혁신적인 금융 서비스를 제공합니다.</p>
+										</div>
+									</a>
+								</li>
+							</ul>
+							<div class="cont__btn">
+								<div class="swiper-button-prev"></div>
+								<div class="swiper-button-next"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="main-content__inner cont-shortcut is-active" id="section_shortcut">
+					<div class="main-content__title">
+						<strong data-i18n="main:title02">바로가기</strong>
+					</div>
+					<div class="cont__area">
+						<ul class="cont__list">
+							<li class="cont__item">
+								<a class="cont__link" href="/naver/proposalInquire.html" data-nclick="dct.psl">
+									<strong class="title" data-i18n="main:goTo.list01">제휴제안을 위한</strong>
+									<span class="ico-link"><span class="blind">제휴제안으로 이동</span></span>
+									<div class="thumb-box">
+										<img src="/img/pc/main-shortcut-1.png" alt="">
+									</div>
+								</a>
+							</li>
+							<li class="cont__item">
+								<a class="cont__link" href="/media/pressReleases.html" data-nclick="dct.media">
+									<strong class="title" data-i18n="main:goTo.list02">미디어를 위한</strong>
+									<span class="ico-link"><span class="blind">미디어로 이동</span></span>
+									<div class="thumb-box">
+										<img src="/img/pc/main-shortcut-2.png" alt="">
+									</div>
+								</a>
+							</li>
+							<li class="cont__item">
+								<a class="cont__link" href="https://d2.naver.com/home" target="_blank" data-nclick="dct.dvr">
+									<strong class="title" data-i18n="main:goTo.list03">개발자를 위한</strong>
+									<span class="ico-link outlink"><span class="blind">네이버 d2로 이동</span></span>
+									<div class="thumb-box">
+										<img src="/img/pc/main-shortcut-3.png" alt="">
+									</div>
+								</a>
+							</li>
+							<li class="cont__item">
+								<a class="cont__link" href="/investment/investors.html" data-nclick="dct.invr">
+									<strong class="title" data-i18n="main:goTo.list04">투자자를 위한</strong>
+									<span class="ico-link"><span class="blind">투자정보로 이동</span></span>
+									<div class="thumb-box">
+										<img src="/img/pc/main-shortcut-4.png" alt="">
+									</div>
+								</a>
+							</li>
+							<li class="cont__item">
+								<a class="cont__link" href="https://business.naver.com/" target="_blank" data-nclick="dct.sml">
+									<strong class="title" data-i18n="main:goTo.list05">중소상공인을 위한</strong>
+									<span class="ico-link outlink"><span class="blind">네이버 비즈니스로 이동</span></span>
+									<div class="thumb-box">
+										<img src="/img/pc/main-shortcut-5.png" alt="">
+									</div>
+								</a>
+							</li>
+							<li class="cont__item">
+								<a class="cont__link" href="https://recruit.navercorp.com/" target="_blank" data-nclick="dct.cnt">
+									<strong class="title" data-i18n="main:goTo.list06">입사지원자를 위한</strong>
+									<span class="ico-link outlink"><span class="blind">채용 페이지로 이동</span></span>
+									<div class="thumb-box">
+										<img src="/img/pc/main-shortcut-6.png" alt="">
+									</div>
+								</a>
+							</li>
+							<li class="cont__item">
+								<a class="cont__link" href="/esg/projectFlower.html" data-nclick="dct.crt">
+									<strong class="title" data-i18n="main:goTo.list07">창작자를 위한</strong>
+									<span class="ico-link"><span class="blind">프로젝트꽃으로 이동</span></span>
+									<div class="thumb-box">
+										<img src="/img/pc/main-shortcut-7.png" alt="">
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</main>
+		<!--// MAIN -->
+
+		<!-- FOOTER -->
+
+		<footer class="footer js-parallax-section">
+
+			<div class="footer__inner">
+				<div class="footer__service">
+					<div class="service__wrap">
+						<ul class="service__list">
+							<li class="service__item">
+								<a href="https://www.navercloudcorp.com/" class="service__link" target="_blank" data-i18n="[html]footer:cloud" data-nclick="fnb.cld">네이버클라우드</a>
+							</li>
+							<li class="service__item">
+								<a href="https://snowcorp.com/ko/" class="service__link" target="_blank" data-i18n="[html]footer:snow" data-nclick="fnb.snw">스노우</a>
+							</li>
+							<li class="service__item">
+								<a href="https://www.naverlabs.com/" class="service__link" target="_blank" data-i18n="[html]footer:labs" data-nclick="fnb.labs">네이버랩스</a>
+							</li>
+							<li class="service__item">
+								<a href="https://webtoonscorp.com/" class="service__link" target="_blank" data-i18n="[html]footer:webtoon" data-nclick="fnb.wbt">네이버웹툰</a>
+							</li>
+							<li class="service__item">
+								<a href="https://www.naverfincorp.com/" class="service__link" target="_blank" data-i18n="[html]footer:financial" data-nclick="fnb.fnl">네이버파이낸셜</a>
+							</li>
+						</ul>
+						<ul class="service__list">
+							<li class="service__item">
+								<a href="/naver/proposalInquire.html" class="service__link" data-i18n="[html]footer:partnerships" data-nclick="fnb.psl">제휴제안</a>
+							</li>
+							<li class="service__item">
+								<a href="https://audit.navercorp.com/audit/auditCounsel" class="service__link kor" data-i18n="[html]footer:ethics" target="_blank" data-nclick="fnb.ethic">기업윤리 상담센터</a>
+								<a href="https://audit.navercorp.com/en/audit/auditProtection" class="service__link eng" data-i18n="[html]footer:ethics" target="_blank" data-nclick="fnb.ethic">기업윤리 상담센터</a>
+							</li>
+							<li class="service__item service__item-policy">
+								<a href="/policy/personal.html" class="service__link" data-i18n="[html]footer:policy" data-nclick="fnb.pvc">개인정보 처리방침</a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer__btn-wrap">
+						<a href="#" class="naver-splugin btn-share" aria-label="공유하기" data-style="standard" data-url="" data-title="NAVER" data-oninitialize="nhn.sample.func(this);" data-nclick="fnb.share"></a>
+						<a href="#" class="btn-top" data-nclick="fnb.top">
+							<span class="blind">top button</span>
+						</a>
+					</div>
+				</div>
+				<div class="footer__info">
+					<p class="footer__logo">©NAVER CORP.</p>
+					<div class="social__wrap">
+						<ul class="social__list">
+							<li class="social__item">
+								<a href="https://blog.naver.com/naver_diary" class="social__link" data-nclick="fnb.blog">
+									<span class="blind">blog link</span>
+								</a>
+							</li>
+							<li class="social__item">
+								<a href="https://tv.naver.com/playnaver" class="social__link" data-nclick="fnb.ntv">
+									<span class="blind">naverTV link</span>
+								</a>
+							</li>
+							<li class="social__item">
+								<a href="https://www.instagram.com/naver_official/" class="social__link" data-nclick="fnb.intgm">
+									<span class="blind">instagram link</span>
+								</a>
+							</li>
+							<li class="social__item">
+								<a href="https://www.facebook.com/naverofficial" class="social__link" data-nclick="fnb.fb">
+									<span class="blind">facebook link</span>
+								</a>
+							</li>
+							<li class="social__item">
+								<a href="https://twitter.com/official_naver" class="social__link" data-nclick="fnb.nx">
+									<span class="blind">twitter link</span>
+								</a>
+							</li>
+							<li class="social__item">
+								<a href="https://www.youtube.com/@naverofficial" class="social__link" data-nclick="fnb.nytb">
+									<span class="blind">youtube link</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- common dim -->
+		<div class="dimmed"></div>
+
+		<!--// FOOTER -->
+	</div>
+
+	<!-- Javascript -->
+	<script src="/js/navercorp.libs.min.js"></script>
+	<script src="/js/navercorp.min.js"></script>
+	<script type="text/javascript" src="https://editor-static.pstatic.net/v/basic/1.67.0/se.viewer.js"></script>
+	<script type="text/javascript" src="https://static-homepage.pstatic.net/cdn-static/smart-editor/homepage_seviewer.js"></script>
+	<script src="https://static-homepage.pstatic.net/cdn-static/plugins/homepage_socialplugins.js?v=1"></script>
+
+	<script src="/js/libs/i18next.min.js"></script>
+	<script src="/js/i18n/lang.js"></script>
+	<script src="/js/i18n/data.js"></script>
+
+	<script>
+	(function () {
+	  const lang = !localStorage.getItem('lang') ? ((navigator.language.startsWith('ko')) ? 'ko' : 'en') : localStorage.getItem('lang');
+	  const title = document.title;
+	  HomepageSocialPlugins("real", lang, title, '');
+	}());
+
+	</script>
+	<!-- // Javascript -->
+
+</body>
+
+</html>

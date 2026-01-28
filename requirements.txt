@@ -1,0 +1,26 @@
+# 블로그 LLM 통합을 위한 Python 패키지
+
+# 웹 프레임워크
+Flask==3.0.0
+Flask-CORS==4.0.0
+
+# HTTP 요청
+requests==2.31.0
+
+# HTML 파싱
+beautifulsoup4==4.12.3
+lxml==5.1.0
+
+# 수치 계산
+numpy==1.26.3
+
+# 벡터 데이터베이스 (선택사항)
+# chromadb==0.4.22
+# faiss-cpu==1.7.4
+
+# 로깅 및 유틸리티
+python-dotenv==1.0.0
+
+# 프로덕션 서버
+gunicorn==21.2.0
+gevent==23.9.1
