@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+  ReachHost Sparkle appcast.
+
+  Served at https://sgt-cho.github.io/iPad2Mac/appcast.xml (the `jump`
+  repository is published to GitHub Pages under the iPad2Mac/ site name
+  via `docs/` — this file lives at docs/appcast.xml and is the
+  source of truth).
+
+  New items are generated only by the protected-main Manual Deploy workflow.
+  Its Host job signs and publishes ReachHost-X.Y.Z.dmg to SGT-Cho/Reach; its
+  record job prepends the exact enclosure metadata here and merges it to main.
+  This file is not an instruction to start an independent release. For repair
+  after an already-public irreversible Host release, see
+  docs/wiki/operations/sparkle-appcast.md.
+-->
+<rss version="2.0"
+     xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>ReachHost</title>
+        <link>https://sgt-cho.github.io/iPad2Mac/appcast.xml</link>
+        <description>Most recent changes for ReachHost, the macOS host app for Jump (iPad → Mac remote control).</description>
+        <language>en</language>
+        <item>
+            <title>Version 1.2.15 - ReachHost release</title>
+            <pubDate>Tue, 06 Oct 2026 16:39:12 +0000</pubDate>
+            <sparkle:version>55</sparkle:version>
+            <sparkle:shortVersionString>1.2.15</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.2.15</h2>
+                <ul>
+                    <li>Pearl 디자인으로 Host 연결 상태·기기·설정 화면을 정돈했습니다.</li>
+                    <li>연결 중인 기기를 개별적으로 종료하고 연결 상태를 더 명확하게 확인할 수 있습니다.</li>
+                    <li>저장한 연결 슬롯의 재연결 안정성과 Host 종료 처리를 개선했습니다.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.2.15/ReachHost-1.2.15.dmg"
+                sparkle:edSignature="dsJOmef54WM6tVsVqGAE5EBnB93jGTC9iVaABhvILpYHm0zQPk3hppf6uwK6qiXerr3P4lGliy+MoFatzi5LCg=="
+                length="13318732"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.2.14 - ReachHost release</title>
+            <pubDate>Thu, 01 Oct 2026 21:34:49 +0000</pubDate>
+            <sparkle:version>54</sparkle:version>
+            <sparkle:shortVersionString>1.2.14</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.2.14</h2>
+                <ul>
+                    <li>Host 연결 화면을 현재 상태와 연결 중인 기기 중심으로 정리하고 계정·기기 관리 동선을 개선했습니다.</li>
+                    <li>필요한 권한을 한 화면에서 확인하고 설정으로 이동할 수 있도록 권한 안내를 통합했습니다.</li>
+                    <li>실제 Reach SSH 연결과 사용 중·유휴 상태를 Host에서 확인할 수 있습니다.</li>
+                    <li>SSH 연결 허용, 오디오 공유, 로그인 시 자동 실행 설정을 기능 설정 화면에 모았습니다.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.2.14/ReachHost-1.2.14.dmg"
+                sparkle:edSignature="rUCL5QWKSnKZfU18bDTrOV/eRSGoTYT1Hr2j9ot5WszJYo6g5h1f3iVEuQ5U+fiOh4tB51+6PGskgbDSpD/hBA=="
+                length="13286847"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.2.13 - ReachHost release</title>
+            <pubDate>Mon, 28 Sep 2026 22:51:36 +0000</pubDate>
+            <sparkle:version>53</sparkle:version>
+            <sparkle:shortVersionString>1.2.13</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.2.13</h2>
+                <ul>
+                    <li>등록된 기기가 많을 때 일부 기기의 Relay 연결이 누락되던 문제를 수정했습니다.</li>
+                    <li>여러 화면 연결과 빠른 재접속 시 Host의 연결 수용 안정성을 개선했습니다.</li>
+                    <li>자동 연결 후보 준비와 연결 종료 후 임시 자원 정리를 개선했습니다.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.2.13/ReachHost-1.2.13.dmg"
+                sparkle:edSignature="4Yt3PoUVWpkmezq/llrPNm2M5Vj1CwFyGsIWiGuQDkP+WXcuChklBMAMhX4mkUMKsDdmoD/Oh9/aqreYyuHUDg=="
+                length="12851839"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.2.12 - ReachHost release</title>
+            <pubDate>Mon, 28 Sep 2026 04:10:31 +0000</pubDate>
+            <sparkle:version>52</sparkle:version>
+            <sparkle:shortVersionString>1.2.12</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.2.12</h2>
+                <ul>
+                    <li>Fix Host update eligibility for internal builds and stabilize HEVC-dependent CI on the release Mac.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.2.12/ReachHost-1.2.12.dmg"
+                sparkle:edSignature="7SRcWEv35VTSe+S/wDhwLnl6moB2HTFDsDzRh8iY73ezx18f+cEddfdcwZKxW+6mljRsq/d/6LcWCOlJNEXHBQ=="
+                length="12628441"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.2.11 - ReachHost release</title>
+            <pubDate>Sun, 27 Sep 2026 18:23:23 +0000</pubDate>
+            <sparkle:version>43</sparkle:version>
+            <sparkle:shortVersionString>1.2.11</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.2.11</h2>
+                <ul>
+                    <li>Fix Cloudflare TURN key provisioning and router setup verification.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.2.11/ReachHost-1.2.11.dmg"
+                sparkle:edSignature="/atJZHD87fJr2aN/1ozkZmrmdw5pWOIPeiQsXyOYgzlSWwSQZ+uDZVzRX/nAEarmPIudZRbvJ5iBPa5yysrDBg=="
+                length="12628453"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.2.10 - ReachHost release</title>
+            <pubDate>Mon, 21 Sep 2026 12:08:50 +0000</pubDate>
+            <sparkle:version>42</sparkle:version>
+            <sparkle:shortVersionString>1.2.10</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.2.10</h2>
+                <ul>
+                    <li>Adds TURN-over-TLS fallback on ports 443 and 5349 for restricted networks.</li>
+                    <li>Relay path testing now performs a real allocation and reports the selected transport.</li>
+                    <li>Improves Relay diagnostics while preserving an active Direct session during late Relay attempts.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.2.10/ReachHost-1.2.10.dmg"
+                sparkle:edSignature="D4SJkDFGbK8spddubxcvYBYGGVAL3FzpQF8mvT5Ja8b2hsi47W666yK2PDvq+dmo85CIFpEUGMYR46BLJ4XLAA=="
+                length="11402682"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.2.9 - ReachHost release</title>
+            <pubDate>Mon, 21 Sep 2026 02:49:55 +0000</pubDate>
+            <sparkle:version>41</sparkle:version>
+            <sparkle:shortVersionString>1.2.9</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.2.9</h2>
+                <ul>
+                    <li>Reach Host now remains visible in the Dock while keeping its menu bar controls.</li>
+                    <li>Improves multi-display workspace identity, exact display modes, reconnect handling, and display arrangement restoration.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.2.9/ReachHost-1.2.9.dmg"
+                sparkle:edSignature="N+QzGFkqUQZ5hQzzipM6gsemkwht3JalERrnPNRX3/+WA6cNiZdPRMvn8LMNhTEqA3Gyynqb8dTcIwD9rE6eCg=="
+                length="11249141"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.2.8 - ReachHost release</title>
+            <pubDate>Sun, 06 Sep 2026 17:12:59 +0000</pubDate>
+            <sparkle:version>30</sparkle:version>
+            <sparkle:shortVersionString>1.2.8</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.2.8</h2>
+                <ul>
+                    <li>Improve independent workspace video admission and physical display Fit mode selection. Add Host support for same-display HiDPI canvas resizing with compatible Viewers.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.2.8/ReachHost-1.2.8.dmg"
+                sparkle:edSignature="1Lh6ZrWYNNsVYhjcyJWwkM8fc8rh7lFDHQ8mqIWjaiorE/Bjzi+247rOVKrDweIayjS5GE3ygNZjMOl0SOXqAw=="
+                length="8374992"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.2.7 - ReachHost release</title>
+            <pubDate>Sun, 06 Sep 2026 05:21:00 +0000</pubDate>
+            <sparkle:version>29</sparkle:version>
+            <sparkle:shortVersionString>1.2.7</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.2.7</h2>
+                <ul>
+                    <li>Preserve additional-display recovery keyframes under send backpressure.</li>
+                    <li>Recover independent display video without forwarding broken delta-frame chains.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.2.7/ReachHost-1.2.7.dmg"
+                sparkle:edSignature="838x9cneqQccLzbaQSG4JIA10Yj3VyOzI3jwmEStVkE3lidjbSwwPNn4TFfy7A6WALMZCYUrPS3WdXVQZELLAQ=="
+                length="8231398"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.2.6 - ReachHost release</title>
+            <pubDate>Sun, 06 Sep 2026 02:29:23 +0000</pubDate>
+            <sparkle:version>28</sparkle:version>
+            <sparkle:shortVersionString>1.2.6</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.2.6</h2>
+                <ul>
+                    <li>Improve switching control between multiple displays.</li>
+                    <li>Improve recovery when display settings arrive out of order.</li>
+                    <li>Prevent stale display sessions from blocking reconnection.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.2.6/ReachHost-1.2.6.dmg"
+                sparkle:edSignature="cp8YWx4v9tZV8OU7InroVN5ArgRNU/wKgQPiKaG/MwTCMDG1O8JHj7pL7ZXAk2T/JpL8ejyFA2AHyeBcopL+Aw=="
+                length="8225451"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.2.5 - ReachHost release</title>
+            <pubDate>Sat, 05 Sep 2026 19:01:42 +0000</pubDate>
+            <sparkle:version>27</sparkle:version>
+            <sparkle:shortVersionString>1.2.5</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.2.5</h2>
+                <ul>
+                    <li>Add acknowledged native text input support for updated Reach Viewer.</li>
+                    <li>Improve virtual display mode verification and HiDPI fit selection.</li>
+                    <li>Improve Host publication status and diagnostic privacy.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.2.5/ReachHost-1.2.5.dmg"
+                sparkle:edSignature="VHya21JzhTXVzeXetLOr3k+ui71pw7RCILEX7sPl0Bh3ZYvwNlw5hkrLXYRE1YWnkPuwDbhIvMwHyOcm3ArhBQ=="
+                length="8211056"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.2.4 - ReachHost release</title>
+            <pubDate>Sun, 30 Aug 2026 23:19:46 +0000</pubDate>
+            <sparkle:version>26</sparkle:version>
+            <sparkle:shortVersionString>1.2.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.2.4</h2>
+                <ul>
+                    <li>Serialize Host authority-loss and Delete/Remove cleanup by exact authority generation and account session epoch.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.2.4/ReachHost-1.2.4.dmg"
+                sparkle:edSignature="kZzsBn7n1ygWqJBJaFzMxF71imimKZAsoLXeOukphzwrhkf1e2GfyxDBloeyLgvCrG9WCA4+lw/UnfgranWYDA=="
+                length="8052320"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.2.3 - ReachHost release</title>
+            <pubDate>Sun, 30 Aug 2026 01:36:00 +0000</pubDate>
+            <sparkle:version>25</sparkle:version>
+            <sparkle:shortVersionString>1.2.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.2.3</h2>
+                <ul>
+                    <li>Improve account-session recovery after interrupted token refreshes and relaunches.</li>
+                    <li>Allow up to four trusted display surfaces without third-surface admission churn.</li>
+                    <li>Preserve HiDPI backing resolution in Fit and avoid unnecessary observer capture restarts.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.2.3/ReachHost-1.2.3.dmg"
+                sparkle:edSignature="LJatkKsDDSyfMfltA9xNUUg4bMXn8gcYD9AQHMGzWWgKxSJ9rsvAu95GW8p9hxWp8YKBg1ZlyeXb60xVp0d0AA=="
+                length="7927928"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.2.2 - ReachHost release</title>
+            <pubDate>Sat, 22 Aug 2026 15:27:46 +0000</pubDate>
+            <sparkle:version>24</sparkle:version>
+            <sparkle:shortVersionString>1.2.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.2.2</h2>
+                <ul>
+                    <li>Restore first-frame presentation correlation for initial Host capture and reconnect, including Fit virtual-display creation.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.2.2/ReachHost-1.2.2.dmg"
+                sparkle:edSignature="o5XBOeYytsdm9cQSgIh+WfhCXAm3QbD/eLNr4mumr6f3CtUC45sySB2yP9aShKBpJ+HURTlEfjuRTSfxzpAfDQ=="
+                length="7871589"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.2.1 - ReachHost release</title>
+            <pubDate>Fri, 21 Aug 2026 18:53:06 +0000</pubDate>
+            <sparkle:version>23</sparkle:version>
+            <sparkle:shortVersionString>1.2.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.2.1</h2>
+                <ul>
+                    <li>ReachHost 1.2.1 — bug fixes and improvements from the latest main.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.2.1/ReachHost-1.2.1.dmg"
+                sparkle:edSignature="g5jfpP7M+taUxgLPw+q7wg9dxKa+IOXSLcx87bwZSk75EAXcKbjRxOuV96QQpM6c9r0VCrI2rlVs2FDPSbYECg=="
+                length="7871587"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.2.0 - ReachHost release</title>
+            <pubDate>Wed, 05 Aug 2026 23:14:44 +0000</pubDate>
+            <sparkle:version>22</sparkle:version>
+            <sparkle:shortVersionString>1.2.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.2.0</h2>
+                <ul>
+                    <li>Routes authenticated input to the focused workspace surface without cross-Mac lease latches, including third and fourth sessions.</li>
+                    <li>Replays generation-matched observer frames after session commit so static displays deliver their first frame reliably.</li>
+                    <li>Pairs with Reach Viewer 1.2.0 for repaired Fit and rotation state plus transient device labels that fade without obscuring remote content.</li>
+                    <li>Ships as a universal Intel + Apple Silicon build, Developer ID signed, notarized, and stapled.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.2.0/ReachHost-1.2.0.dmg"
+                sparkle:edSignature="xWsFV8FdPe3ccG9wdBwXfL1u6XAyRhPkeZyA6uJe7x+Hhb3SeA5RgNkCHNt3oTqBknnYRII6qf6X1EhWDeSEDQ=="
+                length="6631570"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.1.7 - ReachHost release</title>
+            <pubDate>Wed, 05 Aug 2026 12:53:47 +0000</pubDate>
+            <sparkle:version>21</sparkle:version>
+            <sparkle:shortVersionString>1.1.7</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.1.7</h2>
+                <ul>
+                    <li>Lets one verified Mac serve all four surfaces in a Viewer workspace, without a separate per-Mac tier.</li>
+                    <li>Uses the shared four-surface transport capacity as the single admission limit for primary and additional display sessions.</li>
+                    <li>Drains terminal rejection and replacement messages before QUIC teardown so multi-session failures reach the Viewer reliably.</li>
+                    <li>Ships as a universal Intel + Apple Silicon build, Developer ID signed, notarized, and stapled.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.1.7/ReachHost-1.1.7.dmg"
+                sparkle:edSignature="iPlr0r4q+G/2dP8d7pBySO7iDgjVnZV7sHdDIbvtcushVP7A5/8upVmNZ8mfzdeYpn61hC55BqcIw5Za7riAAQ=="
+                length="6620988"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.1.6 - ReachHost release</title>
+            <pubDate>Wed, 05 Aug 2026 09:52:27 +0000</pubDate>
+            <sparkle:version>20</sparkle:version>
+            <sparkle:shortVersionString>1.1.6</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.1.6</h2>
+                <ul>
+                    <li>Preserves the first ScreenCaptureKit frame when a static display produces it before capture startup commits.</li>
+                    <li>Keeps additional same-iPad sessions on the primary session's fresh Nearby evidence instead of drifting to Discover.</li>
+                    <li>Prevents the same Mac display from being selected twice in one iPad workspace.</li>
+                    <li>Ships as a universal Intel + Apple Silicon build, Developer ID signed, notarized, and stapled.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.1.6/ReachHost-1.1.6.dmg"
+                sparkle:edSignature="hz8wXfgWhWlJd5xlqrlEx6N4uQsJHA5hFc/K8n8y3EnkXzjFqik+0Li+pDouYnhWUfdH9aU7DJKS5P+Lm0PUAA=="
+                length="6617690"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.1.5 - ReachHost release</title>
+            <pubDate>Wed, 05 Aug 2026 06:16:00 +0000</pubDate>
+            <sparkle:version>19</sparkle:version>
+            <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.1.5</h2>
+                <ul>
+                    <li>Adds independent display sessions for up to four simultaneous surfaces, including four displays from the same Mac.</li>
+                    <li>Adds focused-surface input ownership, unique virtual displays, session-scoped Fit restoration, and adaptive multi-stream budgets.</li>
+                    <li>Works with the Reach Viewer 1.1.5 workspace for 2×2 layout, per-surface route selection, Fit, Fill, and rotation controls.</li>
+                    <li>Ships as a universal Intel + Apple Silicon build, Developer ID signed, notarized, and stapled.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.1.5/ReachHost-1.1.5.dmg"
+                sparkle:edSignature="mzAuM6OAL09Uz8V/8EIGcIXlls58m0WnGuJhx5z3/7oC6CyatCeomlO2wHLTu1oEntMw5vd5Vz/WWZ4fqM6CAQ=="
+                length="6615581"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.1.4 - ReachHost release</title>
+            <pubDate>Tue, 04 Aug 2026 22:44:53 +0000</pubDate>
+            <sparkle:version>18</sparkle:version>
+            <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.1.4</h2>
+                <ul>
+                    <li>Account-backed connections now recover stale viewer registration without sending users to an incorrect pairing-code flow, while remaining fail-closed when authentication is unavailable.</li>
+                    <li>Account and Nearby appearances of the same Mac are associated using authenticated certificate evidence, with verified LAN preferred when available.</li>
+                    <li>Permission and readiness indicators no longer show transient warnings without trustworthy evidence.</li>
+                    <li>A late fallback route can no longer replace an already authenticated healthy session.</li>
+                    <li>Dead display setup closes promptly, and temporary Fit display changes restore more reliably after disconnect or shutdown.</li>
+                    <li>Ships as a universal Intel + Apple Silicon build, Developer ID signed, notarized, and stapled.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.1.4/ReachHost-1.1.4.dmg"
+                sparkle:edSignature="Cza4opQXRPiT2MLMshxesPpQQHdjBeCTSvqhSqkDT7Yy2I7rNT6fhoLodxPAPH0kPyNhgLMZiz3L0o7FsvloCw=="
+                length="6495724"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.1.3 - ReachHost release</title>
+            <pubDate>Tue, 04 Aug 2026 08:05:35 +0000</pubDate>
+            <sparkle:version>17</sparkle:version>
+            <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.1.3</h2>
+                <ul>
+                    <li>Adds display selection and multi-viewer session improvements.</li>
+                    <li>Improves view-only observer continuity and control takeover behavior.</li>
+                    <li>Ships as a universal Intel + Apple Silicon build, Developer ID signed, notarized, and stapled.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.1.3/ReachHost-1.1.3.dmg"
+                sparkle:edSignature="7e8K9z55eUu562GAAaCHkfKKyzdsa/cFBFMzOx4kBhN/Q9i+5DRAbip1CIld9T5fpKdkBBJN5RE0T3kwKfsfAg=="
+                length="6493461"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.1.1 - ReachHost release</title>
+            <pubDate>Sat, 25 Jul 2026 17:11:25 +0000</pubDate>
+            <sparkle:version>15</sparkle:version>
+            <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.1.1</h2>
+                <ul>
+                    <li>A viewer that goes silent is now detected and released, so a dropped iPad no longer keeps the host occupied until it times out.</li>
+                    <li>Connections try their available routes in parallel instead of one at a time, so connecting is quicker and far less likely to stall on a slow route.</li>
+                    <li>Remote connections show their first frame sooner.</li>
+                    <li>WAN reconnect for trusted devices can be turned on with one tap after signing in.</li>
+                    <li>Extensive internal stabilization across the connection and session lifecycle.</li>
+                    <li>Ships as a universal Intel + Apple Silicon build, Developer ID signed, notarized, and stapled.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.1.1/ReachHost-1.1.1.dmg"
+                sparkle:edSignature="M2Lo/dPF1dBHzI5nQUqVOK6wRFxAXNeiT7hORDkvUU8vdTVKJT3jjDIAk0Bd4+Ilwcfelh0XcVPaGRaznGjfBA=="
+                length="5656458"
+                type="application/octet-stream" />
+        </item>
+        <item>
+            <title>Version 1.1.0 - ReachHost release</title>
+            <pubDate>Mon, 25 May 2026 17:23:50 +0000</pubDate>
+            <sparkle:version>14</sparkle:version>
+            <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost 1.1.0</h2>
+                <ul>
+                    <li>ReachHost 1.1.0 improves Relay setup, connection diagnostics, input controls, and host/viewer compatibility.</li>
+                    <li>Ships as a universal Intel + Apple Silicon build, Developer ID signed, notarized, and stapled.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.1.0/ReachHost-1.1.0.dmg"
+                sparkle:version="14"
+                sparkle:shortVersionString="1.1.0"
+                length="4839939"
+                type="application/octet-stream"
+                sparkle:edSignature="6+nK04h4G551DQNbeL4saT0DpTBQTMUvtoo+M6gN1lmMQnm9V3F+8l6trQ9IyUaaquFXM6wkOpMFijlKTre0Cw==" />
+        </item>
+        <item>
+            <title>Version 1.0.2 - Developer ID keychain access fix</title>
+            <pubDate>Sat, 09 May 2026 07:01:53 +0000</pubDate>
+            <sparkle:version>13</sparkle:version>
+            <sparkle:shortVersionString>1.0.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Developer ID keychain access fix</h2>
+                <ul>
+                    <li>Updates the host identity keychain policy so Developer ID builds can access the Reach host signing key after Sparkle updates without showing the macOS keychain password prompt.</li>
+                    <li>Regenerates legacy host identity keychains under the new team-id partition policy on first launch after upgrade.</li>
+                    <li>Ships as a universal Intel + Apple Silicon build, Developer ID signed, notarized, and stapled.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.0.2/ReachHost-1.0.2.dmg"
+                sparkle:version="13"
+                sparkle:shortVersionString="1.0.2"
+                length="3431924"
+                type="application/octet-stream"
+                sparkle:edSignature="YyH2BkbyYRdwZ1hD2qjxrDmTQt4nx5Aj6k4orhkGYhfo51dwnEYhWZ32JavlbYbO+EB1RgLtOlddHuX5sy1/DQ==" />
+        </item>
+        <item>
+            <title>Version 1.0.1 - ReachHost shell + connection stability fixes</title>
+            <pubDate>Sat, 09 May 2026 06:03:27 +0000</pubDate>
+            <sparkle:version>12</sparkle:version>
+            <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>ReachHost shell + connection stability fixes</h2>
+                <ul>
+                    <li>Moves the host from a diagnostics-first dashboard into a single ReachHost app window with Status, Permissions, Connection, Devices, and Advanced areas.</li>
+                    <li>Adds the permission wizard path for required Local Network, Accessibility, and Screen Recording checks, with optional audio permission handling.</li>
+                    <li>Tightens saved-device and Direct IP endpoint routing so trust can survive Bonjour/IP changes while reauth is required for identity mismatches.</li>
+                    <li>Improves reconnect handling, virtual display cleanup, and mirror-capture sizing so iPad sessions recover and frame correctly across common display choices.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.0.1/ReachHost-1.0.1.dmg"
+                sparkle:version="12"
+                sparkle:shortVersionString="1.0.1"
+                length="3429735"
+                type="application/octet-stream"
+                sparkle:edSignature="NQTXP7Z2MGer6ZygVQBQSeHmMsAvflWOpplMfxkf0Fml8khnP/Azu0KX+FegMqW1+aVIPGOhiZdQckt1ZfHkBQ==" />
+        </item>
+        <item>
+            <title>Version 1.0.0 — Sparkle UX polish + 10-minute update cadence</title>
+            <pubDate>Sun, 26 Apr 2026 17:16:54 +0000</pubDate>
+            <sparkle:version>11</sparkle:version>
+            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Sparkle UX polish — discoverable update affordance + 10-minute background cadence</h2>
+                <ul>
+                    <li>Static "Check for Updates…" menu item restored. The 0.9.x dynamic-only update affordance was undiscoverable when no update was pending; users had no way to verify a freshly-published release on demand. The static item now sits in the menu bar alongside the dynamic "Update X.Y.Z" action.</li>
+                    <li>Background update check cadence: 24h → 10 minutes. Trades a small increase in appcast fetch traffic for much faster notification of a new release.</li>
+                    <li>All 0.9.900 changes carry forward: iCloud Auto-Trust auto-refresh, Local Network permission runtime probe, viewer cascade LAN→WAN auto-fallback, ConnectionProfile rename + UserDefaults migration.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v1.0.0/ReachHost-1.0.0.dmg"
+                sparkle:version="11"
+                sparkle:shortVersionString="1.0.0"
+                length="3313704"
+                type="application/octet-stream"
+                sparkle:edSignature="oZHdGaPghrds8PmOx35E4+e3se8AMs2RAmkeVlv4I+gLF5H/3Sq60OBPBcB8jQHZqYh6PJ7Rb5uljPxfmkrZBg==" />
+        </item>
+        <item>
+            <title>Version 0.9.900 — iCloud Auto-Trust auto-refresh + cascade fallback + permission probe</title>
+            <pubDate>Sun, 26 Apr 2026 16:46:22 +0000</pubDate>
+            <sparkle:version>10</sparkle:version>
+            <sparkle:shortVersionString>0.9.900</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>iCloud Auto-Trust auto-refresh + cascade fallback + Local Network permission probe</h2>
+                <ul>
+                    <li>iCloud Auto-Trust indicator on the Trusted tab now refreshes automatically on app boot, iCloud account change, and Trusted-tab open — no more manual toggle off→on to flip from "Waiting / Sign-in required" to "Connected" when iCloud is healthy. Reentrancy guard prevents UI flicker on launch races.</li>
+                    <li>Local Network permission is now probed at runtime via NWBrowser instead of a static "allowed when prompted" bullet — Status tab shows allowed / denied / checking states accurately. Critical fix: the NSLocalNetworkUsageDescription and NSBonjourServices keys were missing from the host Info.plist entirely; without them the system silently denied Bonjour publish.</li>
+                    <li>Profile-tap LAN→WAN auto-fallback (viewer): tapping a saved Mac that's visible on Bonjour now tries LAN first, but on LAN failure (AP client isolation, stale Bonjour cache, host firewall LAN port change) automatically falls back to the saved profile's WAN path within the same connect attempt. Single "Connecting…" status line, no manual retry.</li>
+                    <li>Saved profile data model now consistently named ConnectionProfile (was WANProfile) since profiles carry both WAN routing data and LAN selection-key cache. UserDefaults key migration preserves existing saved Macs transparently.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v0.9.900/ReachHost-0.9.900.dmg"
+                sparkle:version="10"
+                sparkle:shortVersionString="0.9.900"
+                length="3313328"
+                type="application/octet-stream"
+                sparkle:edSignature="fhUcx33++DwNkSEX12+Dar350a3dbu+cArGBrPxx+wlh/G6wZ3d/i6491n35VfGRzu2U7MycagYhgCwHiYgsBw==" />
+        </item>
+        <item>
+            <title>Version 0.9.600 — Privacy + trust + icon polish</title>
+            <pubDate>Sun, 26 Apr 2026 10:08:00 +0000</pubDate>
+            <sparkle:version>9</sparkle:version>
+            <sparkle:shortVersionString>0.9.600</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Privacy disclosure aligned + bridge trust copy + TOFU mismatch surfacing</h2>
+                <ul>
+                    <li>Privacy Nutrition Label and on-device disclosure now declare the CloudKit pairing metadata that's actually published (host name, cert fingerprint, network endpoints, iCloud user record) — earlier "Data Not Collected" framing was wrong.</li>
+                    <li>Bridge trust model copy corrected throughout; Direct QUIC path remains end-to-end with cert pinning.</li>
+                    <li>TOFU certificate mismatches now surface as a structured "fingerprint changed" failure instead of a generic timeout, so you can re-pair without guessing.</li>
+                    <li>Host keychain identity policy bumped to v3 with trusted-app path binding — no more spurious keychain password prompts after Sparkle updates or drag-to-Applications moves. Existing TOFU-paired iPads re-pair once on first connect after upgrading; CloudKit-bound iPads re-bind automatically.</li>
+                    <li>Viewer keyboard simplified to solid-only (translucent variant removed); iOS app icons regenerated as opaque RGB to match the viewer 0.9.600 release on TestFlight.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v0.9.600/ReachHost-0.9.600.dmg"
+                sparkle:version="9"
+                sparkle:shortVersionString="0.9.600"
+                length="3267926"
+                type="application/octet-stream"
+                sparkle:edSignature="EAZzDAApj0H4d0QUr1kk959O2bQo18PLM0CFwwkRiYpCxDXcr28Yg8+7Y1k4yTzsOkiCAekmOsvDL5xYWQdaAA==" />
+        </item>
+        <item>
+            <title>Version 0.9.550 — Sparkle update-path restored</title>
+            <pubDate>Wed, 22 Apr 2026 14:10:00 +0000</pubDate>
+            <sparkle:version>8</sparkle:version>
+            <sparkle:shortVersionString>0.9.550</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Restores the Sparkle update path from 0.9.500</h2>
+                <p>Sparkle's <code>SUStandardVersionComparator</code> parses marketing strings component-wise. A previous cut attempt at 0.9.6 parsed as <em>older</em> than 0.9.500 (<code>[0,9,6]</code> vs <code>[0,9,500]</code> → 6 < 500), so 0.9.500 installs refused to take it. 0.9.550 is component-wise greater (550 > 500) so the comparator treats it correctly as a newer release.</p>
+                <p>No functional changes — same binary behaviour as 0.9.500 (streaming mode policy, host idle heartbeat, dirty-rect skip gate).</p>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v0.9.550/ReachHost-0.9.550.dmg"
+                sparkle:version="8"
+                sparkle:shortVersionString="0.9.550"
+                length="3113957"
+                type="application/octet-stream"
+                sparkle:edSignature="aJxlgCL/lAl12nAUP1MlI6Yf17FeTBKO5l71Cj0feWm3TnEynQh4JHtmnbIdC3JJHrFx3j7E8SyvDgoPug7jBw==" />
+        </item>
+        <item>
+            <title>Version 0.9.500 — unified streaming mode policy + host idle heartbeat</title>
+            <pubDate>Mon, 20 Apr 2026 00:37:29 +0000</pubDate>
+            <sparkle:version>6</sparkle:version>
+            <sparkle:shortVersionString>0.9.500</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Streaming mode policy unified with host idle heartbeat</h2>
+                <p>Viewer input and host refresh cadence are now decoupled: the host emits an idle heartbeat so frames keep flowing even when the viewer is quiet, and Data Saver remains the only mode that aggressively skips/paces frames host-side.</p>
+                <p>Also: preset coverage hardened against persisted streaming-mode selection state, and explicit viewer streaming policy is preserved across the wire.</p>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v0.9.500/ReachHost-0.9.500.dmg"
+                sparkle:version="6"
+                sparkle:shortVersionString="0.9.500"
+                length="3064271"
+                type="application/octet-stream"
+                sparkle:edSignature="iP0Y65ULoG+k00XnDeGtaF/bmX1hCplZNkPUsC9Z2b1thgTAeZtrLGEAQEPMZ98DMYXrzQbnTl9WEcFNUp2hDg==" />
+        </item>
+        <item>
+            <title>Version 0.9.410 — CI pipeline validation</title>
+            <pubDate>Sun, 19 Apr 2026 08:03:00 +0000</pubDate>
+            <sparkle:version>6</sparkle:version>
+            <sparkle:shortVersionString>0.9.410</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Release pipeline validation cut</h2>
+                <p>Host source unchanged from 0.9.4 — same binary behaviour. MARKETING_VERSION bumped to exercise the newly migrated self-hosted CI (archive → notarize → staple → DMG → appcast) end-to-end after hosted GitHub Actions runners were retired.</p>
+                <p>If you are seeing this as an available update, you can safely install it — no functional changes — or stay on 0.9.4.</p>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v0.9.410/ReachHost-0.9.410.dmg"
+                sparkle:version="6"
+                sparkle:shortVersionString="0.9.410"
+                length="3032373"
+                type="application/octet-stream"
+                sparkle:edSignature="HER3YArRLeWSl9bUHxxVD4EJ41eIQBZmUpxf0Pvrf8g4mK+MStjBGCP5wCxm/aEcuPVZx6ESq9Wn6RhHBaWbBg==" />
+        </item>
+        <item>
+            <title>Version 0.9.4 — dirty-rect skip gate respects recent input</title>
+            <pubDate>Sun, 19 Apr 2026 02:18:00 +0000</pubDate>
+            <sparkle:version>5</sparkle:version>
+            <sparkle:shortVersionString>0.9.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Fixes "input works but screen is frozen"</h2>
+                <p>The host's dirty-rect skip gate was dropping frames with &lt; 0.1% changed area to save codec cycles. Clicks, caret blinks, and focus-ring flashes often fall under that threshold, so the viewer was left on a stale frame with only repair tiles trickling in.</p>
+                <p>0.9.4 adds a "recent input" override to the gate (0.5s window) so any frame following a user keystroke or pointer event reaches the encoder immediately. No change to the temporal pacing policy or the 0.1% area threshold itself.</p>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v0.9.4/ReachHost-0.9.4.dmg"
+                sparkle:version="5"
+                sparkle:shortVersionString="0.9.4"
+                length="3034047"
+                type="application/octet-stream"
+                sparkle:edSignature="2uNiIYRli4F/JraeQ97vSSKowSsOsQ1bXuc4N2HjOPqrpIsnqY9bfUTaUKgL9mQ91A3EsjV7+pLyvK18WoccDA==" />
+        </item>
+        <item>
+            <title>Version 0.9.3 — tear down tunnel on post-auth media failure</title>
+            <pubDate>Sat, 18 Apr 2026 14:28:00 +0000</pubDate>
+            <sparkle:version>4</sparkle:version>
+            <sparkle:shortVersionString>0.9.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Follow-up to 0.9.2 bundling fix</h2>
+                <p>An independent code audit caught that 0.9.2 left post-auth audio/video stream failures silent — the tunnel stayed alive via the input stream's keepalive while media was permanently gone. Net effect: session looked "connected" but the screen stayed blank.</p>
+                <p>0.9.3 evicts the whole tunnel on any active-peer stream failure so the viewer's auto-reconnect recovers the media streams cleanly.</p>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v0.9.3/ReachHost-0.9.3.dmg"
+                sparkle:version="4"
+                sparkle:shortVersionString="0.9.3"
+                length="3033508"
+                type="application/octet-stream"
+                sparkle:edSignature="A2QuPxZwOERyC+AOz2qwyPQo8o8yNyE0QHbtDiyZKHaeMe0mvVDfbyEpebOP3SkCXaDjQ8x2Whv4aosXndNlBw==" />
+        </item>
+        <item>
+            <title>Version 0.9.2 — multistream bundling deadlock fix</title>
+            <pubDate>Sat, 18 Apr 2026 13:55:00 +0000</pubDate>
+            <sparkle:version>3</sparkle:version>
+            <sparkle:shortVersionString>0.9.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Multistream bundling deadlock fix</h2>
+                <p>Resolves a Phase-2 bug where a single NWError during stream setup stranded the tunnel and blocked viewer reconnect for the full 5s bundling watchdog (PR #346).</p>
+                <ul>
+                    <li>Relax <code>isBundled</code> to require only the input stream — audio and video become optional media channels.</li>
+                    <li>New tunnels supersede stale pending ones instead of being rejected.</li>
+                    <li>Pre-bundling stream failures evict the tunnel cleanly so viewer retries unblock immediately.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v0.9.2/ReachHost-0.9.2.dmg"
+                sparkle:version="3"
+                sparkle:shortVersionString="0.9.2"
+                length="3033492"
+                type="application/octet-stream"
+                sparkle:edSignature="WJfX9kO8K8v8kWiP0kz9zBCOWKRI8pFRkCVQMsf/YutSabgT8GdwuLot5REGHuEO6metgyJzFSY0Tdsm4B7iDg==" />
+        </item>
+        <item>
+            <title>Version 0.9.1 — Sparkle E2E smoke test</title>
+            <pubDate>Sat, 18 Apr 2026 11:30:00 +0000</pubDate>
+            <sparkle:version>2</sparkle:version>
+            <sparkle:shortVersionString>0.9.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Sparkle E2E validation cut</h2>
+                <p>Host-only build-number bump (CFBundleVersion 1→2) so Sparkle recognizes 0.9.1 as newer than installed 0.9.0. No functional change.</p>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v0.9.1/ReachHost-0.9.1.dmg"
+                sparkle:version="2"
+                sparkle:shortVersionString="0.9.1"
+                length="3032223"
+                type="application/octet-stream"
+                sparkle:edSignature="wzd5CA9Fpz9C0NmwS3bbY7+AwkAKCupQotGQ68K9ey98+81jy88ovOb2E6uZrIY4wi6BV/RnBG0tbJJnAJrJCQ==" />
+        </item>
+        <item>
+            <title>Version 0.9.0 — pre-1.0 stabilization cut</title>
+            <pubDate>Sat, 18 Apr 2026 10:04:00 +0000</pubDate>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>0.9.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>First signed release on the 0.9.x track</h2>
+                <p>Versioned down from 1.0 so the audio / ABR / topology work can soak before committing to a 1.0 label.</p>
+                <h3>Security</h3>
+                <ul>
+                    <li>Display topology monitor + proactive <code>captureFailed</code> on external monitor unplug (SGT-86 / SGT-93)</li>
+                    <li>Real TLS fingerprint publish — restores viewer TOFU pin</li>
+                    <li>QualityReport input validation — host no longer trusts unsanitized rtt/jitter/drop</li>
+                </ul>
+                <h3>Performance</h3>
+                <ul>
+                    <li>Resolution-aware ABR: 1080p → 10 Mbps, 1440p → 18 Mbps, 4K → 28 Mbps, 5K+ → 40 Mbps (SGT-95)</li>
+                    <li>QUIC chunked send for large I-frames (avoids NWError 22 back-pressure)</li>
+                </ul>
+                <h3>UX &amp; reliability</h3>
+                <ul>
+                    <li>Audio full loop (SGT-96): Dashboard toggle, TCC denial banner with System Settings deep-link, viewer 🔊/🔇/⚠️ indicator</li>
+                    <li>Dashboard log copy + export (one-click bug reports)</li>
+                    <li>Protocol-version-0 handshake race fix — rich <code>captureFailed</code> instead of silent disconnect (SGT-94)</li>
+                </ul>
+                <p>Signed: Developer ID Application. Notarized + stapled — offline-runnable from a fresh install.</p>
+            ]]></description>
+            <enclosure
+                url="https://github.com/SGT-Cho/Reach/releases/download/v0.9.0/ReachHost-0.9.0.dmg"
+                sparkle:version="1"
+                sparkle:shortVersionString="0.9.0"
+                length="3032342"
+                type="application/octet-stream"
+                sparkle:edSignature="kZtFLkuo/jEi9NePu8OAmk0vh1vjB5dKcPXfU9xOJxNYCCEMD/C2xpQsMQuotoM5HGfOFdK2+zZ9AYNlwZLoBQ==" />
+        </item>
+    </channel>
+</rss>
